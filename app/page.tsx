@@ -1,7 +1,8 @@
 import Link from "next/link";
 import SiteHeader from "./components/site-header";
 import TripCard from "./components/trip-card";
-import { getFeaturedTrips } from "@/data/trips";
+import HeartTrailMap from "./components/heart-trail-map";
+import { getHomepageTrips } from "@/data/trips";
 
 const categories = [
   {
@@ -142,7 +143,7 @@ function ArrowIcon() {
 }
 
 export default function Home() {
-  const featuredTrips = getFeaturedTrips();
+  const homepageTrips = getHomepageTrips(6);
 
   return (
     <div className="flex flex-1 flex-col">
@@ -212,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* Featured trips */}
-      {featuredTrips.length > 0 && (
+      {homepageTrips.length > 0 && (
         <section className="border-t border-stone-200/80 bg-white px-6 py-20 dark:border-stone-800 dark:bg-stone-900">
           <div className="mx-auto max-w-6xl">
             <div className="mb-12 text-center">
@@ -225,7 +226,7 @@ export default function Home() {
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredTrips.map((trip) => (
+              {homepageTrips.map((trip) => (
                 <TripCard key={trip.slug} trip={trip} />
               ))}
             </div>
@@ -235,13 +236,15 @@ export default function Home() {
                 href="/recommendations"
                 className="inline-flex items-center gap-2 rounded-xl bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
               >
-                לכל ההמלצות
+                לכל המסלולים לחצי כאן
                 <ArrowIcon />
               </Link>
             </div>
           </div>
         </section>
       )}
+
+      <HeartTrailMap />
 
       {/* Regions */}
       <section
