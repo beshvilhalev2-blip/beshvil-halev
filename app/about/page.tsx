@@ -82,7 +82,7 @@ export default function AboutPage() {
             <SectionHeading>הסיפור שלי</SectionHeading>
             <div className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-stone-200/80 bg-stone-100 shadow-sm dark:border-stone-800 dark:bg-stone-900">
               <Image
-                src="/images/about/mommy-4x4.jpg"
+                src="/images/about/mommy-4x4-correct.png"
                 alt="אמא מטיילת 4x4 — אמא עם שני ילדים ליד רכב טיולים"
                 fill
                 className="object-cover"
