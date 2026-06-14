@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "@/app/components/site-header";
 
@@ -79,6 +80,16 @@ export default function AboutPage() {
         <section className="border-b border-stone-200/80 px-6 py-16 dark:border-stone-800 sm:py-20">
           <div className="mx-auto max-w-3xl">
             <SectionHeading>הסיפור שלי</SectionHeading>
+            <div className="relative mb-8 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-stone-200/80 bg-stone-100 shadow-sm dark:border-stone-800 dark:bg-stone-900">
+              <Image
+                src="/images/about/mommy-4x4.jpg"
+                alt="אמא מטיילת 4x4 — אמא עם שני ילדים ליד רכב טיולים"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+                priority
+              />
+            </div>
             <div className="space-y-5 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
               <p>
                 שלום, אני יוצרת התוכן של &quot;שביל הלב&quot; — אמא לשניים, שאוהבת לצאת
