@@ -11,13 +11,16 @@ type IconProps = { className?: string };
 
 function IconShell({
   children,
-  className = "size-7 sm:size-8",
+  className = "size-6 sm:size-7",
 }: {
   children: ReactNode;
   className?: string;
 }) {
   return (
-    <span className={`inline-flex shrink-0 items-center justify-center ${className}`}>
+    <span
+      className={`inline-flex shrink-0 items-center justify-center [&>svg]:size-full ${className}`}
+      aria-hidden="true"
+    >
       {children}
     </span>
   );
