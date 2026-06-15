@@ -11,11 +11,28 @@ function ArrowIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-4 transition-transform duration-300 group-hover:-translate-x-1"
+      className="size-4 shrink-0 transition-transform duration-300 group-hover:-translate-x-1"
       aria-hidden="true"
     >
       <path d="M19 12H5" />
       <path d="m12 19-7-7 7-7" />
+    </svg>
+  );
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`size-4 shrink-0 text-stone-400 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
     </svg>
   );
 }
@@ -29,7 +46,7 @@ function CampingIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-7"
+      className="size-6"
       aria-hidden="true"
     >
       <path d="M4 20 12 4l8 16" />
@@ -48,7 +65,7 @@ function DayTripIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-7"
+      className="size-6"
       aria-hidden="true"
     >
       <circle cx="12" cy="12" r="4" />
@@ -73,7 +90,7 @@ function OffroadIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-7"
+      className="size-6"
       aria-hidden="true"
     >
       <path d="M3 17h2l1.5-5.5a2 2 0 0 1 1.9-1.5H15a2 2 0 0 1 1.9 1.3L18.5 17H21" />
@@ -94,7 +111,7 @@ function CookingIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-7"
+      className="size-6"
       aria-hidden="true"
     >
       <path d="M6 10V4a2 2 0 0 1 4 0v6" />
@@ -114,7 +131,7 @@ function ByTripIcon() {
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-7"
+      className="size-6"
       aria-hidden="true"
     >
       <path d="M12 2 4 7v10l8 5 8-5V7l-8-5Z" />
@@ -134,128 +151,208 @@ const hubIcons: Record<GearHubOptionIcon, () => ReactNode> = {
   "by-trip": ByTripIcon,
 };
 
-type GearHubCardProps = {
+type GearHubCardBaseProps = {
   title: string;
   description: string;
   icon: GearHubOptionIcon;
   iconBg: string;
-  accent: string;
-  borderHover: string;
-  status: "coming-soon" | "active";
+  accent?: string;
   cta?: string;
-  href?: string;
-  onSelect?: () => void;
 };
+
+type GearHubPresetCardProps = GearHubCardBaseProps & {
+  variant: "preset";
+  presetId: string;
+  itemCount: number;
+  readinessPercent?: number;
+  readinessHydrated?: boolean;
+  isOpen?: boolean;
+  onToggle: () => void;
+};
+
+type GearHubLinkCardProps = GearHubCardBaseProps & {
+  variant: "link";
+  href: string;
+  borderHover?: string;
+};
+
+type GearHubCardProps = GearHubPresetCardProps | GearHubLinkCardProps;
 
 function HubIcon({ icon }: { icon: GearHubOptionIcon }) {
   const Icon = hubIcons[icon];
   return <Icon />;
 }
 
-function CardContent({
+function PresetCardContent({
   title,
   description,
   icon,
   iconBg,
-  status,
+  itemCount,
+  readinessPercent,
+  readinessHydrated,
+  isOpen,
   cta,
-}: Pick<
-  GearHubCardProps,
-  "title" | "description" | "icon" | "iconBg" | "status" | "cta"
->) {
+}: Omit<GearHubPresetCardProps, "variant" | "onToggle" | "accent" | "presetId">) {
+  const showReadiness =
+    readinessHydrated &&
+    readinessPercent !== undefined &&
+    readinessPercent > 0;
+
   return (
     <>
-      <div
-        className={`relative mb-5 inline-flex size-14 items-center justify-center rounded-2xl transition-transform duration-500 group-hover:scale-110 ${iconBg}`}
-      >
-        <HubIcon icon={icon} />
+      <div className="flex items-start gap-3">
+        <div
+          className={`flex size-11 shrink-0 items-center justify-center rounded-xl ${iconBg}`}
+        >
+          <HubIcon icon={icon} />
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+            <h2 className="text-base font-bold text-stone-900 dark:text-stone-50 sm:text-lg">
+              {title}
+            </h2>
+            <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">
+              {itemCount} פריטים
+            </span>
+            {showReadiness && (
+              <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                {readinessPercent}% מוכנות
+              </span>
+            )}
+          </div>
+
+          <p className="text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+            {description}
+          </p>
+        </div>
+
+        <ChevronIcon open={Boolean(isOpen)} />
       </div>
 
-      <h2 className="relative mb-2 text-xl font-bold text-stone-900 dark:text-stone-50">
-        {title}
-      </h2>
-
-      <p className="relative mb-6 flex-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400">
-        {description}
-      </p>
-
-      {status === "coming-soon" ? (
-        <span className="relative inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-stone-100 px-4 py-2.5 text-sm font-semibold text-stone-500 dark:bg-stone-800 dark:text-stone-400">
-          בקרוב
-        </span>
-      ) : (
-        <span className="relative inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-stone-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors group-hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:group-hover:bg-stone-200">
-          {cta}
-          <ArrowIcon />
-        </span>
-      )}
+      <span
+        className={`mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors ${
+          isOpen
+            ? "bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-200"
+            : "bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900"
+        }`}
+      >
+        {cta}
+      </span>
     </>
   );
 }
 
-export default function GearHubCard({
+function LinkCardContent({
   title,
   description,
   icon,
   iconBg,
-  accent,
-  borderHover,
-  status,
   cta,
-  href,
-  onSelect,
-}: GearHubCardProps) {
-  const cardClassName = `group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border bg-white p-6 shadow-sm transition-all duration-500 dark:bg-stone-900 ${
-    status === "active"
-      ? `${borderHover} hover:-translate-y-1 hover:shadow-xl`
-      : "border-stone-200/80 opacity-95 dark:border-stone-800"
-  }`;
+}: Pick<GearHubLinkCardProps, "title" | "description" | "icon" | "iconBg" | "cta">) {
+  return (
+    <>
+      <div className="flex items-start gap-3">
+        <div
+          className={`flex size-11 shrink-0 items-center justify-center rounded-xl ${iconBg}`}
+        >
+          <HubIcon icon={icon} />
+        </div>
 
-  const gradientClassName = `pointer-events-none absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${accent}`;
+        <div className="min-w-0 flex-1">
+          <h2 className="mb-1 text-base font-bold text-stone-900 dark:text-stone-50 sm:text-lg">
+            {title}
+          </h2>
+          <p className="text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+            {description}
+          </p>
+        </div>
+      </div>
 
-  if (status === "active" && onSelect) {
+      <span className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white transition-colors group-hover:bg-teal-800 dark:bg-teal-600 dark:group-hover:bg-teal-500">
+        {cta}
+        <ArrowIcon />
+      </span>
+    </>
+  );
+}
+
+export default function GearHubCard(props: GearHubCardProps) {
+  if (props.variant === "preset") {
+    const {
+      title,
+      description,
+      icon,
+      iconBg,
+      accent,
+      presetId,
+      itemCount,
+      readinessPercent,
+      readinessHydrated,
+      isOpen,
+      cta,
+      onToggle,
+    } = props;
+
     return (
-      <button type="button" onClick={onSelect} className={`${cardClassName} group text-start`}>
-        <div className={gradientClassName} />
-        <CardContent
-          title={title}
-          description={description}
-          icon={icon}
-          iconBg={iconBg}
-          status={status}
-          cta={cta}
-        />
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-controls={`gear-checklist-${presetId}`}
+        className={`group relative w-full p-4 text-start transition-colors sm:p-5 ${
+          isOpen
+            ? "bg-stone-50/80 dark:bg-stone-800/30"
+            : "hover:bg-stone-50/50 dark:hover:bg-stone-800/20"
+        }`}
+      >
+        {accent && (
+          <div
+            className={`pointer-events-none absolute inset-0 bg-gradient-to-br transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-60"} ${accent}`}
+          />
+        )}
+        <div className="relative">
+          <PresetCardContent
+            title={title}
+            description={description}
+            icon={icon}
+            iconBg={iconBg}
+            itemCount={itemCount}
+            readinessPercent={readinessPercent}
+            readinessHydrated={readinessHydrated}
+            isOpen={isOpen}
+            cta={cta}
+          />
+        </div>
       </button>
     );
   }
 
-  if (status === "active" && href) {
-    return (
-      <Link href={href} className={`${cardClassName} group`}>
-        <div className={gradientClassName} />
-        <CardContent
+  const { title, description, icon, iconBg, accent, borderHover, href, cta } =
+    props;
+
+  return (
+    <Link
+      href={href}
+      className={`group relative block rounded-2xl border bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md dark:bg-stone-900 sm:p-5 ${
+        borderHover ?? "border-stone-200/80 dark:border-stone-800"
+      }`}
+    >
+      {accent && (
+        <div
+          className={`pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${accent}`}
+        />
+      )}
+      <div className="relative">
+        <LinkCardContent
           title={title}
           description={description}
           icon={icon}
           iconBg={iconBg}
-          status={status}
           cta={cta}
         />
-      </Link>
-    );
-  }
-
-  return (
-    <article className={cardClassName} aria-disabled="true">
-      <div className={`${gradientClassName} opacity-0`} />
-      <CardContent
-        title={title}
-        description={description}
-        icon={icon}
-        iconBg={iconBg}
-        status={status}
-        cta={cta}
-      />
-    </article>
+      </div>
+    </Link>
   );
 }
