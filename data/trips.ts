@@ -29,8 +29,8 @@ export type Trip = {
   heroImage?: string;
   heroImageLabel: string;
   heroBackgroundImage: string;
-  wazeUrl: string;
-  mapsUrl: string;
+  wazeUrl?: string;
+  googleMapsUrl?: string;
   highlights?: string[];
   about: string[];
   personalStory: string[];
@@ -208,8 +208,6 @@ function createDraftTrip(input: {
     metaDescription: input.description,
     heroImageLabel: `תמונת רקע — ${input.title}`,
     heroBackgroundImage: regionHeroBackgrounds[input.region],
-    wazeUrl: "#",
-    mapsUrl: "#",
     about: [input.description, DRAFT_ARTICLE],
     personalStory: [DRAFT_ARTICLE],
     cost: [
@@ -280,8 +278,6 @@ export const trips: Trip[] = [
       "מסלול מים קסום וקליל למשפחות בצפון — מדריך מלא לנחל השופט עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — נחל השופט",
     heroBackgroundImage: nahalHashofetHeroBackground,
-    wazeUrl: "#",
-    mapsUrl: "#",
     about: [
       "נחל השופט הוא אחד ממסלולי המים האהובים ביותר בגליל העליון — שביל מוצל לאורך נחל זורם, עם בריכות טבעיות, צמחייה עשירה ואווירה קסומה שמתאימה לכל המשפחה.",
       "המסלול עובר בין עצי אורן ושיטה, עם נקודות עצירה לאורך הדרך שבהן אפשר להתרענן, לשכשך וליהנות מהטבע. זהו מקום מושלם ליום טיול רגוע, במיוחד בחודשי הקיץ החמים.",
@@ -342,8 +338,6 @@ export const trips: Trip[] = [
       "עין ירקעם — מסלול מים בדרום עם מפל מרהיב ובריכות טבעיות. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — עין ירקעם",
     heroBackgroundImage: einYorkeamHeroBackground,
-    wazeUrl: "#",
-    mapsUrl: "#",
     about: [
       "עין ירקעם הוא אחד המקומות המרהיבים ביותר במדבר יהודה — מפל טבעי זורם לבריכות קרירות בלב נוף מדברי עוצר נשימה.",
       "המסלול מתאים לטיולים משפחתיים ולחובבי צילום, עם שביל מסודר שמוביל אל המעיין והמפל. בחודשי הקיץ זהו יעד מבוקש, ולכן מומלץ להגיע מוקדם.",
@@ -404,8 +398,6 @@ export const trips: Trip[] = [
       "הסטף — מעיינות וטרסות עתיקות בהרי ירושלים. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — הסטף",
     heroBackgroundImage: satafHeroBackground,
-    wazeUrl: "#",
-    mapsUrl: "#",
     about: [
       "הסטף הוא אחד האתרים היפים ביותר בהרי ירושלים — שילוב של מעיינות טבעיים, טרסות חקלאיות עתיקות ושבילי הליכה מוצלים בין עצי זית ואלון.",
       "האתר מנוהל על ידי קק״ל ומציע מספר מסלולים בדרגות קושי שונות, עם נקודות עצירה לאורך הדרך ונוף מרהיב על עמק האלה וירושלים.",
@@ -466,8 +458,6 @@ export const trips: Trip[] = [
       "עין בוקק — נחל מים ומפלים במדבר יהודה. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — עין בוקק",
     heroBackgroundImage: einBokekHeroBackground,
-    wazeUrl: "#",
-    mapsUrl: "#",
     about: [
       "עין בוקק הוא נחל זורם בצפון מדבר יהודה, עם מפלים, בריכות טבעיות ושביל מסודר שמתאים למשפחות.",
       "האזור משלב נוף מדברי מרהיב עם פינות ירוקות לאורך הנחל — מקום מושלם ליום טיול בחודשי הקיץ.",
@@ -528,8 +518,6 @@ export const trips: Trip[] = [
       "אגם ניצנים — אגם מלאכותי עם חוף ים בדרום. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — אגם ניצנים",
     heroBackgroundImage: nitzanimLakeHeroBackground,
-    wazeUrl: "#",
-    mapsUrl: "#",
     about: [
       "אגם ניצנים הוא אגם מלאכותי יפהפה בחוף הדרומי, עם חוף מדורג, דשא, שבילי הליכה ואזורי פיקניק.",
       "המקום מתאים למשפחות שמחפשות יום שלם של טבע, מים ושקט — בלי לנסוע רחוק מהמרכז.",
@@ -593,8 +581,10 @@ export const trips: Trip[] = [
     heroImage: einModaImages[0],
     heroImageLabel: "תמונת רקע — עין מודע",
     heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(28, 25, 23, 0.7) 100%), url("${einModaImages[0]}")`,
-    wazeUrl: "#",
-    mapsUrl: "#",
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A2%D7%99%D7%9F%20%D7%9E%D7%95%D7%93%D7%A2&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=%D7%A2%D7%99%D7%9F%20%D7%9E%D7%95%D7%93%D7%A2",
     highlights: [
       "מים צלולים ונקיים",
       "הרבה אזורי צל טבעיים",
@@ -666,8 +656,6 @@ export const trips: Trip[] = [
       "יער בן שמן — מסלולי שטח קלים במרכז. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — יער בן שמן",
     heroBackgroundImage: benShemenForestHeroBackground,
-    wazeUrl: "#",
-    mapsUrl: "#",
     about: [
       "יער בן שמן הוא יער אורנים גדול בשפלה, עם שבילי שטח קלים שמתאימים למשפחות ולמתחילים בנהיגת שטח.",
       "האזור מציע שילוב של יער מוצל, נקודות תצפית ודרכי עפר נוחות — מושלם ליום טיול קצר מהמרכז.",
@@ -728,8 +716,6 @@ export const trips: Trip[] = [
       "שפך נחל שורק — שמורת טבע עם תצפיות ונוף במרכז. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — שפך נחל שורק",
     heroBackgroundImage: nahalSorekEstuaryHeroBackground,
-    wazeUrl: "#",
-    mapsUrl: "#",
     about: [
       "שפך נחל שורק הוא שמורת טבע ייחודית במרכז, שבה נחל שורק פוגש את הים — עם שבילי תצפית, צמחייה מגוונת ועולם של ציפורים.",
       "המקום מתאים לטיול רגוע, צילום נוף ולמידה על אקוסיסטם של שפך — חוויה שונה מכל מסלול מים רגיל.",
