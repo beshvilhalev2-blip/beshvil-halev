@@ -10,11 +10,12 @@ const navItems = [
   { label: "המלצות לטיולים", href: "/recommendations" },
   { label: "אזורים בארץ", href: "/#regions" },
   { label: "שטח 4x4", href: "/offroad" },
+  { label: "רשימת ציוד", href: "/gear" },
   { label: "אודות", href: "/about" },
   { label: "צור קשר", href: "/contact" },
 ] as const;
 
-const SOLID_HEADER_PATHS = new Set(["/recommendations", "/search"]);
+const SOLID_HEADER_PATHS = new Set(["/recommendations", "/search", "/gear"]);
 
 function MenuIcon({ open }: { open: boolean }) {
   return (

@@ -4,6 +4,7 @@ import SiteFooter from "./components/site-footer";
 import TripCard from "./components/trip-card";
 import HeartTrailMap from "./components/heart-trail-map";
 import FindMyTripCta from "./components/find-my-trip-cta";
+import TripGearCta from "./components/trip-gear-cta";
 import { getHomepageTrips } from "@/data/trips";
 
 const categories = [
@@ -216,8 +217,9 @@ export default function Home() {
 
       {/* Find my trip CTA */}
       <section className="border-t border-stone-200/80 bg-stone-50 px-6 py-12 dark:border-stone-800 dark:bg-stone-950 sm:py-16">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6">
           <FindMyTripCta />
+          <TripGearCta />
         </div>
       </section>
 

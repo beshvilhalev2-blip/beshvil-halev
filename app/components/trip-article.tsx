@@ -4,6 +4,7 @@ import type { Trip } from "@/data/trips";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import TripActionBar from "@/app/components/trip-action-bar";
+import TripGearChecklist from "@/app/components/trip-gear-checklist";
 import { getTripHeroBackground } from "@/lib/trip-media";
 
 function ArrowIcon() {
@@ -170,6 +171,8 @@ export default function TripArticle({ trip }: { trip: Trip }) {
               ))}
             </ul>
           </section>
+
+          <TripGearChecklist trip={trip} />
         </div>
 
         {/* גלריית תמונות */}
