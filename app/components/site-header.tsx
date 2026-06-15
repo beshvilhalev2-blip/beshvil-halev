@@ -9,7 +9,7 @@ const navItems = [
   { label: "אזורים בארץ", href: "/#regions" },
   { label: "שטח 4x4", href: "/categories/4x4" },
   { label: "אודות", href: "/about" },
-  { label: "צרו קשר", href: "/contact" },
+  { label: "צור קשר", href: "/contact" },
 ] as const;
 
 function MenuIcon({ open }: { open: boolean }) {
