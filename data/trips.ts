@@ -16,6 +16,14 @@ export type TripNearbyPlace = {
   href: string;
 };
 
+export type TripVehicleAccess =
+  | "private-car"
+  | "soft-suv"
+  | "real-4x4"
+  | "hard-4x4";
+
+export const DEFAULT_TRIP_VEHICLE_ACCESS: TripVehicleAccess = "private-car";
+
 export type Trip = {
   slug: string;
   title: string;
@@ -40,6 +48,7 @@ export type Trip = {
   gallerySubtitle: string;
   nearbyPlaces: TripNearbyPlace[];
   nearbySubtitle: string;
+  vehicleAccess?: TripVehicleAccess;
 };
 
 export type Region = {
@@ -222,6 +231,14 @@ function createDraftTrip(input: {
     gallerySubtitle: "תמונות — יוחלפו בתוכן אמיתי",
     nearbyPlaces: [],
     nearbySubtitle: input.nearbySubtitle,
+    vehicleAccess: DEFAULT_TRIP_VEHICLE_ACCESS,
+  };
+}
+
+function normalizeTripVehicleAccess(trip: Trip): Trip {
+  return {
+    ...trip,
+    vehicleAccess: trip.vehicleAccess ?? DEFAULT_TRIP_VEHICLE_ACCESS,
   };
 }
 
@@ -267,7 +284,7 @@ const draftTrips: Trip[] = [
   createDraftTrip({ slug: "lunada", title: "לונדע", subtitle: "פארק משחקים וחוויות בדרום", region: "דרום", category: "בילוי משפחתי", description: "לונדע הוא פארק משחקים וחוויות משפחתיות בדרום, מתאים לילדים.", nearbySubtitle: "המשיכו לגלות את הדרום" }),
 ];
 
-export const trips: Trip[] = [
+const rawTrips: Trip[] = [
   {
     slug: "nahal-hashofet",
     title: "נחל השופט",
@@ -652,6 +669,7 @@ export const trips: Trip[] = [
     subtitle: "מסלולי שטח קלים בלב השפלה — הרפתקה משפחתית במרכז",
     region: "מרכז",
     category: "שטח 4x4",
+    vehicleAccess: "soft-suv",
     metaDescription:
       "יער בן שמן — מסלולי שטח קלים במרכז. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — יער בן שמן",
@@ -768,6 +786,8 @@ export const trips: Trip[] = [
   },
   ...draftTrips,
 ];
+
+export const trips: Trip[] = rawTrips.map(normalizeTripVehicleAccess);
 
 export function getTripBySlug(slug: string): Trip | undefined {
   return trips.find((trip) => trip.slug === slug);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
+import VehicleTripMatch from "@/app/components/vehicle-trip-match";
 import { getTripsByCategory, type Trip } from "@/data/trips";
 
 export const metadata: Metadata = {
@@ -147,6 +148,8 @@ export default function OffroadPage() {
           </p>
         </div>
       </section>
+
+      <VehicleTripMatch />
 
       {/* Content sections */}
       <section className="bg-stone-50 px-6 py-16 dark:bg-stone-950 sm:py-20">
