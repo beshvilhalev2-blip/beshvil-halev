@@ -69,46 +69,54 @@ export const GEAR_HUB_OPTIONS: GearHubOption[] = [
     title: "רשימת ציוד לקמפינג",
     description:
       "אוהל, שקי שינה, תאורה, בישול וכל מה שצריך ללילה בשטח.",
-    status: "coming-soon",
+    status: "active",
+    cta: "פתחו רשימה",
     icon: "camping",
     iconBg:
       "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
     accent: "from-emerald-500/15 to-teal-600/10",
-    borderHover: "border-stone-200/80 dark:border-stone-800",
+    borderHover:
+      "border-emerald-200/80 hover:border-emerald-300 dark:border-emerald-900/60 dark:hover:border-emerald-700",
   },
   {
     id: "day-trip",
     title: "רשימת ציוד ליום טיול",
     description:
       "מים, כובע, נעליים נוחות, חטיפים וציוד בסיסי ליציאה קצרה.",
-    status: "coming-soon",
+    status: "active",
+    cta: "פתחו רשימה",
     icon: "day-trip",
     iconBg: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
     accent: "from-sky-500/15 to-blue-600/10",
-    borderHover: "border-stone-200/80 dark:border-stone-800",
+    borderHover:
+      "border-sky-200/80 hover:border-sky-300 dark:border-sky-900/60 dark:hover:border-sky-700",
   },
   {
     id: "offroad",
     title: "רשימת ציוד לטיול שטח",
     description:
       "ציוד בטיחות, ניווט, קומפרסור, תאורה וכלים בסיסיים לרכב.",
-    status: "coming-soon",
+    status: "active",
+    cta: "פתחו רשימה",
     icon: "offroad",
     iconBg: "bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200",
     accent: "from-zinc-500/15 to-amber-700/10",
-    borderHover: "border-stone-200/80 dark:border-stone-800",
+    borderHover:
+      "border-zinc-300/80 hover:border-zinc-400 dark:border-zinc-700 dark:hover:border-zinc-600",
   },
   {
     id: "cooking",
     title: "רשימת ציוד לבישול בשטח",
     description:
       "גזייה, כלי אוכל, סיר, מחבת, קרש חיתוך ושקיות אשפה.",
-    status: "coming-soon",
+    status: "active",
+    cta: "פתחו רשימה",
     icon: "cooking",
     iconBg:
       "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
     accent: "from-amber-500/15 to-orange-600/10",
-    borderHover: "border-stone-200/80 dark:border-stone-800",
+    borderHover:
+      "border-amber-200/80 hover:border-amber-300 dark:border-amber-900/60 dark:hover:border-amber-700",
   },
   {
     id: "by-trip",

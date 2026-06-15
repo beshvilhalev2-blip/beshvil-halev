@@ -144,6 +144,7 @@ type GearHubCardProps = {
   status: "coming-soon" | "active";
   cta?: string;
   href?: string;
+  onSelect?: () => void;
 };
 
 function HubIcon({ icon }: { icon: GearHubOptionIcon }) {
@@ -202,6 +203,7 @@ export default function GearHubCard({
   status,
   cta,
   href,
+  onSelect,
 }: GearHubCardProps) {
   const cardClassName = `group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border bg-white p-6 shadow-sm transition-all duration-500 dark:bg-stone-900 ${
     status === "active"
@@ -210,6 +212,22 @@ export default function GearHubCard({
   }`;
 
   const gradientClassName = `pointer-events-none absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${accent}`;
+
+  if (status === "active" && onSelect) {
+    return (
+      <button type="button" onClick={onSelect} className={`${cardClassName} group text-start`}>
+        <div className={gradientClassName} />
+        <CardContent
+          title={title}
+          description={description}
+          icon={icon}
+          iconBg={iconBg}
+          status={status}
+          cta={cta}
+        />
+      </button>
+    );
+  }
 
   if (status === "active" && href) {
     return (

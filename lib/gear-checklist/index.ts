@@ -9,6 +9,8 @@ export {
 export {
   AUTO_SAVE_NOTE,
   GEAR_HOMEPAGE_CTA,
+  GEAR_HUB_OPTIONS,
+  GEAR_LANDING_PAGE,
   GEAR_SHARE,
   GEAR_STORAGE_KEY_PREFIX,
   GEAR_STORAGE_VERSION,
@@ -37,10 +39,21 @@ export {
 } from "@/lib/gear-checklist/readiness";
 export {
   GEAR_DISPLAY_GROUPS,
+  GEAR_PRIORITY_GROUPS,
   groupItemsByDisplayGroup,
+  groupItemsByPriority,
   type GearDisplayGroup,
   type GearDisplayGroupId,
+  type GearPriorityGroup,
+  type GearPriorityGroupId,
 } from "@/lib/gear-checklist/display-groups";
+export {
+  buildPresetChecklist,
+  getPresetStorageKey,
+  getPresetTitle,
+  isGearPresetId,
+  type GearPresetId,
+} from "@/lib/gear-checklist/presets";
 export {
   clearGearState,
   loadGearState,

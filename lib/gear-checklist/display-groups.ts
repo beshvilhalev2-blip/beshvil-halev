@@ -1,4 +1,8 @@
-import type { GearPackId, ResolvedGearItem } from "@/lib/gear-checklist/types";
+import type {
+  GearPackId,
+  GearPriority,
+  ResolvedGearItem,
+} from "@/lib/gear-checklist/types";
 
 export type GearDisplayGroupId =
   | "water"
@@ -66,4 +70,36 @@ export function getDisplayGroupForPack(
   pack: GearPackId,
 ): GearDisplayGroup | undefined {
   return GEAR_DISPLAY_GROUPS.find((group) => group.packs.includes(pack));
+}
+
+export type GearPriorityGroupId = GearPriority;
+
+export type GearPriorityGroup = {
+  id: GearPriorityGroupId;
+  emoji: string;
+  label: string;
+};
+
+export const GEAR_PRIORITY_GROUPS: GearPriorityGroup[] = [
+  { id: "required", emoji: "⭐", label: "חובה" },
+  { id: "recommended", emoji: "👍", label: "מומלץ" },
+  { id: "bonus", emoji: "✨", label: "בונוס" },
+];
+
+export function groupItemsByPriority(
+  items: ResolvedGearItem[],
+): Map<GearPriorityGroupId, ResolvedGearItem[]> {
+  const groups = new Map<GearPriorityGroupId, ResolvedGearItem[]>();
+
+  for (const group of GEAR_PRIORITY_GROUPS) {
+    const groupItems = items
+      .filter((item) => item.priority === group.id)
+      .sort((a, b) => a.sortOrder - b.sortOrder);
+
+    if (groupItems.length > 0) {
+      groups.set(group.id, groupItems);
+    }
+  }
+
+  return groups;
 }
