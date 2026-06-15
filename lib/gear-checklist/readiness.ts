@@ -5,6 +5,12 @@ import type {
   ResolvedGearItem,
 } from "@/lib/gear-checklist/types";
 
+export type ChecklistSummary = {
+  have: string[];
+  missing: string[];
+  readinessPercent: number;
+};
+
 function compareByPriority(a: ResolvedGearItem, b: ResolvedGearItem): number {
   const priorityOrder =
     PRIORITY_ORDER.indexOf(a.priority) - PRIORITY_ORDER.indexOf(b.priority);
@@ -56,4 +62,58 @@ export function calculateReadiness(
     unsetCount,
     missingItems,
   };
+}
+
+export function cycleGearItemStatus(status: GearItemStatus): GearItemStatus {
+  if (status === "unset") {
+    return "have";
+  }
+
+  if (status === "have") {
+    return "missing";
+  }
+
+  return "unset";
+}
+
+export function buildChecklistSummary(
+  items: ResolvedGearItem[],
+  statuses: Record<string, GearItemStatus>,
+  readiness: ReadinessResult,
+): ChecklistSummary {
+  const have = items
+    .filter((item) => (statuses[item.id] ?? "unset") === "have")
+    .sort(compareByPriority)
+    .map((item) => item.label);
+
+  return {
+    have,
+    missing: readiness.missingItems.map((item) => item.label),
+    readinessPercent: readiness.percent,
+  };
+}
+
+export function getReadinessMotivation(
+  readiness: ReadinessResult,
+  hydrated: boolean,
+): string {
+  if (!hydrated) {
+    return "סמנו פריטים כדי לעקוב אחרי המוכנות";
+  }
+
+  if (readiness.percent >= 100) {
+    return "אתם מוכנים לטיול!";
+  }
+
+  const remaining = readiness.total - readiness.haveCount;
+
+  if (remaining <= 0) {
+    return "סמנו פריטים כדי לעקוב אחרי המוכנות";
+  }
+
+  if (remaining === 1) {
+    return "עוד פריט אחד ואתם מוכנים לטיול";
+  }
+
+  return `עוד ${remaining} פריטים ואתם מוכנים לטיול`;
 }

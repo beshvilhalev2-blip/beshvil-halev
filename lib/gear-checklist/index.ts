@@ -19,6 +19,7 @@ export {
 export {
   buildGearChecklistSnapshot,
   buildWhatsAppShareUrl,
+  formatChecklistSummaryForWhatsApp,
   formatGearChecklistForWhatsApp,
 } from "@/lib/gear-checklist/export";
 export {
@@ -28,6 +29,18 @@ export {
   getGearPackLabel,
 } from "@/lib/gear-checklist/packs";
 export { calculateReadiness } from "@/lib/gear-checklist/readiness";
+export {
+  buildChecklistSummary,
+  cycleGearItemStatus,
+  getReadinessMotivation,
+  type ChecklistSummary,
+} from "@/lib/gear-checklist/readiness";
+export {
+  GEAR_DISPLAY_GROUPS,
+  groupItemsByDisplayGroup,
+  type GearDisplayGroup,
+  type GearDisplayGroupId,
+} from "@/lib/gear-checklist/display-groups";
 export {
   clearGearState,
   loadGearState,

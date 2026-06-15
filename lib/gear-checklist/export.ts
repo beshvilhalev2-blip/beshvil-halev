@@ -1,5 +1,6 @@
 import type { Trip } from "@/data/trips";
 import { GEAR_SHARE } from "@/lib/gear-checklist/constants";
+import type { ChecklistSummary } from "@/lib/gear-checklist/readiness";
 import type {
   GearChecklistExportSnapshot,
   GearItemStatus,
@@ -46,6 +47,32 @@ export function buildGearChecklistSnapshot(
     missing: sortExportItems(checklist.items, state.items, "missing"),
     packs: checklist.packs,
   };
+}
+
+export function formatChecklistSummaryForWhatsApp(
+  summary: ChecklistSummary,
+): string {
+  const lines: string[] = ["🎒 רשימת ציוד לטיול", ""];
+
+  if (summary.have.length > 0) {
+    lines.push("✅ יש לי:");
+    for (const item of summary.have) {
+      lines.push(`• ${item}`);
+    }
+    lines.push("");
+  }
+
+  if (summary.missing.length > 0) {
+    lines.push("🛒 חסר לי:");
+    for (const item of summary.missing) {
+      lines.push(`• ${item}`);
+    }
+    lines.push("");
+  }
+
+  lines.push(`📍 נוצר באמצעות ${GEAR_SHARE.siteName}`);
+
+  return lines.join("\n");
 }
 
 export function formatGearChecklistForWhatsApp(
