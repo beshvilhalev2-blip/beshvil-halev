@@ -1,3 +1,5 @@
+import type { TripMatcherProfile } from "@/lib/find-my-trip/trip-profile";
+
 export type TripCostItem = {
   label: string;
   value: string;
@@ -49,6 +51,7 @@ export type Trip = {
   nearbyPlaces: TripNearbyPlace[];
   nearbySubtitle: string;
   vehicleAccess?: TripVehicleAccess;
+  matcher?: TripMatcherProfile;
 };
 
 export type Region = {

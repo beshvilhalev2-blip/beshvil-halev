@@ -3,6 +3,7 @@ import SiteHeader from "./components/site-header";
 import SiteFooter from "./components/site-footer";
 import TripCard from "./components/trip-card";
 import HeartTrailMap from "./components/heart-trail-map";
+import FindMyTripCta from "./components/find-my-trip-cta";
 import { getHomepageTrips } from "@/data/trips";
 
 const categories = [
@@ -211,6 +212,13 @@ export default function Home() {
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-50 to-transparent dark:from-stone-950" />
+      </section>
+
+      {/* Find my trip CTA */}
+      <section className="border-t border-stone-200/80 bg-stone-50 px-6 py-12 dark:border-stone-800 dark:bg-stone-950 sm:py-16">
+        <div className="mx-auto max-w-6xl">
+          <FindMyTripCta />
+        </div>
       </section>
 
       {/* Featured trips */}
