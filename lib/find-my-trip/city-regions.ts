@@ -1,32 +1,22 @@
 import type { CityId, TravelTime, TripRef } from "@/lib/find-my-trip/types";
+import {
+  getCityLabel,
+  getCityRegionProximity,
+  type RegionTitle,
+} from "@/lib/find-my-trip/cities";
 import { getTripMatcherProfile } from "@/lib/find-my-trip/trip-profile";
+import { tripMatchesTravelDistance } from "@/lib/find-my-trip/travel-distance";
 
-/** Hebrew region titles as used in trip.region */
-export type RegionTitle = "צפון" | "מרכז" | "ירושלים" | "דרום";
-
-const CITY_REGION_PROXIMITY: Record<
-  CityId,
-  [RegionTitle, RegionTitle, RegionTitle, RegionTitle]
-> = {
-  rishon: ["מרכז", "דרום", "ירושלים", "צפון"],
-  "tel-aviv": ["מרכז", "צפון", "ירושלים", "דרום"],
-  jerusalem: ["ירושלים", "מרכז", "דרום", "צפון"],
-  "beer-sheva": ["דרום", "מרכז", "ירושלים", "צפון"],
-  haifa: ["צפון", "מרכז", "ירושלים", "דרום"],
-  modiin: ["מרכז", "ירושלים", "דרום", "צפון"],
-  netanya: ["מרכז", "צפון", "ירושלים", "דרום"],
-  ashdod: ["דרום", "מרכז", "ירושלים", "צפון"],
-};
+export type { RegionTitle };
 
 const TRAVEL_TIME_REGION_COUNT: Record<TravelTime, number> = {
   "30m": 1,
   "1h": 2,
-  "1h30": 3,
-  "2h": 4,
+  "1h-plus": 4,
   any: 4,
 };
 
-const TRAVEL_TIME_ORDER: TravelTime[] = ["30m", "1h", "1h30", "2h", "any"];
+const TRAVEL_TIME_ORDER: TravelTime[] = ["30m", "1h", "1h-plus", "any"];
 
 export function getAllowedRegions(
   city: CityId,
@@ -37,7 +27,7 @@ export function getAllowedRegions(
   }
 
   const count = TRAVEL_TIME_REGION_COUNT[travelTime];
-  return CITY_REGION_PROXIMITY[city].slice(0, count);
+  return getCityRegionProximity(city).slice(0, count);
 }
 
 export function widenTravelTime(travelTime: TravelTime): TravelTime {
@@ -61,32 +51,24 @@ export function tripMatchesRegion(
   const profile = getTripMatcherProfile(trip);
   const perCityLimit = profile.travelTimeFrom?.[city];
   if (perCityLimit) {
-    return TRAVEL_TIME_ORDER.indexOf(perCityLimit) <= TRAVEL_TIME_ORDER.indexOf(travelTime);
+    return (
+      TRAVEL_TIME_ORDER.indexOf(perCityLimit) <=
+      TRAVEL_TIME_ORDER.indexOf(travelTime)
+    );
+  }
+
+  const distanceMatch = tripMatchesTravelDistance(trip, city, travelTime);
+  if (distanceMatch !== null) {
+    return distanceMatch;
   }
 
   const allowed = getAllowedRegions(city, travelTime);
   return allowed.includes(trip.region as RegionTitle);
 }
 
-export function isPrimaryRegionMatch(
-  trip: TripRef,
-  city: CityId,
-): boolean {
-  const primary = CITY_REGION_PROXIMITY[city][0];
+export function isPrimaryRegionMatch(trip: TripRef, city: CityId): boolean {
+  const primary = getCityRegionProximity(city)[0];
   return trip.region === primary;
 }
 
-export function getCityLabel(city: CityId): string {
-  const labels: Record<CityId, string> = {
-    rishon: "ראשון לציון",
-    "tel-aviv": "תל אביב",
-    jerusalem: "ירושלים",
-    "beer-sheva": "באר שבע",
-    haifa: "חיפה",
-    modiin: "מודיעין",
-    netanya: "נתניה",
-    ashdod: "אשדוד",
-  };
-
-  return labels[city];
-}
+export { getCityLabel };

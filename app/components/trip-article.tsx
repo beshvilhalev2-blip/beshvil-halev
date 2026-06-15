@@ -5,6 +5,7 @@ import type { Trip } from "@/data/trips";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import { getTripHeroBackground } from "@/lib/trip-media";
+import { getTripGoogleMapsUrl, getTripWazeUrl } from "@/lib/trip-location";
 
 function WazeIcon({ className = "size-6" }: { className?: string }) {
   return (
@@ -63,7 +64,7 @@ function TripNavButton({
     <>
       <span className={href ? iconWrapEnabled : iconWrapDisabled}>{icon}</span>
       <span className="flex min-w-0 flex-col items-start gap-0.5 text-start">
-        <span className="text-sm font-bold leading-tight sm:text-base">
+        <span className="text-sm font-bold leading-tight sm:text-base break-words">
           {label}
         </span>
         {!href && (
@@ -100,16 +101,19 @@ function TripNavButton({
 }
 
 function TripNavigationButtons({ trip }: { trip: Trip }) {
+  const wazeUrl = getTripWazeUrl(trip);
+  const googleMapsUrl = getTripGoogleMapsUrl(trip);
+
   return (
     <div className="flex w-full max-w-2xl flex-col items-stretch gap-3 sm:flex-row">
       <TripNavButton
-        href={trip.wazeUrl}
+        href={wazeUrl}
         label="נווט עם Waze"
         variant="waze"
         ariaLabel={`נווט עם Waze ל${trip.title}`}
         icon={<WazeIcon className="size-6 text-white" />}      />
       <TripNavButton
-        href={trip.googleMapsUrl}
+        href={googleMapsUrl}
         label="נווט עם Google Maps"
         variant="maps"
         ariaLabel={`נווט עם Google Maps ל${trip.title}`}

@@ -4,9 +4,9 @@ import SiteHeader from "@/app/components/site-header";
 import FindMyTripWizard from "@/app/find-my-trip/find-my-trip-wizard";
 
 export const metadata: Metadata = {
-  title: "מצאי לי טיול | בשביל הלב",
+  title: "מצאו לי טיול | בשביל הלב",
   description:
-    "עני על כמה שאלות קצרות ונמצא עבורך את הטיול המושלם — לפי מ mood, מרחק, תקציב, מזג ורכב.",
+    "ענו על כמה שאלות קצרות ונמצא עבורכם את הטיול המושלם — לפי חוויה, מרחק, תקציב, מזג ורכב.",
 };
 
 export default function FindMyTripPage() {

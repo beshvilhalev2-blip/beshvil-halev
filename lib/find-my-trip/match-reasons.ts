@@ -74,7 +74,7 @@ export function buildMatchReasons(
     3,
   );
 
-  if (answers.weather === "hot-day" && hasWeatherTrait(trip, "water-friendly")) {
+  if (answers.weather === "hot" && hasWeatherTrait(trip, "water-friendly")) {
     pushReason(
       candidates,
       {
@@ -86,15 +86,24 @@ export function buildMatchReasons(
     );
   }
 
-  if (
-    answers.weather === "winter-after-rain" &&
-    hasWeatherTrait(trip, "winter-ideal")
-  ) {
+  if (answers.weather === "cold" && hasWeatherTrait(trip, "winter-ideal")) {
     pushReason(
       candidates,
       {
         id: "weather-winter-ideal",
         label: "יפה במיוחד בימים קרירים",
+        category: "weather",
+      },
+      3,
+    );
+  }
+
+  if (answers.weather === "rainy" && hasWeatherTrait(trip, "indoor-fallback")) {
+    pushReason(
+      candidates,
+      {
+        id: "weather-indoor-fallback",
+        label: "מתאים גם כשמזג האוויר פחות יציב",
         category: "weather",
       },
       3,
@@ -178,7 +187,7 @@ export function buildMatchReasons(
       candidates,
       {
         id: "quality-curated",
-        label: "נבחר במיוחד לפי ההעדפות שלך",
+        label: "נבחר במיוחד לפי ההעדפות שלכם",
         category: "quality",
       },
       10,

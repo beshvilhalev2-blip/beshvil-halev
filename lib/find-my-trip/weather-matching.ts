@@ -27,7 +27,7 @@ export function tripMatchesWeather(
 
   const traits = inferTripWeatherTraits(trip);
 
-  if (weather === "hot-day") {
+  if (weather === "hot") {
     if (traits.includes("heat-sensitive") && isFamilyCompanion(companion)) {
       return mode === "soft";
     }
@@ -38,7 +38,11 @@ export function tripMatchesWeather(
     return true;
   }
 
-  if (weather === "winter-after-rain") {
+  if (weather === "cold") {
+    return true;
+  }
+
+  if (weather === "rainy") {
     if (
       traits.includes("rain-sensitive") &&
       isFamilyCompanion(companion) &&
@@ -61,7 +65,7 @@ export function getWeatherMatchScore(
   const traits = inferTripWeatherTraits(trip);
   let score = 0;
 
-  if (weather === "hot-day") {
+  if (weather === "hot") {
     if (traits.includes("water-friendly")) {
       score += 15;
     }
@@ -85,12 +89,21 @@ export function getWeatherMatchScore(
     }
   }
 
-  if (weather === "winter-after-rain") {
+  if (weather === "cold") {
     if (traits.includes("winter-ideal")) {
       score += 15;
     }
     if (traits.includes("shade-rich")) {
       score += 8;
+    }
+    if (traits.includes("heat-sensitive")) {
+      score += 5;
+    }
+  }
+
+  if (weather === "rainy") {
+    if (traits.includes("winter-ideal")) {
+      score += 10;
     }
     if (traits.includes("rain-sensitive")) {
       score += activity === "easy-trails" ? -20 : -10;
@@ -98,9 +111,12 @@ export function getWeatherMatchScore(
     if (activity === "water") {
       score -= 5;
     }
+    if (traits.includes("indoor-fallback")) {
+      score += 8;
+    }
   }
 
-  if (traits.includes("indoor-fallback")) {
+  if (traits.includes("indoor-fallback") && weather !== "rainy") {
     score += 5;
   }
 
@@ -109,17 +125,15 @@ export function getWeatherMatchScore(
 
 export function getWeatherReasonLabel(weather: WeatherPreference): string {
   const labels: Record<WeatherPreference, string> = {
-    "hot-day": "מושלם ליום חם",
+    hot: "מושלם ליום חם",
     pleasant: "נעים במזג אוויר מתון",
-    "winter-after-rain": "מתאים לחורף ואחרי גשם",
+    cold: "מתאים ליום קר",
+    rainy: "מתאים לגשם ואחרי גשם",
   };
 
   return labels[weather];
 }
 
-export function hasWeatherTrait(
-  trip: TripRef,
-  trait: WeatherTrait,
-): boolean {
+export function hasWeatherTrait(trip: TripRef, trait: WeatherTrait): boolean {
   return inferTripWeatherTraits(trip).includes(trait);
 }

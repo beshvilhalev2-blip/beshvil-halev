@@ -9,7 +9,7 @@ import type {
 import { ACTIVITY_LABELS } from "@/lib/find-my-trip/constants";
 
 /** Schema version for forward-compatible local storage migrations. */
-export const PREFERENCE_SCHEMA_VERSION = 1 as const;
+export const PREFERENCE_SCHEMA_VERSION = 3 as const;
 
 export type InferredPreferences = {
   favoriteActivities?: ActivityType[];

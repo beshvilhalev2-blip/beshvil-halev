@@ -88,6 +88,7 @@ export function toTripRef(trip: Trip): TripRef {
     cost: trip.cost,
     vehicleAccess: trip.vehicleAccess ?? DEFAULT_TRIP_VEHICLE_ACCESS,
     matcher: trip.matcher,
+    location: trip.location,
     about: trip.about,
   };
 }
@@ -195,8 +196,8 @@ export function tripMatchesBudget(trip: TripRef, budget: BudgetTier): boolean {
       return cost === "free" || cost === 0;
     case "up-to-50":
       return cost === "free" || cost <= 50;
-    case "up-to-100":
-      return cost === "free" || cost <= 100;
+    case "above-50":
+      return typeof cost === "number" && cost > 50;
     default:
       return true;
   }
@@ -207,8 +208,8 @@ export function relaxBudgetTier(budget: BudgetTier): BudgetTier {
     case "free":
       return "up-to-50";
     case "up-to-50":
-      return "up-to-100";
-    case "up-to-100":
+      return "any";
+    case "above-50":
       return "any";
     default:
       return "any";

@@ -1,4 +1,7 @@
 import type { VehicleCategoryId } from "@/lib/vehicle-trip-match";
+import type { CityId } from "@/lib/find-my-trip/cities";
+
+export type { CityId };
 
 export type CompanionType = "solo" | "friends" | "kids" | "family";
 
@@ -10,21 +13,11 @@ export type ActivityType =
   | "easy-trails"
   | "camping";
 
-export type CityId =
-  | "rishon"
-  | "tel-aviv"
-  | "jerusalem"
-  | "beer-sheva"
-  | "haifa"
-  | "modiin"
-  | "netanya"
-  | "ashdod";
+export type TravelTime = "30m" | "1h" | "1h-plus" | "any";
 
-export type TravelTime = "30m" | "1h" | "1h30" | "2h" | "any";
+export type BudgetTier = "free" | "up-to-50" | "above-50" | "any";
 
-export type BudgetTier = "free" | "up-to-50" | "up-to-100" | "any";
-
-export type WeatherPreference = "hot-day" | "pleasant" | "winter-after-rain";
+export type WeatherPreference = "hot" | "pleasant" | "cold" | "rainy";
 
 export type WizardVehicleChoice = VehicleCategoryId | null;
 
@@ -84,6 +77,11 @@ export type TripRef = {
   cost: { label: string; value: string; note?: string }[];
   vehicleAccess?: import("@/data/trips").TripVehicleAccess;
   matcher?: import("@/lib/find-my-trip/trip-profile").TripMatcherProfile;
+  location?: {
+    lat: number;
+    lng: number;
+    label?: string;
+  };
   about: string[];
 };
 

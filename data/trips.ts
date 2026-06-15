@@ -26,6 +26,14 @@ export type TripVehicleAccess =
 
 export const DEFAULT_TRIP_VEHICLE_ACCESS: TripVehicleAccess = "private-car";
 
+export type TripLocation = {
+  lat: number;
+  lng: number;
+  label: string;
+  googleMapsUrl?: string;
+  wazeUrl?: string;
+};
+
 export type Trip = {
   slug: string;
   title: string;
@@ -39,6 +47,7 @@ export type Trip = {
   heroImage?: string;
   heroImageLabel: string;
   heroBackgroundImage: string;
+  location?: TripLocation;
   wazeUrl?: string;
   googleMapsUrl?: string;
   highlights?: string[];
@@ -209,6 +218,7 @@ function createDraftTrip(input: {
   category: string;
   description: string;
   nearbySubtitle: string;
+  matcher?: TripMatcherProfile;
 }): Trip {
   return {
     slug: input.slug,
@@ -217,6 +227,7 @@ function createDraftTrip(input: {
     region: input.region,
     category: input.category,
     featured: false,
+    matcher: input.matcher,
     metaDescription: input.description,
     heroImageLabel: `תמונת רקע — ${input.title}`,
     heroBackgroundImage: regionHeroBackgrounds[input.region],
@@ -247,7 +258,21 @@ function normalizeTripVehicleAccess(trip: Trip): Trip {
 
 const draftTrips: Trip[] = [
   createDraftTrip({ slug: "mitzpe-arbel", title: "מצפה ארבל", subtitle: "נקודת תצפית מרהיבה על הכנרת והגליל", region: "צפון", category: "תצפית ונוף", description: "מצפה ארבל מציע נוף פנורמי על הכנרת, הגליל והרי הגליל העליון.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
-  createDraftTrip({ slug: "nahal-dan", title: "נחל דן", subtitle: "אחד הנחלים היפים בישראל — מים צלולים וצמחייה עשירה", region: "צפון", category: "טיול מים", description: "נחל דן הוא מסלול מים קסום בלב שמורת הבניאס, עם מים קרירים וצמחייה ירוקה.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
+  createDraftTrip({
+    slug: "nahal-dan",
+    title: "נחל דן",
+    subtitle: "אחד הנחלים היפים בישראל — מים צלולים וצמחייה עשירה",
+    region: "צפון",
+    category: "טיול מים",
+    description: "נחל דן הוא מסלול מים קסום בלב שמורת הבניאס, עם מים קרירים וצמחייה ירוקה.",
+    nearbySubtitle: "המשיכו לגלות את הצפון",
+    matcher: {
+      activities: ["water", "nature-shade", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      weatherTraits: ["water-friendly", "shade-rich"],
+      weatherAvoid: ["rainy"],
+    },
+  }),
   createDraftTrip({ slug: "brechat-ram", title: "בריכת רם", subtitle: "ברכה וולקנית יפהפיה בלב רמת הגולן", region: "צפון", category: "שמורת טבע", description: "בריכת רם היא ברכה טבעית עמוקה ומרהיבה, מוקפת בנוף גולני פתוח.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
   createDraftTrip({ slug: "hermon", title: "חרמון", subtitle: "פסגת החרמון — שלג, טבע ונוף מרהיב", region: "צפון", category: "טבע והרים", description: "החרמון הוא יעד לטיולים בעונות השנה, עם מסלולים, שלג בחורף ונוף מדהים.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
   createDraftTrip({ slug: "agamon-hahula", title: "אגמון החולה", subtitle: "שמורת ציפורים ונוף ביצותי קסום", region: "צפון", category: "שמורת טבע", description: "אגמון החולה הוא שמורת טבע ייחודית עם ציפורים, שבילי תצפית ונוף ביצותי מרהיב.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
@@ -256,7 +281,21 @@ const draftTrips: Trip[] = [
   createDraftTrip({ slug: "kfar-kama", title: "כפר כמא", subtitle: "כפר צ'רקסי עם אירוח וטבע בגליל", region: "צפון", category: "טיול משפחתי", description: "כפר כמא הוא כפר צ'רקסי בגליל התחתון, עם אווירה מיוחדת וחוויות תרבותיות.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
   createDraftTrip({ slug: "park-hamaayanot", title: "פארק המעיינות", subtitle: "פארק ירוק ליד עמק המעיינות", region: "צפון", category: "פארק", description: "פארק המעיינות הוא פארק משפחתי ירוק באזור עמק המעיינות, מתאים לבילוי רגוע בטבע.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
   createDraftTrip({ slug: "maayan-hasusim", title: "מעיין הסוסים", subtitle: "מעיין קסום בלב הגולן", region: "צפון", category: "מעיין", description: "מעיין הסוסים הוא מעיין טבעי בגולן עם מים צלולים ואווירה שקטה.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
-  createDraftTrip({ slug: "shmorat-habanyas", title: "שמורת הבניאס", subtitle: "מקור הירדן — מים, צמחייה ושבילים", region: "צפון", category: "שמורת טבע", description: "שמורת הבניאס היא שמורת טבע עם מקורות הירדן, שבילי הליכה ומסלולי מים.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
+  createDraftTrip({
+    slug: "shmorat-habanyas",
+    title: "שמורת הבניאס",
+    subtitle: "מקור הירדן — מים, צמחייה ושבילים",
+    region: "צפון",
+    category: "שמורת טבע",
+    description: "שמורת הבניאס היא שמורת טבע עם מקורות הירדן, שבילי הליכה ומסלולי מים.",
+    nearbySubtitle: "המשיכו לגלות את הצפון",
+    matcher: {
+      activities: ["water", "nature-shade", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      weatherTraits: ["water-friendly", "shade-rich"],
+      weatherAvoid: ["rainy"],
+    },
+  }),
   createDraftTrip({ slug: "dag-al-hadan", title: "דג על הדן", subtitle: "חוויה ומסעדה על גדות נחל דן", region: "צפון", category: "מסעדה וטבע", description: "דג על הדן הוא מקום לאוכל וחוויה על גדות נחל דן, בסמוך לשמורת הבניאס.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
   createDraftTrip({ slug: "maapal-tanur", title: "מפל תנור", subtitle: "מפל מרהיב בגליל העליון", region: "צפון", category: "טיול מים", description: "מפל תנור הוא מפל יפהפה בגליל העליון, מתאים לטיול קצר וחוויה בטבע.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
   createDraftTrip({ slug: "nahal-nakrot-yokneam", title: "נחל נקרות יקנעם", subtitle: "מסלול נחל בסמוך ליקנעם", region: "צפון", category: "טיול מים", description: "נחל נקרות יקנעם מציע מסלול נחל עם מים וצמחייה באזור יקנעם.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
@@ -266,16 +305,92 @@ const draftTrips: Trip[] = [
   createDraftTrip({ slug: "horeshat-gidonah", title: "חורשת גדעונה", subtitle: "יער ייחודי ליד המישור החופי", region: "צפון", category: "יער", description: "חורשת גדעונה היא יער מיוחד עם צמחייה ים-תיכונית, שבילי הליכה ופינות צל.", nearbySubtitle: "המשיכו לגלות את הצפון" }),
   createDraftTrip({ slug: "safari-ramat-gan", title: "ספארי רמת גן", subtitle: "ספארי וגן חיות במרכז הארץ", region: "מרכז", category: "חיות וטבע", description: "ספארי רמת גן הוא גן חיות וספארי מוכר, עם חוויה משפחתית קרובה לבית.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
   createDraftTrip({ slug: "park-ariel-sharon", title: "פארק אריאל שרון", subtitle: "פארק גדול עם שבילים ואזורי בילוי", region: "מרכז", category: "פארק", description: "פארק אריאל שרון הוא פארק נרחב עם שבילי הליכה, אופניים ואזורי פיקניק.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
-  createDraftTrip({ slug: "park-mayim-shefayim", title: "פארק מים שפיים", subtitle: "פארק מים משפחתי באזור השרון", region: "מרכז", category: "פארק", description: "פארק מים שפיים הוא יעד קיץ משפחתי עם מתקני מים ואזורי בילוי.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
+  createDraftTrip({
+    slug: "park-mayim-shefayim",
+    title: "פארק מים שפיים",
+    subtitle: "פארק מים משפחתי באזור השרון",
+    region: "מרכז",
+    category: "פארק",
+    description: "פארק מים שפיים הוא יעד קיץ משפחתי עם מתקני מים ואזורי בילוי.",
+    nearbySubtitle: "המשיכו לגלות את המרכז",
+    matcher: {
+      activities: ["water", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        netanya: "30m",
+        hadera: "30m",
+        herzliya: "30m",
+        "tel-aviv": "1h",
+        "ramat-gan": "1h",
+      },
+    },
+  }),
   createDraftTrip({ slug: "park-raanana", title: "פארק רעננה", subtitle: "פארק עירוני ירוק ונעים", region: "מרכז", category: "פארק", description: "פארק רעננה הוא פארק עירוני גדול עם דשא, שבילים ומתקנים למשפחות.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
-  createDraftTrip({ slug: "nahal-alexander", title: "נחל אלכסנדר", subtitle: "נחל ארוך עם שבילים וטבע במישור החוף", region: "מרכז", category: "טיול מים", description: "נחל אלכסנדר הוא נחל משמעותי במישור החוף, עם שבילים ונקודות טבע לאורך הדרך.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
+  createDraftTrip({
+    slug: "nahal-alexander",
+    title: "נחל אלכסנדר",
+    subtitle: "נחל ארוך עם שבילים וטבע במישור החוף",
+    region: "מרכז",
+    category: "טיול מים",
+    description: "נחל אלכסנדר הוא נחל משמעותי במישור החוף, עם שבילים ונקודות טבע לאורך הדרך.",
+    nearbySubtitle: "המשיכו לגלות את המרכז",
+    matcher: {
+      activities: ["water", "nature-shade", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      weatherTraits: ["water-friendly", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        netanya: "30m",
+        hadera: "30m",
+      },
+    },
+  }),
   createDraftTrip({ slug: "laget-bachayot", title: "לגעת בחיות", subtitle: "חוויה חווייתית עם חיות במרכז", region: "מרכז", category: "חיות וטבע", description: "לגעת בחיות הוא מקום לחוויה משפחתית עם חיות, מתאים במיוחד לילדים.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
   createDraftTrip({ slug: "hof-atlit", title: "חוף עתלית", subtitle: "חוף ים נעים על המישור החופי", region: "מרכז", category: "חוף", description: "חוף עתלית הוא חוף ים פופולרי עם מים רדודים, מתאים לבילוי משפחתי.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
-  createDraftTrip({ slug: "hof-olga", title: "חוף אולגה", subtitle: "חוף רחב עם דשא ומים רדודים", region: "מרכז", category: "חוף", description: "חוף אולגה הוא אחד החופים האהובים במישור החופי, עם שטחים ירוקים וים.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
+  createDraftTrip({
+    slug: "hof-olga",
+    title: "חוף אולגה",
+    subtitle: "חוף רחב עם דשא ומים רדודים",
+    region: "מרכז",
+    category: "חוף",
+    description: "חוף אולגה הוא אחד החופים האהובים במישור החופי, עם שטחים ירוקים וים.",
+    nearbySubtitle: "המשיכו לגלות את המרכז",
+    matcher: {
+      activities: ["water", "picnic", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      travelTimeFrom: {
+        netanya: "30m",
+        hadera: "30m",
+        "tel-aviv": "1h",
+        rishon: "1h",
+      },
+    },
+  }),
   createDraftTrip({ slug: "matzpor-viker", title: "מצפור ויקר", subtitle: "מבצר עתיק עם נוף על החוף", region: "מרכז", category: "תצפית ונוף", description: "מצפור ויקר הוא אתר היסטורי עם תצפית על הים והסביבה.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
   createDraftTrip({ slug: "nahal-taninim", title: "נחל תנינים", subtitle: "שמורת טבע עם נחל, גשרים ותצפיות", region: "מרכז", category: "שמורת טבע", description: "נחל תנינים הוא שמורת טבע עם שבילים, גשר תצפית ונוף ייחודי.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
   createDraftTrip({ slug: "maagan-michael", title: "מעגן מיכאל", subtitle: "חוף, מים רדודים ופינת צד של הים", region: "מרכז", category: "חוף", description: "מעגן מיכאל הוא חוף ים שקט עם מים רדודים, מתאים למשפחות.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
-  createDraftTrip({ slug: "shmorat-palmachim", title: "שמורת פלמחים", subtitle: "שמורת חוף עם דיונות וטבע", region: "מרכז", category: "שמורת טבע", description: "שמורת פלמחים משלבת חוף ים, דיונות ושבילי טבע — חוויה ייחודית במרכז.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
+  createDraftTrip({
+    slug: "shmorat-palmachim",
+    title: "שמורת פלמחים",
+    subtitle: "שמורת חוף עם דיונות וטבע",
+    region: "מרכז",
+    category: "שמורת טבע",
+    description: "שמורת פלמחים משלבת חוף ים, דיונות ושבילי טבע — חוויה ייחודית במרכז.",
+    nearbySubtitle: "המשיכו לגלות את המרכז",
+    matcher: {
+      activities: ["water", "nature-shade", "picnic", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      travelTimeFrom: {
+        rishon: "1h",
+        holon: "1h",
+        "bat-yam": "1h",
+      },
+    },
+  }),
   createDraftTrip({ slug: "tel-afek", title: "תל אפק", subtitle: "אתר ארכיאולוגי ונוף מרהיב", region: "מרכז", category: "אתר ארכיאולוגי", description: "תל אפק הוא אתר ארכיאולוגי עם שרידים היסטוריים, בריכות מים ונוף פתוח.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
   createDraftTrip({ slug: "yekev-kerem-barak", title: "יקב כרם ברק", subtitle: "יקב וביקור יין באזור המרכז", region: "מרכז", category: "יקב", description: "יקב כרם ברק מציע חוויית יין באזור המרכז, עם סיורים וטעימות.", nearbySubtitle: "המשיכו לגלות את המרכז" }),
   createDraftTrip({ slug: "gan-hachayot-hatanachi", title: "גן החיות התנ״כי", subtitle: "גן חיות עם חיות מהתנ״ך — חוויה משפחתית", region: "ירושלים", category: "חיות וטבע", description: "גן החיות התנ״כי בירושלים מציג חיות מהתנ״ך בסביבה ירוקה ונעימה.", nearbySubtitle: "המשיכו לגלות את ירושלים והסביבה" }),
@@ -294,6 +409,18 @@ const rawTrips: Trip[] = [
     subtitle: "מסלול מים קסום וקליל למשפחות בצפון",
     region: "צפון",
     category: "טיול מים",
+    matcher: {
+      activities: ["water", "nature-shade", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "shade-rich"],
+      weatherAvoid: ["rainy"],
+    },
+    location: {
+      lat: 32.982,
+      lng: 35.527,
+      label: "חניון נחל השופט",
+    },
     metaDescription:
       "מסלול מים קסום וקליל למשפחות בצפון — מדריך מלא לנחל השופט עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — נחל השופט",
@@ -354,6 +481,25 @@ const rawTrips: Trip[] = [
     subtitle: "נווה מדבר מרהיב עם מפל ובריכות טבעיות בדרום",
     region: "דרום",
     category: "טיול מים",
+    matcher: {
+      activities: ["water", "easy-trails", "viewpoint"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "heat-sensitive"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "beer-sheva": "1h",
+        arad: "1h",
+        dimona: "1h",
+        jerusalem: "1h-plus",
+        modiin: "1h-plus",
+      },
+    },
+    location: {
+      lat: 31.378,
+      lng: 35.179,
+      label: "חניון עין ירקעם",
+    },
     metaDescription:
       "עין ירקעם — מסלול מים בדרום עם מפל מרהיב ובריכות טבעיות. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — עין ירקעם",
@@ -414,6 +560,24 @@ const rawTrips: Trip[] = [
     subtitle: "מעיינות קסומים וטרסות עתיקות בהרי ירושלים",
     region: "ירושלים",
     category: "מעיינות",
+    matcher: {
+      activities: ["water", "nature-shade", "easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "shade-rich", "rain-sensitive"],
+      travelTimeFrom: {
+        jerusalem: "30m",
+        "maale-adumim": "30m",
+        "beit-shemesh": "30m",
+        modiin: "1h",
+        ramla: "1h",
+      },
+    },
+    location: {
+      lat: 31.768,
+      lng: 35.114,
+      label: "חניון הסטף",
+    },
     metaDescription:
       "הסטף — מעיינות וטרסות עתיקות בהרי ירושלים. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — הסטף",
@@ -474,6 +638,22 @@ const rawTrips: Trip[] = [
     subtitle: "נחל מים ומפלים בלב מדבר יהודה — חוויה משפחתית בדרום",
     region: "דרום",
     category: "טיול מים",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "heat-sensitive"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "beer-sheva": "1h-plus",
+        arad: "1h-plus",
+      },
+    },
+    location: {
+      lat: 31.826,
+      lng: 35.364,
+      label: "חניון עין בוקק",
+    },
     metaDescription:
       "עין בוקק — נחל מים ומפלים במדבר יהודה. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — עין בוקק",
@@ -534,6 +714,23 @@ const rawTrips: Trip[] = [
     subtitle: "אגם, חול ושקיעות — יום כיף משפחתי על חוף הדרום",
     region: "דרום",
     category: "טיול מים",
+    matcher: {
+      activities: ["water", "picnic", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      travelTimeFrom: {
+        ashdod: "30m",
+        ashkelon: "30m",
+        rishon: "1h",
+        holon: "1h",
+        "bat-yam": "1h",
+      },
+    },
+    location: {
+      lat: 31.749,
+      lng: 34.622,
+      label: "חניון אגם ניצנים",
+    },
     metaDescription:
       "אגם ניצנים — אגם מלאכותי עם חוף ים בדרום. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — אגם ניצנים",
@@ -595,6 +792,32 @@ const rawTrips: Trip[] = [
     region: "צפון",
     category: "מעיין",
     featured: true,
+    matcher: {
+      activities: ["water", "picnic", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "shade-rich", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "kfar-saba": "1h",
+        raanana: "1h",
+        "hod-hasharon": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        modiin: "1h-plus",
+        ramla: "1h-plus",
+        lod: "1h-plus",
+      },
+    },
+    location: {
+      lat: 32.683,
+      lng: 35.289,
+      label: "עין מודע",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A2%D7%99%D7%9F%20%D7%9E%D7%95%D7%93%D7%A2&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=%D7%A2%D7%99%D7%9F%20%D7%9E%D7%95%D7%93%D7%A2",
+    },
     seoTitle: "עין מודע – מעיין מומלץ למשפחות בצפון | שביל הלב",
     metaDescription:
       "עין מודע הוא אחד המעיינות היפים בצפון. מים צלולים, צל טבעי, שולחנות פיקניק, שירותים ומסלול נוח למשפחות עם ילדים.",
@@ -673,6 +896,25 @@ const rawTrips: Trip[] = [
     region: "מרכז",
     category: "שטח 4x4",
     vehicleAccess: "soft-suv",
+    matcher: {
+      activities: ["easy-trails", "picnic", "viewpoint", "camping"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["shade-rich", "rain-sensitive"],
+      travelTimeFrom: {
+        modiin: "30m",
+        ramla: "30m",
+        lod: "30m",
+        rishon: "1h",
+        "tel-aviv": "1h",
+        "petah-tikva": "1h",
+      },
+    },
+    location: {
+      lat: 31.929,
+      lng: 34.939,
+      label: "חניון יער בן שמן",
+    },
     metaDescription:
       "יער בן שמן — מסלולי שטח קלים במרכז. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — יער בן שמן",
@@ -733,6 +975,23 @@ const rawTrips: Trip[] = [
     subtitle: "שמורת טבע עם תצפיות, ציפורים ונוף ים ושמורה",
     region: "מרכז",
     category: "תצפיות ונוף",
+    matcher: {
+      activities: ["viewpoint", "easy-trails", "nature-shade", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["shade-rich", "rain-sensitive"],
+      travelTimeFrom: {
+        rishon: "1h",
+        holon: "1h",
+        "bat-yam": "1h",
+        ramla: "1h",
+      },
+    },
+    location: {
+      lat: 31.857,
+      lng: 34.714,
+      label: "חניון שפך נחל שורק",
+    },
     metaDescription:
       "שפך נחל שורק — שמורת טבע עם תצפיות ונוף במרכז. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
     heroImageLabel: "תמונת רקע — שפך נחל שורק",

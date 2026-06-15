@@ -21,6 +21,7 @@ import {
 import { buildMatchReasons } from "@/lib/find-my-trip/match-reasons";
 import { resolveFilterWithRelaxation } from "@/lib/find-my-trip/relax-matching";
 import { isTripFullyAuthored } from "@/lib/find-my-trip/trip-profile";
+import { getTravelDistanceScoreBonus } from "@/lib/find-my-trip/travel-distance";
 import { getWeatherMatchScore } from "@/lib/find-my-trip/weather-matching";
 import { getVehicleMatchScore } from "@/lib/find-my-trip/vehicle-matching";
 import { getCityLabel } from "@/lib/find-my-trip/city-regions";
@@ -43,6 +44,7 @@ function scoreTrip(
   score += getCompanionMatchScore(trip, answers.companion);
   score += getBudgetMatchScore(trip, answers.budget);
   score += getVehicleMatchScore(trip, answers.vehicle);
+  score += getTravelDistanceScoreBonus(trip, answers.city);
   score += trip.featured ? 5 : 0;
   score += isTripFullyAuthored(trip) ? 10 : 0;
 

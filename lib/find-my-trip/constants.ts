@@ -1,12 +1,13 @@
 import type {
   ActivityType,
   BudgetTier,
-  CityId,
   CompanionType,
   TravelTime,
   WeatherPreference,
 } from "@/lib/find-my-trip/types";
+import type { CityId } from "@/lib/find-my-trip/cities";
 import type { VehicleCategoryId } from "@/lib/vehicle-trip-match";
+import { ISRAEL_CITIES } from "@/lib/find-my-trip/cities";
 
 export const WIZARD_STEP_COUNT = 7;
 
@@ -36,49 +37,56 @@ export const ACTIVITY_OPTIONS: {
   { id: "camping", label: "קמפינג" },
 ];
 
-export const CITY_OPTIONS: {
-  id: CityId;
-  label: string;
-}[] = [
-  { id: "rishon", label: "ראשון לציון" },
-  { id: "tel-aviv", label: "תל אביב" },
-  { id: "jerusalem", label: "ירושלים" },
-  { id: "beer-sheva", label: "באר שבע" },
-  { id: "haifa", label: "חיפה" },
-  { id: "modiin", label: "מודיעין" },
-  { id: "netanya", label: "נתניה" },
-  { id: "ashdod", label: "אשדוד" },
-];
+export const CITY_OPTIONS = ISRAEL_CITIES.map((city) => ({
+  id: city.id,
+  label: city.label,
+}));
 
 export const TRAVEL_TIME_OPTIONS: {
   id: TravelTime;
   label: string;
 }[] = [
-  { id: "30m", label: "עד 30 דקות" },
+  { id: "30m", label: "עד חצי שעה" },
   { id: "1h", label: "עד שעה" },
-  { id: "1h30", label: "עד שעה וחצי" },
-  { id: "2h", label: "עד שעתיים" },
+  { id: "1h-plus", label: "שעה+" },
   { id: "any", label: "לא משנה" },
 ];
 
 export const BUDGET_OPTIONS: {
   id: BudgetTier;
   label: string;
-  sublabel?: string;
+  sublabel: string;
 }[] = [
-  { id: "free", label: "חינם", sublabel: "כניסה ללא עלות" },
-  { id: "up-to-50", label: "עד 50₪", sublabel: "כניסה וחניה" },
-  { id: "up-to-100", label: "עד 100₪", sublabel: "יום משפחתי קטן" },
-  { id: "any", label: "לא משנה" },
+  {
+    id: "free",
+    label: "חינם",
+    sublabel: "טיולים עם כניסה ללא עלות",
+  },
+  {
+    id: "up-to-50",
+    label: "עד 50 ₪ לאדם",
+    sublabel: "דמי כניסה נמוכים או חניה בתשלום",
+  },
+  {
+    id: "above-50",
+    label: "50 ₪ ומעלה",
+    sublabel: "פארקים, אטרקציות או כניסה בתשלום גבוה יותר",
+  },
+  {
+    id: "any",
+    label: "לא משנה לי",
+    sublabel: "תראו לי את כל האפשרויות",
+  },
 ];
 
 export const WEATHER_OPTIONS: {
   id: WeatherPreference;
   label: string;
 }[] = [
-  { id: "hot-day", label: "יום חם" },
-  { id: "pleasant", label: "מזג אוויר נעים" },
-  { id: "winter-after-rain", label: "חורף / אחרי גשם" },
+  { id: "hot", label: "חם" },
+  { id: "pleasant", label: "נעים" },
+  { id: "cold", label: "קר" },
+  { id: "rainy", label: "גשום / אחרי גשם" },
 ];
 
 export const ACTIVITY_LABELS: Record<ActivityType, string> = {
@@ -99,15 +107,16 @@ export const COMPANION_LABELS: Record<CompanionType, string> = {
 
 export const BUDGET_LABELS: Record<BudgetTier, string> = {
   free: "חינם",
-  "up-to-50": "עד 50₪",
-  "up-to-100": "עד 100₪",
-  any: "לא משנה",
+  "up-to-50": "עד 50 ₪ לאדם",
+  "above-50": "50 ₪ ומעלה",
+  any: "לא משנה לי",
 };
 
 export const WEATHER_LABELS: Record<WeatherPreference, string> = {
-  "hot-day": "יום חם",
-  pleasant: "מזג אוויר נעים",
-  "winter-after-rain": "חורף / אחרי גשם",
+  hot: "חם",
+  pleasant: "נעים",
+  cold: "קר",
+  rainy: "גשום / אחרי גשם",
 };
 
 export const VEHICLE_LABELS: Record<VehicleCategoryId, string> = {
@@ -139,12 +148,14 @@ export const RESULTS_SLOT_IDS = {
 
 /** Homepage CTA copy — wizard lives only at /find-my-trip. */
 export const HOMEPAGE_CTA = {
-  title: "לא יודעת לאן לטייל היום?",
+  title: "לא יודעים לאן לטייל היום?",
   description:
-    "עני על כמה שאלות קצרות ונמצא עבורך את הטיול המושלם.",
-  button: "מצאי לי טיול",
+    "ענו על כמה שאלות קצרות ונמצא עבורכם את הטיול המושלם.",
+  button: "מצאו לי טיול",
   href: "/find-my-trip",
 } as const;
 
 export const PRIMARY_RECOMMENDATION_TITLE = "ההמלצה שלנו להיום";
 export const MATCH_REASONS_TITLE = "למה בחרנו את זה בשבילך";
+
+export const CITY_GEOLOCATION_FEATURE = "city-geolocation";

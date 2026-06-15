@@ -31,20 +31,17 @@ export function getBudgetReasonLabel(
 
   if (budget === "up-to-50") {
     if (cost === "free" || cost === 0) {
-      return "כניסה חינם — בתקציב שלך";
+      return "כניסה חינם — בתקציב שלכם";
     }
     if (typeof cost === "number" && cost <= 50) {
-      return "בתקציב של עד 50₪";
+      return "בתקציב של עד 50 ₪ לאדם";
     }
     return null;
   }
 
-  if (budget === "up-to-100") {
-    if (cost === "free" || cost === 0) {
-      return "כניסה חינם — בתקציב שלך";
-    }
-    if (typeof cost === "number" && cost <= 100) {
-      return "בתקציב של עד 100₪";
+  if (budget === "above-50") {
+    if (typeof cost === "number" && cost > 50) {
+      return "מתאים לתקציב של 50 ₪ ומעלה";
     }
     return null;
   }

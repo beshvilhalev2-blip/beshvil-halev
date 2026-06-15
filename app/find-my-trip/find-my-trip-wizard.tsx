@@ -3,22 +3,20 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { getTripBySlug, trips } from "@/data/trips";
 import FindMyTripResults from "@/app/find-my-trip/components/find-my-trip-results";
+import WizardCitySelect from "@/app/find-my-trip/components/wizard-city-select";
 import WizardOptionGrid from "@/app/find-my-trip/components/wizard-option-grid";
 import WizardProgress from "@/app/find-my-trip/components/wizard-progress";
 import WizardStepShell from "@/app/find-my-trip/components/wizard-step-shell";
-import { WIZARD_STEP_COPY } from "@/app/find-my-trip/wizard-config";
+import { TRAVEL_TIME_DISCLAIMER, WIZARD_STEP_COPY } from "@/app/find-my-trip/wizard-config";
 import {
-  ACTIVITY_OPTIONS,
-  BUDGET_OPTIONS,
-  CITY_OPTIONS,
-  COMPANION_OPTIONS,
-  TRAVEL_TIME_OPTIONS,
-  WEATHER_OPTIONS,
-} from "@/lib/find-my-trip/constants";
-import {
-  matchTripsFromAnswers,
-  toTripRef,
-} from "@/lib/find-my-trip";
+  ACTIVITY_OPTIONS_WITH_ICONS,
+  BUDGET_OPTIONS_WITH_ICONS,
+  TRAVEL_TIME_OPTIONS_WITH_ICONS,
+  WEATHER_OPTIONS_WITH_ICONS,
+  COMPANION_OPTIONS_WITH_ICONS,
+} from "@/app/find-my-trip/wizard-option-defs";
+import { WIZARD_STEP_COUNT } from "@/lib/find-my-trip/constants";
+import { matchTripsFromAnswers, toTripRef } from "@/lib/find-my-trip";
 import type {
   ActivityType,
   BudgetTier,
@@ -198,21 +196,20 @@ export default function FindMyTripWizard() {
     runMatching(null);
   };
 
-  const nextLabel = step === 7 ? "מצאי לי טיולים" : "המשך";
+  const nextLabel = step === 7 ? "מצאו לי טיולים" : "המשך";
 
   return (
     <div className="bg-stone-50 px-6 pb-16 pt-28 dark:bg-stone-950 sm:pb-20 sm:pt-32">
       <div className="mx-auto max-w-3xl">
         <div className="mb-10 text-center">
           <p className="mb-4 inline-block rounded-full border border-stone-200 bg-white px-4 py-1.5 text-sm font-medium text-stone-600 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300">
-            מצאי לי טיול
+            מצאו לי טיול
           </p>
           <h1 className="mb-4 text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-5xl">
-            בואי נמצא את הטיול שלך
+            בואו נמצא את הטיול המתאים
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-stone-600 dark:text-stone-400">
-            עני על {WIZARD_STEP_COPY.length} שאלות קצרות — ונציע לך מסלולים
-            שמתאימים לך
+            ענו על {WIZARD_STEP_COUNT} שאלות קצרות — ונציע לכם מסלולים שמתאימים
           </p>
         </div>
 
@@ -232,7 +229,7 @@ export default function FindMyTripWizard() {
               {step === 1 ? (
                 <WizardOptionGrid
                   name="companion"
-                  options={COMPANION_OPTIONS}
+                  options={COMPANION_OPTIONS_WITH_ICONS}
                   selectedId={companion}
                   onSelect={(id) => setCompanion(id as CompanionType)}
                 />
@@ -241,34 +238,37 @@ export default function FindMyTripWizard() {
               {step === 2 ? (
                 <WizardOptionGrid
                   name="activity"
-                  options={ACTIVITY_OPTIONS}
+                  options={ACTIVITY_OPTIONS_WITH_ICONS}
                   selectedId={activity}
                   onSelect={(id) => setActivity(id as ActivityType)}
                 />
               ) : null}
 
               {step === 3 ? (
-                <WizardOptionGrid
-                  name="city"
-                  options={CITY_OPTIONS}
+                <WizardCitySelect
                   selectedId={city}
-                  onSelect={(id) => setCity(id as CityId)}
+                  onSelect={(id) => setCity(id)}
                 />
               ) : null}
 
               {step === 4 ? (
-                <WizardOptionGrid
-                  name="travel-time"
-                  options={TRAVEL_TIME_OPTIONS}
-                  selectedId={travelTime}
-                  onSelect={(id) => setTravelTime(id as TravelTime)}
-                />
+                <div className="space-y-4">
+                  <WizardOptionGrid
+                    name="travel-time"
+                    options={TRAVEL_TIME_OPTIONS_WITH_ICONS}
+                    selectedId={travelTime}
+                    onSelect={(id) => setTravelTime(id as TravelTime)}
+                  />
+                  <p className="px-1 text-sm leading-relaxed text-stone-500 break-words dark:text-stone-400">
+                    {TRAVEL_TIME_DISCLAIMER}
+                  </p>
+                </div>
               ) : null}
 
               {step === 5 ? (
                 <WizardOptionGrid
                   name="budget"
-                  options={BUDGET_OPTIONS}
+                  options={BUDGET_OPTIONS_WITH_ICONS}
                   selectedId={budget}
                   onSelect={(id) => setBudget(id as BudgetTier)}
                 />
@@ -277,7 +277,7 @@ export default function FindMyTripWizard() {
               {step === 6 ? (
                 <WizardOptionGrid
                   name="weather"
-                  options={WEATHER_OPTIONS}
+                  options={WEATHER_OPTIONS_WITH_ICONS}
                   selectedId={weather}
                   onSelect={(id) => setWeather(id as WeatherPreference)}
                 />
@@ -290,12 +290,12 @@ export default function FindMyTripWizard() {
                     onClick={handleSkipVehicle}
                     className="flex w-full min-h-12 items-center justify-center rounded-2xl bg-stone-900 px-5 py-4 text-base font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
                   >
-                    דלגי — לא רלוונטי
+                    דלגו — לא רלוונטי
                   </button>
 
                   <div>
                     <p className="mb-4 text-center text-sm font-medium text-stone-500 dark:text-stone-400">
-                      או בחרי סוג רכב
+                      או בחרו סוג רכב
                     </p>
                     <WizardOptionGrid
                       name="vehicle"

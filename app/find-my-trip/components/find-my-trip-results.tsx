@@ -45,11 +45,11 @@ export default function FindMyTripResults({
     >
       <div className="mb-8 text-center">
         <p className="mb-4 inline-block rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-200">
-          התוצאות שלך
+          התוצאות שלכם
         </p>
         <h2 className="mb-4 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
           {result.totalCount > 0
-            ? `מצאנו לך ${result.totalCount} טיולים שמתאימים לך`
+            ? `מצאנו לכם ${result.totalCount} טיולים שמתאימים`
             : "לא מצאנו התאמה מדויקת הפעם"}
         </h2>
 
@@ -72,7 +72,7 @@ export default function FindMyTripResults({
           role="note"
           className="mb-8 rounded-2xl border border-amber-200/80 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-100"
         >
-          לא מצאנו התאמה מושלמת — הנה הצעות קרובות למה שחיפשת.
+          לא מצאנו התאמה מושלמת — הנה הצעות קרובות למה שחיפשתם.
         </div>
       ) : null}
 
@@ -123,7 +123,7 @@ export default function FindMyTripResults({
           onClick={onRestart}
           className="inline-flex min-h-11 items-center justify-center rounded-xl border border-stone-200 bg-white px-6 py-3 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-200 dark:hover:bg-stone-800"
         >
-          התחילי מחדש
+          התחילו מחדש
         </button>
       </div>
     </section>
