@@ -1,127 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { ReactNode } from "react";
 import type { Trip } from "@/data/trips";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
+import TripActionBar from "@/app/components/trip-action-bar";
 import { getTripHeroBackground } from "@/lib/trip-media";
-import { getTripGoogleMapsUrl, getTripWazeUrl } from "@/lib/trip-location";
-
-function WazeIcon({ className = "size-6" }: { className?: string }) {
-  return (
-    <img
-      src="/icons/waze.svg"
-      alt=""
-      className={className}
-      aria-hidden={true}
-    />
-  );
-}
-
-function MapsIcon({ className = "size-6" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z" />
-    </svg>
-  );
-}
-
-type TripNavButtonProps = {
-  href?: string;
-  label: string;
-  icon: ReactNode;
-  variant: "waze" | "maps";
-  ariaLabel: string;
-};
-
-function TripNavButton({
-  href,
-  label,
-  icon,
-  variant,
-  ariaLabel,
-}: TripNavButtonProps) {
-  const isWaze = variant === "waze";
-  const enabledClassName = isWaze
-    ? "group flex w-full min-h-[4.25rem] items-center gap-4 rounded-2xl border border-cyan-200/45 bg-gradient-to-br from-[#5ad5ff] via-[#33ccff] to-[#00aee6] px-5 py-4 text-white shadow-xl shadow-cyan-950/30 backdrop-blur-md transition-all hover:-translate-y-0.5 hover:from-[#6bdbff] hover:to-[#1ec0f3] hover:shadow-2xl hover:shadow-cyan-950/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:min-w-[13rem] sm:flex-1 sm:px-6"
-    : "group flex w-full min-h-[4.25rem] items-center gap-4 rounded-2xl border border-white/45 bg-white/92 px-5 py-4 text-stone-800 shadow-xl shadow-stone-950/25 backdrop-blur-md transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:min-w-[13rem] sm:flex-1 sm:px-6";
-  const disabledClassName = isWaze
-    ? "flex w-full min-h-[4.25rem] cursor-not-allowed items-center gap-4 rounded-2xl border border-cyan-300/25 bg-gradient-to-br from-[#33ccff]/30 via-white/12 to-[#0099cc]/20 px-5 py-4 text-white shadow-lg shadow-cyan-950/15 backdrop-blur-xl sm:min-w-[13rem] sm:flex-1 sm:px-6"
-    : "flex w-full min-h-[4.25rem] cursor-not-allowed items-center gap-4 rounded-2xl border border-white/30 bg-white/16 px-5 py-4 text-white shadow-lg shadow-stone-950/20 backdrop-blur-xl sm:min-w-[13rem] sm:flex-1 sm:px-6";
-  const iconWrapEnabled = isWaze
-    ? "flex size-12 shrink-0 items-center justify-center rounded-xl bg-white/80 shadow-sm ring-1 ring-white/50 transition-colors duration-300 group-hover:bg-white/22 group-hover:shadow-inner group-hover:ring-white/25"
-    : "flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-50 to-sky-50 shadow-inner ring-1 ring-stone-200/80";
-  const iconWrapDisabled = isWaze
-    ? "flex size-12 shrink-0 items-center justify-center rounded-xl bg-cyan-400/18 ring-1 ring-cyan-200/25"
-    : "flex size-12 shrink-0 items-center justify-center rounded-xl bg-white/14 ring-1 ring-white/25";
-
-  const content = (
-    <>
-      <span className={href ? iconWrapEnabled : iconWrapDisabled}>{icon}</span>
-      <span className="flex min-w-0 flex-col items-start gap-0.5 text-start">
-        <span className="text-sm font-bold leading-tight sm:text-base break-words">
-          {label}
-        </span>
-        {!href && (
-          <span className="text-xs font-medium text-white/60">בקרוב</span>
-        )}
-      </span>
-    </>
-  );
-
-  if (href) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={ariaLabel}
-        className={enabledClassName}
-      >
-        {content}
-      </a>
-    );
-  }
-
-  return (
-    <button
-      type="button"
-      disabled
-      aria-label={`${ariaLabel} — בקרוב`}
-      className={disabledClassName}
-    >
-      {content}
-    </button>
-  );
-}
-
-function TripNavigationButtons({ trip }: { trip: Trip }) {
-  const wazeUrl = getTripWazeUrl(trip);
-  const googleMapsUrl = getTripGoogleMapsUrl(trip);
-
-  return (
-    <div className="flex w-full max-w-2xl flex-col items-stretch gap-3 sm:flex-row">
-      <TripNavButton
-        href={wazeUrl}
-        label="נווט עם Waze"
-        variant="waze"
-        ariaLabel={`נווט עם Waze ל${trip.title}`}
-        icon={<WazeIcon className="size-6 text-white" />}      />
-      <TripNavButton
-        href={googleMapsUrl}
-        label="נווט עם Google Maps"
-        variant="maps"
-        ariaLabel={`נווט עם Google Maps ל${trip.title}`}
-        icon={<MapsIcon className="size-6 text-[#ea4335]" />}
-      />
-    </div>
-  );
-}
 
 function ArrowIcon() {
   return (
@@ -165,15 +48,17 @@ export default function TripArticle({ trip }: { trip: Trip }) {
             </span>
           </div>
 
-          <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
+          <h1 className="mb-3 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
             {trip.title}
           </h1>
+
+          <div className="mb-4">
+            <TripActionBar trip={trip} variant="hero" />
+          </div>
 
           <p className="mb-8 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
             {trip.subtitle}
           </p>
-
-          <TripNavigationButtons trip={trip} />
         </div>
       </section>
 
@@ -341,6 +226,10 @@ export default function TripArticle({ trip }: { trip: Trip }) {
             </div>
           </div>
         </section>
+
+        <div className="mx-auto max-w-3xl px-6 pb-6">
+          <TripActionBar trip={trip} variant="article" className="mx-auto sm:mx-0" />
+        </div>
 
         {/* מקומות נוספים באזור */}
         <section className="px-6 py-16 sm:py-20">

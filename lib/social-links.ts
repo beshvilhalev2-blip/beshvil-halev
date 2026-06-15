@@ -2,12 +2,12 @@ export const socialLinks = [
   {
     id: "facebook",
     label: "פייסבוק",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/milana.polishuk.5/?locale=he_IL",
   },
   {
     id: "instagram",
     label: "אינסטגרם",
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/milana__rose/",
   },
 ] as const;
 
