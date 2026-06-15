@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { SocialLinksMobileList, SocialLinksRow } from "@/app/components/social-links";
 
@@ -8,10 +9,12 @@ const navItems = [
   { label: "ראשי", href: "/" },
   { label: "המלצות לטיולים", href: "/recommendations" },
   { label: "אזורים בארץ", href: "/#regions" },
-  { label: "שטח 4x4", href: "/categories/4x4" },
+  { label: "שטח 4x4", href: "/offroad" },
   { label: "אודות", href: "/about" },
   { label: "צור קשר", href: "/contact" },
 ] as const;
+
+const SOLID_HEADER_PATHS = new Set(["/recommendations", "/search"]);
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -93,6 +96,7 @@ function HeaderSearchToggle({
 }
 
 export default function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -159,7 +163,11 @@ export default function SiteHeader() {
     window.location.href = target;
   }
 
-  const headerSolid = scrolled || menuOpen || searchOpen;
+  const headerSolid =
+    SOLID_HEADER_PATHS.has(pathname) ||
+    scrolled ||
+    menuOpen ||
+    searchOpen;
 
   return (
     <header
@@ -195,7 +203,7 @@ export default function SiteHeader() {
               key={item.href}
               href={item.href}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                scrolled
+                headerSolid
                   ? "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
                   : "text-white/90 hover:bg-white/15 hover:text-white"
               }`}
@@ -206,13 +214,13 @@ export default function SiteHeader() {
           <SocialLinksRow
             className="me-1 ms-3 border-s border-stone-200/60 ps-3 dark:border-stone-700/60"
             linkClassName={`inline-flex items-center justify-center rounded-full p-2 transition-colors ${
-              scrolled
+              headerSolid
                 ? "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
                 : "text-white/90 hover:bg-white/15 hover:text-white"
             }`}
           />
           <HeaderSearchToggle
-            scrolled={scrolled}
+            scrolled={headerSolid}
             menuOpen={menuOpen}
             searchOpen={searchOpen}
             onToggle={handleSearchToggle}
@@ -221,14 +229,14 @@ export default function SiteHeader() {
 
         <div className="flex items-center gap-2 lg:hidden">
           <HeaderSearchToggle
-            scrolled={scrolled}
+            scrolled={headerSolid}
             menuOpen={menuOpen}
             searchOpen={searchOpen}
             onToggle={handleSearchToggle}
           />
           <SocialLinksRow
             linkClassName={`inline-flex items-center justify-center rounded-xl p-2 transition-colors ${
-              scrolled || menuOpen
+              headerSolid
                 ? "text-stone-800 hover:bg-stone-100 dark:text-stone-100 dark:hover:bg-stone-800"
                 : "text-white hover:bg-white/15"
             }`}
@@ -236,7 +244,7 @@ export default function SiteHeader() {
           <button
             type="button"
             className={`inline-flex items-center justify-center rounded-xl p-2.5 transition-colors ${
-              scrolled || menuOpen
+              headerSolid
                 ? "text-stone-800 hover:bg-stone-100 dark:text-stone-100 dark:hover:bg-stone-800"
                 : "text-white hover:bg-white/15"
             }`}
@@ -294,7 +302,7 @@ export default function SiteHeader() {
         className={`overflow-hidden border-t transition-all duration-500 lg:hidden ${
           menuOpen ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0"
         } ${
-          scrolled || menuOpen
+          headerSolid
             ? "border-stone-200/60 bg-white/95 dark:border-stone-700/60 dark:bg-stone-950/95"
             : "border-white/10 bg-stone-900/90 backdrop-blur-xl"
         }`}
@@ -307,7 +315,7 @@ export default function SiteHeader() {
               <Link
                 href={item.href}
                 className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
-                  scrolled || menuOpen
+                  headerSolid
                     ? "text-stone-700 hover:bg-stone-100 dark:text-stone-200 dark:hover:bg-stone-800"
                     : "text-white/90 hover:bg-white/10 hover:text-white"
                 }`}
@@ -324,7 +332,7 @@ export default function SiteHeader() {
             <SocialLinksMobileList
               className="flex flex-col gap-1"
               linkClassName={`flex items-center gap-3 rounded-xl px-4 py-3 text-base font-medium transition-colors ${
-                scrolled || menuOpen
+                headerSolid
                   ? "text-stone-700 hover:bg-stone-100 dark:text-stone-200 dark:hover:bg-stone-800"
                   : "text-white/90 hover:bg-white/10 hover:text-white"
               }`}

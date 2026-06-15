@@ -25,7 +25,7 @@ export default function RootLayout({
       dir="rtl"
       className={`${heebo.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col font-sans">{children}</body>
+      <body className="flex min-h-screen flex-col font-sans">{children}</body>
     </html>
   );
 }
