@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Trip } from "@/data/trips";
 import SiteHeader from "@/app/components/site-header";
+import SiteFooter from "@/app/components/site-footer";
 import { getTripHeroBackground } from "@/lib/trip-media";
 
 function WazeIcon() {
@@ -292,20 +293,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
         </section>
       </article>
 
-      {/* Footer */}
-      <footer className="border-t border-stone-200 bg-white px-6 py-10 dark:border-stone-800 dark:bg-stone-900">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
-          <Link
-            href="/"
-            className="text-lg font-semibold text-stone-800 transition-colors hover:text-stone-600 dark:text-stone-100 dark:hover:text-stone-300"
-          >
-            בשביל הלב
-          </Link>
-          <p className="text-sm text-stone-500 dark:text-stone-400">
-            © {new Date().getFullYear()} · כל הזכויות שמורות
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { SocialLinksMobileList, SocialLinksRow } from "@/app/components/social-links";
 
 const navItems = [
   { label: "ראשי", href: "/" },
@@ -63,11 +64,11 @@ export default function SiteHeader() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled || menuOpen
-          ? "border-b border-stone-200/60 bg-white/85 shadow-lg shadow-stone-900/5 backdrop-blur-xl dark:border-stone-700/60 dark:bg-stone-950/85"
-          : "border-b border-white/10 bg-white/10 backdrop-blur-md"
+          ? "border-b border-stone-200/60 bg-white/90 shadow-lg shadow-stone-900/5 backdrop-blur-xl dark:border-stone-700/60 dark:bg-stone-950/90"
+          : "border-b border-white/15 bg-white/20 shadow-sm shadow-stone-900/5 backdrop-blur-xl dark:border-stone-700/30 dark:bg-stone-950/50"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 lg:gap-6">
         <Link
           href="/"
           className={`text-xl font-bold tracking-tight transition-colors ${
@@ -97,28 +98,45 @@ export default function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <SocialLinksRow
+            className="me-1 ms-3 border-s border-stone-200/60 ps-3 dark:border-stone-700/60"
+            linkClassName={`inline-flex items-center justify-center rounded-full p-2 transition-colors ${
+              scrolled
+                ? "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
+                : "text-white/90 hover:bg-white/15 hover:text-white"
+            }`}
+          />
         </nav>
 
-        <button
-          type="button"
-          className={`inline-flex items-center justify-center rounded-xl p-2.5 transition-colors lg:hidden ${
-            scrolled || menuOpen
-              ? "text-stone-800 hover:bg-stone-100 dark:text-stone-100 dark:hover:bg-stone-800"
-              : "text-white hover:bg-white/15"
-          }`}
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
-          aria-label={menuOpen ? "סגור תפריט" : "פתח תפריט"}
-        >
-          <MenuIcon open={menuOpen} />
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <SocialLinksRow
+            linkClassName={`inline-flex items-center justify-center rounded-xl p-2 transition-colors ${
+              scrolled || menuOpen
+                ? "text-stone-800 hover:bg-stone-100 dark:text-stone-100 dark:hover:bg-stone-800"
+                : "text-white hover:bg-white/15"
+            }`}
+          />
+          <button
+            type="button"
+            className={`inline-flex items-center justify-center rounded-xl p-2.5 transition-colors ${
+              scrolled || menuOpen
+                ? "text-stone-800 hover:bg-stone-100 dark:text-stone-100 dark:hover:bg-stone-800"
+                : "text-white hover:bg-white/15"
+            }`}
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label={menuOpen ? "סגור תפריט" : "פתח תפריט"}
+          >
+            <MenuIcon open={menuOpen} />
+          </button>
+        </div>
       </div>
 
       <nav
         id="mobile-nav"
         className={`overflow-hidden border-t transition-all duration-500 lg:hidden ${
-          menuOpen ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0"
         } ${
           scrolled || menuOpen
             ? "border-stone-200/60 bg-white/95 dark:border-stone-700/60 dark:bg-stone-950/95"
@@ -143,6 +161,20 @@ export default function SiteHeader() {
               </Link>
             </li>
           ))}
+          <li className="mt-2 border-t border-stone-200/60 pt-3 dark:border-stone-700/60">
+            <p className="mb-2 px-4 text-xs font-semibold text-stone-500 dark:text-stone-400">
+              רשתות חברתיות
+            </p>
+            <SocialLinksMobileList
+              className="flex flex-col gap-1"
+              linkClassName={`flex items-center gap-3 rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                scrolled || menuOpen
+                  ? "text-stone-700 hover:bg-stone-100 dark:text-stone-200 dark:hover:bg-stone-800"
+                  : "text-white/90 hover:bg-white/10 hover:text-white"
+              }`}
+              onLinkClick={() => setMenuOpen(false)}
+            />
+          </li>
         </ul>
       </nav>
     </header>

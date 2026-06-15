@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SiteHeader from "./components/site-header";
+import SiteFooter from "./components/site-footer";
 import TripCard from "./components/trip-card";
 import HeartTrailMap from "./components/heart-trail-map";
 import { getHomepageTrips } from "@/data/trips";
@@ -301,17 +302,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer strip */}
-      <footer className="border-t border-stone-200 bg-white px-6 py-10 dark:border-stone-800 dark:bg-stone-900">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-lg font-semibold text-stone-800 dark:text-stone-100">
-            בשביל הלב
-          </p>
-          <p className="text-sm text-stone-500 dark:text-stone-400">
-            © {new Date().getFullYear()} · כל הזכויות שמורות
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

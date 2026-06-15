@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import SiteHeader from "@/app/components/site-header";
+import SiteFooter from "@/app/components/site-footer";
+import { SocialLinkCards } from "@/app/components/social-links";
 import ContactForm from "@/app/contact/contact-form";
 
 export const metadata: Metadata = {
@@ -20,29 +22,6 @@ const heroBackground = `
   ),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230d9488'/%3E%3Cstop offset='50%25' stop-color='%230284c7'/%3E%3Cstop offset='100%25' stop-color='%23145332'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky)' width='1920' height='1080'/%3E%3Cpath fill='%23059669' opacity='0.3' d='M0 680 Q640 560 1280 640 T1920 600 L1920 1080 L0 1080 Z'/%3E%3C/svg%3E")
 `;
-
-const socialLinks = [
-  {
-    label: "Facebook",
-    href: "#",
-    ariaLabel: "Facebook — קישור יתווסף בקרוב",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="size-6" aria-hidden="true">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Instagram",
-    href: "#",
-    ariaLabel: "Instagram — קישור יתווסף בקרוב",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="size-6" aria-hidden="true">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-      </svg>
-    ),
-  },
-] as const;
 
 function SectionHeading({ children }: { children: ReactNode }) {
   return (
@@ -97,23 +76,9 @@ export default function ContactPage() {
           <div className="mx-auto max-w-xl text-center">
             <SectionHeading>עקבו אחרינו</SectionHeading>
             <p className="mb-10 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-              בקרוב נעלה קישורים לרשתות החברתיות שלנו. עד אז — אפשר תמיד לפנות
-              דרך הטופס.
+              הצטרפו אלינו ברשתות החברתיות לעדכונים, תמונות מהשטח והמלצות חדשות.
             </p>
-            <ul className="flex flex-wrap items-center justify-center gap-4">
-              {socialLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    aria-label={link.ariaLabel}
-                    className="inline-flex items-center gap-3 rounded-2xl border border-stone-200/80 bg-stone-50 px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:border-stone-300 hover:bg-stone-100 dark:border-stone-700 dark:bg-stone-950 dark:text-stone-200 dark:hover:border-stone-600 dark:hover:bg-stone-800"
-                  >
-                    {link.icon}
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <SocialLinkCards />
           </div>
         </section>
 
@@ -148,19 +113,7 @@ export default function ContactPage() {
         </section>
       </article>
 
-      <footer className="border-t border-stone-200 bg-white px-6 py-10 dark:border-stone-800 dark:bg-stone-900">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
-          <Link
-            href="/"
-            className="text-lg font-semibold text-stone-800 transition-colors hover:text-stone-600 dark:text-stone-100 dark:hover:text-stone-300"
-          >
-            בשביל הלב
-          </Link>
-          <p className="text-sm text-stone-500 dark:text-stone-400">
-            © {new Date().getFullYear()} · כל הזכויות שמורות
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
