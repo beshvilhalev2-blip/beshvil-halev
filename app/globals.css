@@ -25,17 +25,21 @@ body {
 
 @keyframes field-updates-marquee {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   @media (min-width: 1024px) {
     .field-updates-marquee-track {
-      animation: field-updates-marquee 72s linear infinite;
+      display: flex;
+      width: max-content;
+      flex-wrap: nowrap;
+      will-change: transform;
+      animation: field-updates-marquee 60s linear infinite;
     }
 
     .field-updates-marquee-track:hover {

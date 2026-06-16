@@ -40,37 +40,58 @@ function TickerSeparator() {
   );
 }
 
-function TickerUpdates({ items }: { items: FieldUpdateItem[] }) {
-  const renderLinks = (keyPrefix: string) =>
-    items.map((item, index) => (
-      <span
-        key={`${keyPrefix}-${item.url}`}
-        className="inline-flex shrink-0 items-center gap-2"
-      >
-        {index > 0 && <TickerSeparator />}
-        <a
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="max-w-[16rem] truncate text-stone-700 transition-colors hover:text-emerald-800 sm:max-w-xs dark:text-stone-300 dark:hover:text-emerald-300"
-          title={item.title}
+function MarqueeGroup({
+  items,
+  keyPrefix,
+  ariaHidden = false,
+}: {
+  items: FieldUpdateItem[];
+  keyPrefix: string;
+  ariaHidden?: boolean;
+}) {
+  return (
+    <div
+      className="field-updates-marquee-group flex shrink-0 items-center gap-2"
+      aria-hidden={ariaHidden || undefined}
+    >
+      {items.map((item, index) => (
+        <span
+          key={`${keyPrefix}-${item.url}`}
+          className="inline-flex shrink-0 items-center gap-2"
         >
-          {item.title}
-        </a>
-      </span>
-    ));
+          {index > 0 && <TickerSeparator />}
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="max-w-[16rem] truncate text-stone-700 transition-colors hover:text-emerald-800 sm:max-w-xs dark:text-stone-300 dark:hover:text-emerald-300"
+            title={item.title}
+            tabIndex={ariaHidden ? -1 : undefined}
+          >
+            {item.title}
+          </a>
+        </span>
+      ))}
+      <TickerSeparator />
+    </div>
+  );
+}
 
+function TickerUpdates({ items }: { items: FieldUpdateItem[] }) {
   return (
     <>
       <div className="flex items-center gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
-        {renderLinks("mobile")}
+        <MarqueeGroup items={items} keyPrefix="mobile-a" />
+        <MarqueeGroup items={items} keyPrefix="mobile-b" ariaHidden />
       </div>
 
-      <div className="hidden min-w-0 flex-1 overflow-hidden lg:block">
-        <div className="field-updates-marquee-track flex w-max items-center gap-2">
-          {renderLinks("primary")}
-          <TickerSeparator />
-          {renderLinks("duplicate")}
+      <div
+        className="hidden min-w-0 flex-1 overflow-hidden lg:block"
+        dir="ltr"
+      >
+        <div className="field-updates-marquee-track items-center gap-0">
+          <MarqueeGroup items={items} keyPrefix="desktop-a" />
+          <MarqueeGroup items={items} keyPrefix="desktop-b" ariaHidden />
         </div>
       </div>
     </>
