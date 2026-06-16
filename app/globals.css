@@ -35,7 +35,7 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   @media (min-width: 1024px) {
     .field-updates-marquee-track {
-      animation: field-updates-marquee 90s linear infinite;
+      animation: field-updates-marquee 72s linear infinite;
     }
 
     .field-updates-marquee-track:hover {
