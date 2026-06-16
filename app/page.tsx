@@ -5,7 +5,9 @@ import TripCard from "./components/trip-card";
 import HeartTrailMap from "./components/heart-trail-map";
 import FindMyTripCta from "./components/find-my-trip-cta";
 import TripGearCta from "./components/trip-gear-cta";
+import ParksFieldUpdatesWidget from "./components/parks-field-updates-widget";
 import { getHomepageTrips } from "@/data/trips";
+import { fetchParksFieldUpdates } from "@/lib/field-updates";
 
 const howItWorksSteps = [
   {
@@ -163,8 +165,67 @@ function ArrowIcon() {
   );
 }
 
-export default function Home() {
+function HeroMainContent() {
+  return (
+    <>
+      <p className="mb-6 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-1.5 text-sm font-medium tracking-wide text-white/90 backdrop-blur-sm">
+        לצאת לטבע • בקצב שלכם
+      </p>
+
+      <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl">
+        בשביל הלב
+      </h1>
+
+      <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl md:text-2xl">
+        להיות בתנועה זאת התרופה.
+        <br />
+        מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.
+      </p>
+
+      <div className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+        <Link
+          href="/find-my-trip"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-stone-900 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto"
+        >
+          מצאו לי טיול
+        </Link>
+        <Link
+          href="/recommendations"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:w-auto"
+        >
+          גלו טיולים
+        </Link>
+      </div>
+
+      <form
+        action="/search"
+        method="get"
+        className="mx-auto flex max-w-xl items-center gap-3 rounded-2xl border border-white/15 bg-white/90 p-2 shadow-lg shadow-black/10 backdrop-blur-md transition-shadow focus-within:shadow-xl sm:rounded-full sm:p-2"
+      >
+        <div className="flex flex-1 items-center gap-3 px-4">
+          <SearchIcon />
+          <input
+            type="search"
+            name="q"
+            placeholder="חפשו מסלול, אזור או חוויה..."
+            className="w-full bg-transparent py-3 text-base text-stone-800 placeholder:text-stone-400 focus:outline-none sm:text-lg"
+            aria-label="חיפוש מסלולים"
+          />
+        </div>
+        <button
+          type="submit"
+          className="shrink-0 rounded-xl bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 sm:rounded-full sm:px-8 sm:text-base"
+        >
+          חיפוש
+        </button>
+      </form>
+    </>
+  );
+}
+
+export default async function Home() {
   const homepageTrips = getHomepageTrips(6);
+  const fieldUpdates = await fetchParksFieldUpdates();
 
   return (
     <div className="flex flex-1 flex-col">
@@ -193,61 +254,30 @@ export default function Home() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
 
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 py-24 text-center">
-          <p className="mb-6 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-1.5 text-sm font-medium tracking-wide text-white/90 backdrop-blur-sm">
-            לצאת לטבע • בקצב שלכם
-          </p>
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24">
+          <div className="hidden xl:grid xl:grid-cols-[minmax(0,1fr)_18rem] xl:items-start xl:gap-10">
+            <div className="text-center">
+              <HeroMainContent />
+            </div>
 
-          <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl">
-            בשביל הלב
-          </h1>
-
-          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl md:text-2xl">
-            להיות בתנועה זאת התרופה.
-            <br />
-            מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.
-          </p>
-
-          <div className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <Link
-              href="/find-my-trip"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-stone-900 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto"
-            >
-              מצאו לי טיול
-            </Link>
-            <Link
-              href="/recommendations"
-              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:w-auto"
-            >
-              גלו טיולים
-            </Link>
+            <ParksFieldUpdatesWidget
+              data={fieldUpdates}
+              className="sticky top-28 mt-2"
+            />
           </div>
 
-          <form
-            action="/search"
-            method="get"
-            className="mx-auto flex max-w-xl items-center gap-3 rounded-2xl border border-white/15 bg-white/90 p-2 shadow-lg shadow-black/10 backdrop-blur-md transition-shadow focus-within:shadow-xl sm:rounded-full sm:p-2"
-          >
-            <div className="flex flex-1 items-center gap-3 px-4">
-              <SearchIcon />
-              <input
-                type="search"
-                name="q"
-                placeholder="חפשו מסלול, אזור או חוויה..."
-                className="w-full bg-transparent py-3 text-base text-stone-800 placeholder:text-stone-400 focus:outline-none sm:text-lg"
-                aria-label="חיפוש מסלולים"
-              />
-            </div>
-            <button
-              type="submit"
-              className="shrink-0 rounded-xl bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 sm:rounded-full sm:px-8 sm:text-base"
-            >
-              חיפוש
-            </button>
-          </form>
+          <div className="mx-auto max-w-4xl text-center xl:hidden">
+            <HeroMainContent />
+          </div>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-50 to-transparent dark:from-stone-950" />
+      </section>
+
+      <section className="relative z-20 border-t border-stone-200/80 bg-stone-50 px-6 py-6 dark:border-stone-800 dark:bg-stone-950 xl:hidden">
+        <div className="mx-auto max-w-xl">
+          <ParksFieldUpdatesWidget data={fieldUpdates} />
+        </div>
       </section>
 
       {/* How it works */}
