@@ -1,0 +1,269 @@
+#!/usr/bin/env python3
+"""
+Generate data/places-drafts.ts from רשימת מקומות.xlsx.
+
+Internal content database only — not wired to public routes.
+"""
+
+from __future__ import annotations
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+try:
+    from openpyxl import load_workbook
+except ImportError:
+    print("Install openpyxl: python3 -m pip install openpyxl", file=sys.stderr)
+    sys.exit(1)
+
+EXCEL_FILENAME = "רשימת מקומות.xlsx"
+OUTPUT_FILE = Path(__file__).resolve().parent.parent / "data" / "places-drafts.ts"
+PLACE_COLUMN = "שם המקום"
+REGION_COLUMN = "אזור"
+
+TRANSLIT = {
+    "א": "",
+    "ב": "b",
+    "ג": "g",
+    "ד": "d",
+    "ה": "h",
+    "ו": "v",
+    "ז": "z",
+    "ח": "ch",
+    "ט": "t",
+    "י": "y",
+    "כ": "k",
+    "ך": "k",
+    "ל": "l",
+    "מ": "m",
+    "ם": "m",
+    "נ": "n",
+    "ן": "n",
+    "ס": "s",
+    "ע": "",
+    "פ": "p",
+    "ף": "f",
+    "צ": "tz",
+    "ץ": "tz",
+    "ק": "k",
+    "ר": "r",
+    "ש": "sh",
+    "ת": "t",
+    "'": "",
+    "׳": "",
+    "״": "",
+    '"': "",
+}
+
+
+def find_excel_file(explicit: Path | None) -> Path:
+    if explicit:
+        if not explicit.is_file():
+            raise FileNotFoundError(explicit)
+        return explicit
+
+    for root in (
+        Path.cwd(),
+        Path.home() / "Desktop",
+        Path.home() / "Downloads",
+        Path(__file__).resolve().parent.parent,
+    ):
+        candidate = root / EXCEL_FILENAME
+        if candidate.is_file():
+            return candidate
+
+    raise FileNotFoundError(f"Could not find {EXCEL_FILENAME}")
+
+
+def load_known_slugs(trips_file: Path) -> dict[str, str]:
+    if not trips_file.is_file():
+        return {}
+
+    text = trips_file.read_text(encoding="utf-8")
+    known: dict[str, str] = {}
+
+    for match in re.finditer(
+        r'slug:\s*"([^"]+)"[\s\S]*?title:\s*"([^"]+)"', text
+    ):
+        slug, title = match.group(1), match.group(2)
+        known.setdefault(title, slug)
+
+    return known
+
+
+def transliterate_hebrew(text: str) -> str:
+    result: list[str] = []
+    for char in text:
+        lower = char.lower()
+        if lower in TRANSLIT:
+            result.append(TRANSLIT[lower])
+        elif char.isascii() and (char.isalnum() or char in "- "):
+            result.append(char.lower())
+        elif char in " -–—_/\\|":
+            result.append("-")
+    slug = "".join(result)
+    slug = re.sub(r"[^a-z0-9-]+", "-", slug)
+    slug = re.sub(r"-{2,}", "-", slug).strip("-")
+    return slug or "place"
+
+
+def make_slug(
+    title: str,
+    region: str,
+    known: dict[str, str],
+    used: set[str],
+) -> str:
+    base = known.get(title) or transliterate_hebrew(title)
+    if not base:
+        base = transliterate_hebrew(region) + "-place"
+
+    slug = base
+    suffix = 2
+    while slug in used:
+        slug = f"{base}-{suffix}"
+        suffix += 1
+
+    used.add(slug)
+    return slug
+
+
+def read_places(excel_path: Path) -> list[tuple[str, str]]:
+    workbook = load_workbook(excel_path, read_only=True, data_only=True)
+    sheet = workbook.active
+    rows = list(sheet.iter_rows(values_only=True))
+    workbook.close()
+
+    if not rows:
+        raise ValueError("Excel file is empty.")
+
+    headers = [str(cell).strip() if cell is not None else "" for cell in rows[0]]
+    place_idx = headers.index(PLACE_COLUMN)
+    region_idx = headers.index(REGION_COLUMN)
+
+    places: list[tuple[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+
+    for row in rows[1:]:
+        if not row:
+            continue
+        place_raw = row[place_idx] if place_idx < len(row) else None
+        region_raw = row[region_idx] if region_idx < len(row) else None
+        if place_raw is None or region_raw is None:
+            continue
+
+        title = str(place_raw).strip()
+        region = str(region_raw).strip()
+        if not title or not region:
+            continue
+
+        key = (title, region)
+        if key in seen:
+            continue
+        seen.add(key)
+        places.append((title, region))
+
+    return places
+
+
+def escape_ts(value: str) -> str:
+    return value.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def render_typescript(places: list[tuple[str, str]], known: dict[str, str]) -> str:
+    used_slugs: set[str] = set()
+    entries: list[str] = []
+
+    for title, region in places:
+        slug = make_slug(title, region, known, used_slugs)
+        entries.append(
+            "  {\n"
+            f'    slug: "{escape_ts(slug)}",\n'
+            f'    title: "{escape_ts(title)}",\n'
+            f'    region: "{escape_ts(region)}",\n'
+            "    visitedByUs: true,\n"
+            '    status: "draft",\n'
+            "    hasPhotos: false,\n"
+            "    publish: false,\n"
+            "  },"
+        )
+
+    body = "\n".join(entries)
+    return f"""/**
+ * Internal draft places database — NOT published on the live site.
+ *
+ * These are places Milana and the kids visited and will be upgraded to full
+ * trip pages gradually. Do not import this module from public pages,
+ * recommendations, sitemap, or SEO routes until `publish` is true.
+ *
+ * Generated by scripts/import-places-drafts.py — re-run after Excel updates.
+ */
+
+export type PlaceDraftStatus = "draft";
+
+export type PlaceDraft = {{
+  slug: string;
+  title: string;
+  region: string;
+  visitedByUs: true;
+  status: PlaceDraftStatus;
+  hasPhotos: false;
+  publish: false;
+}};
+
+export const PLACE_DRAFTS_NOTE =
+  "These are places Milana and the kids visited and will be upgraded to full trip pages gradually.";
+
+export const placeDrafts: PlaceDraft[] = [
+{body}
+];
+
+export function getPlaceDraftBySlug(slug: string): PlaceDraft | undefined {{
+  return placeDrafts.find((place) => place.slug === slug);
+}}
+
+export function getPlaceDraftsByRegion(region: string): PlaceDraft[] {{
+  return placeDrafts.filter((place) => place.region === region);
+}}
+
+/** Draft-only helper — always empty until places are explicitly published. */
+export function getPublishedPlaceDrafts(): PlaceDraft[] {{
+  return placeDrafts.filter((place) => place.publish);
+}}
+"""
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Import Excel places to places-drafts.ts")
+    parser.add_argument("--input", type=Path, help="Path to Excel file")
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=OUTPUT_FILE,
+        help="Output TypeScript file",
+    )
+    args = parser.parse_args()
+
+    excel_path = find_excel_file(args.input)
+    trips_file = Path(__file__).resolve().parent.parent / "data" / "trips.ts"
+    known = load_known_slugs(trips_file)
+    places = read_places(excel_path)
+
+    if not places:
+        print("No places found.", file=sys.stderr)
+        return 1
+
+    content = render_typescript(places, known)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(content, encoding="utf-8")
+
+    regions = sorted({region for _, region in places})
+    print(f"Imported {len(places)} places into {args.output}")
+    print(f"Regions: {', '.join(regions)}")
+    print(f"Source: {excel_path}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
