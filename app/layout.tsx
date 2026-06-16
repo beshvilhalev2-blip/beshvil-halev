@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     "להיות בתנועה זאת התרופה — מדריך טיולים למשפחות. מקומות, ציוד ותכנון שיעזרו לכם לצאת לטבע בקצב שלכם.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

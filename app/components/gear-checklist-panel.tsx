@@ -110,7 +110,7 @@ function GearItemRow({
         onClick={onCycle}
         aria-label={`${item.label} — ${statusLabel}`}
         aria-pressed={status !== "unset"}
-        className={`flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-start transition-colors ${rowClass}`}
+        className={`flex w-full min-h-11 items-center gap-3 rounded-lg px-3 py-3 text-start transition-colors ${rowClass}`}
       >
         <StatusIndicator status={status} />
         <span
@@ -160,7 +160,7 @@ function GearGroupAccordion({
         aria-expanded={isOpen}
         aria-controls={`gear-group-panel-${groupId}`}
         onClick={onToggle}
-        className="flex w-full items-center gap-3 py-3.5 text-start transition-colors"
+        className="flex min-h-12 w-full items-center gap-3 py-3.5 text-start transition-colors"
       >
         <span className="text-lg" aria-hidden="true">
           {emoji}
@@ -336,7 +336,7 @@ export default function GearChecklistPanel({
         <p className="mb-1 text-sm font-semibold text-stone-700 dark:text-stone-200">
           🎒 מוכנות לטיול
         </p>
-        <p className="mb-2 text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-50">
+        <p className="mb-2 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
           {displayPercent}%
         </p>
         <div
@@ -377,7 +377,7 @@ export default function GearChecklistPanel({
                   type="button"
                   onClick={() => cookingToggle.onChange(value)}
                   aria-pressed={active}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
+                  className={`min-h-11 rounded-lg px-4 py-2 text-xs font-semibold transition-colors ${
                     active
                       ? "bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900"
                       : "bg-white/80 text-stone-600 hover:bg-white dark:bg-stone-800 dark:text-stone-300 dark:hover:bg-stone-700"
@@ -459,7 +459,7 @@ export default function GearChecklistPanel({
       <button
         type="button"
         onClick={handleReset}
-        className="text-sm font-medium text-stone-500 underline-offset-2 transition-colors hover:text-stone-700 hover:underline dark:text-stone-400 dark:hover:text-stone-200"
+        className="inline-flex min-h-11 items-center text-sm font-medium text-stone-500 underline-offset-2 transition-colors hover:text-stone-700 hover:underline dark:text-stone-400 dark:hover:text-stone-200"
       >
         איפוס הרשימה
       </button>

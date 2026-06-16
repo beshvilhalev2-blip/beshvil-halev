@@ -100,7 +100,7 @@ export default function TripGearChecklist({ trip }: TripGearChecklistProps) {
   return (
     <section
       id="trip-gear-checklist"
-      className="mb-16 scroll-mt-28"
+      className="mb-12 scroll-mt-24 sm:mb-16 sm:scroll-mt-28"
       aria-labelledby="trip-gear-checklist-heading"
     >
       <SectionHeading>

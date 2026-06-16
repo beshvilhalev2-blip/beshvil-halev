@@ -64,7 +64,7 @@ function MarqueeGroup({
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="max-w-[16rem] truncate text-stone-700 transition-colors hover:text-emerald-800 sm:max-w-xs dark:text-stone-300 dark:hover:text-emerald-300"
+            className="inline-block max-w-[14rem] truncate py-1.5 text-stone-700 transition-colors hover:text-emerald-800 sm:max-w-xs dark:text-stone-300 dark:hover:text-emerald-300"
             title={item.title}
             tabIndex={ariaHidden ? -1 : undefined}
           >
@@ -80,7 +80,7 @@ function MarqueeGroup({
 function TickerUpdates({ items }: { items: FieldUpdateItem[] }) {
   return (
     <>
-      <div className="flex items-center gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
+      <div className="flex items-center gap-2 overflow-x-auto overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
         <MarqueeGroup items={items} keyPrefix="mobile-a" />
         <MarqueeGroup items={items} keyPrefix="mobile-b" ariaHidden />
       </div>
@@ -104,7 +104,7 @@ export default function ParksFieldUpdatesWidget({
 }: ParksFieldUpdatesWidgetProps) {
   return (
     <aside
-      className={`rounded-2xl border border-stone-200/70 bg-stone-50/80 px-3 py-2.5 dark:border-stone-800/80 dark:bg-stone-900/40 sm:rounded-full sm:px-4 ${className}`}
+      className={`overflow-hidden rounded-2xl border border-stone-200/70 bg-stone-50/80 px-3 py-2.5 dark:border-stone-800/80 dark:bg-stone-900/40 sm:rounded-full sm:px-4 ${className}`}
       aria-labelledby="field-updates-title"
     >
       <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3">
@@ -132,7 +132,7 @@ export default function ParksFieldUpdatesWidget({
           href={PARKS_NEWSFLASH_CATEGORY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex shrink-0 items-center gap-1 self-start rounded-full px-2 py-1 text-[11px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 hover:text-emerald-900 sm:self-auto dark:text-emerald-400 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300"
+          className="inline-flex min-h-11 shrink-0 items-center gap-1 self-start rounded-full px-3 py-2 text-[11px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 hover:text-emerald-900 sm:self-auto dark:text-emerald-400 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300"
         >
           לאתר הרשמי
           <ExternalLinkIcon />

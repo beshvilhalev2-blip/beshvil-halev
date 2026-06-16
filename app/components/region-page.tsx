@@ -34,21 +34,21 @@ export default function RegionPage({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-stone-900/30 to-stone-900/10" />
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 sm:py-24">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 md:py-24">
           <p className="mb-4 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm">
             אזורי טיול
           </p>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
             {region.title}
           </h1>
-          <p className="max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
+          <p className="max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg md:text-xl">
             {region.description}
           </p>
         </div>
       </section>
 
       {/* Trips grid */}
-      <section className="bg-stone-50 px-6 py-16 dark:bg-stone-950 sm:py-20">
+      <section className="bg-stone-50 px-4 py-12 dark:bg-stone-950 sm:px-6 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex items-end justify-between gap-4">
             <div>

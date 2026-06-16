@@ -52,7 +52,7 @@ export default function TripCard({
         </span>
       </div>
 
-      <div className="relative flex flex-1 flex-col p-6">
+      <div className="relative flex flex-1 flex-col p-5 sm:p-6">
         <div
           className={`pointer-events-none absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${theme.accent}`}
         />

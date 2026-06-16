@@ -10,7 +10,7 @@ const footerLinks = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-stone-200 bg-stone-50 px-6 py-14 dark:border-stone-800 dark:bg-stone-950">
+    <footer className="border-t border-stone-200 bg-stone-50 px-4 py-12 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:py-14">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center gap-10 text-center sm:items-start sm:text-start">
           <div>
@@ -26,12 +26,12 @@ export default function SiteFooter() {
           </div>
 
           <nav aria-label="ניווט תחתון">
-            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 sm:justify-start">
+            <ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 sm:justify-start sm:gap-x-6 sm:gap-y-3">
               {footerLinks.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm font-medium text-stone-600 transition-colors hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-200"
+                    className="inline-flex min-h-11 items-center px-1 text-sm font-medium text-stone-600 transition-colors hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-200"
                   >
                     {item.label}
                   </Link>
@@ -42,7 +42,7 @@ export default function SiteFooter() {
 
           <div className="flex w-full flex-col items-center gap-4 border-t border-stone-200/80 pt-8 dark:border-stone-800 sm:flex-row sm:justify-between">
             <SocialLinksRow
-              linkClassName="inline-flex items-center justify-center rounded-xl p-2.5 text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-200"
+              linkClassName="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-200"
             />
             <p className="text-sm text-stone-500 dark:text-stone-400">
               © {new Date().getFullYear()} · כל הזכויות שמורות

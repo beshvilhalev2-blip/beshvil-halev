@@ -42,7 +42,7 @@ export default function TripGearCta() {
   return (
     <Link
       href={GEAR_HOMEPAGE_CTA.href}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50 via-white to-emerald-50/50 p-7 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-emerald-900/50 dark:from-emerald-950/40 dark:via-stone-900 dark:to-emerald-950/30 sm:flex-row sm:items-center sm:gap-8 sm:p-8"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50 via-white to-emerald-50/50 p-5 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-emerald-900/50 dark:from-emerald-950/40 dark:via-stone-900 dark:to-emerald-950/30 sm:flex-row sm:items-center sm:gap-8 sm:p-8"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
@@ -51,7 +51,7 @@ export default function TripGearCta() {
       </div>
 
       <div className="relative flex-1">
-        <h2 className="mb-2 text-2xl font-bold text-stone-900 dark:text-stone-50 sm:text-3xl">
+        <h2 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-50 sm:text-2xl md:text-3xl">
           {GEAR_HOMEPAGE_CTA.title}
         </h2>
         <p className="mb-5 max-w-2xl text-sm leading-relaxed text-stone-600 dark:text-stone-400 sm:text-base">

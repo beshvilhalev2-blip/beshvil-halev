@@ -199,22 +199,22 @@ export default function FindMyTripWizard() {
   const nextLabel = step === 7 ? "מצאו לי טיולים" : "המשך";
 
   return (
-    <div className="bg-stone-50 px-6 pb-16 pt-28 dark:bg-stone-950 sm:pb-20 sm:pt-32">
+    <div className="bg-stone-50 px-4 pb-16 pt-28 dark:bg-stone-950 sm:px-6 sm:pb-20 sm:pt-32">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-10 text-center">
+        <div className="mb-8 text-center sm:mb-10">
           <p className="mb-4 inline-block rounded-full border border-stone-200 bg-white px-4 py-1.5 text-sm font-medium text-stone-600 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300">
             מצאו לי טיול
           </p>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-5xl">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl md:text-5xl">
             בואו נמצא את הטיול המתאים
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-stone-600 dark:text-stone-400">
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
             ענו על {WIZARD_STEP_COUNT} שאלות קצרות — ונציע לכם מסלולים שמתאימים
           </p>
         </div>
 
         {phase === "wizard" ? (
-          <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:p-8">
+          <div className="rounded-2xl border border-stone-200/80 bg-white p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:p-8">
             <WizardProgress step={step} />
 
             <WizardStepShell

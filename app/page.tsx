@@ -172,11 +172,11 @@ function HeroMainContent() {
         לצאת לטבע • בקצב שלכם
       </p>
 
-      <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl">
+      <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
         בשביל הלב
       </h1>
 
-      <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl md:text-2xl">
+      <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/90 sm:mb-10 sm:text-lg md:text-xl">
         להיות בתנועה זאת התרופה.
         <br />
         מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.
@@ -200,7 +200,7 @@ function HeroMainContent() {
       <form
         action="/search"
         method="get"
-        className="mx-auto flex max-w-xl items-center gap-3 rounded-2xl border border-white/15 bg-white/90 p-2 shadow-lg shadow-black/10 backdrop-blur-md transition-shadow focus-within:shadow-xl sm:rounded-full sm:p-2"
+        className="mx-auto flex max-w-xl flex-col gap-2 rounded-2xl border border-white/15 bg-white/90 p-2 shadow-lg shadow-black/10 backdrop-blur-md transition-shadow focus-within:shadow-xl sm:flex-row sm:items-center sm:gap-3 sm:rounded-full sm:p-2"
       >
         <div className="flex flex-1 items-center gap-3 px-4">
           <SearchIcon />
@@ -214,7 +214,7 @@ function HeroMainContent() {
         </div>
         <button
           type="submit"
-          className="shrink-0 rounded-xl bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 sm:rounded-full sm:px-8 sm:text-base"
+          className="min-h-11 w-full shrink-0 rounded-xl bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto sm:rounded-full sm:px-8 sm:text-base"
         >
           חיפוש
         </button>
@@ -232,7 +232,7 @@ export default async function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[72vh] items-center justify-center overflow-hidden sm:min-h-[80vh] lg:min-h-[88vh]">
         {/* Background placeholder — replace with real hero image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -254,7 +254,7 @@ export default async function Home() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
 
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 py-24 text-center">
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-24">
           <HeroMainContent />
         </div>
 
@@ -262,7 +262,7 @@ export default async function Home() {
       </section>
 
       {/* How it works */}
-      <section className="border-t border-stone-200/80 bg-white px-6 py-16 dark:border-stone-800 dark:bg-stone-900 sm:py-20">
+      <section className="border-t border-stone-200/80 bg-white px-4 py-14 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-8 sm:grid-cols-3 sm:gap-6">
             {howItWorksSteps.map((step) => (
@@ -283,7 +283,7 @@ export default async function Home() {
       </section>
 
       {/* Find my trip CTA */}
-      <section className="border-t border-stone-200/80 bg-stone-50 px-6 py-16 dark:border-stone-800 dark:bg-stone-950 sm:py-20">
+      <section className="border-t border-stone-200/80 bg-stone-50 px-4 py-14 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:py-20">
         <div className="mx-auto flex max-w-6xl flex-col gap-6">
           <FindMyTripCta />
           <TripGearCta />
@@ -291,7 +291,7 @@ export default async function Home() {
       </section>
 
       <section
-        className="border-t border-stone-200/80 bg-stone-50 px-6 pb-16 pt-2 dark:border-stone-800 dark:bg-stone-950 sm:pb-20"
+        className="border-t border-stone-200/80 bg-stone-50 px-4 pb-14 pt-2 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:pb-20"
         aria-label="עדכוני שטח מרשות הטבע והגנים"
       >
         <div className="mx-auto max-w-6xl">
@@ -301,7 +301,7 @@ export default async function Home() {
 
       {/* Featured trips */}
       {homepageTrips.length > 0 && (
-        <section className="border-t border-stone-200/80 bg-white px-6 py-24 dark:border-stone-800 dark:bg-stone-900 sm:py-28">
+        <section className="border-t border-stone-200/80 bg-white px-4 py-20 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="mb-14 text-center">
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
@@ -321,7 +321,7 @@ export default async function Home() {
             <div className="mt-10 text-center">
               <Link
                 href="/recommendations"
-                className="inline-flex items-center gap-2 rounded-xl bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
+                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
               >
                 גלו טיולים
                 <ArrowIcon />
@@ -336,7 +336,7 @@ export default async function Home() {
       {/* Regions */}
       <section
         id="regions"
-        className="bg-stone-50 px-6 py-24 dark:bg-stone-950 sm:py-28"
+        className="bg-stone-50 px-4 py-20 dark:bg-stone-950 sm:px-6 sm:py-28"
       >
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
@@ -355,7 +355,7 @@ export default async function Home() {
                 <Link
                   key={category.href}
                   href={category.href}
-                  className={`group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 ${category.borderHover}`}
+                  className={`group relative flex min-h-[220px] flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 sm:min-h-[260px] sm:p-7 ${category.borderHover}`}
                 >
                   <div
                     className={`pointer-events-none absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${category.accent}`}
@@ -368,7 +368,7 @@ export default async function Home() {
                       <Icon />
                     </div>
 
-                    <h3 className="mb-2 text-2xl font-bold text-stone-900 dark:text-stone-50">
+                    <h3 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-50 sm:text-2xl">
                       {category.title}
                     </h3>
 

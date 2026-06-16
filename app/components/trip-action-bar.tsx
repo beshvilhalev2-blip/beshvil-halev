@@ -106,7 +106,7 @@ function ActionCell({
   soonClassName: string;
   onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }) {
-  const cellClassName = `flex min-h-11 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 py-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/30 focus-visible:ring-inset ${
+  const cellClassName = `flex min-h-12 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 py-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/30 focus-visible:ring-inset ${
     href
       ? `${hoverClassName} ${labelClassName}`
       : `${disabledClassName} cursor-not-allowed opacity-70`
@@ -115,7 +115,7 @@ function ActionCell({
   const content = (
     <>
       {icon}
-      <span className="max-w-full truncate text-xs font-semibold leading-tight">
+      <span className="max-w-full truncate text-[11px] font-semibold leading-tight sm:text-xs">
         {label}
       </span>
       {soonLabel ? (

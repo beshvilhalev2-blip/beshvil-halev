@@ -19,7 +19,7 @@ function ArrowIcon() {
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mb-6 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
+    <h2 className="mb-4 text-xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:mb-6 sm:text-2xl md:text-3xl">
       {children}
     </h2>
   );
@@ -31,7 +31,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative flex min-h-[70vh] items-end overflow-hidden pt-24">
+      <section className="relative flex min-h-0 items-end overflow-hidden pt-20 sm:min-h-[55vh] sm:pt-24 lg:min-h-[65vh]">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: getTripHeroBackground(trip) }}
@@ -40,8 +40,8 @@ export default function TripArticle({ trip }: { trip: Trip }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-900/20 to-transparent" />
 
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 pb-16 pt-12">
-          <div className="mb-5 flex flex-wrap items-center gap-3">
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-12">
+          <div className="mb-4 flex flex-wrap items-center gap-2 sm:mb-5 sm:gap-3">
             <span className="rounded-full border border-white/20 bg-emerald-500/20 px-4 py-1.5 text-sm font-medium text-emerald-100 backdrop-blur-sm">
               {trip.region}
             </span>
@@ -50,27 +50,27 @@ export default function TripArticle({ trip }: { trip: Trip }) {
             </span>
           </div>
 
-          <h1 className="mb-3 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl">
+          <h1 className="mb-3 text-3xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
             {trip.title}
           </h1>
 
-          <div className="mb-4">
+          <p className="mb-5 max-w-2xl text-base leading-relaxed text-white/85 sm:mb-6 sm:text-lg md:text-xl">
+            {trip.subtitle}
+          </p>
+
+          <div className="mb-3">
             <TripActionBar trip={trip} variant="hero" />
           </div>
 
           <WantToTravelSaveButton tripSlug={trip.slug} variant="hero" />
-
-          <p className="mb-8 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-            {trip.subtitle}
-          </p>
         </div>
       </section>
 
       {/* Article body */}
       <article className="bg-stone-50 dark:bg-stone-950">
-        <div className="mx-auto max-w-3xl px-6 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
           {/* על המקום */}
-          <section className="mb-16">
+          <section className="mb-12 sm:mb-16">
             <SectionHeading>על המקום</SectionHeading>
             <div className="space-y-4 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
               {trip.about.map((paragraph) => (
@@ -89,7 +89,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           </section>
 
           {trip.highlights && trip.highlights.length > 0 && (
-            <section className="mb-16">
+            <section className="mb-12 sm:mb-16">
               <SectionHeading>למה לבקר?</SectionHeading>
               <ul className="grid gap-3 sm:grid-cols-2">
                 {trip.highlights.map((item) => (
@@ -108,9 +108,9 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           )}
 
           {/* הסיפור האישי שלי */}
-          <section className="mb-16">
+          <section className="mb-12 sm:mb-16">
             <SectionHeading>הסיפור האישי שלי</SectionHeading>
-            <div className="rounded-2xl border border-stone-200/80 bg-white p-8 shadow-sm dark:border-stone-800 dark:bg-stone-900">
+            <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:p-8">
               <div className="mb-4 inline-flex size-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="size-6" aria-hidden="true">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" strokeLinecap="round" strokeLinejoin="round" />
@@ -134,7 +134,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           </section>
 
           {/* עלות */}
-          <section className="mb-16">
+          <section className="mb-12 sm:mb-16">
             <SectionHeading>עלות</SectionHeading>
             <div className="overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900">
               <div className="grid divide-y divide-stone-100 dark:divide-stone-800 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:divide-x-reverse">
@@ -156,7 +156,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           </section>
 
           {/* טיפים מיוחדים */}
-          <section className="mb-16">
+          <section className="mb-12 sm:mb-16">
             <SectionHeading>טיפים מיוחדים</SectionHeading>
             <ul className="space-y-3">
               {trip.tips.map((tip) => (
@@ -179,7 +179,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
         </div>
 
         {/* גלריית תמונות */}
-        <section className="border-t border-stone-200/80 bg-white px-6 py-16 dark:border-stone-800 dark:bg-stone-900 sm:py-20">
+        <section className="border-t border-stone-200/80 bg-white px-4 py-12 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-16 md:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 text-center">
               <h2 className="mb-3 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
@@ -233,12 +233,12 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           </div>
         </section>
 
-        <div className="mx-auto max-w-3xl px-6 pb-6">
+        <div className="mx-auto max-w-3xl px-4 pb-6 sm:px-6">
           <TripActionBar trip={trip} variant="article" className="mx-auto sm:mx-0" />
         </div>
 
         {/* מקומות נוספים באזור */}
-        <section className="px-6 py-16 sm:py-20">
+        <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 text-center">
               <h2 className="mb-3 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">

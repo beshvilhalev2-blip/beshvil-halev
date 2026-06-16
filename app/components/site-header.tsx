@@ -91,7 +91,7 @@ function HeaderSearchToggle({
       aria-expanded={searchOpen}
       aria-controls="header-search-panel"
       aria-label={searchOpen ? "סגור חיפוש" : "פתח חיפוש"}
-      className={`inline-flex items-center justify-center rounded-full p-2 transition-colors ${
+      className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors ${
         isSolid
           ? "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
           : "text-white/90 hover:bg-white/15 hover:text-white"
@@ -185,7 +185,7 @@ export default function SiteHeader() {
       }`}
     >
       <div ref={searchPanelRef}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 lg:gap-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4 lg:gap-6">
         <Link
           href="/"
           className={`text-xl font-bold tracking-tight transition-colors ${
@@ -242,7 +242,7 @@ export default function SiteHeader() {
             onToggle={handleSearchToggle}
           />
           <SocialLinksRow
-            linkClassName={`inline-flex items-center justify-center rounded-xl p-2 transition-colors ${
+            linkClassName={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl transition-colors ${
               headerSolid
                 ? "text-stone-800 hover:bg-stone-100 dark:text-stone-100 dark:hover:bg-stone-800"
                 : "text-white hover:bg-white/15"
@@ -250,7 +250,7 @@ export default function SiteHeader() {
           />
           <button
             type="button"
-            className={`inline-flex items-center justify-center rounded-xl p-2.5 transition-colors ${
+            className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl transition-colors ${
               headerSolid
                 ? "text-stone-800 hover:bg-stone-100 dark:text-stone-100 dark:hover:bg-stone-800"
                 : "text-white hover:bg-white/15"
@@ -281,7 +281,7 @@ export default function SiteHeader() {
       >
         <form
           onSubmit={handleSearchSubmit}
-          className="mx-auto flex max-w-6xl items-center gap-3 px-6 py-3"
+          className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6"
         >
           <div className="flex flex-1 items-center gap-3 rounded-2xl border border-stone-200/80 bg-white px-4 py-2.5 shadow-sm dark:border-stone-700 dark:bg-stone-900">
             <SearchIcon />
@@ -296,7 +296,7 @@ export default function SiteHeader() {
           </div>
           <button
             type="submit"
-            className="shrink-0 rounded-xl bg-stone-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
+            className="shrink-0 rounded-xl bg-stone-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 min-h-11 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
           >
             חיפוש
           </button>
@@ -307,7 +307,7 @@ export default function SiteHeader() {
       <nav
         id="mobile-nav"
         className={`overflow-hidden border-t transition-all duration-500 lg:hidden ${
-          menuOpen ? "max-h-[560px] opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-[min(80dvh,640px)] opacity-100" : "max-h-0 opacity-0"
         } ${
           headerSolid
             ? "border-stone-200/60 bg-white/95 dark:border-stone-700/60 dark:bg-stone-950/95"
@@ -316,13 +316,22 @@ export default function SiteHeader() {
         aria-label="ניווט נייד"
         aria-hidden={!menuOpen}
       >
-        <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
-          {navItems.map((item) => (
+        <ul className="mx-auto flex max-h-[min(80dvh,640px)] max-w-6xl flex-col gap-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6">
+          {navItems.map((item) => {
+            const isActive =
+              item.href === pathname ||
+              (item.href !== "/" && pathname.startsWith(item.href.replace("/#", "/")));
+
+            return (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
-                  headerSolid
+                className={`block min-h-12 rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${
+                  isActive
+                    ? headerSolid
+                      ? "bg-stone-100 text-stone-900 dark:bg-stone-800 dark:text-stone-50"
+                      : "bg-white/15 text-white"
+                    : headerSolid
                     ? "text-stone-700 hover:bg-stone-100 dark:text-stone-200 dark:hover:bg-stone-800"
                     : "text-white/90 hover:bg-white/10 hover:text-white"
                 }`}
@@ -331,14 +340,15 @@ export default function SiteHeader() {
                 {item.label}
               </Link>
             </li>
-          ))}
+            );
+          })}
           <li className="mt-2 border-t border-stone-200/60 pt-3 dark:border-stone-700/60">
             <p className="mb-2 px-4 text-xs font-semibold text-stone-500 dark:text-stone-400">
               רשתות חברתיות
             </p>
             <SocialLinksMobileList
               className="flex flex-col gap-1"
-              linkClassName={`flex items-center gap-3 rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+              linkClassName={`flex min-h-12 items-center gap-3 rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${
                 headerSolid
                   ? "text-stone-700 hover:bg-stone-100 dark:text-stone-200 dark:hover:bg-stone-800"
                   : "text-white/90 hover:bg-white/10 hover:text-white"

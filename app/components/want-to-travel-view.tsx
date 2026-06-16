@@ -33,7 +33,7 @@ function SavedTripCard({
         <button
           type="button"
           onClick={() => onRemove(trip.slug)}
-          className="shrink-0 rounded-lg px-2 py-1.5 text-xs font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-700 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-200"
+          className="shrink-0 rounded-lg px-3 py-2 text-xs font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-700 min-h-11 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-200"
         >
           הסירי מהרשימה
         </button>
