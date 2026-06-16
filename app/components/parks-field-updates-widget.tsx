@@ -1,6 +1,7 @@
 import {
   FIELD_UPDATES_DISCLAIMER,
   PARKS_NEWSFLASH_CATEGORY_URL,
+  type FieldUpdateItem,
   type FieldUpdatesData,
 } from "@/lib/field-updates";
 
@@ -18,7 +19,7 @@ function ExternalLinkIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="size-3.5 shrink-0"
+      className="size-3 shrink-0"
       aria-hidden="true"
     >
       <path d="M15 3h6v6" />
@@ -28,83 +29,98 @@ function ExternalLinkIcon() {
   );
 }
 
+function TickerSeparator() {
+  return (
+    <span
+      className="shrink-0 text-stone-300 dark:text-stone-600"
+      aria-hidden="true"
+    >
+      •
+    </span>
+  );
+}
+
+function TickerUpdates({ items }: { items: FieldUpdateItem[] }) {
+  const renderLinks = (keyPrefix: string) =>
+    items.map((item, index) => (
+      <span
+        key={`${keyPrefix}-${item.url}`}
+        className="inline-flex shrink-0 items-center gap-2"
+      >
+        {index > 0 && <TickerSeparator />}
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="max-w-[16rem] truncate text-stone-700 transition-colors hover:text-emerald-800 sm:max-w-xs dark:text-stone-300 dark:hover:text-emerald-300"
+          title={item.title}
+        >
+          {item.title}
+        </a>
+      </span>
+    ));
+
+  return (
+    <>
+      <div className="flex items-center gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
+        {renderLinks("mobile")}
+      </div>
+
+      <div className="hidden min-w-0 flex-1 overflow-hidden lg:block">
+        <div className="field-updates-marquee-track flex w-max items-center gap-2">
+          {renderLinks("primary")}
+          <TickerSeparator />
+          {renderLinks("duplicate")}
+        </div>
+      </div>
+    </>
+  );
+}
+
 export default function ParksFieldUpdatesWidget({
   data,
   className = "",
 }: ParksFieldUpdatesWidgetProps) {
   return (
     <aside
-      className={`rounded-2xl border border-stone-200/90 bg-white/95 p-5 shadow-sm backdrop-blur-sm dark:border-stone-700/80 dark:bg-stone-900/95 ${className}`}
+      className={`rounded-2xl border border-stone-200/70 bg-stone-50/80 px-3 py-2.5 dark:border-stone-800/80 dark:bg-stone-900/40 sm:rounded-full sm:px-4 ${className}`}
       aria-labelledby="field-updates-title"
     >
-      <div className="mb-4">
-        <p className="mb-1 text-xs font-medium text-stone-500 dark:text-stone-400">
-          ניסוי · מקור רשמי
-        </p>
-        <h2
-          id="field-updates-title"
-          className="text-lg font-bold text-stone-900 dark:text-stone-50"
-        >
-          עדכוני שטח
-        </h2>
-        <p className="mt-1 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-          עדכונים אחרונים מרשות הטבע והגנים
-        </p>
-      </div>
+      <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3">
+        <div className="flex min-w-0 items-center gap-2 sm:shrink-0">
+          <span
+            id="field-updates-title"
+            className="shrink-0 rounded-full bg-emerald-100/80 px-2.5 py-1 text-[11px] font-semibold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300"
+          >
+            עדכוני שטח
+          </span>
+          <span className="sr-only">מקור: רשות הטבע והגנים</span>
+        </div>
 
-      {data.status === "ok" ? (
-        <ul className="space-y-4">
-          {data.items.map((item) => (
-            <li
-              key={item.url}
-              className="border-b border-stone-100 pb-4 last:border-b-0 last:pb-0 dark:border-stone-800"
-            >
-              <p className="mb-1 text-xs text-stone-500 dark:text-stone-400">
-                {item.dateLabel}
-              </p>
-              <h3 className="mb-1 text-sm font-semibold leading-snug text-stone-900 dark:text-stone-100">
-                {item.title}
-              </h3>
-              {item.excerpt && (
-                <p className="mb-2 text-xs leading-relaxed text-stone-600 dark:text-stone-400">
-                  {item.excerpt}
-                </p>
-              )}
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:text-emerald-900 dark:text-emerald-400 dark:hover:text-emerald-300"
-              >
-                לקריאה באתר הרשמי
-                <ExternalLinkIcon />
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="mb-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-          עדכוני השטח לא זמינים כרגע
-        </p>
-      )}
+        <div className="min-w-0 flex-1 text-xs leading-none text-stone-600 dark:text-stone-400">
+          {data.status === "ok" ? (
+            <TickerUpdates items={data.items} />
+          ) : (
+            <p className="truncate px-0.5 text-stone-500 dark:text-stone-400">
+              עדכוני השטח לא זמינים כרגע
+            </p>
+          )}
+        </div>
 
-      <div className="mt-4 space-y-3 border-t border-stone-100 pt-4 dark:border-stone-800">
-        <p className="text-xs leading-relaxed text-stone-500 dark:text-stone-400">
-          {FIELD_UPDATES_DISCLAIMER}
-        </p>
         <a
           href={PARKS_NEWSFLASH_CATEGORY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-700 transition-colors hover:text-stone-900 dark:text-stone-300 dark:hover:text-stone-100"
+          className="inline-flex shrink-0 items-center gap-1 self-start rounded-full px-2 py-1 text-[11px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 hover:text-emerald-900 sm:self-auto dark:text-emerald-400 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-300"
         >
-          לכל העדכונים באתר רשות הטבע והגנים
+          לאתר הרשמי
           <ExternalLinkIcon />
         </a>
-        <p className="text-[11px] leading-relaxed text-stone-400 dark:text-stone-500">
-          בשביל הלב אינו מקור רשמי. המידע עשוי להיות מיושן ואינו בזמן אמת.
-        </p>
       </div>
+
+      <p className="mt-1.5 px-1 text-[10px] leading-relaxed text-stone-400 dark:text-stone-500 sm:mt-1 sm:text-center">
+        {FIELD_UPDATES_DISCLAIMER}
+      </p>
     </aside>
   );
 }

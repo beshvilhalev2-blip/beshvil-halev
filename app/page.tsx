@@ -254,30 +254,11 @@ export default async function Home() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24">
-          <div className="hidden xl:grid xl:grid-cols-[minmax(0,1fr)_18rem] xl:items-start xl:gap-10">
-            <div className="text-center">
-              <HeroMainContent />
-            </div>
-
-            <ParksFieldUpdatesWidget
-              data={fieldUpdates}
-              className="sticky top-28 mt-2"
-            />
-          </div>
-
-          <div className="mx-auto max-w-4xl text-center xl:hidden">
-            <HeroMainContent />
-          </div>
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-6 py-24 text-center">
+          <HeroMainContent />
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-50 to-transparent dark:from-stone-950" />
-      </section>
-
-      <section className="relative z-20 border-t border-stone-200/80 bg-stone-50 px-6 py-6 dark:border-stone-800 dark:bg-stone-950 xl:hidden">
-        <div className="mx-auto max-w-xl">
-          <ParksFieldUpdatesWidget data={fieldUpdates} />
-        </div>
       </section>
 
       {/* How it works */}
@@ -306,6 +287,15 @@ export default async function Home() {
         <div className="mx-auto flex max-w-6xl flex-col gap-6">
           <FindMyTripCta />
           <TripGearCta />
+        </div>
+      </section>
+
+      <section
+        className="border-t border-stone-200/80 bg-stone-50 px-6 pb-16 pt-2 dark:border-stone-800 dark:bg-stone-950 sm:pb-20"
+        aria-label="עדכוני שטח מרשות הטבע והגנים"
+      >
+        <div className="mx-auto max-w-6xl">
+          <ParksFieldUpdatesWidget data={fieldUpdates} />
         </div>
       </section>
 

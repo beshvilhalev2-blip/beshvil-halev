@@ -22,3 +22,30 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+@keyframes field-updates-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @media (min-width: 1024px) {
+    .field-updates-marquee-track {
+      animation: field-updates-marquee 90s linear infinite;
+    }
+
+    .field-updates-marquee-track:hover {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-updates-marquee-track {
+    animation: none !important;
+  }
+}

@@ -5,7 +5,7 @@ export const PARKS_NEWSFLASH_CATEGORY_URL =
   "https://www.parks.org.il/category/newsflash/";
 
 export const FIELD_UPDATES_DISCLAIMER =
-  "המידע מוצג לנוחות בלבד. לפני יציאה לשטח יש לבדוק באתר הרשמי.";
+  "המידע לנוחות בלבד. לפני יציאה לשטח יש לבדוק באתר הרשמי.";
 
 /** Revalidate cached feed every 2 hours. */
 export const FIELD_UPDATES_REVALIDATE_SECONDS = 2 * 60 * 60;
