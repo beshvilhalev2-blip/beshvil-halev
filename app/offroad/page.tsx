@@ -83,7 +83,7 @@ function TripCard({ trip }: { trip: Trip }) {
   return (
     <Link
       href={`/trips/${trip.slug}`}
-      className={`group flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900 ${offroadTheme.borderHover}`}
+      className={`group flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 ${offroadTheme.borderHover}`}
     >
       <div
         className="relative aspect-[16/10] bg-cover bg-center bg-no-repeat"

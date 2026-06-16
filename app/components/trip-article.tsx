@@ -5,6 +5,7 @@ import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import TripActionBar from "@/app/components/trip-action-bar";
 import TripGearChecklist from "@/app/components/trip-gear-checklist";
+import WantToTravelSaveButton from "@/app/components/want-to-travel-save-button";
 import { getTripHeroBackground } from "@/lib/trip-media";
 
 function ArrowIcon() {
@@ -56,6 +57,8 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           <div className="mb-4">
             <TripActionBar trip={trip} variant="hero" />
           </div>
+
+          <WantToTravelSaveButton tripSlug={trip.slug} variant="hero" />
 
           <p className="mb-8 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
             {trip.subtitle}
@@ -202,7 +205,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
                       src={item.src}
                       alt={item.label}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   ) : (
@@ -251,7 +254,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
                 <Link
                   key={place.title}
                   href={place.href}
-                  className="group flex flex-col rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900 dark:hover:border-emerald-800"
+                  className="group flex flex-col rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm transition-shadow duration-300 hover:border-emerald-200 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 dark:hover:border-emerald-800"
                 >
                   <h3 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-50">
                     {place.title}

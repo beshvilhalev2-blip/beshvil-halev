@@ -270,7 +270,7 @@ function LinkCardContent({
         </div>
       </div>
 
-      <span className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white transition-colors group-hover:bg-teal-800 dark:bg-teal-600 dark:group-hover:bg-teal-500">
+      <span className="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-stone-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors group-hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:group-hover:bg-stone-200">
         {cta}
         <ArrowIcon />
       </span>
@@ -335,7 +335,7 @@ export default function GearHubCard(props: GearHubCardProps) {
   return (
     <Link
       href={href}
-      className={`group relative block rounded-2xl border bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md dark:bg-stone-900 sm:p-5 ${
+      className={`group relative block rounded-2xl border bg-white p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:bg-stone-900 sm:p-5 ${
         borderHover ?? "border-stone-200/80 dark:border-stone-800"
       }`}
     >

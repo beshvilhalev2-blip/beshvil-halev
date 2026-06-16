@@ -8,7 +8,7 @@ import SiteFooter from "@/app/components/site-footer";
 export const metadata: Metadata = {
   title: "אודות | בשביל הלב",
   description:
-    "הסיפור מאחורי שביל הלב — בלוג טיולים משפחתי על אהבה לטבע, ילדים ומסלולים בישראל",
+    "הסיפור מאחורי בשביל הלב — מדריך טיולים למשפחות על אהבה לטבע, ילדים ומסלולים בישראל",
 };
 
 const heroBackground = `
@@ -114,7 +114,7 @@ export default function AboutPage() {
         {/* Why I Started */}
         <section className="border-b border-stone-200/80 bg-white px-6 py-16 dark:border-stone-800 dark:bg-stone-900 sm:py-20">
           <div className="mx-auto max-w-3xl">
-            <SectionHeading>למה הקמתי את הבלוג</SectionHeading>
+            <SectionHeading>למה הקמנו את בשביל הלב</SectionHeading>
             <div className="space-y-5 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
               <p>
                 &quot;שביל הלב&quot; נולד מתוך רצון פשוט: לעזור למשפחות בישראל
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 יש רגע אחד — קפיצה למים, צחוק, נוף — שגורם לנו לחזור שוב.
               </p>
               <p>
-                [טקסט הרפתקאות — יוחלף בתוכן אמיתי] כאן בבלוג אני משתפת את
+                [טקסט הרפתקאות — יוחלף בתוכן אמיתי] כאן אנחנו משתפים את
                 המסלולים שבדקנו, את הטיפים שלמדנו בדרך, ואת הסיפורים הקטנים
                 שהפכו את הטיולים שלנו לזיכרונות שמחים.
               </p>

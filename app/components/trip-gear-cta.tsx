@@ -42,11 +42,11 @@ export default function TripGearCta() {
   return (
     <Link
       href={GEAR_HOMEPAGE_CTA.href}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-7 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:border-emerald-900/50 dark:from-emerald-950/40 dark:via-stone-900 dark:to-teal-950/30 sm:flex-row sm:items-center sm:gap-8 sm:p-8"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50 via-white to-emerald-50/50 p-7 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-emerald-900/50 dark:from-emerald-950/40 dark:via-stone-900 dark:to-emerald-950/30 sm:flex-row sm:items-center sm:gap-8 sm:p-8"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-      <div className="relative mb-6 inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-800 transition-transform duration-500 group-hover:scale-110 dark:bg-emerald-950 dark:text-emerald-200 sm:mb-0">
+      <div className="relative mb-6 inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200 sm:mb-0">
         <BackpackIcon />
       </div>
 

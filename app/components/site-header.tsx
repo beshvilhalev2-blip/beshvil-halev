@@ -8,6 +8,7 @@ import { SocialLinksMobileList, SocialLinksRow } from "@/app/components/social-l
 const navItems = [
   { label: "ראשי", href: "/" },
   { label: "המלצות לטיולים", href: "/recommendations" },
+  { label: "בא לי לטייל", href: "/want-to-travel" },
   { label: "אזורים בארץ", href: "/#regions" },
   { label: "שטח 4x4", href: "/offroad" },
   { label: "רשימת ציוד", href: "/gear" },
@@ -15,7 +16,12 @@ const navItems = [
   { label: "צור קשר", href: "/contact" },
 ] as const;
 
-const SOLID_HEADER_PATHS = new Set(["/recommendations", "/search", "/gear"]);
+const SOLID_HEADER_PATHS = new Set([
+  "/recommendations",
+  "/search",
+  "/gear",
+  "/want-to-travel",
+]);
 
 function MenuIcon({ open }: { open: boolean }) {
   return (

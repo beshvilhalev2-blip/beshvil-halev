@@ -41,11 +41,11 @@ export default function FindMyTripCta() {
   return (
     <Link
       href={HOMEPAGE_CTA.href}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-amber-200/80 bg-gradient-to-br from-amber-50 via-white to-orange-50 p-7 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl dark:border-amber-900/50 dark:from-amber-950/40 dark:via-stone-900 dark:to-orange-950/30 sm:flex-row sm:items-center sm:gap-8 sm:p-8"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-amber-200/80 bg-gradient-to-br from-amber-50 via-white to-orange-50 p-7 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-amber-900/50 dark:from-amber-950/40 dark:via-stone-900 dark:to-orange-950/30 sm:flex-row sm:items-center sm:gap-8 sm:p-8"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-      <div className="relative mb-6 inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-amber-800 transition-transform duration-500 group-hover:scale-110 dark:bg-amber-950 dark:text-amber-200 sm:mb-0">
+      <div className="relative mb-6 inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200 sm:mb-0">
         <CompassIcon />
       </div>
 

@@ -7,6 +7,24 @@ import FindMyTripCta from "./components/find-my-trip-cta";
 import TripGearCta from "./components/trip-gear-cta";
 import { getHomepageTrips } from "@/data/trips";
 
+const howItWorksSteps = [
+  {
+    emoji: "🌿",
+    title: "גלו",
+    description: "מצאו טיול שמתאים לכם",
+  },
+  {
+    emoji: "🎒",
+    title: "התארגנו",
+    description: "רשימות ציוד חכמות",
+  },
+  {
+    emoji: "🚙",
+    title: "צאו",
+    description: "ניווט, טיפים וכל מה שצריך",
+  },
+] as const;
+
 const categories = [
   {
     title: "צפון",
@@ -177,21 +195,38 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-4xl px-6 py-24 text-center">
           <p className="mb-6 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-1.5 text-sm font-medium tracking-wide text-white/90 backdrop-blur-sm">
-            בלוג טיולים · ישראל
+            לצאת לטבע • בקצב שלכם
           </p>
 
           <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-6xl md:text-7xl">
             בשביל הלב
           </h1>
 
-          <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl md:text-2xl">
-            בין מסלולי החיים ונתיבי השבילים נוצר שביל ללב
+          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl md:text-2xl">
+            להיות בתנועה זאת התרופה.
+            <br />
+            מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.
           </p>
+
+          <div className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <Link
+              href="/find-my-trip"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-stone-900 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto"
+            >
+              מצאו לי טיול
+            </Link>
+            <Link
+              href="/recommendations"
+              className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:w-auto"
+            >
+              גלו טיולים
+            </Link>
+          </div>
 
           <form
             action="/search"
             method="get"
-            className="mx-auto flex max-w-2xl items-center gap-3 rounded-2xl border border-white/20 bg-white/95 p-2 shadow-2xl shadow-black/20 backdrop-blur-md transition-shadow focus-within:shadow-amber-900/30 sm:rounded-full sm:p-2.5"
+            className="mx-auto flex max-w-xl items-center gap-3 rounded-2xl border border-white/15 bg-white/90 p-2 shadow-lg shadow-black/10 backdrop-blur-md transition-shadow focus-within:shadow-xl sm:rounded-full sm:p-2"
           >
             <div className="flex flex-1 items-center gap-3 px-4">
               <SearchIcon />
@@ -215,8 +250,29 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-50 to-transparent dark:from-stone-950" />
       </section>
 
+      {/* How it works */}
+      <section className="border-t border-stone-200/80 bg-white px-6 py-16 dark:border-stone-800 dark:bg-stone-900 sm:py-20">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid gap-8 sm:grid-cols-3 sm:gap-6">
+            {howItWorksSteps.map((step) => (
+              <div key={step.title} className="text-center">
+                <p className="mb-3 text-3xl" aria-hidden="true">
+                  {step.emoji}
+                </p>
+                <h2 className="mb-2 text-lg font-semibold text-stone-900 dark:text-stone-50">
+                  {step.title}
+                </h2>
+                <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Find my trip CTA */}
-      <section className="border-t border-stone-200/80 bg-stone-50 px-6 py-12 dark:border-stone-800 dark:bg-stone-950 sm:py-16">
+      <section className="border-t border-stone-200/80 bg-stone-50 px-6 py-16 dark:border-stone-800 dark:bg-stone-950 sm:py-20">
         <div className="mx-auto flex max-w-6xl flex-col gap-6">
           <FindMyTripCta />
           <TripGearCta />
@@ -225,14 +281,14 @@ export default function Home() {
 
       {/* Featured trips */}
       {homepageTrips.length > 0 && (
-        <section className="border-t border-stone-200/80 bg-white px-6 py-20 dark:border-stone-800 dark:bg-stone-900">
+        <section className="border-t border-stone-200/80 bg-white px-6 py-24 dark:border-stone-800 dark:bg-stone-900 sm:py-28">
           <div className="mx-auto max-w-6xl">
-            <div className="mb-12 text-center">
+            <div className="mb-14 text-center">
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
                 מסלולים מומלצים
               </h2>
-              <p className="mx-auto max-w-xl text-lg text-stone-600 dark:text-stone-400">
-                טיולים שבדקנו בעצמנו — עם סיפורים, טיפים והמלצות מהשטח
+              <p className="mx-auto max-w-xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
+                טיולים שנבחרו ונבדקו באהבה — עם טיפים, עלויות וסיפורים מהשטח
               </p>
             </div>
 
@@ -247,7 +303,7 @@ export default function Home() {
                 href="/recommendations"
                 className="inline-flex items-center gap-2 rounded-xl bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
               >
-                לכל המסלולים לחצי כאן
+                גלו טיולים
                 <ArrowIcon />
               </Link>
             </div>
@@ -260,7 +316,7 @@ export default function Home() {
       {/* Regions */}
       <section
         id="regions"
-        className="bg-stone-50 px-6 py-20 dark:bg-stone-950"
+        className="bg-stone-50 px-6 py-24 dark:bg-stone-950 sm:py-28"
       >
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
@@ -279,7 +335,7 @@ export default function Home() {
                 <Link
                   key={category.href}
                   href={category.href}
-                  className={`group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900 ${category.borderHover}`}
+                  className={`group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 ${category.borderHover}`}
                 >
                   <div
                     className={`pointer-events-none absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${category.accent}`}
@@ -287,7 +343,7 @@ export default function Home() {
 
                   <div className="relative flex flex-1 flex-col">
                     <div
-                      className={`mb-6 inline-flex size-14 items-center justify-center rounded-2xl transition-transform duration-500 group-hover:scale-110 ${category.iconBg}`}
+                      className={`mb-6 inline-flex size-14 items-center justify-center rounded-2xl ${category.iconBg}`}
                     >
                       <Icon />
                     </div>
