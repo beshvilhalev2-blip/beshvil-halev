@@ -79,22 +79,12 @@ function MarqueeGroup({
 
 function TickerUpdates({ items }: { items: FieldUpdateItem[] }) {
   return (
-    <>
-      <div className="flex items-center gap-2 overflow-x-auto overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden">
-        <MarqueeGroup items={items} keyPrefix="mobile-a" />
-        <MarqueeGroup items={items} keyPrefix="mobile-b" ariaHidden />
+    <div className="min-w-0 flex-1 overflow-hidden" dir="ltr">
+      <div className="field-updates-marquee-track flex items-center gap-0">
+        <MarqueeGroup items={items} keyPrefix="a" />
+        <MarqueeGroup items={items} keyPrefix="b" ariaHidden />
       </div>
-
-      <div
-        className="hidden min-w-0 flex-1 overflow-hidden lg:block"
-        dir="ltr"
-      >
-        <div className="field-updates-marquee-track items-center gap-0">
-          <MarqueeGroup items={items} keyPrefix="desktop-a" />
-          <MarqueeGroup items={items} keyPrefix="desktop-b" ariaHidden />
-        </div>
-      </div>
-    </>
+    </div>
   );
 }
 
