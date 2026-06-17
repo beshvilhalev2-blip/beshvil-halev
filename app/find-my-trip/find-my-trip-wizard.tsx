@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useRef, useState } from "react";
-import { getTripBySlug, trips } from "@/data/trips";
+import { getPublishedTrips, getTripBySlug } from "@/data/trips";
 import FindMyTripResults from "@/app/find-my-trip/components/find-my-trip-results";
 import WizardCitySelect from "@/app/find-my-trip/components/wizard-city-select";
 import WizardOptionGrid from "@/app/find-my-trip/components/wizard-option-grid";
@@ -34,7 +34,7 @@ type WizardStep = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 type WizardPhase = "wizard" | "results";
 
-const tripRefs = trips.map(toTripRef);
+const tripRefs = getPublishedTrips().map(toTripRef);
 
 const vehicleOptions = vehicleCategories.map((category) => ({
   id: category.id,

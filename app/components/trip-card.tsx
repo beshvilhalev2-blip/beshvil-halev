@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { getRegionBySlug, regions, type Region, type Trip } from "@/data/trips";
+import VisitedStamp from "@/app/components/visited-stamp";
 import { getTripCardBackground } from "@/lib/trip-media";
+
+const HIDDEN_CATEGORY = "מקום שביקרנו";
 
 function ArrowIcon() {
   return (
@@ -34,22 +37,36 @@ export default function TripCard({
   region?: Region;
 }) {
   const theme = getRegionTheme(trip, region);
+  const isComingSoon = trip.status === "needs-content";
+  const ctaLabel = isComingSoon ? "לעמוד המקום" : "לכתבה המלאה";
+  const showCategory = trip.category !== HIDDEN_CATEGORY;
 
   return (
     <Link
       href={`/trips/${trip.slug}`}
-      className={`group flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 ${theme.borderHover}`}
+      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 ${theme.borderHover}`}
     >
-      <div
-        className="relative aspect-[16/10] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: getTripCardBackground(trip) }}
-        role="img"
-        aria-label={trip.heroImageLabel}
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-        <span className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-          {trip.category}
-        </span>
+      <div className="relative">
+        <div
+          className="relative aspect-[16/10] bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: getTripCardBackground(trip) }}
+          role="img"
+          aria-label={trip.heroImageLabel}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+          {showCategory ? (
+            <span className="absolute bottom-4 right-4 rounded-full border border-white/20 bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+              {trip.category}
+            </span>
+          ) : null}
+        </div>
+
+        {trip.visitedByMilana ? (
+          <div className="absolute right-2 top-2 z-20 translate-y-[42%] sm:right-3 sm:top-3 sm:translate-y-[45%]">
+            <VisitedStamp />
+          </div>
+        ) : null}
       </div>
 
       <div className="relative flex flex-1 flex-col p-5 sm:p-6">
@@ -58,7 +75,7 @@ export default function TripCard({
         />
 
         <div className="relative flex flex-1 flex-col">
-          <h3 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-50 sm:text-2xl">
+          <h3 className="mb-2 pe-14 text-xl font-bold text-stone-900 dark:text-stone-50 sm:mb-2 sm:pe-16 sm:text-2xl">
             {trip.title}
           </h3>
 
@@ -67,7 +84,7 @@ export default function TripCard({
           </p>
 
           <span className="inline-flex items-center gap-2 text-sm font-semibold text-stone-700 transition-colors group-hover:text-stone-900 dark:text-stone-300 dark:group-hover:text-white">
-            לכתבה המלאה
+            {ctaLabel}
             <ArrowIcon />
           </span>
         </div>

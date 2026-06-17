@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import TripCard, { getRegionForTrip } from "@/app/components/trip-card";
-import { trips } from "@/data/trips";
+import { getPublishedTrips } from "@/data/trips";
 import { getTripsForVehicleCategory } from "@/lib/trip-vehicle-access";
 import {
   getModelsForBrand,
@@ -382,7 +382,7 @@ export default function VehicleTripMatch() {
 
   const matchedTrips = useMemo(() => {
     if (!resolvedVehicle) return [];
-    return getTripsForVehicleCategory(trips, resolvedVehicle.category);
+    return getTripsForVehicleCategory(getPublishedTrips(), resolvedVehicle.category);
   }, [resolvedVehicle]);
 
   function resetResults() {

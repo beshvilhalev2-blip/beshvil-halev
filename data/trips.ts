@@ -1,5 +1,7 @@
 import type { TripMatcherProfile } from "@/lib/find-my-trip/trip-profile";
 import { normalizeTripVehicleAccess } from "@/lib/trip-vehicle-access";
+import { visitedByMilanaMatchedSlugs } from "./visited-place-matches";
+import { visitedPlaceTrips } from "./visited-place-trips";
 
 export type TripCostItem = {
   label: string;
@@ -35,6 +37,8 @@ export type TripLocation = {
   wazeUrl?: string;
 };
 
+export type TripStatus = "published" | "needs-content";
+
 export type Trip = {
   slug: string;
   title: string;
@@ -45,6 +49,8 @@ export type Trip = {
   metaDescription: string;
   seoTitle?: string;
   featured?: boolean;
+  status?: TripStatus;
+  visitedByMilana?: boolean;
   heroImage?: string;
   heroImageLabel: string;
   heroBackgroundImage: string;
@@ -848,7 +854,38 @@ const rawTrips: Trip[] = [
   },
 ];
 
-export const trips: Trip[] = rawTrips.map(normalizeTripVehicleAccess);
+const VISITED_BY_MILANA_MATCHED = new Set<string>(visitedByMilanaMatchedSlugs);
+
+function applyVisitedPlaceFlags(trip: Trip): Trip {
+  if (trip.visitedByMilana || trip.status === "needs-content") {
+    return trip;
+  }
+
+  if (!VISITED_BY_MILANA_MATCHED.has(trip.slug)) {
+    return trip;
+  }
+
+  return { ...trip, visitedByMilana: true };
+}
+
+function sortTripsForRegion(a: Trip, b: Trip): number {
+  const aNeeds = a.status === "needs-content" ? 1 : 0;
+  const bNeeds = b.status === "needs-content" ? 1 : 0;
+  if (aNeeds !== bNeeds) {
+    return aNeeds - bNeeds;
+  }
+
+  return a.title.localeCompare(b.title, "he");
+}
+
+export function isPublishedTrip(trip: Trip): boolean {
+  return trip.status !== "needs-content";
+}
+
+export const trips: Trip[] = [
+  ...rawTrips.map(normalizeTripVehicleAccess),
+  ...(visitedPlaceTrips as unknown as Trip[]),
+].map(applyVisitedPlaceFlags);
 
 export function getTripBySlug(slug: string): Trip | undefined {
   return trips.find((trip) => trip.slug === slug);
@@ -869,7 +906,9 @@ export function getAllRegionSlugs(): string[] {
 export function getTripsByRegionSlug(slug: string): Trip[] {
   const region = getRegionBySlug(slug);
   if (!region) return [];
-  return trips.filter((trip) => trip.region === region.title);
+  return trips
+    .filter((trip) => trip.region === region.title)
+    .sort(sortTripsForRegion);
 }
 
 export function getTripsByCategory(category: string): Trip[] {
@@ -877,13 +916,19 @@ export function getTripsByCategory(category: string): Trip[] {
 }
 
 export function getFeaturedTrips(): Trip[] {
-  return trips.filter((trip) => trip.featured);
+  return trips.filter((trip) => trip.featured && isPublishedTrip(trip));
 }
 
 export function getHomepageTrips(limit = 6): Trip[] {
   const featured = getFeaturedTrips();
   const featuredSlugs = new Set(featured.map((trip) => trip.slug));
-  const remaining = trips.filter((trip) => !featuredSlugs.has(trip.slug));
+  const remaining = trips.filter(
+    (trip) => !featuredSlugs.has(trip.slug) && isPublishedTrip(trip),
+  );
 
   return [...featured, ...remaining].slice(0, limit);
+}
+
+export function getPublishedTrips(): Trip[] {
+  return trips.filter(isPublishedTrip);
 }

@@ -1,7 +1,7 @@
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import TripCard from "@/app/components/trip-card";
-import { trips } from "@/data/trips";
+import { getPublishedTrips } from "@/data/trips";
 
 export const metadata = {
   title: "המלצות לטיולים | בשביל הלב",
@@ -9,6 +9,8 @@ export const metadata = {
 };
 
 export default function RecommendationsPage() {
+  const publishedTrips = getPublishedTrips();
+
   return (
     <div className="flex flex-1 flex-col">
       <SiteHeader />
@@ -31,7 +33,7 @@ export default function RecommendationsPage() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {trips.map((trip) => (
+            {publishedTrips.map((trip) => (
               <TripCard key={trip.slug} trip={trip} />
             ))}
           </div>

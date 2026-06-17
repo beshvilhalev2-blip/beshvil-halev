@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import TripArticle from "@/app/components/trip-article";
+import TripComingSoon from "@/app/components/trip-coming-soon";
 import { getAllTripSlugs, getTripBySlug } from "@/data/trips";
 
 type PageProps = {
@@ -31,6 +32,10 @@ export default async function TripPage({ params }: PageProps) {
 
   if (!trip) {
     notFound();
+  }
+
+  if (trip.status === "needs-content") {
+    return <TripComingSoon trip={trip} />;
   }
 
   return <TripArticle trip={trip} />;
