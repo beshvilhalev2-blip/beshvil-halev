@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Import real photos from content/places/south into south-region trip data.
+Import real photos from public/images/places/south into south-region trip data.
 
 - hero.* (jpg/jpeg/png/webp/heic) → heroImage
 - Additional image files in the same folder → gallery (src only, no labels)
@@ -17,7 +17,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-SOUTH_ROOT = PROJECT_ROOT / "content" / "places" / "south"
+SOUTH_ROOT = PROJECT_ROOT / "public" / "images" / "places" / "south"
 VISITED_TRIPS_FILE = PROJECT_ROOT / "data" / "visited-place-trips.ts"
 TRIPS_FILE = PROJECT_ROOT / "data" / "trips.ts"
 REPORT_FILE = PROJECT_ROOT / "data" / "south-place-photos-report.json"
@@ -54,7 +54,7 @@ def escape_ts(value: str) -> str:
 
 def image_url(folder_name: str, filename: str) -> str:
     file_part = quote(filename, safe="")
-    return f"/content/places/south/{folder_name}/{file_part}"
+    return f"/images/places/south/{folder_name}/{file_part}"
 
 
 def is_hero_file(name: str) -> bool:

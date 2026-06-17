@@ -374,7 +374,7 @@ const rawTrips: Trip[] = [
     },
     metaDescription:
       "עין בוקק — נחל מים ומפלים במדבר יהודה. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
-    heroImage: "/content/places/south/עין בוקק/hero.jpeg",
+    heroImage: "/images/places/south/עין בוקק/hero.jpeg",
     heroImageLabel: "תמונת רקע — עין בוקק",
     heroBackgroundImage: einBokekHeroBackground,
     about: [
@@ -400,12 +400,12 @@ const rawTrips: Trip[] = [
       "בדקו מראש את זרימת המים בעונה",
     ],
     gallery: [
-      { src: "/content/places/south/עין בוקק/IMG_2560.jpeg" },
-      { src: "/content/places/south/עין בוקק/IMG_2562.jpeg" },
-      { src: "/content/places/south/עין בוקק/IMG_2569.jpeg" },
-      { src: "/content/places/south/עין בוקק/IMG_2582.jpeg" },
-      { src: "/content/places/south/עין בוקק/IMG_2598.jpeg" },
-      { src: "/content/places/south/עין בוקק/IMG_2632.jpeg" },
+      { src: "/images/places/south/עין בוקק/IMG_2560.jpeg" },
+      { src: "/images/places/south/עין בוקק/IMG_2562.jpeg" },
+      { src: "/images/places/south/עין בוקק/IMG_2569.jpeg" },
+      { src: "/images/places/south/עין בוקק/IMG_2582.jpeg" },
+      { src: "/images/places/south/עין בוקק/IMG_2598.jpeg" },
+      { src: "/images/places/south/עין בוקק/IMG_2632.jpeg" },
     ],
     gallerySubtitle: "",
     nearbyPlaces: [
@@ -452,7 +452,7 @@ const rawTrips: Trip[] = [
     },
     metaDescription:
       "אגם ניצנים — אגם מלאכותי עם חוף ים בדרום. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
-    heroImage: "/content/places/south/אגם ניצנים/hero.jpeg",
+    heroImage: "/images/places/south/אגם ניצנים/hero.jpeg",
     heroImageLabel: "תמונת רקע — אגם ניצנים",
     heroBackgroundImage: nitzanimLakeHeroBackground,
     about: [
@@ -478,11 +478,11 @@ const rawTrips: Trip[] = [
       "שמרו על ניקיון האגם והחוף",
     ],
     gallery: [
-      { src: "/content/places/south/אגם ניצנים/IMG_1024.jpeg" },
-      { src: "/content/places/south/אגם ניצנים/IMG_1465.jpeg" },
-      { src: "/content/places/south/אגם ניצנים/IMG_1488.jpeg" },
-      { src: "/content/places/south/אגם ניצנים/IMG_1503.jpeg" },
-      { src: "/content/places/south/אגם ניצנים/IMG_4588.jpeg" },
+      { src: "/images/places/south/אגם ניצנים/IMG_1024.jpeg" },
+      { src: "/images/places/south/אגם ניצנים/IMG_1465.jpeg" },
+      { src: "/images/places/south/אגם ניצנים/IMG_1488.jpeg" },
+      { src: "/images/places/south/אגם ניצנים/IMG_1503.jpeg" },
+      { src: "/images/places/south/אגם ניצנים/IMG_4588.jpeg" },
     ],
     gallerySubtitle: "",
     nearbyPlaces: [
