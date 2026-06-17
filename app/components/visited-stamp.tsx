@@ -9,16 +9,16 @@ export default function VisitedStamp({
 }: VisitedStampProps) {
   const sizeClasses =
     size === "sm"
-      ? "size-14 text-[7px] leading-tight"
-      : "size-16 text-[8px] leading-tight";
+      ? "size-[4.25rem] text-[8px] leading-[1.15]"
+      : "size-20 text-[9px] leading-[1.15]";
 
   return (
     <span
-      className={`inline-flex shrink-0 items-center justify-center rounded-full border-2 border-dashed border-emerald-600/50 bg-emerald-50/80 text-center font-bold tracking-wide text-emerald-800/80 opacity-[0.85] dark:border-emerald-500/40 dark:bg-emerald-950/50 dark:text-emerald-200/80 ${sizeClasses} -rotate-12 ${className}`}
+      className={`inline-flex shrink-0 items-center justify-center rounded-full border-2 border-dashed border-emerald-600 bg-emerald-50 text-center font-bold text-emerald-800 shadow-sm ring-2 ring-white/80 dark:border-emerald-400 dark:bg-emerald-950 dark:text-emerald-100 dark:ring-stone-900/80 ${sizeClasses} -rotate-12 ${className}`}
       aria-label="טיילנו כאן בשביל הלב"
       title="טיילנו כאן בשביל הלב"
     >
-      <span className="max-w-[3.25rem] px-1">
+      <span className="max-w-[3.5rem] px-1">
         טיילנו כאן
         <br />
         בשביל הלב
