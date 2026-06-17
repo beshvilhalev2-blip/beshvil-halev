@@ -43,10 +43,7 @@ export default function TripComingSoon({ trip }: { trip: Trip }) {
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-900/35 to-stone-900/10" />
 
         {trip.visitedByMilana ? (
-          <VisitedStamp
-            className="absolute right-4 top-24 z-20 sm:right-6 sm:top-28"
-            size="hero"
-          />
+          <VisitedStamp placement="hero" size="hero" />
         ) : null}
 
         <div className="relative z-10 mx-auto w-full max-w-3xl px-4 pb-12 pt-8 sm:px-6 sm:pb-16">

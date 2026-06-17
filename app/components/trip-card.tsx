@@ -62,11 +62,7 @@ export default function TripCard({
           ) : null}
         </div>
 
-        {trip.visitedByMilana ? (
-          <div className="absolute right-2 top-2 z-20 translate-y-[42%] sm:right-3 sm:top-3 sm:translate-y-[45%]">
-            <VisitedStamp />
-          </div>
-        ) : null}
+        {trip.visitedByMilana ? <VisitedStamp placement="card" /> : null}
       </div>
 
       <div className="relative flex flex-1 flex-col p-5 sm:p-6">
@@ -75,7 +71,7 @@ export default function TripCard({
         />
 
         <div className="relative flex flex-1 flex-col">
-          <h3 className="mb-2 pe-14 text-xl font-bold text-stone-900 dark:text-stone-50 sm:mb-2 sm:pe-16 sm:text-2xl">
+          <h3 className="mb-2 pe-[5.25rem] text-xl font-bold text-stone-900 dark:text-stone-50 sm:mb-2 sm:pe-16 sm:text-2xl">
             {trip.title}
           </h3>
 
