@@ -4,7 +4,8 @@ import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import { getRegionForTrip } from "@/app/components/trip-card";
 import VisitedStamp from "@/app/components/visited-stamp";
-import { getTripHeroBackground } from "@/lib/trip-media";
+import TripPhotoGallery from "@/app/components/trip-photo-gallery";
+import { getTripHeroLayerStyle } from "@/lib/trip-media";
 
 function ArrowIcon() {
   return (
@@ -34,8 +35,8 @@ export default function TripComingSoon({ trip }: { trip: Trip }) {
 
       <section className="relative flex min-h-[45vh] items-end overflow-hidden pt-20 sm:min-h-[50vh] sm:pt-24">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: getTripHeroBackground(trip) }}
+          className="absolute inset-0 bg-no-repeat"
+          style={getTripHeroLayerStyle(trip)}
           role="img"
           aria-label={trip.heroImageLabel}
         />
@@ -57,6 +58,8 @@ export default function TripComingSoon({ trip }: { trip: Trip }) {
           </h1>
         </div>
       </section>
+
+      <TripPhotoGallery trip={trip} />
 
       <section className="bg-stone-50 px-4 py-12 dark:bg-stone-950 sm:px-6 sm:py-16 md:py-20">
         <div className="mx-auto max-w-2xl text-center">

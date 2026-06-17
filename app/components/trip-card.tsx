@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getRegionBySlug, regions, type Region, type Trip } from "@/data/trips";
 import VisitedStamp from "@/app/components/visited-stamp";
-import { getTripCardBackground } from "@/lib/trip-media";
+import { getTripCardLayerStyle } from "@/lib/trip-media";
 
 const HIDDEN_CATEGORY = "מקום שביקרנו";
 
@@ -48,8 +48,8 @@ export default function TripCard({
     >
       <div className="relative">
         <div
-          className="relative aspect-[16/10] bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: getTripCardBackground(trip) }}
+          className="relative aspect-[16/10] bg-no-repeat"
+          style={getTripCardLayerStyle(trip)}
           role="img"
           aria-label={trip.heroImageLabel}
         >

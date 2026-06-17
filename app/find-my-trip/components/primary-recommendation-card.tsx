@@ -3,7 +3,7 @@ import type { Trip } from "@/data/trips";
 import { getRegionForTrip } from "@/app/components/trip-card";
 import MatchReasonsList from "@/app/find-my-trip/components/match-reasons-list";
 import { PRIMARY_RECOMMENDATION_TITLE } from "@/lib/find-my-trip/constants";
-import { getTripCardBackground } from "@/lib/trip-media";
+import { getTripCardLayerStyle } from "@/lib/trip-media";
 import type { MatchReason } from "@/lib/find-my-trip/types";
 
 function ArrowIcon() {
@@ -43,8 +43,8 @@ export default function PrimaryRecommendationCard({
     >
       <Link href={`/trips/${trip.slug}`} className="group block">
         <div
-          className="relative aspect-[16/9] bg-cover bg-center bg-no-repeat sm:aspect-[21/9]"
-          style={{ backgroundImage: getTripCardBackground(trip) }}
+          className="relative aspect-[16/9] bg-no-repeat sm:aspect-[21/9]"
+          style={getTripCardLayerStyle(trip)}
           role="img"
           aria-label={trip.heroImageLabel}
         >

@@ -1,12 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Trip } from "@/data/trips";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import TripActionBar from "@/app/components/trip-action-bar";
 import TripGearChecklist from "@/app/components/trip-gear-checklist";
 import WantToTravelSaveButton from "@/app/components/want-to-travel-save-button";
-import { getTripHeroBackground } from "@/lib/trip-media";
+import TripPhotoGallery from "@/app/components/trip-photo-gallery";
+import { getTripHeroLayerStyle } from "@/lib/trip-media";
 
 function ArrowIcon() {
   return (
@@ -33,8 +33,8 @@ export default function TripArticle({ trip }: { trip: Trip }) {
       {/* Hero */}
       <section className="relative flex min-h-0 items-end overflow-hidden pt-20 sm:min-h-[55vh] sm:pt-24 lg:min-h-[65vh]">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: getTripHeroBackground(trip) }}
+          className="absolute inset-0 bg-no-repeat"
+          style={getTripHeroLayerStyle(trip)}
           role="img"
           aria-label={trip.heroImageLabel}
         />
@@ -178,60 +178,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           <TripGearChecklist trip={trip} />
         </div>
 
-        {/* גלריית תמונות */}
-        <section className="border-t border-stone-200/80 bg-white px-4 py-12 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-16 md:py-20">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-10 text-center">
-              <h2 className="mb-3 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
-                גלריית תמונות
-              </h2>
-              <p className="text-stone-500 dark:text-stone-400">
-                {trip.gallerySubtitle}
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {trip.gallery.map((item, index) => (
-                <div
-                  key={item.label}
-                  className={`group relative aspect-[4/3] overflow-hidden rounded-2xl ${
-                    item.src ? "bg-stone-200 dark:bg-stone-800" : `bg-gradient-to-br ${item.gradient ?? "from-stone-400/40 to-stone-600/30"}`
-                  } ${
-                    index === 0 ? "sm:col-span-2 sm:row-span-1 lg:col-span-2 lg:aspect-[16/7]" : ""
-                  }`}
-                >
-                  {item.src ? (
-                    <Image
-                      src={item.src}
-                      alt={item.label}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center bg-stone-900/10 transition-colors group-hover:bg-stone-900/5">
-                      <div className="text-center">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mx-auto mb-2 size-10 text-stone-600/60 dark:text-stone-300/60" aria-hidden="true">
-                          <rect x="3" y="3" width="18" height="18" rx="2" />
-                          <circle cx="8.5" cy="8.5" r="1.5" />
-                          <path d="m21 15-5-5L5 21" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        <p className="text-sm font-medium text-stone-700/70 dark:text-stone-200/70">
-                          {item.label}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                  {item.src && (
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-4 py-3">
-                      <p className="text-sm font-medium text-white">{item.label}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <TripPhotoGallery trip={trip} />
 
         <div className="mx-auto max-w-3xl px-4 pb-6 sm:px-6">
           <TripActionBar trip={trip} variant="article" className="mx-auto sm:mx-0" />

@@ -10,7 +10,7 @@ export type TripCostItem = {
 };
 
 export type TripGalleryItem = {
-  label: string;
+  label?: string;
   gradient?: string;
   src?: string;
 };
@@ -52,6 +52,7 @@ export type Trip = {
   status?: TripStatus;
   visitedByMilana?: boolean;
   heroImage?: string;
+  heroImagePosition?: string;
   heroImageLabel: string;
   heroBackgroundImage: string;
   location?: TripLocation;
@@ -139,16 +140,6 @@ const nahalHashofetHeroBackground = `
     rgba(28, 25, 23, 0.65) 100%
   ),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Cdefs%3E%3ClinearGradient id='water' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='50%25' stop-color='%230d9488'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23water)' width='1920' height='1080'/%3E%3Cpath fill='%23047857' opacity='0.4' d='M0 600 Q320 500 640 580 T1280 560 T1920 620 L1920 1080 L0 1080 Z'/%3E%3Cpath fill='%2310b981' opacity='0.25' d='M0 700 Q480 620 960 700 T1920 680 L1920 1080 L0 1080 Z'/%3E%3C/svg%3E")
-`;
-
-const einYorkeamHeroBackground = `
-  linear-gradient(
-    160deg,
-    rgba(154, 52, 18, 0.75) 0%,
-    rgba(194, 65, 12, 0.55) 40%,
-    rgba(28, 25, 23, 0.7) 100%
-  ),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Cdefs%3E%3ClinearGradient id='desert' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='50%25' stop-color='%23ea580c'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23desert)' width='1920' height='1080'/%3E%3Cpath fill='%23c2410c' opacity='0.35' d='M0 650 Q400 550 800 630 T1600 600 T1920 640 L1920 1080 L0 1080 Z'/%3E%3Cpath fill='%23fb923c' opacity='0.2' d='M0 750 Q500 680 1000 740 T1920 720 L1920 1080 L0 1080 Z'/%3E%3C/svg%3E")
 `;
 
 const satafHeroBackground = `
@@ -282,85 +273,6 @@ const rawTrips: Trip[] = [
     nearbySubtitle: "המשיכו לגלות את הצפון",
   },
   {
-    slug: "ein-yorkeam",
-    title: "עין ירקעם",
-    subtitle: "נווה מדבר מרהיב עם מפל ובריכות טבעיות בדרום",
-    region: "דרום",
-    category: "טיול מים",
-    matcher: {
-      activities: ["water", "easy-trails", "viewpoint"],
-      companions: ["solo", "friends", "kids", "family"],
-      estimatedCostNis: "free",
-      weatherTraits: ["water-friendly", "heat-sensitive"],
-      weatherAvoid: ["rainy"],
-      travelTimeFrom: {
-        "beer-sheva": "1h",
-        arad: "1h",
-        dimona: "1h",
-        jerusalem: "1h-plus",
-        modiin: "1h-plus",
-      },
-    },
-    location: {
-      lat: 31.378,
-      lng: 35.179,
-      label: "חניון עין ירקעם",
-    },
-    metaDescription:
-      "עין ירקעם — מסלול מים בדרום עם מפל מרהיב ובריכות טבעיות. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
-    heroImageLabel: "תמונת רקע — עין ירקעם",
-    heroBackgroundImage: einYorkeamHeroBackground,
-    about: [
-      "עין ירקעם הוא אחד המקומות המרהיבים ביותר במדבר יהודה — מפל טבעי זורם לבריכות קרירות בלב נוף מדברי עוצר נשימה.",
-      "המסלול מתאים לטיולים משפחתיים ולחובבי צילום, עם שביל מסודר שמוביל אל המעיין והמפל. בחודשי הקיץ זהו יעד מבוקש, ולכן מומלץ להגיע מוקדם.",
-      "[טקסט מקום — יוחלף בתוכן אמיתי]",
-    ],
-    personalStory: [
-      "הגענו לעין ירקעם בשעות הבוקר המוקדמות, כשהשמש עדיין נמוכה והצללים על הסלעים יצרו ציורים מדהימים. הרגשתי שהגענו לפינה נסתרת של המדבר.",
-      "הילדים שיחקו במים והמפל שרגע לבדו את כל המקום. זה היה אחד הימים שבהם הבנתי למה שווה לצאת מהבית ולגלות את הארץ מקרוב.",
-      "[סיפור אישי — יוחלף בתוכן אמיתי]",
-    ],
-    cost: [
-      { label: "כניסה", value: "חינם", note: "[placeholder]" },
-      { label: "חניה", value: "₪—", note: "[placeholder]" },
-      { label: "משך טיול", value: "1.5–2 שעות", note: "[placeholder]" },
-    ],
-    tips: [
-      "הגיעו מוקדם — במיוחד בקיץ, המקום מתמלא במהירות",
-      "הביאו הרבה מים, כובע וקרם הגנה — אין צל לאורך כל המסלול",
-      "נעלי הליכה עם אחיזה טובה — השביל סלעי וחלק",
-      "אין שירותים בנקודת החניה — תכננו מראש",
-      "בדקו מראש אם המפל זורם — תלוי בעונת השנה",
-    ],
-    gallery: [
-      { label: "המפל בירקעם", gradient: "from-orange-400/40 to-rose-600/30" },
-      { label: "בריכות טבעיות", gradient: "from-amber-400/40 to-orange-700/30" },
-      { label: "נוף מדברי", gradient: "from-rose-400/40 to-red-700/30" },
-      { label: "שביל הסלעים", gradient: "from-yellow-400/40 to-amber-600/30" },
-      { label: "שקיעה במדבר", gradient: "from-orange-500/40 to-stone-700/30" },
-      { label: "משפחה בטיול", gradient: "from-red-400/40 to-orange-600/30" },
-    ],
-    gallerySubtitle: "תמונות מהמסלול — יוחלפו בתוכן אמיתי",
-    nearbyPlaces: [
-      {
-        title: "מכתש רמון",
-        description: "המכתש הגדול בעולם — נוף גיאולוגי מרהיב",
-        href: "#",
-      },
-      {
-        title: "עין עבדת",
-        description: "מעיין מדברי עם היסטוריה עשירה ונוף פנורמי",
-        href: "#",
-      },
-      {
-        title: "הסטף",
-        description: "מעיינות וטרסות עתיקות בהרי ירושלים",
-        href: "/trips/sataf",
-      },
-    ],
-    nearbySubtitle: "המשיכו לגלות את הדרום",
-  },
-  {
     slug: "sataf",
     title: "הסטף",
     subtitle: "מעיינות קסומים וטרסות עתיקות בהרי ירושלים",
@@ -431,9 +343,9 @@ const rawTrips: Trip[] = [
         href: "#",
       },
       {
-        title: "עין ירקעם",
-        description: "נווה מדבר מרהיב עם מפל ובריכות טבעיות",
-        href: "/trips/ein-yorkeam",
+        title: "מצדה",
+        description: "מבצר עתיק עם נוף מרהיב על ים המלח",
+        href: "#",
       },
     ],
     nearbySubtitle: "המשיכו לגלות את ירושלים והסביבה",
@@ -462,6 +374,7 @@ const rawTrips: Trip[] = [
     },
     metaDescription:
       "עין בוקק — נחל מים ומפלים במדבר יהודה. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
+    heroImage: "/content/places/south/עין בוקק/hero.jpeg",
     heroImageLabel: "תמונת רקע — עין בוקק",
     heroBackgroundImage: einBokekHeroBackground,
     about: [
@@ -487,19 +400,19 @@ const rawTrips: Trip[] = [
       "בדקו מראש את זרימת המים בעונה",
     ],
     gallery: [
-      { label: "מפלי עין בוקק", gradient: "from-amber-400/40 to-orange-700/30" },
-      { label: "בריכות בנחל", gradient: "from-yellow-400/40 to-amber-600/30" },
-      { label: "שביל לאורך המים", gradient: "from-orange-400/40 to-rose-600/30" },
-      { label: "נוף מדברי", gradient: "from-red-400/40 to-orange-700/30" },
-      { label: "משפחה בטיול", gradient: "from-amber-500/40 to-stone-600/30" },
-      { label: "שקיעה בדרום", gradient: "from-orange-500/40 to-rose-700/30" },
+      { src: "/content/places/south/עין בוקק/IMG_2560.jpeg" },
+      { src: "/content/places/south/עין בוקק/IMG_2562.jpeg" },
+      { src: "/content/places/south/עין בוקק/IMG_2569.jpeg" },
+      { src: "/content/places/south/עין בוקק/IMG_2582.jpeg" },
+      { src: "/content/places/south/עין בוקק/IMG_2598.jpeg" },
+      { src: "/content/places/south/עין בוקק/IMG_2632.jpeg" },
     ],
-    gallerySubtitle: "תמונות מהמסלול — יוחלפו בתוכן אמיתי",
+    gallerySubtitle: "",
     nearbyPlaces: [
       {
-        title: "עין ירקעם",
-        description: "נווה מדבר מרהיב עם מפל ובריכות טבעיות",
-        href: "/trips/ein-yorkeam",
+        title: "חאן עין גדי",
+        description: "נחל ומעיינות ירוקים ליד ים המלח",
+        href: "/trips/chn-yn-gdy",
       },
       {
         title: "מעיינות עין גדי",
@@ -539,6 +452,7 @@ const rawTrips: Trip[] = [
     },
     metaDescription:
       "אגם ניצנים — אגם מלאכותי עם חוף ים בדרום. מדריך עם טיפים, עלויות ומקומות נוספים באזור",
+    heroImage: "/content/places/south/אגם ניצנים/hero.jpeg",
     heroImageLabel: "תמונת רקע — אגם ניצנים",
     heroBackgroundImage: nitzanimLakeHeroBackground,
     about: [
@@ -564,14 +478,13 @@ const rawTrips: Trip[] = [
       "שמרו על ניקיון האגם והחוף",
     ],
     gallery: [
-      { label: "האגם", gradient: "from-cyan-400/40 to-blue-700/30" },
-      { label: "חוף הים", gradient: "from-sky-400/40 to-cyan-600/30" },
-      { label: "שבילי הליכה", gradient: "from-teal-400/40 to-emerald-700/30" },
-      { label: "פיקניק על הדשא", gradient: "from-green-400/40 to-cyan-600/30" },
-      { label: "שקיעה על האגם", gradient: "from-orange-400/40 to-cyan-700/30" },
-      { label: "משפחה בטיול", gradient: "from-blue-400/40 to-sky-600/30" },
+      { src: "/content/places/south/אגם ניצנים/IMG_1024.jpeg" },
+      { src: "/content/places/south/אגם ניצנים/IMG_1465.jpeg" },
+      { src: "/content/places/south/אגם ניצנים/IMG_1488.jpeg" },
+      { src: "/content/places/south/אגם ניצנים/IMG_1503.jpeg" },
+      { src: "/content/places/south/אגם ניצנים/IMG_4588.jpeg" },
     ],
-    gallerySubtitle: "תמונות מהמקום — יוחלפו בתוכן אמיתי",
+    gallerySubtitle: "",
     nearbyPlaces: [
       {
         title: "עין בוקק",
@@ -584,9 +497,9 @@ const rawTrips: Trip[] = [
         href: "#",
       },
       {
-        title: "עין ירקעם",
-        description: "מפל ובריכות טבעיות במדבר יהודה",
-        href: "/trips/ein-yorkeam",
+        title: "מדבריום",
+        description: "פארק חיות מדבריות עם תצוגות ונשרים",
+        href: "/trips/mdbryvm",
       },
     ],
     nearbySubtitle: "המשיכו לגלות את הדרום",
