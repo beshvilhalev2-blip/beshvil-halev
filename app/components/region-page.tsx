@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { Region, Trip } from "@/data/trips";
+import type { VisitedPlace } from "@/data/places";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import TripCard from "@/app/components/trip-card";
+import VisitedPlaceCard from "@/app/components/visited-place-card";
 
 function ArrowIcon() {
   return (
@@ -16,9 +18,11 @@ function ArrowIcon() {
 export default function RegionPage({
   region,
   trips,
+  visitedPlaces,
 }: {
   region: Region;
   trips: Trip[];
+  visitedPlaces: VisitedPlace[];
 }) {
   return (
     <div className="flex flex-1 flex-col">
@@ -96,6 +100,27 @@ export default function RegionPage({
           )}
         </div>
       </section>
+
+      {visitedPlaces.length > 0 && (
+        <section className="border-t border-stone-200/80 bg-white px-4 py-12 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-16 md:py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-8 sm:mb-10">
+              <h2 className="mb-2 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
+                טיילנו כאן
+              </h2>
+              <p className="text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
+                טיילנו כאן כבר ב-{visitedPlaces.length} מקומות באזור זה
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+              {visitedPlaces.map((place) => (
+                <VisitedPlaceCard key={place.slug} place={place} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <SiteFooter />
     </div>

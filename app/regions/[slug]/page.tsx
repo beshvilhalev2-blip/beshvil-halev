@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import RegionPage from "@/app/components/region-page";
+import { getVisitedPlacesByRegion } from "@/data/places";
 import {
   getAllRegionSlugs,
   getRegionBySlug,
@@ -38,6 +39,13 @@ export default async function RegionRoutePage({ params }: PageProps) {
   }
 
   const regionTrips = getTripsByRegionSlug(slug);
+  const visitedPlaces = getVisitedPlacesByRegion(region.title);
 
-  return <RegionPage region={region} trips={regionTrips} />;
+  return (
+    <RegionPage
+      region={region}
+      trips={regionTrips}
+      visitedPlaces={visitedPlaces}
+    />
+  );
 }
