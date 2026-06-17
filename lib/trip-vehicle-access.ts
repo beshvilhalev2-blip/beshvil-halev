@@ -26,6 +26,13 @@ export function getTripVehicleAccess(trip: Trip): TripVehicleAccess {
   return trip.vehicleAccess ?? DEFAULT_TRIP_VEHICLE_ACCESS;
 }
 
+export function normalizeTripVehicleAccess(trip: Trip): Trip {
+  return {
+    ...trip,
+    vehicleAccess: trip.vehicleAccess ?? DEFAULT_TRIP_VEHICLE_ACCESS,
+  };
+}
+
 export function getVehicleMaxAccess(
   categoryId: VehicleCategoryId,
 ): TripVehicleAccess {

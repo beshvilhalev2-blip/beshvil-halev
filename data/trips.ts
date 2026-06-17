@@ -1,4 +1,5 @@
 import type { TripMatcherProfile } from "@/lib/find-my-trip/trip-profile";
+import { normalizeTripVehicleAccess } from "@/lib/trip-vehicle-access";
 
 export type TripCostItem = {
   label: string;
@@ -200,13 +201,6 @@ const nahalSorekEstuaryHeroBackground = `
   ),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Cdefs%3E%3ClinearGradient id='estuary' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='50%25' stop-color='%2338bdf8'/%3E%3Cstop offset='100%25' stop-color='%230284c7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23estuary)' width='1920' height='1080'/%3E%3Cpath fill='%230ea5e9' opacity='0.3' d='M0 720 Q640 640 1280 710 T1920 690 L1920 1080 L0 1080 Z'/%3E%3C/svg%3E")
 `;
-
-function normalizeTripVehicleAccess(trip: Trip): Trip {
-  return {
-    ...trip,
-    vehicleAccess: trip.vehicleAccess ?? DEFAULT_TRIP_VEHICLE_ACCESS,
-  };
-}
 
 const rawTrips: Trip[] = [
   {
