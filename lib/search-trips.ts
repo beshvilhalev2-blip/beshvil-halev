@@ -5,6 +5,8 @@ function normalizeSearchText(text: string): string {
 }
 
 function getTripSearchFields(trip: Trip): string[] {
+  const costFields = trip.cost.flatMap((item) => [item.label, item.value, item.note ?? ""]);
+
   return [
     trip.title,
     trip.subtitle,
@@ -14,6 +16,7 @@ function getTripSearchFields(trip: Trip): string[] {
     trip.about[0] ?? "",
     ...(trip.tags ?? []),
     ...(trip.highlights ?? []),
+    ...costFields,
   ];
 }
 
