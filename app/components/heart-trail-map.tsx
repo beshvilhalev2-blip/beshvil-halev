@@ -168,7 +168,7 @@ export default function HeartTrailMap() {
                     </div>
                   </div>
                   <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-stone-700 transition-colors group-hover:text-stone-900 dark:text-stone-300 dark:group-hover:text-white">
-                    גלי מסלולים
+                    גלו מסלולים
                     <ArrowIcon />
                   </span>
                 </Link>
