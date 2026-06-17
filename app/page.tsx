@@ -8,6 +8,7 @@ import TripGearCta from "./components/trip-gear-cta";
 import ParksFieldUpdatesWidget from "./components/parks-field-updates-widget";
 import { getHomepageTrips } from "@/data/trips";
 import { fetchParksFieldUpdates } from "@/lib/field-updates";
+import { HOMEPAGE_QUICK_FILTERS } from "@/lib/homepage-quick-filters";
 
 const howItWorksSteps = [
   {
@@ -165,35 +166,55 @@ function ArrowIcon() {
   );
 }
 
+function HeroQuickFilters() {
+  return (
+    <nav
+      aria-label="חיפוש מהיר לפי סוג חוויה"
+      className="mx-auto mt-3 w-full max-w-xl sm:mt-4 sm:max-w-2xl"
+    >
+      <ul className="flex flex-nowrap justify-start gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {HOMEPAGE_QUICK_FILTERS.map((filter) => (
+          <li key={filter.href} className="shrink-0">
+            <Link
+              href={filter.href}
+              aria-label={filter.ariaLabel}
+              className="inline-flex min-h-11 items-center rounded-full border border-white/25 bg-white/15 px-4 py-2 text-sm font-medium text-white/95 backdrop-blur-sm transition-colors hover:border-white/40 hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
+              {filter.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 function HeroMainContent() {
   return (
     <>
-      <p className="mb-6 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-1.5 text-sm font-medium tracking-wide text-white/90 backdrop-blur-sm">
+      <p className="mb-4 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-1.5 text-sm font-medium tracking-wide text-white/90 backdrop-blur-sm">
         לצאת לטבע • בקצב שלכם
       </p>
 
-      <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
+      <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:mb-5 sm:text-5xl md:text-6xl lg:text-7xl">
         בשביל הלב
       </h1>
 
-      <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/90 sm:mb-10 sm:text-lg md:text-xl">
-        להיות בתנועה זאת התרופה.
-        <br />
-        מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.
-      </p>
+      <div className="mx-auto mb-6 max-w-2xl space-y-1 sm:mb-7">
+        <p className="text-lg font-semibold leading-relaxed text-white sm:text-xl md:text-2xl">
+          להיות בתנועה זאת התרופה.
+        </p>
+        <p className="text-base font-normal leading-relaxed text-white/80 sm:text-lg md:text-xl">
+          מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.
+        </p>
+      </div>
 
-      <div className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+      <div className="mb-6 flex flex-col items-center justify-center sm:mb-7">
         <Link
           href="/find-my-trip"
-          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-stone-900 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-stone-900 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:w-auto"
         >
           מצאו לי טיול
-        </Link>
-        <Link
-          href="/recommendations"
-          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:w-auto"
-        >
-          גלו טיולים
         </Link>
       </div>
 
@@ -219,6 +240,16 @@ function HeroMainContent() {
           חיפוש
         </button>
       </form>
+
+      <HeroQuickFilters />
+
+      <Link
+        href="/recommendations"
+        className="mt-3 inline-flex min-h-11 items-center justify-center gap-2 py-2 text-sm font-medium text-white/80 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:mt-4 sm:text-base"
+      >
+        גלו את כל הטיולים
+        <ArrowIcon />
+      </Link>
     </>
   );
 }
@@ -232,7 +263,7 @@ export default async function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative flex min-h-[72vh] items-center justify-center overflow-hidden sm:min-h-[80vh] lg:min-h-[88vh]">
+      <section className="relative flex min-h-[58vh] items-center justify-center overflow-hidden sm:min-h-[68vh] lg:min-h-[75vh]">
         {/* Background placeholder — replace with real hero image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -254,20 +285,20 @@ export default async function Home() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
 
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-24">
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-12 text-center sm:px-6 sm:py-16 lg:py-20">
           <HeroMainContent />
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-50 to-transparent dark:from-stone-950" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-stone-50 to-transparent sm:h-32 dark:from-stone-950" />
       </section>
 
       {/* How it works */}
-      <section className="border-t border-stone-200/80 bg-white px-4 py-14 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-20">
+      <section className="border-t border-stone-200/80 bg-white px-4 py-10 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-14">
         <div className="mx-auto max-w-4xl">
-          <div className="grid gap-8 sm:grid-cols-3 sm:gap-6">
+          <div className="grid gap-6 sm:grid-cols-3 sm:gap-5">
             {howItWorksSteps.map((step) => (
               <div key={step.title} className="text-center">
-                <p className="mb-3 text-3xl" aria-hidden="true">
+                <p className="mb-2 text-3xl" aria-hidden="true">
                   {step.emoji}
                 </p>
                 <h2 className="mb-2 text-lg font-semibold text-stone-900 dark:text-stone-50">
@@ -283,15 +314,15 @@ export default async function Home() {
       </section>
 
       {/* Find my trip CTA */}
-      <section className="border-t border-stone-200/80 bg-stone-50 px-4 py-14 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:py-20">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6">
+      <section className="border-t border-stone-200/80 bg-stone-50 px-4 py-10 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:py-16">
+        <div className="mx-auto flex max-w-6xl flex-col gap-5">
           <FindMyTripCta />
           <TripGearCta />
         </div>
       </section>
 
       <section
-        className="border-t border-stone-200/80 bg-stone-50 px-4 pb-14 pt-2 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:pb-20"
+        className="border-t border-stone-200/80 bg-stone-50 px-4 pb-10 pt-2 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:pb-14"
         aria-label="עדכוני שטח מרשות הטבע והגנים"
       >
         <div className="mx-auto max-w-6xl">
@@ -301,10 +332,10 @@ export default async function Home() {
 
       {/* Featured trips */}
       {homepageTrips.length > 0 && (
-        <section className="border-t border-stone-200/80 bg-white px-4 py-20 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-28">
+        <section className="border-t border-stone-200/80 bg-white px-4 py-14 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-6xl">
-            <div className="mb-14 text-center">
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
+            <div className="mb-8 text-center sm:mb-10">
+              <h2 className="mb-3 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
                 מסלולים מומלצים
               </h2>
               <p className="mx-auto max-w-xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
@@ -312,13 +343,13 @@ export default async function Home() {
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {homepageTrips.map((trip) => (
                 <TripCard key={trip.slug} trip={trip} />
               ))}
             </div>
 
-            <div className="mt-10 text-center">
+            <div className="mt-8 text-center sm:mt-9">
               <Link
                 href="/recommendations"
                 className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
@@ -336,11 +367,11 @@ export default async function Home() {
       {/* Regions */}
       <section
         id="regions"
-        className="bg-stone-50 px-4 py-20 dark:bg-stone-950 sm:px-6 sm:py-28"
+        className="bg-stone-50 px-4 py-14 dark:bg-stone-950 sm:px-6 sm:py-20"
       >
         <div className="mx-auto max-w-6xl">
-          <div className="mb-14 text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
+          <div className="mb-8 text-center sm:mb-10">
+            <h2 className="mb-3 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
               בחרו אזור לטיול
             </h2>
             <p className="mx-auto max-w-xl text-lg text-stone-600 dark:text-stone-400">
