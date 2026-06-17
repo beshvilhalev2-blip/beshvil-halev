@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Region, Trip } from "@/data/trips";
 import type { VisitedPlace } from "@/data/places";
+import { enrichVisitedPlacesWithTrips } from "@/lib/match-visited-place-trip";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import TripCard from "@/app/components/trip-card";
@@ -25,6 +26,8 @@ export default function RegionPage({
   trips: Trip[];
   visitedPlaces: VisitedPlace[];
 }) {
+  const visitedEntries = enrichVisitedPlacesWithTrips(visitedPlaces);
+
   return (
     <div className="flex flex-1 flex-col">
       <SiteHeader />
@@ -52,7 +55,7 @@ export default function RegionPage({
         </div>
       </section>
 
-      {/* Trips grid */}
+      {/* Published trips */}
       <section className="bg-stone-50 px-4 py-12 dark:bg-stone-950 sm:px-6 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex items-end justify-between gap-4">
@@ -99,30 +102,55 @@ export default function RegionPage({
               </Link>
             </div>
           )}
+
+          {visitedPlaces.length > 0 ? (
+            <p className="mt-10 text-center">
+              <a
+                href="#visited-places"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-emerald-300 bg-emerald-50 px-5 py-2 text-sm font-semibold text-emerald-800 transition-colors hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200 dark:hover:bg-emerald-950/70"
+              >
+                {visitedPlaces.length} מקומות שביקרנו באזור — גלו למטה
+              </a>
+            </p>
+          ) : null}
         </div>
       </section>
 
-      {visitedPlaces.length > 0 && (
-        <section className="border-t border-stone-200/80 bg-white px-4 py-12 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-16 md:py-20">
+      {visitedPlaces.length > 0 ? (
+        <section
+          id="visited-places"
+          className="scroll-mt-28 border-t border-emerald-200/80 bg-gradient-to-b from-emerald-50/70 to-white px-4 py-12 dark:border-emerald-900/50 dark:from-emerald-950/30 dark:to-stone-900 sm:px-6 sm:py-16 md:py-20"
+        >
           <div className="mx-auto max-w-6xl">
-            <div className="mb-8 flex flex-wrap items-center gap-3 sm:mb-10 sm:gap-4">
-              <h2 className="text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
-                טיילנו כאן
-              </h2>
-              <VisitedStamp size="md" className="-rotate-6" />
-              <p className="w-full text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-                טיילנו כאן כבר ב-{visitedPlaces.length} מקומות באזור זה
-              </p>
+            <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-start sm:justify-between">
+              <div className="min-w-0 flex-1">
+                <div className="mb-3 flex flex-wrap items-center gap-3">
+                  <h2 className="text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
+                    טיילנו כאן בשביל הלב
+                  </h2>
+                  <VisitedStamp size="md" className="-rotate-6" />
+                </div>
+                <p className="max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
+                  מקומות שביקרנו בהם באמת — כתבות ותמונות יעלו בהדרגה
+                </p>
+                <p className="mt-2 text-sm font-medium text-emerald-800 dark:text-emerald-300">
+                  {visitedPlaces.length} מקומות באזור {region.title}
+                </p>
+              </div>
             </div>
 
             <div className="grid gap-4 overflow-visible sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-              {visitedPlaces.map((place) => (
-                <VisitedPlaceCard key={place.slug} place={place} />
+              {visitedEntries.map(({ place, publishedTrip }) => (
+                <VisitedPlaceCard
+                  key={place.slug}
+                  place={place}
+                  publishedTrip={publishedTrip}
+                />
               ))}
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
       <SiteFooter />
     </div>
