@@ -33,6 +33,19 @@ const mapRegions: MapRegion[] = [
     borderHover: "hover:border-emerald-200 dark:hover:border-emerald-800",
   },
   {
+    slug: "hasharon",
+    href: "/regions/hasharon",
+    title: "השרון",
+    path: "M 50 64 C 58 60, 68 66, 70 80 C 72 96, 66 112, 58 116 C 52 114, 48 98, 50 82 C 50 72, 50 64, 50 64 Z",
+    labelX: 60,
+    labelY: 92,
+    gradientId: "trailHasharon",
+    gradientFrom: "#38bdf8",
+    gradientTo: "#0369a1",
+    shadow: "rgba(14, 165, 233, 0.35)",
+    borderHover: "hover:border-sky-200 dark:hover:border-sky-800",
+  },
+  {
     slug: "center",
     href: "/regions/center",
     title: "מרכז",
@@ -189,7 +202,7 @@ export default function HeartTrailMap() {
                   viewBox="0 0 236 372"
                   className="h-auto w-full touch-manipulation"
                   role="img"
-                  aria-label="מפת אזורים stylized — צפון, מרכז, ירושלים ודרום"
+                  aria-label="מפת אזורים stylized — צפון, השרון, מרכז, ירושלים ודרום"
                 >
                   <defs>
                     {mapRegions.map((region) => (

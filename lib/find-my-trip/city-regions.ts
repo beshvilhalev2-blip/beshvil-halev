@@ -6,6 +6,7 @@ import {
 } from "@/lib/find-my-trip/cities";
 import { getTripMatcherProfile } from "@/lib/find-my-trip/trip-profile";
 import { tripMatchesTravelDistance } from "@/lib/find-my-trip/travel-distance";
+import { getRegionBySlug } from "@/data/trips";
 
 export type { RegionTitle };
 
@@ -23,7 +24,7 @@ export function getAllowedRegions(
   travelTime: TravelTime,
 ): RegionTitle[] {
   if (travelTime === "any") {
-    return ["צפון", "מרכז", "ירושלים", "דרום"];
+    return ["צפון", "השרון", "מרכז", "ירושלים", "דרום"];
   }
 
   const count = TRAVEL_TIME_REGION_COUNT[travelTime];
@@ -63,12 +64,15 @@ export function tripMatchesRegion(
   }
 
   const allowed = getAllowedRegions(city, travelTime);
-  return allowed.includes(trip.region as RegionTitle);
+  const tripRegion = (getRegionBySlug(trip.region)?.title ??
+    trip.region) as RegionTitle;
+  return allowed.includes(tripRegion);
 }
 
 export function isPrimaryRegionMatch(trip: TripRef, city: CityId): boolean {
   const primary = getCityRegionProximity(city)[0];
-  return trip.region === primary;
+  const tripRegion = getRegionBySlug(trip.region)?.title ?? trip.region;
+  return tripRegion === primary;
 }
 
 export { getCityLabel };

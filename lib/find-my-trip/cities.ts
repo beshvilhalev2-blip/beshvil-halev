@@ -1,5 +1,5 @@
 /** Hebrew region titles as used in trip.region and travel-time matching. */
-export type RegionTitle = "צפון" | "מרכז" | "ירושלים" | "דרום";
+export type RegionTitle = "צפון" | "השרון" | "מרכז" | "ירושלים" | "דרום";
 
 export const ISRAEL_CITIES = [
   {
@@ -128,7 +128,7 @@ export const ISRAEL_CITIES = [
     lat: 32.1848,
     lng: 34.8714,
     group: "מרכז",
-    regions: ["מרכז", "צפון", "ירושלים", "דרום"],
+    regions: ["השרון", "מרכז", "צפון", "ירושלים", "דרום"],
   },
   {
     id: "hod-hasharon",
@@ -136,7 +136,7 @@ export const ISRAEL_CITIES = [
     lat: 32.1596,
     lng: 34.9198,
     group: "מרכז",
-    regions: ["מרכז", "צפון", "ירושלים", "דרום"],
+    regions: ["השרון", "מרכז", "צפון", "ירושלים", "דרום"],
   },
   {
     id: "kfar-saba",
@@ -144,7 +144,7 @@ export const ISRAEL_CITIES = [
     lat: 32.175,
     lng: 34.9069,
     group: "מרכז",
-    regions: ["מרכז", "צפון", "ירושלים", "דרום"],
+    regions: ["השרון", "מרכז", "צפון", "ירושלים", "דרום"],
   },
   {
     id: "herzliya",
@@ -152,7 +152,7 @@ export const ISRAEL_CITIES = [
     lat: 32.1624,
     lng: 34.8447,
     group: "מרכז",
-    regions: ["מרכז", "צפון", "ירושלים", "דרום"],
+    regions: ["השרון", "מרכז", "צפון", "ירושלים", "דרום"],
   },
   {
     id: "netanya",
@@ -160,7 +160,7 @@ export const ISRAEL_CITIES = [
     lat: 32.3215,
     lng: 34.8532,
     group: "מרכז",
-    regions: ["מרכז", "צפון", "ירושלים", "דרום"],
+    regions: ["השרון", "מרכז", "צפון", "ירושלים", "דרום"],
   },
   {
     id: "hadera",
@@ -168,7 +168,7 @@ export const ISRAEL_CITIES = [
     lat: 32.434,
     lng: 34.9195,
     group: "מרכז",
-    regions: ["מרכז", "צפון", "ירושלים", "דרום"],
+    regions: ["השרון", "מרכז", "צפון", "ירושלים", "דרום"],
   },
   {
     id: "haifa",
@@ -333,6 +333,7 @@ const cityById = new Map<string, CityDefinition>(
 
 export const CITY_GROUP_ORDER: RegionTitle[] = [
   "מרכז",
+  "השרון",
   "צפון",
   "ירושלים",
   "דרום",

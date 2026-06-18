@@ -95,6 +95,18 @@ export const regions: Region[] = [
     `,
   },
   {
+    slug: "hasharon",
+    title: "השרון",
+    description: "חופים, יערות ושבילים במישור החוף הצפוני",
+    iconBg: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
+    accent: "from-sky-500/20 to-blue-600/10",
+    borderHover: "hover:border-sky-200 dark:hover:border-sky-800",
+    heroBackgroundImage: `
+      linear-gradient(160deg, rgba(3, 105, 161, 0.78) 0%, rgba(14, 165, 233, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='100%25' stop-color='%230369a1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
+    `,
+  },
+  {
     slug: "center",
     title: "מרכז",
     description: "שפלה, מישור החוף ושבילי הטבע",
@@ -298,6 +310,7 @@ const rawTrips: Trip[] = [
     },
     metaDescription:
       "הסטף — מעיינות וטרסות עתיקות בהרי ירושלים. מדריך מלא עם טיפים, עלויות ומקומות נוספים באזור",
+    heroImage: "/images/places/jerusalem/הסטף/hero.jpeg",
     heroImageLabel: "תמונת רקע — הסטף",
     heroBackgroundImage: satafHeroBackground,
     about: [
@@ -323,14 +336,15 @@ const rawTrips: Trip[] = [
       "בדקו באתר קק״ל לגבי שעות פתיחה ואירועים מיוחדים",
     ],
     gallery: [
-      { label: "טרסות עתיקות", gradient: "from-stone-400/40 to-amber-700/30" },
-      { label: "מעיין הסטף", gradient: "from-amber-400/40 to-stone-600/30" },
-      { label: "שביל בין הכרמים", gradient: "from-green-400/40 to-stone-700/30" },
-      { label: "נוף על העמק", gradient: "from-sky-400/40 to-stone-600/30" },
-      { label: "עצי זית עתיקים", gradient: "from-lime-400/40 to-amber-700/30" },
-      { label: "שקיעה בהרים", gradient: "from-orange-400/40 to-stone-700/30" },
+      { src: "/images/places/jerusalem/הסטף/IMG_0440.jpeg" },
+      { src: "/images/places/jerusalem/הסטף/IMG_0449.jpeg" },
+      { src: "/images/places/jerusalem/הסטף/IMG_0450.jpeg" },
+      { src: "/images/places/jerusalem/הסטף/IMG_0457.jpeg" },
+      { src: "/images/places/jerusalem/הסטף/IMG_0466.jpeg" },
+      { src: "/images/places/jerusalem/הסטף/IMG_0469.jpeg" },
+      { src: "/images/places/jerusalem/הסטף/IMG_0471.jpeg" },
     ],
-    gallerySubtitle: "תמונות מהמסלול — יוחלפו בתוכן אמיתי",
+    gallerySubtitle: "",
     nearbyPlaces: [
       {
         title: "יער ירושלים",
@@ -812,6 +826,10 @@ export function getRegionBySlug(slug: string): Region | undefined {
   return regions.find((region) => region.slug === slug);
 }
 
+export function getTripRegionTitle(trip: { region: string }): string {
+  return getRegionBySlug(trip.region)?.title ?? trip.region;
+}
+
 export function getAllRegionSlugs(): string[] {
   return regions.map((region) => region.slug);
 }
@@ -820,7 +838,9 @@ export function getTripsByRegionSlug(slug: string): Trip[] {
   const region = getRegionBySlug(slug);
   if (!region) return [];
   return trips
-    .filter((trip) => trip.region === region.title)
+    .filter(
+      (trip) => trip.region === region.title || trip.region === region.slug,
+    )
     .sort(sortTripsForRegion);
 }
 

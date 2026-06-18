@@ -1,0 +1,66 @@
+{
+  "jerusalem_locations_in_data": 8,
+  "folders_scanned": 8,
+  "photos_imported": 42,
+  "places_matched": 7,
+  "hero_images_connected": 7,
+  "gallery_counts": {
+    "gn-hchyvt-htnky": {
+      "title": "גן החיות התנכי",
+      "folder": "גן החיות התנכי",
+      "count": 6
+    },
+    "sataf": {
+      "title": "הסטף",
+      "folder": "הסטף",
+      "count": 7
+    },
+    "yr-tzrh": {
+      "title": "יער צרעה",
+      "folder": "יער צרעה",
+      "count": 4
+    },
+    "mgr-byt-zyt": {
+      "title": "מאגר בית זית",
+      "folder": "מאגר בית זית",
+      "count": 5
+    },
+    "yn-chmd": {
+      "title": "עין חמד",
+      "folder": "עין חמד",
+      "count": 9
+    },
+    "yn-lbn": {
+      "title": "עין לבן",
+      "folder": "עין לבן",
+      "count": 4
+    },
+    "mk-hlh": {
+      "title": "עמק האלה",
+      "folder": "עמק האלה",
+      "count": 0
+    }
+  },
+  "skipped_non_web_files": {
+    "עמק האלה": [
+      "IMG_0358.HEIC",
+      "IMG_0368.HEIC",
+      "IMG_0372.HEIC"
+    ]
+  },
+  "missing_hero": [
+    "אקווריום ישראל → kvvryvm-yshrl (אקווריום ישראל)"
+  ],
+  "unmatched_folders": [],
+  "unmatched_trips_still_placeholder": [
+    "אקווריום ישראל (kvvryvm-yshrl)"
+  ],
+  "still_using_placeholders": [
+    "אקווריום ישראל (kvvryvm-yshrl)",
+    "אקווריום ישראל"
+  ],
+  "missing_files_on_disk": [],
+  "duplicate_assignments": [],
+  "visited_trips_updated": 6,
+  "published_trips_updated": 1
+}

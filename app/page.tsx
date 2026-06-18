@@ -40,6 +40,14 @@ const categories = [
     borderHover: "hover:border-emerald-200 dark:hover:border-emerald-800",
   },
   {
+    title: "השרון",
+    description: "חופים, יערות ושבילים במישור החוף הצפוני",
+    href: "/regions/hasharon",
+    iconBg: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
+    accent: "from-sky-500/20 to-blue-600/10",
+    borderHover: "hover:border-sky-200 dark:hover:border-sky-800",
+  },
+  {
     title: "מרכז",
     description: "שפלה, מישור החוף ושבילי הטבע",
     href: "/regions/center",
@@ -79,6 +87,18 @@ function NorthIcon() {
       <path d="M4 20 12 4l8 16" />
       <path d="M7.5 14h9" />
       <path d="M9 17h6" />
+    </svg>
+  );
+}
+
+function HasharonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-7" aria-hidden="true">
+      <path d="M3 17c2-2 5-3 9-3s7 1 9 3" />
+      <path d="M2 20h20" />
+      <path d="M7 14c1-2 3-3 5-3s4 1 5 3" />
+      <path d="M12 3v4" />
+      <circle cx="12" cy="7" r="2" />
     </svg>
   );
 }
@@ -128,7 +148,7 @@ function OffRoadIcon() {
   );
 }
 
-const regionIcons = [NorthIcon, CenterIcon, JerusalemIcon, SouthIcon, OffRoadIcon] as const;
+const regionIcons = [NorthIcon, HasharonIcon, CenterIcon, JerusalemIcon, SouthIcon, OffRoadIcon] as const;
 
 function SearchIcon() {
   return (

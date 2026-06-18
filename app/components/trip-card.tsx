@@ -92,10 +92,11 @@ export default function TripCard({
 export function getRegionForTrip(trip: Trip): Region | undefined {
   const slugByTitle: Record<string, string> = {
     צפון: "north",
+    השרון: "hasharon",
     מרכז: "center",
     ירושלים: "jerusalem",
     דרום: "south",
   };
-  const slug = slugByTitle[trip.region];
-  return slug ? getRegionBySlug(slug) : undefined;
+  const slug = slugByTitle[trip.region] ?? trip.region;
+  return getRegionBySlug(slug);
 }

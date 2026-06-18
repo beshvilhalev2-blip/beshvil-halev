@@ -1,0 +1,98 @@
+{
+  "places_matched": 15,
+  "hero_images_connected": 15,
+  "gallery_counts": {
+    "nitzanim-lake": {
+      "title": "אגם ניצנים",
+      "folder": "אגם ניצנים",
+      "count": 5
+    },
+    "mtzyh": {
+      "title": "אמציה",
+      "folder": "אמציה",
+      "count": 3
+    },
+    "byt-gvbryn": {
+      "title": "בית גוברין",
+      "folder": "בית גוברין",
+      "count": 5
+    },
+    "btrvnvt-rvchmh": {
+      "title": "בתרונות רוחמה",
+      "folder": "בתרונות רוחמה",
+      "count": 6
+    },
+    "chn-yn-gdy": {
+      "title": "חאן עין גדי",
+      "folder": "חאן עין גדי",
+      "count": 6
+    },
+    "ym-hmlch-chvf-bynykny": {
+      "title": "ים המלח - חוף ביאניקני",
+      "folder": "ים המלח - חוף ביאניקני",
+      "count": 4
+    },
+    "yr-hmlkym": {
+      "title": "יער המלאכים",
+      "folder": "יער המלאכים",
+      "count": 0
+    },
+    "mdbryvm": {
+      "title": "מדבריום",
+      "folder": "מדבריום",
+      "count": 6
+    },
+    "mrynh-shklvn": {
+      "title": "מרינה אשקלון",
+      "folder": "מרינה אשקלון",
+      "count": 4
+    },
+    "nchl-dvd": {
+      "title": "נחל דוד",
+      "folder": "נחל דוד",
+      "count": 4
+    },
+    "ein-bokek": {
+      "title": "עין בוקק",
+      "folder": "עין בוקק",
+      "count": 6
+    },
+    "yn-pshchh-yynvt-tzvkym": {
+      "title": "עין פאשחה עיינות צוקים",
+      "folder": "עין פאשחה עיינות צוקים",
+      "count": 5
+    },
+    "prk-lkysh": {
+      "title": "פארק לכיש",
+      "folder": "פארק נחל לכיש",
+      "count": 6
+    },
+    "kvmrn": {
+      "title": "קומראן",
+      "folder": "קומראן",
+      "count": 2
+    },
+    "rbdym": {
+      "title": "רבדים",
+      "folder": "רבדים",
+      "count": 0
+    }
+  },
+  "hero_only": [
+    "yr-hmlkym",
+    "rbdym"
+  ],
+  "missing_hero": [
+    "לונדע → lvnd (לונדע)",
+    "פארק יטבתה → prk-ytbth (פארק יטבתה)"
+  ],
+  "unmatched_folders": [
+    "חוף בוקק"
+  ],
+  "empty_folders": [
+    "לונדע",
+    "פארק יטבתה"
+  ],
+  "visited_trips_updated": 13,
+  "published_trips_updated": 2
+}
