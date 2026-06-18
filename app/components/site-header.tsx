@@ -23,6 +23,107 @@ const SOLID_HEADER_PATHS = new Set([
   "/want-to-travel",
 ]);
 
+function isNavItemActive(
+  href: string,
+  pathname: string,
+  hash: string,
+): boolean {
+  const currentHash = hash || "";
+
+  if (href === "/") {
+    if (pathname !== "/") return false;
+    return currentHash !== "#regions";
+  }
+
+  if (href.startsWith("/#")) {
+    const linkHash = href.slice(href.indexOf("#"));
+    return pathname === "/" && currentHash === linkHash;
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function desktopNavLinkClass(headerSolid: boolean, isActive: boolean): string {
+  const base =
+    "inline-flex rounded-full border px-4 py-2 text-sm font-medium outline-none transition-all duration-300 ease-out focus-visible:ring-2 focus-visible:ring-offset-1";
+
+  if (headerSolid) {
+    if (isActive) {
+      return [
+        base,
+        "border-stone-200/90 bg-stone-900/[0.07] text-stone-900 shadow-[0_4px_14px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.65)] backdrop-blur-md",
+        "focus-visible:ring-stone-400/50 focus-visible:ring-offset-white",
+        "dark:border-stone-600/70 dark:bg-white/10 dark:text-stone-50 dark:shadow-[0_4px_16px_rgba(0,0,0,0.22)] dark:focus-visible:ring-stone-500/50 dark:focus-visible:ring-offset-stone-950",
+      ].join(" ");
+    }
+
+    return [
+      base,
+      "border-transparent bg-transparent text-stone-600",
+      "hover:-translate-y-0.5 hover:border-stone-200/70 hover:bg-stone-100/85 hover:text-stone-900 hover:shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:backdrop-blur-md",
+      "focus-visible:ring-stone-400/50 focus-visible:ring-offset-white",
+      "dark:text-stone-300 dark:hover:border-stone-600/60 dark:hover:bg-stone-800/85 dark:hover:text-white dark:focus-visible:ring-stone-500/50 dark:focus-visible:ring-offset-stone-950",
+    ].join(" ");
+  }
+
+  if (isActive) {
+    return [
+      base,
+      "-translate-y-0.5 border-white/45 bg-white/32 text-white",
+      "shadow-[0_8px_24px_rgba(0,0,0,0.22),inset_0_1px_0_rgba(255,255,255,0.28)] backdrop-blur-md",
+      "drop-shadow-[0_1px_12px_rgba(0,0,0,0.45)]",
+      "focus-visible:ring-white/50 focus-visible:ring-offset-stone-900/20",
+    ].join(" ");
+  }
+
+  return [
+    base,
+    "border-transparent bg-transparent text-white drop-shadow-[0_1px_12px_rgba(0,0,0,0.42)]",
+    "hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/26 hover:text-white",
+    "hover:shadow-[0_8px_24px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.22)] hover:backdrop-blur-md",
+    "focus-visible:ring-white/45 focus-visible:ring-offset-stone-900/20",
+  ].join(" ");
+}
+
+function mobileNavLinkClass(headerSolid: boolean, isActive: boolean): string {
+  const base =
+    "block min-h-12 rounded-xl border px-4 py-3.5 text-base font-medium outline-none transition-all duration-300 ease-out focus-visible:ring-2 focus-visible:ring-offset-1";
+
+  if (headerSolid) {
+    if (isActive) {
+      return [
+        base,
+        "border-stone-200/90 bg-stone-900/[0.07] text-stone-900 shadow-sm backdrop-blur-md",
+        "focus-visible:ring-stone-400/50 focus-visible:ring-offset-white",
+        "dark:border-stone-600/70 dark:bg-white/10 dark:text-stone-50 dark:focus-visible:ring-stone-500/50 dark:focus-visible:ring-offset-stone-950",
+      ].join(" ");
+    }
+
+    return [
+      base,
+      "border-transparent bg-transparent text-stone-700 hover:border-stone-200/60 hover:bg-stone-100/90 hover:shadow-sm hover:backdrop-blur-md",
+      "focus-visible:ring-stone-400/50 focus-visible:ring-offset-white",
+      "dark:text-stone-200 dark:hover:border-stone-600/50 dark:hover:bg-stone-800/90 dark:focus-visible:ring-stone-500/50 dark:focus-visible:ring-offset-stone-950",
+    ].join(" ");
+  }
+
+  if (isActive) {
+    return [
+      base,
+      "border-white/40 bg-white/30 text-white shadow-[0_6px_20px_rgba(0,0,0,0.2)] backdrop-blur-md",
+      "drop-shadow-[0_1px_10px_rgba(0,0,0,0.4)]",
+      "focus-visible:ring-white/50 focus-visible:ring-offset-stone-900/30",
+    ].join(" ");
+  }
+
+  return [
+    base,
+    "border-transparent bg-transparent text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.38)]",
+    "hover:border-white/30 hover:bg-white/20 hover:backdrop-blur-md",
+    "focus-visible:ring-white/45 focus-visible:ring-offset-stone-900/30",
+  ].join(" ");
+}
+
 function MenuIcon({ open }: { open: boolean }) {
   return (
     <svg
@@ -91,10 +192,10 @@ function HeaderSearchToggle({
       aria-expanded={searchOpen}
       aria-controls="header-search-panel"
       aria-label={searchOpen ? "סגור חיפוש" : "פתח חיפוש"}
-      className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors ${
+      className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-transparent transition-all duration-300 ease-out ${
         isSolid
-          ? "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
-          : "text-white/90 hover:bg-white/15 hover:text-white"
+          ? "text-stone-600 hover:-translate-y-0.5 hover:border-stone-200/70 hover:bg-stone-100/85 hover:text-stone-900 hover:shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:backdrop-blur-md dark:text-stone-300 dark:hover:border-stone-600/60 dark:hover:bg-stone-800/85 dark:hover:text-white"
+          : "text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.38)] hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/24 hover:text-white hover:shadow-[0_8px_24px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(255,255,255,0.2)] hover:backdrop-blur-md"
       }`}
     >
       <SearchIcon />
@@ -107,8 +208,20 @@ export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [hash, setHash] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchPanelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const readHash = () => setHash(window.location.hash);
+    readHash();
+    window.addEventListener("hashchange", readHash);
+    return () => window.removeEventListener("hashchange", readHash);
+  }, []);
+
+  useEffect(() => {
+    setHash(window.location.hash);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -181,7 +294,7 @@ export default function SiteHeader() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         headerSolid
           ? "border-b border-stone-200/60 bg-white/90 shadow-lg shadow-stone-900/5 backdrop-blur-xl dark:border-stone-700/60 dark:bg-stone-950/90"
-          : "border-b border-white/15 bg-white/20 shadow-sm shadow-stone-900/5 backdrop-blur-xl dark:border-stone-700/30 dark:bg-stone-950/50"
+          : "border-b border-stone-900/12 bg-stone-900/[0.10] shadow-[0_4px_28px_rgba(0,0,0,0.14),inset_0_-1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl dark:border-stone-700/30 dark:bg-stone-950/50"
       }`}
     >
       <div ref={searchPanelRef}>
@@ -191,7 +304,7 @@ export default function SiteHeader() {
           className={`text-xl font-bold tracking-tight transition-colors ${
             headerSolid
               ? "text-stone-900 dark:text-stone-50"
-              : "text-white drop-shadow-sm"
+              : "text-white drop-shadow-[0_1px_14px_rgba(0,0,0,0.48)]"
           }`}
           onClick={() => {
             setMenuOpen(false);
@@ -205,25 +318,26 @@ export default function SiteHeader() {
           className="hidden items-center gap-1 lg:flex"
           aria-label="ניווט ראשי"
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                headerSolid
-                  ? "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
-                  : "text-white/90 hover:bg-white/15 hover:text-white"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = isNavItemActive(item.href, pathname, hash);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={desktopNavLinkClass(headerSolid, isActive)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <SocialLinksRow
             className="me-1 ms-3 border-s border-stone-200/60 ps-3 dark:border-stone-700/60"
-            linkClassName={`inline-flex items-center justify-center rounded-full p-2 transition-colors ${
+            linkClassName={`inline-flex items-center justify-center rounded-full border border-transparent p-2 transition-all duration-300 ease-out ${
               headerSolid
-                ? "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
-                : "text-white/90 hover:bg-white/15 hover:text-white"
+                ? "text-stone-600 hover:-translate-y-0.5 hover:border-stone-200/70 hover:bg-stone-100/85 hover:text-stone-900 hover:shadow-[0_6px_18px_rgba(0,0,0,0.08)] hover:backdrop-blur-md dark:text-stone-300 dark:hover:border-stone-600/60 dark:hover:bg-stone-800/85 dark:hover:text-white"
+                : "text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.38)] hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/24 hover:shadow-[0_8px_24px_rgba(0,0,0,0.16),inset_0_1px_0_rgba(255,255,255,0.2)] hover:backdrop-blur-md"
             }`}
           />
           <HeaderSearchToggle
@@ -318,23 +432,14 @@ export default function SiteHeader() {
       >
         <ul className="mx-auto flex max-h-[min(80dvh,640px)] max-w-6xl flex-col gap-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6">
           {navItems.map((item) => {
-            const isActive =
-              item.href === pathname ||
-              (item.href !== "/" && pathname.startsWith(item.href.replace("/#", "/")));
+            const isActive = isNavItemActive(item.href, pathname, hash);
 
             return (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`block min-h-12 rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${
-                  isActive
-                    ? headerSolid
-                      ? "bg-stone-100 text-stone-900 dark:bg-stone-800 dark:text-stone-50"
-                      : "bg-white/15 text-white"
-                    : headerSolid
-                    ? "text-stone-700 hover:bg-stone-100 dark:text-stone-200 dark:hover:bg-stone-800"
-                    : "text-white/90 hover:bg-white/10 hover:text-white"
-                }`}
+                aria-current={isActive ? "page" : undefined}
+                className={mobileNavLinkClass(headerSolid, isActive)}
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}

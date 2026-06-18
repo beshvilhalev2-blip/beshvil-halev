@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" fill="none" role="img" aria-label="Mockup  -  Beshvil Halev hero background, mobile light">
+  <defs>
+    <linearGradient id="skyM" x1="195" y1="0" x2="195" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFBF7"/>
+      <stop offset="55%" stop-color="#F3EBE2"/>
+      <stop offset="100%" stop-color="#E8DFD4"/>
+    </linearGradient>
+    <radialGradient id="earthMidM" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#A8A29E" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#A8A29E" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="oliveShadeM" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#6B705C" stop-opacity="0.11"/>
+      <stop offset="100%" stop-color="#6B705C" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="oliveDeepM" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#556B2F" stop-opacity="0.055"/>
+      <stop offset="100%" stop-color="#556B2F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmSoilM" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#92400E" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#92400E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vignetteBottomM" x1="195" y1="520" x2="195" y2="844" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#292524" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#292524" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#292524" stop-opacity="0.28"/>
+    </linearGradient>
+    <linearGradient id="vignetteTopM" x1="195" y1="0" x2="195" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#292524" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#292524" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="washBlurM" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="pathBlurM" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <rect width="390" height="844" fill="url(#skyM)"/>
+
+  <g filter="url(#washBlurM)">
+    <ellipse cx="280" cy="620" rx="220" ry="120" fill="url(#earthMidM)"/>
+    <ellipse cx="90" cy="680" rx="180" ry="100" fill="url(#oliveShadeM)"/>
+    <ellipse cx="50" cy="780" rx="130" ry="80" fill="url(#oliveDeepM)"/>
+    <ellipse cx="320" cy="740" rx="160" ry="90" fill="url(#warmSoilM)"/>
+  </g>
+
+  <path
+    filter="url(#pathBlurM)"
+    fill="#FAF7F2"
+    fill-opacity="0.13"
+    d="M 350 720 C 300 708, 250 690, 200 678 C 150 666, 110 652, 70 638 C 50 630, 35 618, 28 605"
+  />
+
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path stroke="#57534E" stroke-opacity="0.06" stroke-width="0.8" d="M 20 610 C 100 600, 180 592, 260 584 C 320 578, 360 574, 370 573"/>
+    <path stroke="#57534E" stroke-opacity="0.07" stroke-width="0.8" d="M 15 635 C 95 625, 175 616, 255 608 C 315 602, 355 598, 375 596"/>
+    <path stroke="#57534E" stroke-opacity="0.08" stroke-width="0.8" d="M 10 660 C 90 650, 170 640, 250 632 C 310 626, 350 622, 380 620"/>
+    <path stroke="#57534E" stroke-opacity="0.085" stroke-width="0.8" d="M 12 685 C 92 675, 172 665, 252 656 C 312 650, 352 646, 385 644"/>
+    <path stroke="#57534E" stroke-opacity="0.08" stroke-width="0.8" d="M 20 708 C 100 698, 180 688, 260 678 C 320 672, 360 668, 378 666"/>
+    <path stroke="#57534E" stroke-opacity="0.075" stroke-width="0.8" d="M 35 728 C 115 718, 195 708, 275 698 C 335 692, 365 688, 372 687"/>
+
+    <path stroke="#57534E" stroke-opacity="0.05" stroke-width="0.8" d="M 40 580 C 120 574, 200 568, 280 562 C 340 558, 360 556, 368 555"/>
+    <path stroke="#57534E" stroke-opacity="0.045" stroke-width="0.8" d="M 50 560 C 130 556, 210 552, 290 548 C 340 545, 360 544, 365 543"/>
+    <path stroke="#57534E" stroke-opacity="0.04" stroke-width="0.8" d="M 70 540 C 150 538, 230 536, 310 534 C 340 533, 355 532, 358 532"/>
+
+    <path stroke="#57534E" stroke-opacity="0.035" stroke-width="0.8" d="M 100 520 C 180 519, 260 518, 320 517"/>
+    <path stroke="#57534E" stroke-opacity="0.03" stroke-width="0.8" d="M 130 505 C 210 504, 290 503, 310 502"/>
+
+    <path stroke="#57534E" stroke-opacity="0.055" stroke-width="0.8" d="M 120 650 C 150 636, 180 622, 210 610 C 240 598, 270 588, 300 580"/>
+    <path stroke="#57534E" stroke-opacity="0.06" stroke-width="0.8" d="M 220 670 C 250 656, 280 642, 310 630 C 340 618, 360 610, 370 606"/>
+  </g>
+
+  <rect width="390" height="844" fill="url(#vignetteTopM)"/>
+  <rect width="390" height="844" fill="url(#vignetteBottomM)"/>
+</svg>

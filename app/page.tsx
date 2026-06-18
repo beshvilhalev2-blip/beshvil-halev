@@ -6,7 +6,10 @@ import HeartTrailMap from "./components/heart-trail-map";
 import FindMyTripCta from "./components/find-my-trip-cta";
 import TripGearCta from "./components/trip-gear-cta";
 import ParksFieldUpdatesWidget from "./components/parks-field-updates-widget";
-import { getHomepageTrips } from "@/data/trips";
+import HomeHeroSection from "./components/home-hero-section";
+import HeroAdventureSelector from "./components/hero-adventure-selector";
+import { getHomepageTrips, trips } from "@/data/trips";
+import { buildAdventureCategoryData } from "@/lib/hero-adventure-selector";
 import { fetchParksFieldUpdates } from "@/lib/field-updates";
 
 const howItWorksSteps = [
@@ -165,66 +168,75 @@ function ArrowIcon() {
   );
 }
 
-function HeroMainContent() {
+function HeroMainContent({
+  adventureCategories,
+}: {
+  adventureCategories: ReturnType<typeof buildAdventureCategoryData>;
+}) {
   return (
     <>
-      <p className="mb-6 inline-block rounded-full border border-white/20 bg-white/10 px-5 py-1.5 text-sm font-medium tracking-wide text-white/90 backdrop-blur-sm">
+      <p className="mb-2.5 inline-block rounded-full border border-white/30 bg-white/15 px-5 py-1.5 text-sm font-medium tracking-wide text-white shadow-[0_2px_16px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:mb-3">
         לצאת לטבע • בקצב שלכם
       </p>
 
-      <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
+      <h1 className="mb-2.5 text-[2.75rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-[0_2px_28px_rgba(0,0,0,0.38)] sm:mb-3 sm:text-6xl lg:text-[4.25rem]">
         בשביל הלב
       </h1>
 
-      <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/90 sm:mb-10 sm:text-lg md:text-xl">
+      <p className="mx-auto mb-4 max-w-2xl text-base leading-snug text-white drop-shadow-[0_1px_14px_rgba(0,0,0,0.32)] sm:mb-5 sm:text-lg lg:mb-4 lg:text-xl lg:leading-relaxed">
         להיות בתנועה זאת התרופה.
         <br />
         מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.
       </p>
 
-      <div className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+      <div className="mb-4 flex flex-col items-center justify-center gap-3 sm:mb-5 sm:flex-row sm:gap-4 lg:mb-5">
         <Link
           href="/find-my-trip"
-          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-stone-900 px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-stone-900 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-black/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-stone-800 hover:shadow-xl hover:shadow-black/20 active:translate-y-0 sm:w-auto"
         >
           מצאו לי טיול
         </Link>
         <Link
           href="/recommendations"
-          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:w-auto"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/35 bg-white/14 px-8 py-3.5 text-base font-semibold text-white shadow-[0_4px_20px_rgba(0,0,0,0.12)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/24 hover:shadow-[0_8px_28px_rgba(0,0,0,0.16)] active:translate-y-0 sm:w-auto"
         >
           גלו טיולים
         </Link>
       </div>
 
-      <form
-        action="/search"
-        method="get"
-        className="mx-auto flex max-w-xl flex-col gap-2 rounded-2xl border border-white/15 bg-white/90 p-2 shadow-lg shadow-black/10 backdrop-blur-md transition-shadow focus-within:shadow-xl sm:flex-row sm:items-center sm:gap-3 sm:rounded-full sm:p-2"
-      >
-        <div className="flex flex-1 items-center gap-3 px-4">
-          <SearchIcon />
-          <input
-            type="search"
-            name="q"
-            placeholder="חפשו מסלול, אזור או חוויה..."
-            className="w-full bg-transparent py-3 text-base text-stone-800 placeholder:text-stone-400 focus:outline-none sm:text-lg"
-            aria-label="חיפוש מסלולים"
-          />
-        </div>
-        <button
-          type="submit"
-          className="min-h-11 w-full shrink-0 rounded-xl bg-stone-900 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto sm:rounded-full sm:px-8 sm:text-base"
+      <div className="mx-auto flex w-full max-w-[min(85vw,82rem)] flex-col items-stretch">
+        <HeroAdventureSelector categories={adventureCategories} />
+
+        <form
+          action="/search"
+          method="get"
+          className="mt-5 flex w-full flex-col gap-2 rounded-2xl border border-white/25 bg-white/88 p-2 shadow-[0_8px_28px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-300 focus-within:border-white/40 focus-within:bg-white/95 focus-within:shadow-[0_12px_36px_rgba(0,0,0,0.16)] sm:mx-auto sm:mt-8 sm:max-w-xl sm:flex-row sm:items-center sm:gap-2 sm:rounded-full sm:p-2 lg:mt-10 lg:max-w-[40rem]"
         >
-          חיפוש
-        </button>
-      </form>
+          <div className="flex flex-1 items-center gap-3 px-3 sm:px-4">
+            <SearchIcon />
+            <input
+              type="search"
+              name="q"
+              placeholder="חפשו מסלול, אזור או חוויה..."
+              className="w-full bg-transparent py-2.5 text-base text-stone-700 placeholder:text-stone-400 focus:outline-none"
+              aria-label="חיפוש מסלולים"
+            />
+          </div>
+          <button
+            type="submit"
+            className="min-h-10 w-full shrink-0 rounded-xl bg-stone-800/95 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto sm:rounded-full sm:px-7"
+          >
+            חיפוש
+          </button>
+        </form>
+      </div>
     </>
   );
 }
 
 export default async function Home() {
   const homepageTrips = getHomepageTrips(6);
+  const adventureCategories = buildAdventureCategoryData(trips);
   const fieldUpdates = await fetchParksFieldUpdates();
 
   return (
@@ -232,34 +244,9 @@ export default async function Home() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative flex min-h-[72vh] items-center justify-center overflow-hidden sm:min-h-[80vh] lg:min-h-[88vh]">
-        {/* Background placeholder — replace with real hero image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `
-              linear-gradient(
-                135deg,
-                rgba(28, 25, 23, 0.55) 0%,
-                rgba(68, 64, 60, 0.45) 35%,
-                rgba(120, 53, 15, 0.5) 70%,
-                rgba(28, 25, 23, 0.65) 100%
-              ),
-              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2387CEEB'/%3E%3Cstop offset='60%25' stop-color='%23DEB887'/%3E%3Cstop offset='100%25' stop-color='%23556B2F'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23sky)' width='1920' height='1080'/%3E%3Cellipse cx='960' cy='820' fill='%232F4F2F' opacity='0.6' rx='1200' ry='280'/%3E%3Cpath fill='%233D2914' opacity='0.5' d='M0 720 Q480 580 960 680 T1920 640 L1920 1080 L0 1080 Z'/%3E%3Cpath fill='%235D4037' opacity='0.4' d='M0 780 Q640 660 1280 740 T1920 700 L1920 1080 L0 1080 Z'/%3E%3C/svg%3E")
-            `,
-          }}
-          role="img"
-          aria-label="תמונת רקע — נוף שבילי טיול"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-24">
-          <HeroMainContent />
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-50 to-transparent dark:from-stone-950" />
-      </section>
+      <HomeHeroSection>
+        <HeroMainContent adventureCategories={adventureCategories} />
+      </HomeHeroSection>
 
       {/* How it works */}
       <section className="border-t border-stone-200/80 bg-white px-4 py-14 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-20">
