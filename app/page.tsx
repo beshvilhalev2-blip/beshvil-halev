@@ -3,32 +3,13 @@ import SiteHeader from "./components/site-header";
 import SiteFooter from "./components/site-footer";
 import TripCard from "./components/trip-card";
 import HeartTrailMap from "./components/heart-trail-map";
-import FindMyTripCta from "./components/find-my-trip-cta";
-import TripGearCta from "./components/trip-gear-cta";
 import ParksFieldUpdatesWidget from "./components/parks-field-updates-widget";
 import HomeHeroSection from "./components/home-hero-section";
 import HeroAdventureSelector from "./components/hero-adventure-selector";
+import HomeActionHub from "./components/home-action-hub";
 import { getHomepageTrips, trips } from "@/data/trips";
 import { buildAdventureCategoryData } from "@/lib/hero-adventure-selector";
 import { fetchParksFieldUpdates } from "@/lib/field-updates";
-
-const howItWorksSteps = [
-  {
-    emoji: "🌿",
-    title: "גלו",
-    description: "מצאו טיול שמתאים לכם",
-  },
-  {
-    emoji: "🎒",
-    title: "התארגנו",
-    description: "רשימות ציוד חכמות",
-  },
-  {
-    emoji: "🚙",
-    title: "צאו",
-    description: "ניווט, טיפים וכל מה שצריך",
-  },
-] as const;
 
 const categories = [
   {
@@ -268,43 +249,9 @@ export default async function Home() {
         <HeroMainContent adventureCategories={adventureCategories} />
       </HomeHeroSection>
 
-      {/* How it works */}
-      <section className="border-t border-stone-200/80 bg-white px-4 py-14 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-20">
-        <div className="mx-auto max-w-4xl">
-          <div className="grid gap-8 sm:grid-cols-3 sm:gap-6">
-            {howItWorksSteps.map((step) => (
-              <div key={step.title} className="text-center">
-                <p className="mb-3 text-3xl" aria-hidden="true">
-                  {step.emoji}
-                </p>
-                <h2 className="mb-2 text-lg font-semibold text-stone-900 dark:text-stone-50">
-                  {step.title}
-                </h2>
-                <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HomeActionHub />
 
-      {/* Find my trip CTA */}
-      <section className="border-t border-stone-200/80 bg-stone-50 px-4 py-14 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:py-20">
-        <div className="mx-auto flex max-w-6xl flex-col gap-6">
-          <FindMyTripCta />
-          <TripGearCta />
-        </div>
-      </section>
-
-      <section
-        className="border-t border-stone-200/80 bg-stone-50 px-4 pb-14 pt-2 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:pb-20"
-        aria-label="עדכוני שטח מרשות הטבע והגנים"
-      >
-        <div className="mx-auto max-w-6xl">
-          <ParksFieldUpdatesWidget data={fieldUpdates} />
-        </div>
-      </section>
+      <HeartTrailMap />
 
       {/* Featured trips */}
       {homepageTrips.length > 0 && (
@@ -338,7 +285,18 @@ export default async function Home() {
         </section>
       )}
 
-      <HeartTrailMap />
+      <section
+        className="relative border-t border-stone-200/50 px-4 pb-14 pt-2 dark:border-stone-800/50 sm:px-6 sm:pb-20"
+        aria-label="עדכוני שטח מרשות הטבע והגנים"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-stone-50/80 to-stone-50/90 dark:from-stone-950 dark:to-stone-950"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-6xl">
+          <ParksFieldUpdatesWidget data={fieldUpdates} />
+        </div>
+      </section>
 
       {/* Regions */}
       <section

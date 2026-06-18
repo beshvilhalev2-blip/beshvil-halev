@@ -118,7 +118,7 @@ export default function HeartTrailMap() {
   return (
     <section
       id="heart-trail-map"
-      className="border-t border-stone-200/80 bg-gradient-to-b from-stone-50 to-white px-6 py-20 dark:border-stone-800 dark:from-stone-950 dark:to-stone-900"
+      className="relative border-t border-stone-200/40 bg-gradient-to-b from-stone-50/90 to-white px-6 py-16 dark:border-stone-800/40 dark:from-stone-950 dark:to-stone-900 sm:py-20"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 text-center">
