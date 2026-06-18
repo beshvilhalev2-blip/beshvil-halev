@@ -105,7 +105,7 @@ export default function HeartTrailMap() {
   return (
     <section
       id="heart-trail-map"
-      className="border-t border-stone-200/80 bg-gradient-to-b from-stone-50 to-white px-6 py-14 dark:border-stone-800 dark:from-stone-950 dark:to-stone-900 sm:py-20"
+      className="border-t border-stone-200/80 bg-gradient-to-b from-stone-50 to-white px-6 py-20 dark:border-stone-800 dark:from-stone-950 dark:to-stone-900"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 text-center">
@@ -116,7 +116,7 @@ export default function HeartTrailMap() {
             מפת שביל הלב
           </h2>
           <p className="mx-auto max-w-xl text-lg text-stone-600 dark:text-stone-400">
-            בחרו אזור על המפה וגלו את הטיול הבא שלכם
+            בחרי אזור על המפה וגלי את הטיול הבא שלך
           </p>
         </div>
 
