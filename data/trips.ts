@@ -142,6 +142,18 @@ export const regions: Region[] = [
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
   },
+  {
+    slug: "judea-samaria",
+    title: "יהודה ושומרון",
+    description: "הרים, נחלים ונופים פתוחים בלב הארץ",
+    iconBg: "bg-lime-100 text-lime-800 dark:bg-lime-950 dark:text-lime-300",
+    accent: "from-lime-500/20 to-emerald-600/10",
+    borderHover: "hover:border-lime-200 dark:hover:border-lime-800",
+    heroBackgroundImage: `
+      linear-gradient(160deg, rgba(77, 124, 15, 0.75) 0%, rgba(101, 163, 13, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2384cc16'/%3E%3Cstop offset='100%25' stop-color='%23365314'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
+    `,
+  },
 ];
 
 const nahalHashofetHeroBackground = `
@@ -842,6 +854,30 @@ export function getTripsByRegionSlug(slug: string): Trip[] {
       (trip) => trip.region === region.title || trip.region === region.slug,
     )
     .sort(sortTripsForRegion);
+}
+
+export function getPublishedTripsByRegionSlug(slug: string): Trip[] {
+  return getTripsByRegionSlug(slug).filter(isPublishedTrip);
+}
+
+export function getTripRegionSlug(trip: Trip): string | undefined {
+  const match = regions.find(
+    (region) => trip.region === region.title || trip.region === region.slug,
+  );
+  return match?.slug;
+}
+
+export function getPublishedTripsForMapFilter(filter: "all" | string): Trip[] {
+  if (filter === "all") {
+    return getPublishedTrips().sort(sortTripsForRegion);
+  }
+  return getPublishedTripsByRegionSlug(filter);
+}
+
+export function getMapRegionTripCounts(): Record<string, number> {
+  return Object.fromEntries(
+    regions.map((region) => [region.slug, getPublishedTripsByRegionSlug(region.slug).length]),
+  );
 }
 
 export function getTripsByCategory(category: string): Trip[] {
