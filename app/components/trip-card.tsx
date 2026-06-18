@@ -2,10 +2,6 @@ import Link from "next/link";
 import { getRegionBySlug, regions, type Region, type Trip } from "@/data/trips";
 import VisitedStamp from "@/app/components/visited-stamp";
 import { getTripCardLayerStyle } from "@/lib/trip-media";
-import {
-  getTripCardRegionChip,
-  getTripCardSignalChip,
-} from "@/lib/trip-card-metadata";
 
 const HIDDEN_CATEGORY = "מקום שביקרנו";
 
@@ -44,8 +40,6 @@ export default function TripCard({
   const isComingSoon = trip.status === "needs-content";
   const ctaLabel = isComingSoon ? "לעמוד המקום" : "לכתבה המלאה";
   const showCategory = trip.category !== HIDDEN_CATEGORY;
-  const regionChip = getTripCardRegionChip(trip);
-  const signalChip = getTripCardSignalChip(trip);
 
   return (
     <Link
@@ -81,14 +75,7 @@ export default function TripCard({
             {trip.title}
           </h3>
 
-          <div className="mb-2 flex flex-wrap gap-2">
-            <span className={regionChip.className}>{regionChip.label}</span>
-            {signalChip ? (
-              <span className={signalChip.className}>{signalChip.label}</span>
-            ) : null}
-          </div>
-
-          <p className="mb-4 line-clamp-2 flex-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400 sm:mb-5 sm:line-clamp-3 sm:text-base">
+          <p className="mb-6 flex-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400 sm:text-base">
             {trip.subtitle}
           </p>
 
