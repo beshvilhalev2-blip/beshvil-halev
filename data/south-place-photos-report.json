@@ -1,6 +1,6 @@
 {
-  "places_matched": 15,
-  "hero_images_connected": 15,
+  "places_matched": 14,
+  "hero_images_connected": 14,
   "gallery_counts": {
     "nitzanim-lake": {
       "title": "אגם ניצנים",
@@ -71,16 +71,10 @@
       "title": "קומראן",
       "folder": "קומראן",
       "count": 2
-    },
-    "rbdym": {
-      "title": "רבדים",
-      "folder": "רבדים",
-      "count": 0
     }
   },
   "hero_only": [
-    "yr-hmlkym",
-    "rbdym"
+    "yr-hmlkym"
   ],
   "missing_hero": [
     "לונדע → lvnd (לונדע)",
