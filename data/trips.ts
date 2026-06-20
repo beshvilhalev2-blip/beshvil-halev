@@ -1,7 +1,13 @@
 import type { TripMatcherProfile } from "@/lib/find-my-trip/trip-profile";
+import { applyPlacesFilterSync } from "@/lib/apply-places-filter-sync";
 import { normalizeTripVehicleAccess } from "@/lib/trip-vehicle-access";
+import { placesFilterSyncBySlug } from "./places-filter-sync";
 import { visitedByMilanaMatchedSlugs } from "./visited-place-matches";
 import { visitedPlaceTrips } from "./visited-place-trips";
+
+import type { TripFilterTags } from "@/lib/trip-filter-tags";
+
+export type { TripFilterValue, TripFilterTags } from "@/lib/trip-filter-tags";
 
 export type TripCostItem = {
   label: string;
@@ -69,6 +75,9 @@ export type Trip = {
   nearbySubtitle: string;
   vehicleAccess?: TripVehicleAccess;
   matcher?: TripMatcherProfile;
+  filterTags?: TripFilterTags;
+  /** Hidden from public site when not present in places-filter Excel */
+  excludedFromSite?: boolean;
 };
 
 export type Region = {
@@ -821,17 +830,35 @@ export function isPublishedTrip(trip: Trip): boolean {
   return trip.status !== "needs-content";
 }
 
+export function isSiteVisibleTrip(trip: Trip): boolean {
+  return trip.excludedFromSite !== true;
+}
+
+export function getSiteVisibleTrips(): Trip[] {
+  return trips.filter(isSiteVisibleTrip);
+}
+
 export const trips: Trip[] = [
   ...rawTrips.map(normalizeTripVehicleAccess),
   ...(visitedPlaceTrips as unknown as Trip[]),
-].map(applyVisitedPlaceFlags);
+]
+  .map(applyVisitedPlaceFlags)
+  .map(applyPlacesFilterSync);
 
 export function getTripBySlug(slug: string): Trip | undefined {
   return trips.find((trip) => trip.slug === slug);
 }
 
 export function getAllTripSlugs(): string[] {
-  return trips.map((trip) => trip.slug);
+  return getSiteVisibleTrips().map((trip) => trip.slug);
+}
+
+export function getPublicTripBySlug(slug: string): Trip | undefined {
+  const trip = getTripBySlug(slug);
+  if (!trip || !isSiteVisibleTrip(trip)) {
+    return undefined;
+  }
+  return trip;
 }
 
 export function getRegionBySlug(slug: string): Region | undefined {
@@ -847,12 +874,9 @@ export function getAllRegionSlugs(): string[] {
 }
 
 export function getTripsByRegionSlug(slug: string): Trip[] {
-  const region = getRegionBySlug(slug);
-  if (!region) return [];
+  if (!getRegionBySlug(slug)) return [];
   return trips
-    .filter(
-      (trip) => trip.region === region.title || trip.region === region.slug,
-    )
+    .filter((trip) => isSiteVisibleTrip(trip) && getTripRegionSlug(trip) === slug)
     .sort(sortTripsForRegion);
 }
 
@@ -861,43 +885,53 @@ export function getPublishedTripsByRegionSlug(slug: string): Trip[] {
 }
 
 export function getTripRegionSlug(trip: Trip): string | undefined {
+  const syncedRegionSlug = placesFilterSyncBySlug[trip.slug]?.regionSlug;
+  if (syncedRegionSlug) {
+    return syncedRegionSlug;
+  }
+
   const match = regions.find(
     (region) => trip.region === region.title || trip.region === region.slug,
   );
   return match?.slug;
 }
 
-export function getPublishedTripsForMapFilter(filter: "all" | string): Trip[] {
+export function getSiteVisibleTripsForMapFilter(filter: "all" | string): Trip[] {
   if (filter === "all") {
-    return getPublishedTrips().sort(sortTripsForRegion);
+    return getSiteVisibleTrips().sort(sortTripsForRegion);
   }
-  return getPublishedTripsByRegionSlug(filter);
+  return getTripsByRegionSlug(filter);
+}
+
+/** @deprecated Prefer getSiteVisibleTripsForMapFilter — map uses Excel-visible trips */
+export function getPublishedTripsForMapFilter(filter: "all" | string): Trip[] {
+  return getSiteVisibleTripsForMapFilter(filter);
 }
 
 export function getMapRegionTripCounts(): Record<string, number> {
   return Object.fromEntries(
-    regions.map((region) => [region.slug, getPublishedTripsByRegionSlug(region.slug).length]),
+    regions.map((region) => [region.slug, getTripsByRegionSlug(region.slug).length]),
   );
 }
 
 export function getTripsByCategory(category: string): Trip[] {
-  return trips.filter((trip) => trip.category === category);
+  return trips.filter((trip) => isSiteVisibleTrip(trip) && trip.category === category);
 }
 
 export function getFeaturedTrips(): Trip[] {
-  return trips.filter((trip) => trip.featured && isPublishedTrip(trip));
+  return trips.filter((trip) => trip.featured && isSiteVisibleTrip(trip));
 }
 
 export function getHomepageTrips(limit = 6): Trip[] {
   const featured = getFeaturedTrips();
   const featuredSlugs = new Set(featured.map((trip) => trip.slug));
   const remaining = trips.filter(
-    (trip) => !featuredSlugs.has(trip.slug) && isPublishedTrip(trip),
+    (trip) => !featuredSlugs.has(trip.slug) && isSiteVisibleTrip(trip),
   );
 
   return [...featured, ...remaining].slice(0, limit);
 }
 
 export function getPublishedTrips(): Trip[] {
-  return trips.filter(isPublishedTrip);
+  return trips.filter((trip) => isSiteVisibleTrip(trip) && isPublishedTrip(trip));
 }

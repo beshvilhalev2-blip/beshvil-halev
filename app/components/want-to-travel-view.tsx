@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { getTripBySlug, type Trip } from "@/data/trips";
+import { getPublicTripBySlug, type Trip } from "@/data/trips";
 import {
   getSavedWantToTravelTrips,
   getWantToTravelDisplayTags,
@@ -85,7 +85,7 @@ export default function WantToTravelView() {
 
   const savedTrips = useMemo(() => {
     return savedSlugs
-      .map((slug) => getTripBySlug(slug))
+      .map((slug) => getPublicTripBySlug(slug))
       .filter((trip): trip is Trip => trip !== undefined);
   }, [savedSlugs]);
 

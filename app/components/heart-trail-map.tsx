@@ -4,17 +4,14 @@ import Link from "next/link";
 import { useCallback, useMemo, useState } from "react";
 import {
   getMapRegionTripCounts,
-  getPublishedTripsForMapFilter,
+  getSiteVisibleTripsForMapFilter,
   type Trip,
 } from "@/data/trips";
 import {
-  DEAD_SEA,
   DISCOVERY_MAP_REGIONS,
   FILTERABLE_REGION_SLUGS,
-  ISRAEL_OUTLINE,
-  MAP_VIEWBOX,
-  MEDITERRANEAN_WIDTH,
-  SEA_OF_GALILEE,
+  ISRAEL_SILHOUETTE,
+  REGION_SELECTOR_MARKERS,
   type DiscoveryRegionSlug,
 } from "@/lib/israel-discovery-map";
 import { getTripCardLayerStyle } from "@/lib/trip-media";
@@ -23,6 +20,7 @@ type RegionSlug = DiscoveryRegionSlug;
 type FilterSlug = "all" | RegionSlug;
 
 const mapRegions = DISCOVERY_MAP_REGIONS;
+const regionBySlug = Object.fromEntries(mapRegions.map((region) => [region.slug, region]));
 
 const FILTER_OPTIONS: { slug: FilterSlug; label: string }[] = [
   { slug: "all", label: "הכל" },
@@ -38,16 +36,6 @@ const TOPO_TEXTURE = `url("data:image/svg+xml,${encodeURIComponent(
       <ellipse cx='160' cy='160' rx='120' ry='72'/>
       <ellipse cx='120' cy='200' rx='90' ry='54'/>
       <ellipse cx='210' cy='110' rx='70' ry='42'/>
-    </g>
-  </svg>`,
-)}")`;
-
-const MAP_TOPO_PATTERN = `url("data:image/svg+xml,${encodeURIComponent(
-  `<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'>
-    <g fill='none' stroke='%23b8a892' stroke-width='0.5' opacity='0.32'>
-      <path d='M 8 70 Q 35 48 62 70 T 116 70'/>
-      <path d='M 18 105 Q 45 85 72 105 T 126 105'/>
-      <path d='M 0 35 Q 25 22 50 35'/>
     </g>
   </svg>`,
 )}")`;
@@ -71,7 +59,7 @@ function RegionFilters({
   onSelect: (slug: FilterSlug) => void;
 }) {
   return (
-    <div className="flex flex-wrap gap-1.5 sm:gap-2" role="tablist" aria-label="סינון לפי אזור">
+    <div className="flex flex-wrap justify-end gap-1.5 sm:gap-2" dir="rtl" role="tablist" aria-label="סינון לפי אזור">
       {FILTER_OPTIONS.map((option) => {
         const isActive = activeFilter !== null && activeFilter === option.slug;
         return (
@@ -147,146 +135,224 @@ function MapTripCard({ trip }: { trip: Trip }) {
   );
 }
 
-function CompassRose() {
+function RegionMapMarker({
+  region,
+  count,
+  top,
+  left,
+  scale = 1,
+  isSelected,
+  isHovered,
+  isDimmed,
+  onHover,
+  onSelect,
+}: {
+  region: (typeof mapRegions)[number];
+  count: number;
+  top: number;
+  left: number;
+  scale?: number;
+  isSelected: boolean;
+  isHovered: boolean;
+  isDimmed: boolean;
+  onHover: (slug: RegionSlug | null) => void;
+  onSelect: (slug: RegionSlug) => void;
+}) {
+  const label = region.shortTitle ?? region.title;
+  const active = isSelected || isHovered;
+
   return (
-    <g transform="translate(36 568)" aria-hidden="true">
-      <circle cx="0" cy="0" r="15" fill="#F7F3EC" stroke="#8DA889" strokeWidth="1" opacity="0.92" />
-      <path d="M 0 -9 L 2.5 0 L 0 9 L -2.5 0 Z" fill="#4F5E48" />
-      <text x="0" y="-16" textAnchor="middle" fill="#4F5E48" className="text-[7px] font-bold">
-        N
-      </text>
-    </g>
+    <button
+      type="button"
+      onMouseEnter={() => onHover(region.slug)}
+      onMouseLeave={() => onHover(null)}
+      onFocus={() => onHover(region.slug)}
+      onBlur={() => onHover(null)}
+      onClick={() => onSelect(region.slug)}
+      aria-pressed={isSelected}
+      aria-label={`${region.title} — ${formatTripCount(count)}`}
+      className="absolute z-[3] touch-manipulation text-start transition-all duration-250 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F5E48] focus-visible:ring-offset-2"
+      style={{
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-50%, -50%) scale(${isSelected ? scale * 1.07 : isHovered ? scale * 1.04 : scale})`,
+        opacity: isDimmed ? 0.45 : 1,
+      }}
+    >
+      <span
+        className={`flex min-w-[5.25rem] flex-col gap-0.5 rounded-xl border px-2.5 py-2 shadow-[0_6px_20px_rgba(28,25,23,0.1)] backdrop-blur-md sm:min-w-[5.75rem] sm:px-3 sm:py-2.5 ${
+          isSelected
+            ? "border-[#4F5E48]/40 ring-2 ring-[#4F5E48]/25"
+            : active
+              ? "border-white/85"
+              : "border-white/70"
+        }`}
+        style={{
+          backgroundColor: active ? "rgba(255,255,255,0.94)" : "rgba(255,255,255,0.88)",
+          ...(isHovered && !isSelected ? { backgroundColor: region.hoverFill } : {}),
+          boxShadow: isSelected
+            ? `0 10px 28px rgba(28,25,23,0.14), inset 4px 0 0 ${region.fillActive}`
+            : active
+              ? `0 8px 22px rgba(28,25,23,0.11), inset 3px 0 0 ${region.fill}`
+              : `0 6px 18px rgba(28,25,23,0.08), inset 3px 0 0 ${region.fill}`,
+        }}
+      >
+        <span className="text-[11px] font-bold leading-tight text-stone-900 sm:text-xs">{label}</span>
+        <span className="text-[10px] font-semibold text-stone-500">{formatTripCount(count)}</span>
+      </span>
+    </button>
   );
 }
 
-function IsraelMap({
+function RegionListRow({
+  region,
+  count,
+  isSelected,
+  isHovered,
+  onHover,
+  onSelect,
+}: {
+  region: (typeof mapRegions)[number];
+  count: number;
+  isSelected: boolean;
+  isHovered: boolean;
+  onHover: (slug: RegionSlug | null) => void;
+  onSelect: (slug: RegionSlug) => void;
+}) {
+  const active = isSelected || isHovered;
+
+  return (
+    <button
+      type="button"
+      onMouseEnter={() => onHover(region.slug)}
+      onMouseLeave={() => onHover(null)}
+      onFocus={() => onHover(region.slug)}
+      onBlur={() => onHover(null)}
+      onClick={() => onSelect(region.slug)}
+      aria-pressed={isSelected}
+      className={`flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2.5 text-end transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F5E48] ${
+        isSelected
+          ? "border-[#4F5E48]/35 bg-white shadow-sm"
+          : isHovered
+            ? "border-stone-200/80"
+            : "border-transparent bg-white/60 hover:bg-white/90"
+      }`}
+      style={
+        isHovered && !isSelected
+          ? { backgroundColor: region.hoverFill }
+          : undefined
+      }
+    >
+      <span className="flex items-center gap-2">
+        <span className="text-sm font-semibold text-stone-800">{region.title}</span>
+        <span
+          className="size-2.5 shrink-0 rounded-full"
+          style={{ backgroundColor: active ? region.fillActive : region.fill }}
+          aria-hidden="true"
+        />
+      </span>
+      <span className="shrink-0 text-xs font-medium text-stone-500">{formatTripCount(count)}</span>
+    </button>
+  );
+}
+
+function RegionDiscoveryPanel({
   activeSlug,
   hoveredSlug,
   tripCounts,
   onHover,
   onSelect,
+  onSelectAll,
 }: {
   activeSlug: RegionSlug | null;
   hoveredSlug: RegionSlug | null;
   tripCounts: Record<string, number>;
   onHover: (slug: RegionSlug | null) => void;
   onSelect: (slug: RegionSlug) => void;
+  onSelectAll: () => void;
 }) {
   const highlightSlug = hoveredSlug ?? activeSlug;
+  const activeRegion = activeSlug ? regionBySlug[activeSlug] : null;
 
   return (
-    <div
-      className="relative flex h-full min-h-[18rem] items-center justify-center overflow-hidden rounded-2xl border border-stone-200/60 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] sm:min-h-[20rem] lg:min-h-0 lg:h-full lg:max-h-[26rem]"
-      style={{
-        backgroundImage: `${MAP_TOPO_PATTERN}, linear-gradient(160deg, #F5EFE4 0%, #EBE3D6 48%, #E4DACE 100%)`,
-        backgroundSize: "140px 140px, 100% 100%",
-      }}
-    >
-      <div className="pointer-events-none absolute start-2 top-2 z-10 flex max-w-[9.5rem] items-start gap-1.5 rounded-lg border border-white/70 bg-white/88 px-2 py-1.5 shadow-sm">
-        <svg viewBox="0 0 24 24" className="mt-0.5 size-3.5 shrink-0 text-[#C4A574]" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" fill="currentColor" opacity="0.85" />
-          <path d="M12 2v2M12 20v2M4 12H2M22 12h-2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-        <p className="text-[9px] leading-snug text-stone-600">
-          רחפו מעל אזור לצפייה במסלולים ותמונות
-        </p>
+    <div className="flex h-full min-h-[24rem] flex-col overflow-hidden rounded-2xl border border-stone-200/55 bg-[#FAF7F1] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] sm:min-h-[26rem] lg:min-h-[28rem]">
+      <div className="border-b border-stone-200/45 px-4 py-3.5 text-end sm:px-5">
+        <h3 className="text-base font-bold text-stone-900 sm:text-lg">איפה תרצו לטייל?</h3>
+        <p className="mt-0.5 text-xs text-stone-500 sm:text-sm">בחרו אזור — המסלולים יתעדכנו מיד</p>
       </div>
 
-      <svg
-        viewBox={MAP_VIEWBOX}
-        className="relative z-[1] h-full max-h-[24rem] w-auto touch-manipulation lg:max-h-none lg:w-full"
-        role="img"
-        aria-label="מפת ישראל — אזורי טיול"
+      <div
+        className="relative mx-3 mt-3 min-h-[13rem] flex-1 overflow-hidden rounded-xl border border-stone-200/40 sm:mx-4 sm:min-h-[14rem]"
+        style={{
+          backgroundImage: `linear-gradient(118deg, rgba(220,238,248,0.55) 0%, rgba(232,220,196,0.35) 22%, rgba(240,235,227,0.9) 55%, rgba(235,227,214,0.95) 100%)`,
+        }}
       >
-        <defs>
-          <clipPath id="israelLandClip">
-            <path id="israel-outline" d={ISRAEL_OUTLINE} />
-          </clipPath>
-          <linearGradient id="medSea" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#DCE8EE" />
-            <stop offset="100%" stopColor="#C5D6E0" />
-          </linearGradient>
-          <linearGradient id="inlandWater" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8AADBE" />
-            <stop offset="100%" stopColor="#6E95A8" />
-          </linearGradient>
-          <filter id="regionLabelShadow">
-            <feDropShadow dx="0" dy="1" stdDeviation="1.2" floodColor="#FFFFFF" floodOpacity="0.85" />
-          </filter>
-        </defs>
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_18%_22%,rgba(184,206,214,0.45),transparent_65%)]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-y-0 start-0 w-[28%] bg-gradient-to-r from-[#C8D8DE]/50 to-transparent"
+          aria-hidden="true"
+        />
 
-        <rect x="0" y="0" width={MEDITERRANEAN_WIDTH} height="620" fill="url(#medSea)" />
+        <svg
+          viewBox="0 0 220 560"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-[0.16]"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          <path d={ISRAEL_SILHOUETTE} fill="#6B7A62" stroke="#8B9A82" strokeWidth="1.5" />
+        </svg>
 
-        <path id="israel-outline-base" d={ISRAEL_OUTLINE} fill="#E9E1D5" stroke="#C8BAA8" strokeWidth="1.5" />
+        {activeRegion ? (
+          <div
+            className="pointer-events-none absolute inset-0 z-[1] opacity-30 transition-opacity duration-300"
+            style={{
+              background: `radial-gradient(circle at ${REGION_SELECTOR_MARKERS.find((m) => m.slug === activeRegion.slug)?.left ?? 50}% ${REGION_SELECTOR_MARKERS.find((m) => m.slug === activeRegion.slug)?.top ?? 50}%, ${activeRegion.fillActive}55 0%, transparent 55%)`,
+            }}
+            aria-hidden="true"
+          />
+        ) : null}
 
-        <g clipPath="url(#israelLandClip)">
-          {mapRegions.map((region) => {
-            const isHighlighted = highlightSlug === region.slug;
-            const isDimmed = highlightSlug !== null && !isHighlighted;
-            const count = tripCounts[region.slug] ?? 0;
-            const strokeDasharray = region.dashedBorder
-              ? "4 3"
-              : isHighlighted
-                ? undefined
-                : "5 4";
+        {REGION_SELECTOR_MARKERS.map((marker) => (
+          <RegionMapMarker
+            key={marker.slug}
+            region={regionBySlug[marker.slug]}
+            count={tripCounts[marker.slug] ?? 0}
+            top={marker.top}
+            left={marker.left}
+            scale={marker.scale}
+            isSelected={activeSlug === marker.slug}
+            isHovered={hoveredSlug === marker.slug}
+            isDimmed={highlightSlug !== null && highlightSlug !== marker.slug}
+            onHover={onHover}
+            onSelect={onSelect}
+          />
+        ))}
 
-            return (
-              <g key={region.slug} style={{ opacity: isDimmed ? 0.45 : 1, transition: "opacity 0.25s ease" }}>
-                <path
-                  id={region.slug}
-                  d={region.path}
-                  fill={isHighlighted ? region.fillActive : region.fill}
-                  stroke="#FFFFFF"
-                  strokeWidth={isHighlighted ? 2.25 : 1.5}
-                  strokeDasharray={strokeDasharray}
-                  strokeLinejoin="round"
-                  className="cursor-pointer transition-[fill,stroke-width] duration-300"
-                  onMouseEnter={() => onHover(region.slug)}
-                  onMouseLeave={() => onHover(null)}
-                  onFocus={() => onHover(region.slug)}
-                  onBlur={() => onHover(null)}
-                  onClick={() => onSelect(region.slug)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      onSelect(region.slug);
-                    }
-                  }}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`${region.title} — ${formatTripCount(count)}`}
-                />
-                <text
-                  x={region.labelX}
-                  y={region.labelY}
-                  textAnchor="middle"
-                  fill="#2F4530"
-                  className="pointer-events-none select-none text-[11px] font-bold"
-                  style={{ fontFamily: "inherit", filter: "url(#regionLabelShadow)" }}
-                >
-                  {region.title}
-                </text>
-                <text
-                  x={region.labelX}
-                  y={region.countY}
-                  textAnchor="middle"
-                  fill="#4F5E48"
-                  className="pointer-events-none select-none text-[8px] font-medium"
-                  style={{ fontFamily: "inherit", opacity: 0.92 }}
-                >
-                  {formatTripCount(count)}
-                </text>
-              </g>
-            );
-          })}
-        </g>
+        <button
+          type="button"
+          onClick={onSelectAll}
+          className="absolute bottom-2 start-2 z-[2] rounded-full border border-white/70 bg-white/80 px-2.5 py-1 text-[10px] font-medium text-stone-600 backdrop-blur-sm transition-colors hover:bg-white"
+        >
+          הצג את כל הארץ
+        </button>
+      </div>
 
-        <path id="sea-of-galilee" d={SEA_OF_GALILEE} fill="url(#inlandWater)" stroke="#FFFFFF" strokeWidth="1" opacity="0.95" />
-        <path id="dead-sea" d={DEAD_SEA} fill="url(#inlandWater)" stroke="#FFFFFF" strokeWidth="1" opacity="0.95" />
-        <path id="israel-outline-stroke" d={ISRAEL_OUTLINE} fill="none" stroke="#C8BAA8" strokeWidth="1.75" opacity="0.85" />
-
-        <CompassRose />
-      </svg>
+      <div className="flex flex-col gap-1 px-3 py-3 sm:px-4 sm:py-3.5" dir="rtl" role="list" aria-label="רשימת אזורים">
+        {mapRegions.map((region) => (
+          <RegionListRow
+            key={region.slug}
+            region={region}
+            count={tripCounts[region.slug] ?? 0}
+            isSelected={activeSlug === region.slug}
+            isHovered={hoveredSlug === region.slug}
+            onHover={onHover}
+            onSelect={onSelect}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -301,7 +367,7 @@ export default function HeartTrailMap() {
   const activeMapSlug: RegionSlug | null = activeFilter === "all" ? null : activeFilter;
 
   const visibleTrips = useMemo(
-    () => getPublishedTripsForMapFilter(activeFilter),
+    () => getSiteVisibleTripsForMapFilter(activeFilter),
     [activeFilter],
   );
 
@@ -312,6 +378,11 @@ export default function HeartTrailMap() {
 
   const handleMapSelect = useCallback((slug: RegionSlug) => {
     setSelectedFilter(slug);
+    setHoveredSlug(null);
+  }, []);
+
+  const handleSelectAll = useCallback(() => {
+    setSelectedFilter("all");
     setHoveredSlug(null);
   }, []);
 
@@ -338,23 +409,24 @@ export default function HeartTrailMap() {
           </p>
           <h2 className="mb-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">מפת השבילים</h2>
           <p className="mx-auto max-w-lg text-sm leading-relaxed text-stone-600 sm:text-base">
-            רחפו מעל אזור, גלו כמה מסלולים מחכים — ובחרו את היעד הבא
+            בחרו אזור בארץ וגלו מסלולים — המפה והכרטיסיות מתעדכנות יחד
           </p>
         </div>
 
         <div className="overflow-hidden rounded-[1.5rem] border border-stone-200/70 bg-[#FAF7F1]/92 p-3 shadow-[0_14px_40px_rgba(28,25,23,0.06)] sm:p-5 lg:p-6">
-          <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,40%)_minmax(0,60%)] lg:items-stretch lg:gap-5 lg:[direction:ltr]">
+          <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,42%)_minmax(0,58%)] lg:items-stretch lg:gap-5 lg:[direction:ltr]">
             <div className="order-2 lg:order-none">
-              <IsraelMap
+              <RegionDiscoveryPanel
                 activeSlug={activeMapSlug}
                 hoveredSlug={hoveredSlug}
                 tripCounts={tripCounts}
                 onHover={setHoveredSlug}
                 onSelect={handleMapSelect}
+                onSelectAll={handleSelectAll}
               />
             </div>
 
-            <div className="order-1 flex min-h-0 flex-col gap-3 lg:order-none lg:gap-3.5">
+            <div className="order-1 flex min-h-0 flex-col gap-3 lg:order-none lg:gap-3.5" dir="rtl">
               <RegionFilters activeFilter={pillActiveFilter} onSelect={handleSelectFilter} />
 
               <div className="flex min-h-0 flex-1 flex-col">

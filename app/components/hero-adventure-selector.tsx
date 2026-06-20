@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useHeroCategory } from "./hero-category-context";
 import { categoryCardAccent } from "@/lib/hero-landscape/category-mood-config";
 import type {
@@ -10,10 +10,18 @@ import type {
   AdventureCategoryId,
   AdventureDestination,
 } from "@/lib/hero-adventure-selector";
+import {
+  buildCategoryRecommendationDisplay,
+  HERO_RECOMMENDATION_COUNT,
+  pickRotatedDestinations,
+  type CategoryRecommendationDisplay,
+} from "@/lib/hero-recommendation-rotation";
 
 type HeroAdventureSelectorProps = {
   categories: AdventureCategoryData[];
 };
+
+const RECOMMENDATION_FADE_MS = 220;
 
 function CategoryArrow({ borderColor }: { borderColor: string }) {
   return (
@@ -88,14 +96,103 @@ function RecommendationThumb({
   );
 }
 
+function buildInitialDisplay(
+  categories: AdventureCategoryData[],
+): Record<AdventureCategoryId, CategoryRecommendationDisplay> {
+  return Object.fromEntries(
+    categories.map((category) => [
+      category.id,
+      buildCategoryRecommendationDisplay(category.destinations),
+    ]),
+  ) as Record<AdventureCategoryId, CategoryRecommendationDisplay>;
+}
+
 export default function HeroAdventureSelector({ categories }: HeroAdventureSelectorProps) {
   const { setActiveCategory } = useHeroCategory();
   const defaultId = categories[0]?.id ?? "water";
   const [selectedId, setSelectedId] = useState<AdventureCategoryId | null>(null);
   const [activeId, setActiveId] = useState<AdventureCategoryId>(defaultId);
   const [panelVisible, setPanelVisible] = useState(false);
+  const [displayByCategory, setDisplayByCategory] = useState<
+    Record<AdventureCategoryId, CategoryRecommendationDisplay>
+  >(() => buildInitialDisplay(categories));
+  const [recommendationsVisible, setRecommendationsVisible] = useState(true);
+  const fadeTimeoutRef = useRef<number | null>(null);
+  useEffect(() => {
+    setDisplayByCategory((current) => {
+      const next = { ...current };
+      for (const category of categories) {
+        if (category.allDestinations.length <= HERO_RECOMMENDATION_COUNT) {
+          next[category.id] = buildCategoryRecommendationDisplay(category.destinations);
+          continue;
+        }
+        next[category.id] = buildCategoryRecommendationDisplay(
+          pickRotatedDestinations(
+            category.allDestinations,
+            HERO_RECOMMENDATION_COUNT,
+            category.destinations,
+          ),
+        );
+      }
+      return next;
+    });
+  }, [categories]);
 
   const preview = categories.find((category) => category.id === activeId) ?? categories[0];
+  const previewDisplay = displayByCategory[activeId] ?? buildCategoryRecommendationDisplay(preview.destinations);
+
+  const categoryById = useMemo(
+    () => Object.fromEntries(categories.map((category) => [category.id, category])),
+    [categories],
+  );
+
+  const clearFadeTimeout = useCallback(() => {
+    if (fadeTimeoutRef.current !== null) {
+      window.clearTimeout(fadeTimeoutRef.current);
+      fadeTimeoutRef.current = null;
+    }
+  }, []);
+
+  const applyRotatedDisplay = useCallback(
+    (id: AdventureCategoryId, previous: AdventureDestination[]) => {
+      const category = categoryById[id];
+      if (!category || category.allDestinations.length <= HERO_RECOMMENDATION_COUNT) {
+        return;
+      }
+
+      const destinations = pickRotatedDestinations(
+        category.allDestinations,
+        HERO_RECOMMENDATION_COUNT,
+        previous,
+      );
+
+      setDisplayByCategory((current) => ({
+        ...current,
+        [id]: buildCategoryRecommendationDisplay(destinations),
+      }));
+    },
+    [categoryById],
+  );
+
+  const rotateCategory = useCallback(
+    (id: AdventureCategoryId) => {
+      const category = categoryById[id];
+      if (!category || category.allDestinations.length <= HERO_RECOMMENDATION_COUNT) {
+        return;
+      }
+
+      const previous = displayByCategory[id]?.destinations ?? category.destinations;
+      clearFadeTimeout();
+      setRecommendationsVisible(false);
+
+      fadeTimeoutRef.current = window.setTimeout(() => {
+        applyRotatedDisplay(id, previous);
+        setRecommendationsVisible(true);
+        fadeTimeoutRef.current = null;
+      }, RECOMMENDATION_FADE_MS);
+    },
+    [applyRotatedDisplay, categoryById, clearFadeTimeout, displayByCategory],
+  );
 
   const updateCategory = useCallback(
     (id: AdventureCategoryId) => {
@@ -110,13 +207,24 @@ export default function HeroAdventureSelector({ categories }: HeroAdventureSelec
     return () => cancelAnimationFrame(frame);
   }, [defaultId, updateCategory]);
 
+  useEffect(() => clearFadeTimeout, [clearFadeTimeout]);
+
+  useEffect(() => {
+    clearFadeTimeout();
+    setRecommendationsVisible(true);
+  }, [activeId, clearFadeTimeout]);
+
   const handleActivate = useCallback(
     (id: AdventureCategoryId) => {
-      setSelectedId(id);
+      if (selectedId === id) {
+        rotateCategory(id);
+      } else {
+        setSelectedId(id);
+      }
       setActiveId(id);
       updateCategory(id);
     },
-    [updateCategory],
+    [rotateCategory, selectedId, updateCategory],
   );
 
   const handleHover = useCallback(
@@ -135,7 +243,7 @@ export default function HeroAdventureSelector({ categories }: HeroAdventureSelec
 
   if (!preview || categories.length === 0) return null;
 
-  const featured = preview.featured ?? preview.destinations[0] ?? null;
+  const featured = previewDisplay.featured ?? previewDisplay.destinations[0] ?? null;
 
   return (
     <section
@@ -212,7 +320,10 @@ export default function HeroAdventureSelector({ categories }: HeroAdventureSelec
       >
         <div key={activeId} className="hero-panel-enter p-4 lg:p-6">
           <div
-            className="flex flex-col items-center gap-4 lg:grid lg:w-full lg:grid-cols-[minmax(0,2fr)_minmax(0,1.25fr)_minmax(0,1.75fr)] lg:items-stretch lg:gap-8"
+            className={[
+              "flex flex-col items-center gap-4 transition-opacity duration-300 ease-out lg:grid lg:w-full lg:grid-cols-[minmax(0,2fr)_minmax(0,1.25fr)_minmax(0,1.75fr)] lg:items-stretch lg:gap-8",
+              recommendationsVisible ? "opacity-100" : "opacity-0",
+            ].join(" ")}
             dir="ltr"
           >
             <div className="w-full min-w-0 max-w-md lg:max-w-none" dir="rtl">
@@ -256,9 +367,9 @@ export default function HeroAdventureSelector({ categories }: HeroAdventureSelec
               <p className="mb-3 text-sm font-semibold text-white/92 lg:mb-4 lg:text-base">
                 המלצות בשבילך:
               </p>
-              {preview.destinations.length > 0 ? (
+              {previewDisplay.destinations.length > 0 ? (
                 <ul className="flex justify-center gap-4 sm:gap-5 lg:justify-evenly lg:gap-6">
-                  {preview.destinations.map((destination) => (
+                  {previewDisplay.destinations.map((destination) => (
                     <li key={destination.slug} className="min-w-0 max-w-[7rem] flex-1">
                       <RecommendationThumb destination={destination} emoji={preview.emoji} />
                     </li>

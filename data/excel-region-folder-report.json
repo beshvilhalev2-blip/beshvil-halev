@@ -1,0 +1,147 @@
+{
+  "excelFile": "/Users/milanapo94/Desktop/sites/beshvil-halev/data/imports/places-filter.xlsx",
+  "updatedCount": 9,
+  "unchangedCount": 85,
+  "manualReviewCount": 2,
+  "foldersWithoutExcelCount": 12,
+  "updated": [
+    {
+      "excelName": "פארק רעננה",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "פארק רעננה",
+      "matchKind": "exact",
+      "row": 23
+    },
+    {
+      "excelName": "נחל אלכסנדר",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "נחל אלכסנדר",
+      "matchKind": "exact",
+      "row": 24
+    },
+    {
+      "excelName": "חוף עתלית",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "חוף עתלית",
+      "matchKind": "exact",
+      "row": 26
+    },
+    {
+      "excelName": "חוף אולגה",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "חוף אולגה",
+      "matchKind": "exact",
+      "row": 27
+    },
+    {
+      "excelName": "מצפור ויקר",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "מצפור ויקר",
+      "matchKind": "exact",
+      "row": 28
+    },
+    {
+      "excelName": "נחל תנינים",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "נחל תנינים",
+      "matchKind": "exact",
+      "row": 31
+    },
+    {
+      "excelName": "מעגן מיכאל פסל הלב",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "מעגן מיכאל פסל הלב",
+      "matchKind": "exact",
+      "row": 32
+    },
+    {
+      "excelName": "פארק אקולוגי הוד השרון",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "פארק אקולוגי הוד השרון",
+      "matchKind": "exact",
+      "row": 52
+    },
+    {
+      "excelName": "קלחים ומבוכים",
+      "fromRegion": "מרכז",
+      "toRegion": "השרון",
+      "folderName": "קלחים ומבוכים",
+      "matchKind": "exact",
+      "row": 71
+    }
+  ],
+  "manualReview": [
+    {
+      "excelName": "פארק המעיינות",
+      "excelRegion": "צפון",
+      "reason": "conflicting-folder-matches",
+      "folderName": null,
+      "folderRegion": null
+    },
+    {
+      "excelName": "המפל הנסתר פתח תקווה",
+      "excelRegion": "מרכז",
+      "reason": "partial-review",
+      "folderName": "המפל הנסתר",
+      "folderRegion": "מרכז"
+    }
+  ],
+  "foldersWithoutExcel": [
+    {
+      "folderName": "בלאגן ביגור",
+      "folderRegion": "צפון"
+    },
+    {
+      "folderName": "המפל הנסתר",
+      "folderRegion": "מרכז"
+    },
+    {
+      "folderName": "חוף בוקק",
+      "folderRegion": "דרום"
+    },
+    {
+      "folderName": "חוף מעגן מיכאל",
+      "folderRegion": "השרון"
+    },
+    {
+      "folderName": "חוף נהריה",
+      "folderRegion": "צפון"
+    },
+    {
+      "folderName": "יבניאל כפר כמא",
+      "folderRegion": "צפון"
+    },
+    {
+      "folderName": "יקב כרם ברק",
+      "folderRegion": "מרכז"
+    },
+    {
+      "folderName": "נצרת",
+      "folderRegion": "צפון"
+    },
+    {
+      "folderName": "עכו",
+      "folderRegion": "צפון"
+    },
+    {
+      "folderName": "פארק המעיינות",
+      "folderRegion": "צפון"
+    },
+    {
+      "folderName": "פוסט קיבוץ אפיקים",
+      "folderRegion": "צפון"
+    },
+    {
+      "folderName": "קלאב הוטל",
+      "folderRegion": "צפון"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import TripCard from "@/app/components/trip-card";
-import { getPublishedTrips } from "@/data/trips";
+import { getSiteVisibleTrips } from "@/data/trips";
 
 export const metadata = {
   title: "המלצות לטיולים | בשביל הלב",
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function RecommendationsPage() {
-  const publishedTrips = getPublishedTrips();
+  const publishedTrips = getSiteVisibleTrips();
 
   return (
     <div className="flex flex-1 flex-col">

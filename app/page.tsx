@@ -7,7 +7,7 @@ import ParksFieldUpdatesWidget from "./components/parks-field-updates-widget";
 import HomeHeroSection from "./components/home-hero-section";
 import HeroAdventureSelector from "./components/hero-adventure-selector";
 import HomeActionHub from "./components/home-action-hub";
-import { getHomepageTrips, trips } from "@/data/trips";
+import { getHomepageTrips, getSiteVisibleTrips } from "@/data/trips";
 import { buildAdventureCategoryData } from "@/lib/hero-adventure-selector";
 import { fetchParksFieldUpdates } from "@/lib/field-updates";
 
@@ -237,7 +237,7 @@ function HeroMainContent({
 
 export default async function Home() {
   const homepageTrips = getHomepageTrips(6);
-  const adventureCategories = buildAdventureCategoryData(trips);
+  const adventureCategories = buildAdventureCategoryData(getSiteVisibleTrips());
   const fieldUpdates = await fetchParksFieldUpdates();
 
   return (

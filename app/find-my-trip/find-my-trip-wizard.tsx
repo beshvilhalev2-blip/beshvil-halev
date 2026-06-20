@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useRef, useState } from "react";
-import { getPublishedTrips, getTripBySlug } from "@/data/trips";
+import { getPublishedTrips, getPublicTripBySlug } from "@/data/trips";
 import FindMyTripResults from "@/app/find-my-trip/components/find-my-trip-results";
 import WizardCitySelect from "@/app/find-my-trip/components/wizard-city-select";
 import WizardOptionGrid from "@/app/find-my-trip/components/wizard-option-grid";
@@ -59,7 +59,7 @@ export default function FindMyTripWizard() {
 
   const stepCopy = WIZARD_STEP_COPY[step - 1];
 
-  const resolveTrip = useCallback((slug: string) => getTripBySlug(slug), []);
+  const resolveTrip = useCallback((slug: string) => getPublicTripBySlug(slug), []);
 
   const canContinue = useMemo(() => {
     switch (step) {

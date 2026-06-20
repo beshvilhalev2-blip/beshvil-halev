@@ -1,4 +1,9 @@
 import type { Trip } from "@/data/trips";
+import {
+  isFilterTagTrue,
+  isStrollerAccessibleFilterMatch,
+  type TripFilterTags,
+} from "@/lib/trip-filter-tags";
 
 export type AdventureCategoryId =
   | "water"
@@ -6,7 +11,7 @@ export type AdventureCategoryId =
   | "offroad"
   | "stroller"
   | "viewpoints"
-  | "coffee";
+  | "free";
 
 export type AdventureDestination = {
   slug: string;
@@ -19,8 +24,12 @@ export type AdventureCategoryData = {
   emoji: string;
   label: string;
   tagline: string;
-  featured: AdventureDestination | null;
+  matchCount: number;
+  /** Stable SSR default — first matches in ranked order */
   destinations: AdventureDestination[];
+  /** Full synced match pool for client-side rotation */
+  allDestinations: AdventureDestination[];
+  featured: AdventureDestination | null;
 };
 
 type CategoryDefinition = {
@@ -28,9 +37,8 @@ type CategoryDefinition = {
   emoji: string;
   label: string;
   tagline: string;
+  filterTag: keyof TripFilterTags;
   match: (trip: Trip) => boolean;
-  preferredSlugs?: string[];
-  preferredTitleIncludes?: string[];
 };
 
 const CATEGORY_DEFINITIONS: CategoryDefinition[] = [
@@ -39,83 +47,55 @@ const CATEGORY_DEFINITIONS: CategoryDefinition[] = [
     emoji: "🌊",
     label: "מים",
     tagline: "מעיינות, נחלים ובריכות טבעיות לכל המשפחה",
-    preferredSlugs: ["ein-moda", "nahal-hashofet", "ein-bokek", "sataf", "nitzanim-lake"],
-    preferredTitleIncludes: ["עין מודע", "עין שוקק", "עין ירקעם", "מעיין"],
-    match: (trip) =>
-      trip.matcher?.activities?.includes("water") === true ||
-      /מים|מעיין|חוף|נחל|בריכ|אגם/.test(`${trip.category} ${trip.title} ${trip.subtitle}`),
+    filterTag: "water",
+    match: (trip) => isFilterTagTrue(trip.filterTags?.water),
   },
   {
     id: "camping",
     emoji: "🏕️",
     label: "קמפינג",
     tagline: "לילה בטבע, מדורות ושמיים פתוחים",
-    preferredSlugs: ["ben-shemen-forest", "ein-bokek", "nitzanim-lake"],
-    preferredTitleIncludes: ["חניון", "קמפינג", "לינה"],
-    match: (trip) =>
-      trip.matcher?.activities?.includes("camping") === true ||
-      /קמפינג|חניון|לינה|אוהל/.test(`${trip.title} ${trip.subtitle} ${trip.about.join(" ")}`),
+    filterTag: "camping",
+    match: (trip) => isFilterTagTrue(trip.filterTags?.camping),
   },
   {
     id: "offroad",
     emoji: "🚙",
     label: "4x4",
     tagline: "שבילים, תצפיות והרפתקאות מחוץ לאספלט",
-    preferredSlugs: ["ben-shemen-forest", "ein-bokek"],
-    preferredTitleIncludes: ["נחל צין", "מכתש רמון", "הר כרכום", "עין גדי", "חרמון", "מדבר"],
-    match: (trip) =>
-      trip.category === "שטח 4x4" ||
-      trip.vehicleAccess === "soft-suv" ||
-      trip.vehicleAccess === "real-4x4" ||
-      trip.vehicleAccess === "hard-4x4" ||
-      /4x4|שטח|עפר/.test(`${trip.category} ${trip.title} ${trip.subtitle}`),
+    filterTag: "offroad",
+    match: (trip) => isFilterTagTrue(trip.filterTags?.offroad),
   },
   {
     id: "stroller",
     emoji: "👶",
     label: "נגיש לעגלות",
     tagline: "שבילים נוחים, צל וגישה קלה עם ילדים קטנים",
-    preferredSlugs: ["ein-moda", "nitzanim-lake", "sataf"],
-    preferredTitleIncludes: ["נחל דן", "נגיש", "משפחתי"],
-    match: (trip) =>
-      trip.highlights?.some((item) => /עגל|נגיש|משפח/.test(item)) === true ||
-      (trip.matcher?.activities?.includes("easy-trails") === true &&
-        trip.matcher?.companions?.includes("kids") === true &&
-        trip.matcher?.activities?.includes("water") !== true) ||
-      (trip.matcher?.activities?.includes("easy-trails") === true &&
-        trip.matcher?.activities?.includes("water") === true &&
-        trip.matcher?.companions?.includes("family") === true),
+    filterTag: "strollerAccessible",
+    match: (trip) => isStrollerAccessibleFilterMatch(trip.filterTags?.strollerAccessible),
   },
   {
     id: "viewpoints",
     emoji: "🌄",
     label: "תצפיות",
     tagline: "נקודות תצפית, שקיעות ונופים ששווה לעצור בהם",
-    preferredSlugs: ["nahal-sorek-estuary", "ben-shemen-forest", "mtzph-rbl"],
-    preferredTitleIncludes: ["מצפה", "נוף", "תצפ"],
-    match: (trip) =>
-      trip.matcher?.activities?.includes("viewpoint") === true ||
-      /תצפ|מצפה|נוף|שקיע/.test(`${trip.category} ${trip.title} ${trip.subtitle}`),
+    filterTag: "viewpoint",
+    match: (trip) => isFilterTagTrue(trip.filterTags?.viewpoint),
   },
   {
-    id: "coffee",
-    emoji: "☕",
-    label: "עגלות קפה",
-    tagline: "קפה טוב, נוף יפה ורגע של שקט בטבע",
-    preferredSlugs: ["sataf", "ein-moda", "nitzanim-lake", "brykt-rm-msdh"],
-    preferredTitleIncludes: ["קפה", "מסעד", "בריכת רם"],
-    match: (trip) =>
-      /קפה|מסעד|בית קפה|עגלת/.test(
-        `${trip.title} ${trip.subtitle} ${trip.about.join(" ")} ${trip.personalStory.join(" ")}`,
-      ) || trip.matcher?.activities?.includes("picnic") === true,
+    id: "free",
+    emoji: "🆓",
+    label: "חינם",
+    tagline: "טיולים וחוויות ללא עלות כניסה",
+    filterTag: "free",
+    match: (trip) => isFilterTagTrue(trip.filterTags?.free),
   },
 ];
 
-function tripRank(trip: Trip, preferredSlugs: string[] | undefined): number {
+function tripRank(trip: Trip): number {
   const publishedRank = trip.status === "needs-content" ? 1 : 0;
-  const preferredRank = preferredSlugs?.includes(trip.slug) ? 0 : 1;
   const featuredRank = trip.featured ? 0 : 1;
-  return publishedRank * 100 + preferredRank * 10 + featuredRank;
+  return publishedRank * 100 + featuredRank;
 }
 
 function tripThumbnail(trip: Trip): string | undefined {
@@ -131,68 +111,47 @@ function toDestination(trip: Trip): AdventureDestination {
   };
 }
 
-function pickDestinations(definition: CategoryDefinition, trips: Trip[]): AdventureDestination[] {
-  const preferredTrips: Trip[] = [];
-
-  if (definition.preferredTitleIncludes) {
-    for (const fragment of definition.preferredTitleIncludes) {
-      const trip = trips.find(
-        (item) =>
-          item.title.includes(fragment) &&
-          !preferredTrips.some((existing) => existing.slug === item.slug),
-      );
-      if (trip) preferredTrips.push(trip);
-    }
-  }
-
-  const matched = trips
+function getAllMatchingDestinations(definition: CategoryDefinition, trips: Trip[]): AdventureDestination[] {
+  return trips
     .filter(definition.match)
     .sort((a, b) => {
-      const rankDiff = tripRank(a, definition.preferredSlugs) - tripRank(b, definition.preferredSlugs);
+      const rankDiff = tripRank(a) - tripRank(b);
       if (rankDiff !== 0) return rankDiff;
       return a.title.localeCompare(b.title, "he");
-    });
+    })
+    .map(toDestination);
+}
 
-  const destinations = [...preferredTrips.map(toDestination), ...matched.map(toDestination)];
-  const seen = new Set(destinations.map((item) => item.slug));
-
-  if (definition.preferredSlugs) {
-    for (const slug of definition.preferredSlugs) {
-      if (seen.has(slug)) continue;
-      const trip = trips.find((item) => item.slug === slug);
-      if (trip) {
-        destinations.unshift(toDestination(trip));
-        seen.add(slug);
-      }
-    }
-  }
-
-  const unique: AdventureDestination[] = [];
-  const used = new Set<string>();
-  for (const destination of destinations) {
-    if (used.has(destination.slug)) continue;
-    used.add(destination.slug);
-    unique.push(destination);
-    if (unique.length >= 3) break;
-  }
-
-  return unique;
+function pickDefaultDestinations(allDestinations: AdventureDestination[]): AdventureDestination[] {
+  return allDestinations.slice(0, 3);
 }
 
 function pickFeatured(destinations: AdventureDestination[]): AdventureDestination | null {
   return destinations.find((destination) => destination.image) ?? destinations[0] ?? null;
 }
 
+export function getHeroCategoryMatchCounts(trips: Trip[]): Record<AdventureCategoryId, number> {
+  return Object.fromEntries(
+    CATEGORY_DEFINITIONS.map((definition) => [
+      definition.id,
+      trips.filter(definition.match).length,
+    ]),
+  ) as Record<AdventureCategoryId, number>;
+}
+
 export function buildAdventureCategoryData(trips: Trip[]): AdventureCategoryData[] {
   return CATEGORY_DEFINITIONS.map((definition) => {
-    const destinations = pickDestinations(definition, trips);
+    const allDestinations = getAllMatchingDestinations(definition, trips);
+    const destinations = pickDefaultDestinations(allDestinations);
     return {
       id: definition.id,
       emoji: definition.emoji,
       label: definition.label,
       tagline: definition.tagline,
-      featured: pickFeatured(destinations),
+      matchCount: allDestinations.length,
       destinations,
+      allDestinations,
+      featured: pickFeatured(destinations),
     };
   });
 }

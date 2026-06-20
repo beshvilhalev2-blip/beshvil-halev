@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 import TripCard from "@/app/components/trip-card";
-import { trips } from "@/data/trips";
+import { getSiteVisibleTrips } from "@/data/trips";
 import { searchTrips } from "@/lib/search-trips";
 
 type SearchPageProps = {
@@ -44,7 +44,7 @@ function getSearchQuery(raw: string | string[] | undefined): string {
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const params = await searchParams;
   const query = getSearchQuery(params.q);
-  const results = searchTrips(query, trips);
+  const results = searchTrips(query, getSiteVisibleTrips());
 
   return (
     <div className="flex flex-1 flex-col">

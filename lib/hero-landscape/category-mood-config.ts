@@ -71,7 +71,7 @@ export const CATEGORY_CARD_ACCENTS: Record<AdventureCategoryId, CategoryCardAcce
     panelGroupBg: "rgba(215, 130, 55, 0.16)",
     panelGroupBorder: "rgba(255, 185, 120, 0.4)",
   },
-  coffee: {
+  free: {
     activeBorder: "rgba(235, 190, 115, 0.75)",
     activeBg: "rgba(220, 170, 90, 0.16)",
     activeRing: "rgba(245, 200, 130, 0.4)",
@@ -112,7 +112,7 @@ const CATEGORY_MOOD_BACKGROUNDS: Record<AdventureCategoryId, string> = {
     "linear-gradient(0deg, rgba(255, 190, 140, 0) 42%, rgba(255, 175, 115, 0.38) 48%, rgba(255, 200, 155, 0.22) 54%, transparent 62%)",
     "radial-gradient(ellipse 100% 40% at 50% 44%, rgba(255, 180, 120, 0.25) 0%, transparent 70%)",
   ].join(", "),
-  coffee: [
+  free: [
     "radial-gradient(ellipse 70% 55% at 50% 88%, rgba(235, 185, 100, 0.38) 0%, transparent 72%)",
     "linear-gradient(180deg, rgba(255, 225, 180, 0.18) 0%, rgba(210, 160, 90, 0.12) 100%)",
     "radial-gradient(ellipse 50% 35% at 72% 22%, rgba(255, 230, 190, 0.22) 0%, transparent 70%)",
@@ -125,7 +125,7 @@ const CATEGORY_MOOD_BLEND: Record<AdventureCategoryId, CategoryMoodPresentation[
   offroad: "multiply",
   stroller: "soft-light",
   viewpoints: "screen",
-  coffee: "soft-light",
+  free: "soft-light",
 };
 
 export function categoryMoodPresentation(

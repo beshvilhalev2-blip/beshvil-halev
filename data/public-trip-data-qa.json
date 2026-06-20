@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-06-20T14:10:16.632Z",
+  "siteVisibleTotal": 90,
+  "publishedTotal": 7,
+  "regionDiscoveryCounts": {
+    "north": 28,
+    "hasharon": 10,
+    "center": 27,
+    "jerusalem": 8,
+    "south": 17,
+    "judea-samaria": 0
+  },
+  "regionPageCounts": {
+    "north": 28,
+    "hasharon": 10,
+    "center": 27,
+    "jerusalem": 8,
+    "south": 17,
+    "judea-samaria": 0
+  },
+  "heroFilterCounts": {
+    "water": 43,
+    "camping": 16,
+    "offroad": 26,
+    "stroller": 65,
+    "viewpoints": 36,
+    "free": 62
+  },
+  "hiddenTripsExcluded": [
+    {
+      "slug": "ybnyl-kpr-km",
+      "title": "יבניאל כפר כמא"
+    },
+    {
+      "slug": "ykb-krm-brk",
+      "title": "יקב כרם ברק"
+    },
+    {
+      "slug": "nchl-shvpt",
+      "title": "נחל שופט"
+    },
+    {
+      "slug": "ntzrt",
+      "title": "נצרת"
+    },
+    {
+      "slug": "kv",
+      "title": "עכו"
+    },
+    {
+      "slug": "prk-hmyynvt",
+      "title": "פארק המעיינות"
+    },
+    {
+      "slug": "pvst-kybvtz-pykym",
+      "title": "פוסט קיבוץ אפיקים"
+    },
+    {
+      "slug": "klb-hvtl",
+      "title": "קלאב הוטל"
+    }
+  ],
+  "expectedFromExcel": {
+    "activeTrips": 90,
+    "regionCounts": {
+      "north": 28,
+      "hasharon": 10,
+      "center": 27,
+      "jerusalem": 8,
+      "south": 17,
+      "judea-samaria": 0
+    },
+    "filterCounts": {
+      "water": 43,
+      "viewpoint": 36,
+      "camping": 16,
+      "offroad": 26,
+      "strollerAccessible": 65,
+      "free": 62
+    }
+  },
+  "qa": {
+    "regionDiscoveryMatchesRegionPages": true,
+    "regionCountsMatchExcel": true,
+    "filterCountsMatchExcel": true,
+    "hiddenTripCount": 8,
+    "expectedHiddenTripCount": 8
+  }
+}

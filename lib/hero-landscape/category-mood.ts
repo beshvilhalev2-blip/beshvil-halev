@@ -10,7 +10,7 @@ export const ZERO_MOOD: MoodState = {
   offroad: 0,
   stroller: 0,
   viewpoints: 0,
-  coffee: 0,
+  free: 0,
 };
 
 export function moodFromCategory(category: AdventureCategoryId | null): MoodState {
@@ -25,7 +25,7 @@ export function lerpMood(current: MoodState, target: MoodState, factor: number):
     offroad: current.offroad + (target.offroad - current.offroad) * factor,
     stroller: current.stroller + (target.stroller - current.stroller) * factor,
     viewpoints: current.viewpoints + (target.viewpoints - current.viewpoints) * factor,
-    coffee: current.coffee + (target.coffee - current.coffee) * factor,
+    free: current.free + (target.free - current.free) * factor,
   };
 }
 
@@ -36,7 +36,7 @@ export function moodIntensity(mood: MoodState): number {
     mood.offroad,
     mood.stroller,
     mood.viewpoints,
-    mood.coffee,
+    mood.free,
   );
 }
 
@@ -71,7 +71,7 @@ const CATEGORY_JOURNEY_PATH: Record<AdventureCategoryId, JourneyPathPalette> = {
     core: "rgba(210, 175, 120, 0.78)",
     strength: 1.07,
   },
-  coffee: {
+  free: {
     glow: "rgba(238, 215, 175, 0.42)",
     mid: "rgba(225, 190, 140, 0.56)",
     core: "rgba(205, 165, 105, 0.76)",
@@ -115,7 +115,7 @@ export function journeyPathPaletteForMood(mood: MoodState): JourneyPathPalette {
     "offroad",
     "stroller",
     "viewpoints",
-    "coffee",
+    "free",
   ];
 
   for (const id of ids) {
@@ -321,7 +321,7 @@ function drawViewpointsMood(
   ctx.restore();
 }
 
-function drawCoffeeMood(
+function drawFreeMood(
   ctx: CanvasRenderingContext2D,
   width: number,
   height: number,
@@ -388,7 +388,7 @@ export function drawCategoryMoodOverlays(
   drawOffroadMood(ctx, width, height, mood.offroad, parallax);
   drawStrollerMood(ctx, width, height, mood.stroller);
   drawViewpointsMood(ctx, width, height, mood.viewpoints, parallax);
-  drawCoffeeMood(ctx, width, height, time, mood.coffee);
+  drawFreeMood(ctx, width, height, time, mood.free);
 }
 
 export type AtmosphereMoodStyle = {
@@ -400,7 +400,7 @@ export type AtmosphereMoodStyle = {
 
 export function atmosphereStyleForMood(mood: MoodState): AtmosphereMoodStyle {
   return {
-    warmOpacity: mood.camping * 0.38 + mood.coffee * 0.42,
+    warmOpacity: mood.camping * 0.38 + mood.free * 0.42,
     coolOpacity: mood.water * 0.52,
     earthOpacity: mood.offroad * 0.32,
     brightOpacity: mood.stroller * 0.48 + mood.viewpoints * 0.36,
