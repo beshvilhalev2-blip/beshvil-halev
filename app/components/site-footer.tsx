@@ -1,53 +1,108 @@
 import Link from "next/link";
-import { SocialLinksRow } from "@/app/components/social-links";
+import {
+  DISCOVERY_MAP_REGIONS,
+  FILTERABLE_REGION_SLUGS,
+} from "@/lib/israel-discovery-map";
+import { communityWhatsAppGroupHref, socialLinks } from "@/lib/social-links";
 
-const footerLinks = [
-  { label: "טיולים", href: "/recommendations" },
-  { label: "מצאו לי טיול", href: "/find-my-trip" },
-  { label: "מרכז הציוד", href: "/gear" },
-  { label: "בא לי לטייל", href: "/want-to-travel" },
+const regionLinks = FILTERABLE_REGION_SLUGS.map((slug) => {
+  const region = DISCOVERY_MAP_REGIONS.find((entry) => entry.slug === slug)!;
+  return { label: region.title, href: region.href };
+});
+
+const tripIdeaLinks = [
+  { label: "טיולי מים", href: "/search?q=מים" },
+  { label: "תצפיות", href: "/search?q=תצפית" },
+  { label: "קמפינג", href: "/search?q=קמפינג" },
+  { label: "4x4", href: "/offroad" },
+  { label: "חינם", href: "/search?q=חינם" },
+  { label: "נגיש לעגלות", href: "/search?q=עגלות" },
 ] as const;
 
-export default function SiteFooter() {
+const travelerToolLinks = [
+  { label: "רשימות ציוד", href: "/gear" },
+  { label: "טיפים של זהב בשביל הלב", href: "/#gold-tips" },
+  { label: "שטח 4x4", href: "/offroad" },
+] as const;
+
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: readonly { label: string; href: string; external?: boolean }[];
+}) {
   return (
-    <footer className="border-t border-stone-200 bg-stone-50 px-4 py-12 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:py-14">
+    <div>
+      <h3 className="mb-3 text-sm font-semibold text-stone-900 dark:text-stone-100">{title}</h3>
+      <ul className="space-y-2">
+        {links.map((link) => (
+          <li key={link.href + link.label}>
+            {link.external ? (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-stone-600 transition-colors hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-200"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                href={link.href}
+                className="text-sm text-stone-600 transition-colors hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-200"
+              >
+                {link.label}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default function SiteFooter({ variant = "default" }: { variant?: "default" | "home" }) {
+  const communityLinks = [
+    { label: "וואטסאפ", href: communityWhatsAppGroupHref },
+    { label: "אינסטגרם", href: socialLinks.find((l) => l.id === "instagram")!.href, external: true },
+    { label: "פייסבוק", href: socialLinks.find((l) => l.id === "facebook")!.href, external: true },
+  ];
+
+  const footerSurfaceClass =
+    variant === "home"
+      ? "relative border-t border-stone-200/40 bg-transparent px-4 py-12 sm:px-6 sm:py-14"
+      : "border-t border-stone-200 bg-stone-100 px-4 py-12 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:py-14";
+
+  return (
+    <footer className={footerSurfaceClass}>
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-center gap-10 text-center sm:items-start sm:text-start">
-          <div>
-            <Link
-              href="/"
-              className="text-lg font-semibold text-stone-800 transition-colors hover:text-stone-600 dark:text-stone-100 dark:hover:text-stone-300"
-            >
-              בשביל הלב
-            </Link>
-            <p className="mt-2 text-sm font-medium text-stone-600 dark:text-stone-400">
-              להיות בתנועה זאת התרופה
-            </p>
-          </div>
+        <div className="grid gap-10 text-right sm:grid-cols-2 lg:grid-cols-4">
+          <FooterColumn title="טיולים לפי אזור" links={regionLinks} />
+          <FooterColumn title="רעיונות לטיול" links={tripIdeaLinks} />
+          <FooterColumn title="כלים למטיילים" links={travelerToolLinks} />
+          <FooterColumn title="קהילה" links={communityLinks} />
+        </div>
 
-          <nav aria-label="ניווט תחתון">
-            <ul className="flex flex-wrap justify-center gap-x-4 gap-y-1 sm:justify-start sm:gap-x-6 sm:gap-y-3">
-              {footerLinks.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="inline-flex min-h-11 items-center px-1 text-sm font-medium text-stone-600 transition-colors hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-200"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <div className="mt-12 border-t border-stone-200/80 pt-10 text-center dark:border-stone-800">
+          <Link
+            href="/"
+            className="text-xl font-bold text-stone-900 transition-colors hover:text-stone-700 dark:text-stone-50 dark:hover:text-stone-200"
+          >
+            בשביל הלב
+          </Link>
+          <p className="mt-2 text-sm font-medium text-stone-600 dark:text-stone-400">
+            להיות בתנועה זאת התרופה 💚
+          </p>
+        </div>
 
-          <div className="flex w-full flex-col items-center gap-4 border-t border-stone-200/80 pt-8 dark:border-stone-800 sm:flex-row sm:justify-between">
-            <SocialLinksRow
-              linkClassName="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-800 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-200"
-            />
-            <p className="text-sm text-stone-500 dark:text-stone-400">
-              © {new Date().getFullYear()} · כל הזכויות שמורות
-            </p>
-          </div>
+        <div className="mt-8 border-t border-stone-200/80 pt-6 text-center dark:border-stone-800">
+          <p className="text-sm text-stone-500 dark:text-stone-400">
+            © 2026 בשביל הלב
+          </p>
+          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
+            נבנה באהבה לטבע, למשפחות ולדרך.
+          </p>
         </div>
       </div>
     </footer>

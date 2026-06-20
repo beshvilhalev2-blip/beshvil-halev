@@ -30,16 +30,6 @@ const FILTER_OPTIONS: { slug: FilterSlug; label: string }[] = [
   }),
 ];
 
-const TOPO_TEXTURE = `url("data:image/svg+xml,${encodeURIComponent(
-  `<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'>
-    <g fill='none' stroke='%23a8957a' stroke-width='0.55' opacity='0.45'>
-      <ellipse cx='160' cy='160' rx='120' ry='72'/>
-      <ellipse cx='120' cy='200' rx='90' ry='54'/>
-      <ellipse cx='210' cy='110' rx='70' ry='42'/>
-    </g>
-  </svg>`,
-)}")`;
-
 const HIDDEN_CATEGORY = "מקום שביקרנו";
 
 function formatTripCount(count: number): string {
@@ -395,15 +385,11 @@ export default function HeartTrailMap() {
   return (
     <section
       id="heart-trail-map"
-      className="relative overflow-hidden px-4 py-10 sm:px-6 sm:py-12"
+      className="relative overflow-hidden px-4 pt-5 pb-8 sm:px-6 sm:pt-6 sm:pb-9"
       aria-label="מפת גילוי אזורים"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#EBE4DA]/88 via-[#F0EBE3]/95 to-[#E8E0D4]/90" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_50%_at_50%_0%,rgba(232,217,192,0.34),transparent_68%)]" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.11] mix-blend-multiply" style={{ backgroundImage: TOPO_TEXTURE, backgroundSize: "320px 320px" }} aria-hidden="true" />
-
       <div className="relative mx-auto max-w-6xl">
-        <div className="mb-6 text-center sm:mb-7">
+        <div className="mb-4 text-center sm:mb-5">
           <p className="mb-2 inline-block rounded-full border border-stone-300/55 bg-white/50 px-4 py-1 text-sm font-medium text-stone-600">
             גלו את הארץ
           </p>

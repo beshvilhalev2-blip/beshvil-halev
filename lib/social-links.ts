@@ -11,4 +11,7 @@ export const socialLinks = [
   },
 ] as const;
 
+/** Placeholder until community WhatsApp group invite URL is confirmed. */
+export const communityWhatsAppGroupHref = "#";
+
 export type SocialLinkId = (typeof socialLinks)[number]["id"];

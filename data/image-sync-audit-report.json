@@ -1,0 +1,1030 @@
+{
+  "generatedAt": "2026-06-20T16:49:41.029516+00:00",
+  "A_successfully_synced": {
+    "newHeroImages": [
+      {
+        "slug": "ein-bokek",
+        "title": "עין בוקק",
+        "heroImage": "/images/places/south/עין בוקק/hero.jpeg",
+        "previousHero": "/images/places/south/חוף בוקק/hero.jpeg"
+      }
+    ],
+    "newOrUpdatedGalleries": [
+      {
+        "slug": "ein-bokek",
+        "title": "עין בוקק",
+        "galleryCount": 6,
+        "previousGalleryCount": 3,
+        "addedImages": [
+          "/images/places/south/עין בוקק/IMG_2560.jpeg",
+          "/images/places/south/עין בוקק/IMG_2562.jpeg",
+          "/images/places/south/עין בוקק/IMG_2569.jpeg",
+          "/images/places/south/עין בוקק/IMG_2582.jpeg",
+          "/images/places/south/עין בוקק/IMG_2598.jpeg",
+          "/images/places/south/עין בוקק/IMG_2632.jpeg"
+        ]
+      }
+    ],
+    "visitedTripsUpdated": [],
+    "publishedTripsUpdated": [
+      "ein-bokek"
+    ]
+  },
+  "B_unmatched_folders": [
+    "north/בלאגן ביגור",
+    "north/חוף נהריה",
+    "center/גבעת החרובים",
+    "south/חוף בוקק"
+  ],
+  "C_missing_media": [
+    {
+      "slug": "gmvn-hchvlh",
+      "title": "אגמון החולה",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "kvvryvm-yshrl",
+      "title": "אקווריום ישראל",
+      "region": "ירושלים",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "bnys",
+      "title": "בניאס",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "brbtb",
+      "title": "ברבטבע",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "brykt-rm-msdh",
+      "title": "בריכת רם - מסעדה",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "bt-shlmh",
+      "title": "בת שלמה",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "gbt-hrkpvt",
+      "title": "גבעת הרקפות",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "gn-lvmy-mgdl-tzdk",
+      "title": "גן לאומי מגדל צדק",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "gny-chvgh",
+      "title": "גני חוגה",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "hmpl-hnstr",
+      "title": "המפל הנסתר",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "chvf-vlgh",
+      "title": "חוף אולגה",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "chvf-hchshml",
+      "title": "חוף החשמל",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "chvf-tlyt",
+      "title": "חוף עתלית",
+      "region": "מרכז",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/hasharon/חוף עתלית/hero.jpeg",
+      "galleryCount": 2,
+      "hasFolderWithHero": true
+    },
+    {
+      "slug": "chvrsht-gdvnh",
+      "title": "חורשת גדעונה",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "chrmvn",
+      "title": "חרמון",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "tl-shchr",
+      "title": "טל שחר",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "ybnyl-kpr-km",
+      "title": "יבניאל כפר כמא",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "ben-shemen-forest",
+      "title": "יער בן שמן",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "yr-hmgynym",
+      "title": "יער המגינים",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "yr-hmlkym",
+      "title": "יער המלאכים",
+      "region": "דרום",
+      "issues": [
+        "empty_gallery"
+      ],
+      "heroImage": "/images/places/south/יער המלאכים/hero.jpeg",
+      "galleryCount": 0,
+      "hasFolderWithHero": true
+    },
+    {
+      "slug": "ykb-krm-brk",
+      "title": "יקב כרם ברק",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "ykb-rmt-hgvln",
+      "title": "יקב רמת הגולן",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "kynrt",
+      "title": "כינרת",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "lvnd",
+      "title": "לונדע",
+      "region": "דרום",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "mvzyvn-hyldym-chvlvn",
+      "title": "מוזיאון הילדים חולון",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "msdt-dg-l-hdn",
+      "title": "מסעדת דג על הדן",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "myyn-hsvsym",
+      "title": "מעיין הסוסים",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "myyn-chrvd",
+      "title": "מעיין חרוד",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "mtzph-rbl",
+      "title": "מצפה ארבל",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "mshmr-dvd",
+      "title": "משמר דוד",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "nvf-yylvn",
+      "title": "נוף איילון",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "nchl-dn",
+      "title": "נחל דן",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "nchl-hsy",
+      "title": "נחל האסי",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "nchl-hkybvtzym",
+      "title": "נחל הקיבוצים",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "nahal-hashofet",
+      "title": "נחל השופט",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "nchl-shvpt",
+      "title": "נחל שופט",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "ntzrt",
+      "title": "נצרת",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "skr-lvmvt",
+      "title": "סכר אלומות",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "yzh-pzyzh",
+      "title": "עיזה פזיזה",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "ein-moda",
+      "title": "עין מודע",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "kv",
+      "title": "עכו",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "mk-hlh",
+      "title": "עמק האלה",
+      "region": "ירושלים",
+      "issues": [
+        "empty_gallery"
+      ],
+      "heroImage": "/images/places/jerusalem/עמק האלה/hero.jpg",
+      "galleryCount": 0,
+      "hasFolderWithHero": true
+    },
+    {
+      "slug": "prk-kvlvgy-hvd-hshrvn",
+      "title": "פארק אקולוגי הוד השרון",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "prk-ryl-shrvn",
+      "title": "פארק אריאל שרון",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "prk-brytnyh",
+      "title": "פארק בריטניה",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "prk-hmyynvt",
+      "title": "פארק המעיינות",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "prk-ytbth",
+      "title": "פארק יטבתה",
+      "region": "דרום",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "prk-mym-shpyym",
+      "title": "פארק מים שפיים",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "nchl-nkrvt-yknm",
+      "title": "פארק נחל קרת",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "prk-kndh",
+      "title": "פארק קנדה",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "prk-rnnh",
+      "title": "פארק רעננה",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "pvst-kybvtz-pykym",
+      "title": "פוסט קיבוץ אפיקים",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "kvmrn",
+      "title": "קומראן",
+      "region": "דרום",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/south/קומראן/hero.jpeg",
+      "galleryCount": 2,
+      "hasFolderWithHero": true
+    },
+    {
+      "slug": "kybvtz-pykym",
+      "title": "קיבוץ אפיקים",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "klb-hvtl",
+      "title": "קלאב הוטל",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "klchym-vmbvkym",
+      "title": "קלחים ומבוכים",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "rbdym",
+      "title": "רבדים",
+      "region": "מרכז",
+      "issues": [
+        "empty_gallery"
+      ],
+      "heroImage": "/images/places/center/רבדים/hero.jpeg",
+      "galleryCount": 0,
+      "hasFolderWithHero": true
+    },
+    {
+      "slug": "rvb-rvy",
+      "title": "רוב רוי",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "rmt-gn-spry",
+      "title": "רמת גן - ספארי",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "shmvrt-tb-bnys",
+      "title": "שמורת טבע בניאס",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "shmvrt-tb-gml",
+      "title": "שמורת טבע גמלא",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "nahal-sorek-estuary",
+      "title": "שפך נחל שורק",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "tchnt-bv-rbch",
+      "title": "תחנת אבו רבאח",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "tl-gzr",
+      "title": "תל גזר",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "tl-chdyd",
+      "title": "תל חדיד",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    }
+  ],
+  "D_coverage_summary": {
+    "totalTrips": 98,
+    "tripsWithRealHeroImages": 38,
+    "tripsUsingPlaceholders": 60,
+    "tripsWithGalleries": 35,
+    "tripsMissingMedia": 65,
+    "totalPlaceFolders": 99,
+    "foldersWithHeroFile": 40,
+    "foldersMatchedToTrips": 38
+  },
+  "recentDiskImages": [
+    {
+      "path": "images/places/center/מעיינות גיבתון/IMG_9457 3.jpeg",
+      "modifiedAt": "2026-06-20T14:10:48.982144+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "IMG_9457 3.jpeg"
+    },
+    {
+      "path": "images/places/center/מעיינות גיבתון/IMG_9462.jpeg",
+      "modifiedAt": "2026-06-20T14:10:47.858479+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "IMG_9462.jpeg"
+    },
+    {
+      "path": "images/places/center/מעיינות גיבתון/IMG_9466.jpeg",
+      "modifiedAt": "2026-06-20T14:10:48.079435+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "IMG_9466.jpeg"
+    },
+    {
+      "path": "images/places/center/מעיינות גיבתון/IMG_9471.jpeg",
+      "modifiedAt": "2026-06-20T14:10:48.663697+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "IMG_9471.jpeg"
+    },
+    {
+      "path": "images/places/center/מעיינות גיבתון/IMG_9481.jpeg",
+      "modifiedAt": "2026-06-20T14:10:48.436829+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "IMG_9481.jpeg"
+    },
+    {
+      "path": "images/places/center/מעיינות גיבתון/IMG_9488.jpeg",
+      "modifiedAt": "2026-06-20T14:10:48.238729+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "IMG_9488.jpeg"
+    },
+    {
+      "path": "images/places/center/מעיינות גיבתון/IMG_9490.jpeg",
+      "modifiedAt": "2026-06-20T14:10:47.646455+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "IMG_9490.jpeg"
+    },
+    {
+      "path": "images/places/center/מעיינות גיבתון/IMG_9501.jpeg",
+      "modifiedAt": "2026-06-20T14:10:49.349500+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "IMG_9501.jpeg"
+    },
+    {
+      "path": "images/places/center/מעיינות גיבתון/hero.jpeg",
+      "modifiedAt": "2026-06-20T14:10:47.315369+00:00",
+      "region": "center",
+      "folder": "מעיינות גיבתון",
+      "file": "hero.jpeg"
+    },
+    {
+      "path": "images/places/center/מצפה אלון/IMG_2093.jpeg",
+      "modifiedAt": "2026-06-20T14:23:41.597400+00:00",
+      "region": "center",
+      "folder": "מצפה אלון",
+      "file": "IMG_2093.jpeg"
+    },
+    {
+      "path": "images/places/center/מצפה אלון/IMG_2094.jpeg",
+      "modifiedAt": "2026-06-20T14:23:41.417006+00:00",
+      "region": "center",
+      "folder": "מצפה אלון",
+      "file": "IMG_2094.jpeg"
+    },
+    {
+      "path": "images/places/center/מצפה אלון/IMG_2097.jpeg",
+      "modifiedAt": "2026-06-20T14:23:40.910033+00:00",
+      "region": "center",
+      "folder": "מצפה אלון",
+      "file": "IMG_2097.jpeg"
+    },
+    {
+      "path": "images/places/center/מצפה אלון/IMG_2103.jpeg",
+      "modifiedAt": "2026-06-20T14:23:41.075817+00:00",
+      "region": "center",
+      "folder": "מצפה אלון",
+      "file": "IMG_2103.jpeg"
+    },
+    {
+      "path": "images/places/center/מצפה אלון/hero.jpeg",
+      "modifiedAt": "2026-06-20T14:23:41.979546+00:00",
+      "region": "center",
+      "folder": "מצפה אלון",
+      "file": "hero.jpeg"
+    },
+    {
+      "path": "images/places/center/שמורת פלמחים/IMG_1839.jpeg",
+      "modifiedAt": "2026-06-20T14:21:28.687022+00:00",
+      "region": "center",
+      "folder": "שמורת פלמחים",
+      "file": "IMG_1839.jpeg"
+    },
+    {
+      "path": "images/places/center/שמורת פלמחים/IMG_1869.jpeg",
+      "modifiedAt": "2026-06-20T14:21:27.501196+00:00",
+      "region": "center",
+      "folder": "שמורת פלמחים",
+      "file": "IMG_1869.jpeg"
+    },
+    {
+      "path": "images/places/center/שמורת פלמחים/IMG_1870.jpeg",
+      "modifiedAt": "2026-06-20T14:21:27.331037+00:00",
+      "region": "center",
+      "folder": "שמורת פלמחים",
+      "file": "IMG_1870.jpeg"
+    },
+    {
+      "path": "images/places/center/שמורת פלמחים/IMG_1946.jpeg",
+      "modifiedAt": "2026-06-20T14:21:27.034725+00:00",
+      "region": "center",
+      "folder": "שמורת פלמחים",
+      "file": "IMG_1946.jpeg"
+    },
+    {
+      "path": "images/places/center/שמורת פלמחים/IMG_2020.jpeg",
+      "modifiedAt": "2026-06-20T14:21:28.210150+00:00",
+      "region": "center",
+      "folder": "שמורת פלמחים",
+      "file": "IMG_2020.jpeg"
+    },
+    {
+      "path": "images/places/center/שמורת פלמחים/hero.jpeg",
+      "modifiedAt": "2026-06-20T14:21:27.778280+00:00",
+      "region": "center",
+      "folder": "שמורת פלמחים",
+      "file": "hero.jpeg"
+    }
+  ],
+  "foldersMissingHero": [
+    "north/אגמון החולה → gmvn-hchvlh (אגמון החולה)",
+    "north/בניאס → bnys (בניאס)",
+    "north/בריכת רם - מסעדה → brykt-rm-msdh (בריכת רם - מסעדה)",
+    "north/בת שלמה → bt-shlmh (בת שלמה)",
+    "north/גני חוגה → gny-chvgh (גני חוגה)",
+    "north/חורשת גדעונה → chvrsht-gdvnh (חורשת גדעונה)",
+    "north/חרמון → chrmvn (חרמון)",
+    "north/יבניאל כפר כמא → ybnyl-kpr-km (יבניאל כפר כמא)",
+    "north/יקב רמת הגולן → ykb-rmt-hgvln (יקב רמת הגולן)",
+    "north/כינרת → kynrt (כינרת)",
+    "north/מסעדת דג על הדן → msdt-dg-l-hdn (מסעדת דג על הדן)",
+    "north/מעיין הסוסים → myyn-hsvsym (מעיין הסוסים)",
+    "north/מעיין חרוד → myyn-chrvd (מעיין חרוד)",
+    "north/מצפה ארבל → mtzph-rbl (מצפה ארבל)",
+    "north/נחל דן → nchl-dn (נחל דן)",
+    "north/נחל האסי → nchl-hsy (נחל האסי)",
+    "north/נחל הקיבוצים → nchl-hkybvtzym (נחל הקיבוצים)",
+    "north/נחל נקרות יקנעם → nchl-nkrvt-yknm (פארק נחל קרת)",
+    "north/נחל שופט → nahal-hashofet (נחל השופט)",
+    "north/נצרת → ntzrt (נצרת)",
+    "north/סכר אלומות → skr-lvmvt (סכר אלומות)",
+    "north/עין מודע → ein-moda (עין מודע)",
+    "north/עכו → kv (עכו)",
+    "north/פארק המעיינות → prk-hmyynvt (פארק המעיינות)",
+    "north/פוסט קיבוץ אפיקים → pvst-kybvtz-pykym (פוסט קיבוץ אפיקים)",
+    "north/קיבוץ אפיקים → kybvtz-pykym (קיבוץ אפיקים)",
+    "north/קלאב הוטל → klb-hvtl (קלאב הוטל)",
+    "north/רוב רוי → rvb-rvy (רוב רוי)",
+    "north/שמורת טבע בניאס → shmvrt-tb-bnys (שמורת טבע בניאס)",
+    "north/שמורת טבע גמלא → shmvrt-tb-gml (שמורת טבע גמלא)",
+    "hasharon/חוף אולגה → chvf-vlgh (חוף אולגה)",
+    "hasharon/פארק אקולוגי הוד השרון → prk-kvlvgy-hvd-hshrvn (פארק אקולוגי הוד השרון)",
+    "hasharon/פארק רעננה → prk-rnnh (פארק רעננה)",
+    "hasharon/קלחים ומבוכים → klchym-vmbvkym (קלחים ומבוכים)",
+    "center/ברבטבע → brbtb (ברבטבע)",
+    "center/גבעת הרקפות → gbt-hrkpvt (גבעת הרקפות)",
+    "center/גן לאומי מגדל צדק → gn-lvmy-mgdl-tzdk (גן לאומי מגדל צדק)",
+    "center/המפל הנסתר → hmpl-hnstr (המפל הנסתר)",
+    "center/חוף החשמל → chvf-hchshml (חוף החשמל)",
+    "center/טל שחר → tl-shchr (טל שחר)",
+    "center/יער המגינים → yr-hmgynym (יער המגינים)",
+    "center/יקב כרם ברק → ykb-krm-brk (יקב כרם ברק)",
+    "center/מוזיאון הילדים חולון → mvzyvn-hyldym-chvlvn (מוזיאון הילדים חולון)",
+    "center/משמר דוד → mshmr-dvd (משמר דוד)",
+    "center/נוף איילון → nvf-yylvn (נוף איילון)",
+    "center/עיזה פזיזה → yzh-pzyzh (עיזה פזיזה)",
+    "center/פארק אריאל שרון → prk-ryl-shrvn (פארק אריאל שרון)",
+    "center/פארק בריטניה → prk-brytnyh (פארק בריטניה)",
+    "center/פארק מים שפיים → prk-mym-shpyym (פארק מים שפיים)",
+    "center/פארק קנדה → prk-kndh (פארק קנדה)",
+    "center/רמת גן - ספארי → rmt-gn-spry (רמת גן - ספארי)",
+    "center/תחנת אבו רבאח → tchnt-bv-rbch (תחנת אבו רבאח)",
+    "center/תל גזר → tl-gzr (תל גזר)",
+    "center/תל חדיד → tl-chdyd (תל חדיד)",
+    "jerusalem/אקווריום ישראל → kvvryvm-yshrl (אקווריום ישראל)",
+    "south/לונדע → lvnd (לונדע)",
+    "south/פארק יטבתה → prk-ytbth (פארק יטבתה)"
+  ],
+  "missingFilesOnDisk": [],
+  "duplicateAssignments": [],
+  "previousAuditGeneratedAt": "2026-06-20T16:49:08.354028+00:00"
+}

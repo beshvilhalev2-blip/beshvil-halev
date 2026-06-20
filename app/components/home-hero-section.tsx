@@ -117,7 +117,7 @@ export default function HomeHeroSection({ children }: HomeHeroSectionProps) {
 
   if (!ready) {
     return (
-      <section className="relative flex justify-center overflow-hidden pb-8 pt-[4rem] sm:pb-10 sm:pt-[4.5rem] lg:pb-10 lg:pt-[4.75rem]">
+      <section className="relative flex justify-center overflow-hidden pb-5 pt-[4rem] sm:pb-6 sm:pt-[4.5rem] lg:pb-7 lg:pt-[4.75rem]">
         <HeroAnimatedBackground activeCategory={null} introPaused handoffSync={false} />
         <HeroCategoryProvider setActiveCategory={handleSetActiveCategory}>
           <div className="relative z-10 mx-auto w-full px-4 py-6 text-center opacity-0 sm:px-6 sm:py-7 lg:px-10 lg:py-8">
@@ -129,7 +129,7 @@ export default function HomeHeroSection({ children }: HomeHeroSectionProps) {
   }
 
   return (
-    <section className="relative flex justify-center overflow-hidden pb-8 pt-[4rem] sm:pb-10 sm:pt-[4.5rem] lg:pb-10 lg:pt-[4.75rem]">
+    <section className="relative flex justify-center overflow-hidden pb-5 pt-[4rem] sm:pb-6 sm:pt-[4.5rem] lg:pb-7 lg:pt-[4.75rem]">
       <div
         ref={heroLayerRef}
         className="absolute inset-0"
@@ -167,6 +167,11 @@ export default function HomeHeroSection({ children }: HomeHeroSectionProps) {
           onHandoffUpdate={handleHandoffUpdate}
         />
       )}
+
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-32 bg-gradient-to-b from-transparent via-[#EDE8DF]/70 to-[#FAF8F5] sm:h-40 lg:h-44"
+        aria-hidden="true"
+      />
     </section>
   );
 }

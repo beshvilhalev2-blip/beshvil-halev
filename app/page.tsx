@@ -1,135 +1,18 @@
 import Link from "next/link";
 import SiteHeader from "./components/site-header";
 import SiteFooter from "./components/site-footer";
-import TripCard from "./components/trip-card";
 import HeartTrailMap from "./components/heart-trail-map";
 import ParksFieldUpdatesWidget from "./components/parks-field-updates-widget";
 import HomeHeroSection from "./components/home-hero-section";
 import HeroAdventureSelector from "./components/hero-adventure-selector";
-import HomeActionHub from "./components/home-action-hub";
-import { getHomepageTrips, getSiteVisibleTrips } from "@/data/trips";
+import HomePersonalIntro from "./components/home-personal-intro";
+import HomeGoldTips from "./components/home-gold-tips";
+import HomeCommunitySection from "./components/home-community-section";
+import HomePageAtmosphere from "./components/home-page-atmosphere";
+import { getSiteVisibleTrips } from "@/data/trips";
 import { buildAdventureCategoryData } from "@/lib/hero-adventure-selector";
 import { fetchParksFieldUpdates } from "@/lib/field-updates";
-
-const categories = [
-  {
-    title: "צפון",
-    description: "גליל, גולן, חופים ויערות ירוקים",
-    href: "/regions/north",
-    iconBg: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
-    accent: "from-emerald-500/20 to-teal-600/10",
-    borderHover: "hover:border-emerald-200 dark:hover:border-emerald-800",
-  },
-  {
-    title: "השרון",
-    description: "חופים, יערות ושבילים במישור החוף הצפוני",
-    href: "/regions/hasharon",
-    iconBg: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
-    accent: "from-sky-500/20 to-blue-600/10",
-    borderHover: "hover:border-sky-200 dark:hover:border-sky-800",
-  },
-  {
-    title: "מרכז",
-    description: "שפלה, מישור החוף ושבילי הטבע",
-    href: "/regions/center",
-    iconBg: "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
-    accent: "from-amber-500/20 to-orange-600/10",
-    borderHover: "hover:border-amber-200 dark:hover:border-amber-800",
-  },
-  {
-    title: "ירושלים",
-    description: "עיר הקודש, הרים ונקודות תצפית",
-    href: "/regions/jerusalem",
-    iconBg: "bg-stone-200 text-stone-700 dark:bg-stone-800 dark:text-stone-200",
-    accent: "from-stone-500/20 to-amber-700/10",
-    borderHover: "hover:border-stone-300 dark:hover:border-stone-600",
-  },
-  {
-    title: "דרום",
-    description: "מדבר, מכתשים ושקיעות אינסופיות",
-    href: "/regions/south",
-    iconBg: "bg-orange-100 text-orange-700 dark:bg-orange-950 dark:text-orange-300",
-    accent: "from-orange-500/20 to-rose-600/10",
-    borderHover: "hover:border-orange-200 dark:hover:border-orange-800",
-  },
-  {
-    title: "שטח 4x4",
-    description: "מסלולים אתגריים לרכב שטח",
-    href: "/offroad",
-    iconBg: "bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200",
-    accent: "from-zinc-500/20 to-amber-900/10",
-    borderHover: "hover:border-zinc-300 dark:hover:border-zinc-600",
-  },
-] as const;
-
-function NorthIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-7" aria-hidden="true">
-      <path d="M4 20 12 4l8 16" />
-      <path d="M7.5 14h9" />
-      <path d="M9 17h6" />
-    </svg>
-  );
-}
-
-function HasharonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-7" aria-hidden="true">
-      <path d="M3 17c2-2 5-3 9-3s7 1 9 3" />
-      <path d="M2 20h20" />
-      <path d="M7 14c1-2 3-3 5-3s4 1 5 3" />
-      <path d="M12 3v4" />
-      <circle cx="12" cy="7" r="2" />
-    </svg>
-  );
-}
-
-function CenterIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-7" aria-hidden="true">
-      <circle cx="12" cy="6" r="3" />
-      <path d="M12 9v2" />
-      <path d="M4 20c2-4 6-6 8-6s6 2 8 6" />
-      <path d="M2 20h20" />
-    </svg>
-  );
-}
-
-function JerusalemIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-7" aria-hidden="true">
-      <path d="M12 3 5 10h14L12 3Z" />
-      <path d="M8 10v8h8v-8" />
-      <path d="M6 18h12" />
-      <path d="M10 14h4" />
-    </svg>
-  );
-}
-
-function SouthIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-7" aria-hidden="true">
-      <circle cx="17" cy="5" r="2.5" />
-      <path d="M2 18c3-2 7-3 10-3s7 1 10 3" />
-      <path d="M5 18c1.5-1 3.5-1.5 7-1.5s5.5.5 7 1.5" />
-      <path d="M2 21h20" />
-    </svg>
-  );
-}
-
-function OffRoadIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="size-7" aria-hidden="true">
-      <path d="M3 17h2l1.5-5.5a2 2 0 0 1 1.9-1.5H15a2 2 0 0 1 1.9 1.3L18.5 17H21" />
-      <circle cx="7" cy="17" r="2" />
-      <circle cx="17" cy="17" r="2" />
-      <path d="M9 10.5V9a2 2 0 0 1 2-2h2" />
-      <path d="M14 7h3l1 3.5" />
-    </svg>
-  );
-}
-
-const regionIcons = [NorthIcon, HasharonIcon, CenterIcon, JerusalemIcon, SouthIcon, OffRoadIcon] as const;
+import { getHomeFieldMomentPool } from "@/lib/home-field-moments";
 
 function SearchIcon() {
   return (
@@ -146,25 +29,6 @@ function SearchIcon() {
     >
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="size-4 transition-transform duration-300 group-hover:-translate-x-1"
-      aria-hidden="true"
-    >
-      <path d="M19 12H5" />
-      <path d="m12 19-7-7 7-7" />
     </svg>
   );
 }
@@ -236,124 +100,42 @@ function HeroMainContent({
 }
 
 export default async function Home() {
-  const homepageTrips = getHomepageTrips(6);
-  const adventureCategories = buildAdventureCategoryData(getSiteVisibleTrips());
+  const siteVisibleTrips = getSiteVisibleTrips();
+  const adventureCategories = buildAdventureCategoryData(siteVisibleTrips);
   const fieldUpdates = await fetchParksFieldUpdates();
+  const fieldMomentPool = getHomeFieldMomentPool(siteVisibleTrips);
 
   return (
     <div className="flex flex-1 flex-col">
       <SiteHeader />
 
-      {/* Hero */}
       <HomeHeroSection>
         <HeroMainContent adventureCategories={adventureCategories} />
       </HomeHeroSection>
 
-      <HomeActionHub />
+      <HomePageAtmosphere>
+        <HomePersonalIntro
+          placeCount={siteVisibleTrips.length}
+          fieldMomentPool={fieldMomentPool}
+        />
 
-      <HeartTrailMap />
+        <HeartTrailMap />
 
-      {/* Featured trips */}
-      {homepageTrips.length > 0 && (
-        <section className="border-t border-stone-200/80 bg-white px-4 py-20 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-14 text-center">
-              <h2 className="mb-4 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
-                מסלולים מומלצים
-              </h2>
-              <p className="mx-auto max-w-xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
-                טיולים שנבחרו ונבדקו באהבה — עם טיפים, עלויות וסיפורים מהשטח
-              </p>
-            </div>
+        <HomeGoldTips />
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {homepageTrips.map((trip) => (
-                <TripCard key={trip.slug} trip={trip} />
-              ))}
-            </div>
-
-            <div className="mt-10 text-center">
-              <Link
-                href="/recommendations"
-                className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-stone-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
-              >
-                גלו טיולים
-                <ArrowIcon />
-              </Link>
-            </div>
+        <section
+          className="relative px-4 pb-6 pt-2 sm:px-6 sm:pb-8"
+          aria-label="עדכוני שטח מרשות הטבע והגנים"
+        >
+          <div className="relative mx-auto max-w-6xl">
+            <ParksFieldUpdatesWidget data={fieldUpdates} />
           </div>
         </section>
-      )}
 
-      <section
-        className="relative border-t border-stone-200/50 px-4 pb-14 pt-2 dark:border-stone-800/50 sm:px-6 sm:pb-20"
-        aria-label="עדכוני שטח מרשות הטבע והגנים"
-      >
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-stone-50/80 to-stone-50/90 dark:from-stone-950 dark:to-stone-950"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-6xl">
-          <ParksFieldUpdatesWidget data={fieldUpdates} />
-        </div>
-      </section>
+        <HomeCommunitySection />
 
-      {/* Regions */}
-      <section
-        id="regions"
-        className="bg-stone-50 px-4 py-20 dark:bg-stone-950 sm:px-6 sm:py-28"
-      >
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-14 text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
-              בחרו אזור לטיול
-            </h2>
-            <p className="mx-auto max-w-xl text-lg text-stone-600 dark:text-stone-400">
-              כל אזור מחזיק עולם שלם — מסלולים, נקודות עצירה וסיפורים מהשטח
-            </p>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {categories.map((category, index) => {
-              const Icon = regionIcons[index];
-              return (
-                <Link
-                  key={category.href}
-                  href={category.href}
-                  className={`group relative flex min-h-[220px] flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 sm:min-h-[260px] sm:p-7 ${category.borderHover}`}
-                >
-                  <div
-                    className={`pointer-events-none absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${category.accent}`}
-                  />
-
-                  <div className="relative flex flex-1 flex-col">
-                    <div
-                      className={`mb-6 inline-flex size-14 items-center justify-center rounded-2xl ${category.iconBg}`}
-                    >
-                      <Icon />
-                    </div>
-
-                    <h3 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-50 sm:text-2xl">
-                      {category.title}
-                    </h3>
-
-                    <p className="mb-8 flex-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400">
-                      {category.description}
-                    </p>
-
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-stone-700 transition-colors group-hover:text-stone-900 dark:text-stone-300 dark:group-hover:text-white">
-                      גלו מסלולים
-                      <ArrowIcon />
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <SiteFooter />
+        <SiteFooter variant="home" />
+      </HomePageAtmosphere>
     </div>
   );
 }

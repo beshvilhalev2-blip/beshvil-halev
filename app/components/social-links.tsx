@@ -41,6 +41,7 @@ type SocialIconLinkProps = {
   label: string;
   className?: string;
   iconClassName?: string;
+  showLabel?: boolean;
 };
 
 export function SocialIconLink({
@@ -49,16 +50,18 @@ export function SocialIconLink({
   label,
   className,
   iconClassName = "size-5",
+  showLabel = false,
 }: SocialIconLinkProps) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={label}
+      aria-label={showLabel ? undefined : label}
       className={className}
     >
       <SocialIcon id={id} className={iconClassName} />
+      {showLabel ? <span>{label}</span> : null}
     </a>
   );
 }
