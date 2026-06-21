@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
+import AiAssistant from "@/app/components/ai-assistant/ai-assistant";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -31,7 +32,10 @@ export default function RootLayout({
       dir="rtl"
       className={`${heebo.variable} h-full antialiased`}
     >
-      <body className="flex min-h-screen flex-col font-sans">{children}</body>
+      <body className="flex min-h-screen flex-col font-sans">
+        {children}
+        <AiAssistant />
+      </body>
     </html>
   );
 }
