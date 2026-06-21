@@ -5,6 +5,7 @@ import SiteFooter from "@/app/components/site-footer";
 import { getRegionForTrip } from "@/app/components/trip-card";
 import VisitedStamp from "@/app/components/visited-stamp";
 import TripPhotoGallery from "@/app/components/trip-photo-gallery";
+import WantToTravelSaveButton from "@/app/components/want-to-travel-save-button";
 import { getTripHeroLayerStyle } from "@/lib/trip-media";
 
 function ArrowIcon() {
@@ -53,6 +54,8 @@ export default function TripComingSoon({ trip }: { trip: Trip }) {
           <h1 className="mb-4 text-3xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
             {trip.title}
           </h1>
+
+          <WantToTravelSaveButton tripSlug={trip.slug} variant="hero" />
         </div>
       </section>
 

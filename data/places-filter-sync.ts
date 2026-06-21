@@ -25,7 +25,6 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "chn-yn-gdy": { region: "דרום", regionSlug: "south", excelName: "חאן עין גדי", tags: { water: false, viewpoint: true, camping: true, offroad: false, strollerAccessible: true, free: false } },
   "chrmvn": { region: "צפון", regionSlug: "north", excelName: "חרמון", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: false, free: false } },
   "chvf-hchshml": { region: "מרכז", regionSlug: "center", excelName: "חוף החשמל", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
-  "chvf-mgn-mykl": { region: "השרון", regionSlug: "hasharon", excelName: "חוף מעגן מיכאל", tags: { water: true, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "chvf-tlyt": { region: "השרון", regionSlug: "hasharon", excelName: "חוף עתלית", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
   "chvf-vlgh": { region: "השרון", regionSlug: "hasharon", excelName: "חוף אולגה", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "chvrsht-gdvnh": { region: "צפון", regionSlug: "north", excelName: "חורשת גדעונה", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
@@ -52,6 +51,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "mpl-tnvr-gbvl-lbnvn": { region: "צפון", regionSlug: "north", excelName: "מפל תנור גבול לבנון", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "mrynh-shklvn": { region: "דרום", regionSlug: "south", excelName: "מרינה אשקלון", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "msdt-dg-l-hdn": { region: "צפון", regionSlug: "north", excelName: "מסעדת דג על הדן", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
+  "mshk-bgbh-gdrh": { region: "מרכז", regionSlug: "center", excelName: "משק בגבעה גדרה", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
   "mshmr-dvd": { region: "מרכז", regionSlug: "center", excelName: "משמר דוד", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "mtzph-ntn": { region: "מרכז", regionSlug: "center", excelName: "מצפה אלון", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "mtzph-rbl": { region: "צפון", regionSlug: "north", excelName: "מצפה ארבל", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
@@ -107,26 +107,26 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
 };
 
 export const placesFilterAudit = {
-  "excelTotal": 94,
+  "excelTotal": 95,
   "siteTotal": 98,
   "matched": 91,
   "activeTrips": 90,
   "hiddenUnmatchedSiteTrips": 8,
   "regionCounts": {
     "north": 28,
-    "hasharon": 10,
-    "center": 28,
+    "hasharon": 9,
+    "center": 29,
     "jerusalem": 8,
     "south": 16,
     "judea-samaria": 0
   },
   "filterCounts": {
-    "water": 43,
-    "viewpoint": 36,
+    "water": 42,
+    "viewpoint": 35,
     "camping": 16,
     "offroad": 26,
     "strollerAccessible": 65,
-    "free": 62
+    "free": 61
   },
   "totalSynced": 90,
   "missingFromExcel": [
@@ -142,6 +142,7 @@ export const placesFilterAudit = {
   "missingFromSite": [
     "פארק מים מודיעין",
     "הגבעות של נס ציונה",
-    "עין ורדא"
+    "עין ורדא",
+    "חוף מעגן מיכאל"
   ]
 } as const;

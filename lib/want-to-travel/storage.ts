@@ -1,3 +1,5 @@
+import { notifyWantToTravelUpdated } from "@/lib/want-to-travel/events";
+
 export const WANT_TO_TRAVEL_STORAGE_KEY = "beshvil-halev-want-to-travel";
 export const WANT_TO_TRAVEL_STORAGE_VERSION = 1 as const;
 
@@ -55,6 +57,7 @@ function writeState(state: WantToTravelStorageState): WantToTravelStorageState {
       WANT_TO_TRAVEL_STORAGE_KEY,
       JSON.stringify(next),
     );
+    notifyWantToTravelUpdated();
   }
 
   return next;
@@ -87,4 +90,8 @@ export function removeTripFromWantToTravel(
     ...current,
     tripSlugs: current.tripSlugs.filter((slug) => slug !== tripSlug),
   });
+}
+
+export function clearAllWantToTravelTrips(): WantToTravelStorageState {
+  return writeState(createEmptyState());
 }

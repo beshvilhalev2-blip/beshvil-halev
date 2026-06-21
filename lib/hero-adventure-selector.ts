@@ -155,3 +155,16 @@ export function buildAdventureCategoryData(trips: Trip[]): AdventureCategoryData
     };
   });
 }
+
+export function matchesHeroCategory(trip: Trip, id: AdventureCategoryId): boolean {
+  const definition = CATEGORY_DEFINITIONS.find((entry) => entry.id === id);
+  return definition ? definition.match(trip) : false;
+}
+
+export function getHeroCategoryDefinitions(): ReadonlyArray<{
+  id: AdventureCategoryId;
+  emoji: string;
+  label: string;
+}> {
+  return CATEGORY_DEFINITIONS.map(({ id, emoji, label }) => ({ id, emoji, label }));
+}

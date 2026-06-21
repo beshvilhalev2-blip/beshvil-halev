@@ -40,6 +40,10 @@ const FAMILY_FRIENDLY_CATEGORIES = new Set([
   "מעיין",
 ]);
 
+export function isFamilyFriendlyTrip(trip: Pick<Trip, "category">): boolean {
+  return FAMILY_FRIENDLY_CATEGORIES.has(trip.category);
+}
+
 const ACTIVITY_TAG_MAP: Record<string, ActivityType> = {
   מים: "water",
   "שבילים-קלים": "easy-trails",

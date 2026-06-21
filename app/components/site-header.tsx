@@ -9,7 +9,7 @@ const navItems = [
   { label: "ראשי", href: "/" },
   { label: "המלצות לטיולים", href: "/recommendations" },
   { label: "בא לי לטייל", href: "/want-to-travel" },
-  { label: "אזורים בארץ", href: "/#regions" },
+  { label: "אזורים בארץ", href: "/regions" },
   { label: "שטח 4x4", href: "/offroad" },
   { label: "רשימת ציוד", href: "/gear" },
   { label: "אודות", href: "/about" },
@@ -18,26 +18,15 @@ const navItems = [
 
 const SOLID_HEADER_PATHS = new Set([
   "/recommendations",
+  "/regions",
   "/search",
   "/gear",
   "/want-to-travel",
 ]);
 
-function isNavItemActive(
-  href: string,
-  pathname: string,
-  hash: string,
-): boolean {
-  const currentHash = hash || "";
-
+function isNavItemActive(href: string, pathname: string): boolean {
   if (href === "/") {
-    if (pathname !== "/") return false;
-    return currentHash !== "#regions";
-  }
-
-  if (href.startsWith("/#")) {
-    const linkHash = href.slice(href.indexOf("#"));
-    return pathname === "/" && currentHash === linkHash;
+    return pathname === "/";
   }
 
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -208,20 +197,8 @@ export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [hash, setHash] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchPanelRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const readHash = () => setHash(window.location.hash);
-    readHash();
-    window.addEventListener("hashchange", readHash);
-    return () => window.removeEventListener("hashchange", readHash);
-  }, []);
-
-  useEffect(() => {
-    setHash(window.location.hash);
-  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -319,7 +296,7 @@ export default function SiteHeader() {
           aria-label="ניווט ראשי"
         >
           {navItems.map((item) => {
-            const isActive = isNavItemActive(item.href, pathname, hash);
+            const isActive = isNavItemActive(item.href, pathname);
 
             return (
               <Link
@@ -432,7 +409,7 @@ export default function SiteHeader() {
       >
         <ul className="mx-auto flex max-h-[min(80dvh,640px)] max-w-6xl flex-col gap-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-6">
           {navItems.map((item) => {
-            const isActive = isNavItemActive(item.href, pathname, hash);
+            const isActive = isNavItemActive(item.href, pathname);
 
             return (
             <li key={item.href}>

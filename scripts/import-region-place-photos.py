@@ -32,6 +32,7 @@ WEB_GALLERY_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
 FOLDER_TITLE_ALIASES: dict[str, str] = {
     "פארק נחל לכיש": "פארק לכיש",
+    "משק בגבעה": "משק בגבעה גדרה",
 }
 
 

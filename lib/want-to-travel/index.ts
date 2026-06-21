@@ -1,4 +1,5 @@
 export {
+  clearAllWantToTravelTrips,
   getSavedWantToTravelTrips,
   isTripSaved,
   removeTripFromWantToTravel,
@@ -7,6 +8,9 @@ export {
   WANT_TO_TRAVEL_STORAGE_VERSION,
   type WantToTravelStorageState,
 } from "@/lib/want-to-travel/storage";
+export { WANT_TO_TRAVEL_UPDATED_EVENT } from "@/lib/want-to-travel/events";
+export { buildWantToTravelWhatsAppUrl } from "@/lib/want-to-travel/share";
+export { useIsTripSaved, useSavedTripSlugs } from "@/lib/want-to-travel/use-saved-trips";
 export {
   getWantToTravelDisplayTags,
   type WantToTravelDisplayTag,
