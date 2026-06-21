@@ -385,7 +385,7 @@ export default function HeartTrailMap() {
   return (
     <section
       id="heart-trail-map"
-      className="relative overflow-hidden px-4 pt-5 pb-8 sm:px-6 sm:pt-6 sm:pb-9"
+      className="relative overflow-hidden px-4 pt-2 pb-8 sm:px-6 sm:pt-3 sm:pb-9"
       aria-label="מפת גילוי אזורים"
     >
       <div className="relative mx-auto max-w-6xl">

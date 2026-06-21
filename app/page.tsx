@@ -12,7 +12,6 @@ import HomePageAtmosphere from "./components/home-page-atmosphere";
 import { getSiteVisibleTrips } from "@/data/trips";
 import { buildAdventureCategoryData } from "@/lib/hero-adventure-selector";
 import { fetchParksFieldUpdates } from "@/lib/field-updates";
-import { getHomeFieldMomentPool } from "@/lib/home-field-moments";
 
 function SearchIcon() {
   return (
@@ -103,8 +102,6 @@ export default async function Home() {
   const siteVisibleTrips = getSiteVisibleTrips();
   const adventureCategories = buildAdventureCategoryData(siteVisibleTrips);
   const fieldUpdates = await fetchParksFieldUpdates();
-  const fieldMomentPool = getHomeFieldMomentPool(siteVisibleTrips);
-
   return (
     <div className="flex flex-1 flex-col">
       <SiteHeader />
@@ -114,10 +111,7 @@ export default async function Home() {
       </HomeHeroSection>
 
       <HomePageAtmosphere>
-        <HomePersonalIntro
-          placeCount={siteVisibleTrips.length}
-          fieldMomentPool={fieldMomentPool}
-        />
+        <HomePersonalIntro />
 
         <HeartTrailMap />
 
