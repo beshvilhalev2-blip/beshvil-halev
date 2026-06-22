@@ -25,12 +25,12 @@ export const GEAR_ITEMS: GearItem[] = [
   { id: "stroller-friendly-check", label: "עגלה / מנשא (לפי הצורך)", pack: "family", priority: "bonus", sortOrder: 40 },
   { id: "kids-snacks", label: "חטיפים לילדים", pack: "family", priority: "recommended", sortOrder: 50 },
 
-  // Offroad — soft-suv tier
+  // Offroad - soft-suv tier
   { id: "flashlight", label: "פנס", pack: "offroad", priority: "required", sortOrder: 10, minVehicleAccess: "soft-suv" },
   { id: "hiking-shoes", label: "נעלי הליכה", pack: "offroad", priority: "recommended", sortOrder: 20, minVehicleAccess: "soft-suv" },
   { id: "tire-pressure-gauge", label: "מד לחץ אוויר", pack: "offroad", priority: "bonus", sortOrder: 30, minVehicleAccess: "soft-suv" },
 
-  // Offroad — real-4x4 tier
+  // Offroad - real-4x4 tier
   { id: "compressor", label: "קומפרסור", pack: "offroad", priority: "recommended", sortOrder: 40, minVehicleAccess: "real-4x4" },
   { id: "tow-strap", label: "רצועת גרירה", pack: "offroad", priority: "bonus", sortOrder: 50, minVehicleAccess: "real-4x4" },
   { id: "recovery-boards", label: "רפטיה", pack: "offroad", priority: "bonus", sortOrder: 60, minVehicleAccess: "real-4x4" },

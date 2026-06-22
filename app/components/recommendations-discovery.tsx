@@ -152,7 +152,7 @@ export default function RecommendationsDiscovery({ trips }: RecommendationsDisco
           המלצות לטיולים
         </h1>
         <p className="mx-auto max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-          כל המקומות, המסלולים וההמלצות של בשביל הלב — סננו לפי מה שמתאים לכם היום.
+          כל המקומות, המסלולים וההמלצות של בשביל הלב - סננו לפי מה שמתאים לכם היום.
         </p>
         <p
           className="mt-4 text-sm font-medium text-stone-700 transition-opacity duration-200 dark:text-stone-300 sm:text-base"

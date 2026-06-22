@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useCallback, useEffect, useId, useState } from "react";
 import AiAssistantFloatingButton from "@/app/components/ai-assistant/ai-assistant-floating-button";
 import { createWelcomeMessage } from "@/lib/ai-assistant/constants";
+import { OPEN_AI_ASSISTANT_EVENT } from "@/lib/ai-assistant/events";
 import type { AiAssistantMessage } from "@/lib/ai-assistant/types";
 
 const AiAssistantChatPanel = dynamic(
@@ -86,6 +87,15 @@ export default function AiAssistant() {
     },
     [sendMessage],
   );
+
+  useEffect(() => {
+    const onOpenRequest = () => {
+      openPanel();
+    };
+
+    window.addEventListener(OPEN_AI_ASSISTANT_EVENT, onOpenRequest);
+    return () => window.removeEventListener(OPEN_AI_ASSISTANT_EVENT, onOpenRequest);
+  }, [openPanel]);
 
   useEffect(() => {
     if (!open) {

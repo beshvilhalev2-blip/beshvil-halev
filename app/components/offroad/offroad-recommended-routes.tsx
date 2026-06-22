@@ -1,10 +1,10 @@
-import TripCard, { getRegionForTrip } from "@/app/components/trip-card";
+import RegionTripMiniCard from "@/app/components/region-trip-mini-card";
 import type { Trip } from "@/data/trips";
 import { OFFROAD_ROUTE_GROUPS } from "@/lib/offroad/content";
 import type { OffroadRouteGroupId } from "@/lib/offroad/trip-selection";
+import OffroadRoutesIntro from "@/app/components/offroad/offroad-routes-intro";
 import {
   OffroadSectionHeader,
-  offroadGlassCard,
   offroadSectionInner,
   offroadSectionShell,
 } from "./offroad-shared";
@@ -17,42 +17,36 @@ export default function OffroadRecommendedRoutes({
   groups,
 }: OffroadRecommendedRoutesProps) {
   return (
-    <section
-      id="recommended-routes"
-      className={`${offroadSectionShell} scroll-mt-24 border-y border-stone-200/60 bg-white/70 dark:border-stone-800 dark:bg-stone-900/40`}
-    >
+    <section id="recommended-routes" className={`${offroadSectionShell} scroll-mt-24`}>
       <div className={offroadSectionInner}>
-        <OffroadSectionHeader
-          title="מסלולי שטח מומלצים"
-          description="מסלולים אמיתיים מהמאגר שלנו — מסודרים לפי סוג חוויה."
-        />
+        <OffroadSectionHeader title="מסלולי שטח מומלצים" />
 
-        <div className="space-y-12">
+        <div className="mb-10 sm:mb-12">
+          <OffroadRoutesIntro />
+        </div>
+
+        <div className="space-y-14 sm:space-y-16">
           {OFFROAD_ROUTE_GROUPS.map((group) => {
             const trips = groups[group.id];
             return (
               <div key={group.id}>
-                <div className={`${offroadGlassCard} mb-6 px-5 py-4 sm:px-6`}>
-                  <h3 className="text-xl font-bold text-stone-900 dark:text-stone-50 sm:text-2xl">
-                    {group.title}
-                  </h3>
-                  <p className="mt-1 text-sm text-stone-600 dark:text-stone-400 sm:text-base">
-                    {group.description}
-                  </p>
-                </div>
+                <h3 className="mb-5 text-center text-lg font-bold text-stone-900 dark:text-stone-50 sm:mb-6 sm:text-xl">
+                  {group.title}
+                </h3>
 
                 {trips.length > 0 ? (
-                  <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                  <div className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-1 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-3 sm:gap-5 sm:overflow-visible sm:px-0">
                     {trips.map((trip) => (
-                      <TripCard
+                      <div
                         key={trip.slug}
-                        trip={trip}
-                        region={getRegionForTrip(trip)}
-                      />
+                        className="w-[11.75rem] shrink-0 snap-start sm:w-auto sm:shrink"
+                      >
+                        <RegionTripMiniCard trip={trip} />
+                      </div>
                     ))}
                   </div>
                 ) : (
-                  <p className="rounded-2xl border border-dashed border-stone-300 px-6 py-10 text-center text-stone-500 dark:border-stone-700">
+                  <p className="rounded-2xl border border-dashed border-stone-300/80 bg-white/40 px-4 py-8 text-center text-sm text-stone-500 backdrop-blur-sm dark:border-stone-700 dark:bg-stone-900/30">
                     בקרוב יתווספו עוד מסלולים בקבוצה הזו.
                   </p>
                 )}

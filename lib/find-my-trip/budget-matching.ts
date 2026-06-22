@@ -31,7 +31,7 @@ export function getBudgetReasonLabel(
 
   if (budget === "up-to-50") {
     if (cost === "free" || cost === 0) {
-      return "כניסה חינם — בתקציב שלכם";
+      return "כניסה חינם - בתקציב שלכם";
     }
     if (typeof cost === "number" && cost <= 50) {
       return "בתקציב של עד 50 ₪ לאדם";

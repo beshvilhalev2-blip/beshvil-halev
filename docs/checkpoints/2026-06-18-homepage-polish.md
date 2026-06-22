@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-18  
 **Branch:** `master`  
-**Commit:** `88be0dc` — `feat: homepage polish checkpoint`  
+**Commit:** `88be0dc` - `feat: homepage polish checkpoint`  
 **Production:** https://beshvil-halev.vercel.app  
 **GitHub:** https://github.com/beshvilhalev2-blip/beshvil-halev  
 
@@ -14,11 +14,11 @@ Today’s work was a full homepage polish pass focused on the hero experience, i
 
 ### Summary of the day
 
-1. **Built a new interactive hero system** — canvas landscape background, category-driven mood overlays, adventure selector, and recommendation panel wired into trip data.
-2. **Added a cinematic intro overlay** — path-draw animation, morph transition, session skip, and handoff into the live hero.
-3. **Polished header navigation** — glass hover/active states, improved contrast against the bright hero, and fixed stuck active-state bug for hash links.
-4. **Refined recommendation panel** — three-column layout, graphite center card, featured image, and destination thumbs.
-5. **Deployed to production** — build verified, pushed to GitHub, Vercel production deployment succeeded.
+1. **Built a new interactive hero system** - canvas landscape background, category-driven mood overlays, adventure selector, and recommendation panel wired into trip data.
+2. **Added a cinematic intro overlay** - path-draw animation, morph transition, session skip, and handoff into the live hero.
+3. **Polished header navigation** - glass hover/active states, improved contrast against the bright hero, and fixed stuck active-state bug for hash links.
+4. **Refined recommendation panel** - three-column layout, graphite center card, featured image, and destination thumbs.
+5. **Deployed to production** - build verified, pushed to GitHub, Vercel production deployment succeeded.
 
 ### Prior context on `master`
 
@@ -75,11 +75,11 @@ The homepage hero is now a full discovery experience with a locked layout order:
 
 ### Animated background
 
-- **Bright Israeli daylight palette** — soft sky, sand, olive hills (replacing earlier gray/sunset look)
+- **Bright Israeli daylight palette** - soft sky, sand, olive hills (replacing earlier gray/sunset look)
 - **Canvas-rendered landscape** with parallax hill layers and mist bands
 - **Journey path** drawn in the canvas, reacting to the active category via `journeyPathPaletteForMood`
-- **Category mood overlays** — background atmosphere shifts when hovering/selecting categories
-- **Legibility overlay** — subtle stone vignette tuned for bright sky (not heavy darkening)
+- **Category mood overlays** - background atmosphere shifts when hovering/selecting categories
+- **Legibility overlay** - subtle stone vignette tuned for bright sky (not heavy darkening)
 - **Static SVG fallbacks** for reduced motion and initial paint
 
 ### Copy and readability
@@ -90,7 +90,7 @@ The homepage hero is now a full discovery experience with a locked layout order:
 
 ### Layout (preserved, not redesigned)
 
-- Discovery block: `max-w-[min(85vw,82rem)]` — cards, panel, and search share one width axis
+- Discovery block: `max-w-[min(85vw,82rem)]` - cards, panel, and search share one width axis
 - Search: centered, `max-w-xl` tablet / `max-w-[40rem]` desktop
 - Panel grid: `lg:grid-cols-[minmax(0,2fr)_minmax(0,1.25fr)_minmax(0,1.75fr)]`
 
@@ -98,7 +98,7 @@ The homepage hero is now a full discovery experience with a locked layout order:
 
 Six adventure categories driven by trip metadata:
 
-- מים (water) — default active category
+- מים (water) - default active category
 - קמפינג (camping)
 - שטח 4x4 (offroad)
 - עגלות (stroller)
@@ -117,15 +117,15 @@ Recommendations are built dynamically from the trips database via `buildAdventur
 - **Total duration:** ~5.6s (`INTRO_DRAW_MS=2600` + `INTRO_REVEAL_MS=960` + `INTRO_MORPH_MS=2050`)
 - **Sequence:** path draws → breath pause → path splits open → light emerges → hero reveals behind
 - **Skip button** restyled for the light palette; respects `prefers-reduced-motion`
-- **Session memory:** `sessionStorage` key `bhl-home-intro-seen` — intro plays once per session
+- **Session memory:** `sessionStorage` key `bhl-home-intro-seen` - intro plays once per session
 - **Handoff signals** coordinate overlay fade, hero reveal, and content entrance (`HANDOFF_HERO_ENTRANCE=0.32`)
-- **Pointer-events fix** — intro overlay no longer blocks interaction after skip/session restore
+- **Pointer-events fix** - intro overlay no longer blocks interaction after skip/session restore
 
 ### Visual alignment
 
 - Intro canvas uses the same daylight palette as the hero landscape
 - Removed particles, path dots, and traveling light head from earlier iterations
-- Intro files live in `lib/hero-intro/` — isolated from hero runtime logic
+- Intro files live in `lib/hero-intro/` - isolated from hero runtime logic
 
 ---
 
@@ -135,12 +135,12 @@ Recommendations are built dynamically from the trips database via `buildAdventur
 
 - **Hover:** glass pill background, `backdrop-blur-md`, subtle shadow, `-translate-y-0.5` (~2px lift), 300ms ease-out
 - **Active page:** persistent glass pill with border, inset highlight, shadow, and depth
-- **Focus:** `focus-visible:ring-*` for keyboard users — separate from hover styling
+- **Focus:** `focus-visible:ring-*` for keyboard users - separate from hover styling
 - **Default state:** explicit `bg-transparent` / `border-transparent` so items only highlight on hover or when active
 
 ### Contrast against bright hero
 
-- Header bar on hero: **soft charcoal glass** — `bg-stone-900/[0.10]`, `border-stone-900/12`, stronger shadow
+- Header bar on hero: **soft charcoal glass** - `bg-stone-900/[0.10]`, `border-stone-900/12`, stronger shadow
 - Nav text: full white with stronger drop shadow (light aesthetic preserved, no dark text)
 - Logo: stronger drop shadow on hero mode
 
@@ -159,7 +159,7 @@ Recommendations are built dynamically from the trips database via `buildAdventur
 | `/want-to-travel` | בא לי לטייל |
 | Other routes | Exact path match |
 
-Desktop nav previously had no active state at all — now uses `aria-current="page"`.
+Desktop nav previously had no active state at all - now uses `aria-current="page"`.
 
 ---
 
@@ -173,7 +173,7 @@ When a category is selected or hovered, a glass recommendation panel appears bel
 |--------|---------|
 | Left (~40%) | Featured destination image with hover scale |
 | Center (~25%) | Category info card (graphite glass focal point) |
-| Right (~35%) | "המלצות בשבילך" — circular destination thumbs linking to trip pages |
+| Right (~35%) | "המלצות בשבילך" - circular destination thumbs linking to trip pages |
 
 ### Center card (focal point)
 
@@ -208,7 +208,7 @@ After several contrast iterations, the center card uses **charcoal/graphite glas
 | Vercel deployment | ✅ Production succeeded (2026-06-18T13:18:05Z) |
 | Production live | ✅ https://beshvil-halev.vercel.app |
 
-**Build warning (local only):** `npm warn Unknown env config "devdir"` — machine npm config, not a project issue.
+**Build warning (local only):** `npm warn Unknown env config "devdir"` - machine npm config, not a project issue.
 
 ---
 
@@ -274,4 +274,4 @@ lib/hero-intro/*                → intro animation (isolated)
 app/components/site-header.tsx  → global nav (hero + solid modes)
 ```
 
-**Constraint honored throughout:** polish and interaction only — no layout redesign, no spacing changes, no typography changes.
+**Constraint honored throughout:** polish and interaction only - no layout redesign, no spacing changes, no typography changes.

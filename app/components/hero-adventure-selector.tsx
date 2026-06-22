@@ -382,7 +382,7 @@ export default function HeroAdventureSelector({ categories }: HeroAdventureSelec
                   ))}
                 </ul>
               ) : (
-                <p className="text-xs text-white/70 sm:text-sm">בקרוב — המלצות חדשות בקטגוריה זו</p>
+                <p className="text-xs text-white/70 sm:text-sm">בקרוב - המלצות חדשות בקטגוריה זו</p>
               )}
             </div>
           </div>

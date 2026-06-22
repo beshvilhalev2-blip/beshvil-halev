@@ -51,7 +51,7 @@ FOLDER_TO_EXCEL_ALIASES: dict[str, str] = {
 
 def normalize_title(value: str) -> str:
     text = value.strip()
-    text = re.sub(r"[\s\-–—_/\\|]", "", text)
+    text = re.sub(r"[\s\-–-_/\\|]", "", text)
     text = re.sub(r"^ה", "", text)
     return text.casefold()
 

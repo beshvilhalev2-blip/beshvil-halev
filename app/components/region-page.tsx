@@ -29,7 +29,7 @@ export default function RegionPage({
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: region.heroBackgroundImage }}
           role="img"
-          aria-label={`תמונת רקע — ${region.title}`}
+          aria-label={`תמונת רקע - ${region.title}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-stone-900/30 to-stone-900/10" />
 
@@ -81,7 +81,7 @@ export default function RegionPage({
                 עדיין אין מסלולים באזור זה
               </p>
               <p className="mb-8 text-stone-500 dark:text-stone-400">
-                מסלולים חדשים יתווספו בקרוב — שווה לחזור!
+                מסלולים חדשים יתווספו בקרוב - שווה לחזור!
               </p>
               <Link
                 href="/"

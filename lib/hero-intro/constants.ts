@@ -1,9 +1,9 @@
 export const HOME_INTRO_SESSION_KEY = "bhl-home-intro-seen";
 
-/** Brand movement phrase — shown only at the horizon pause */
+/** Brand movement phrase - shown only at the horizon pause */
 export const INTRO_MOVEMENT_PHRASE = "להיות בתנועה זאת התרופה";
 
-/** Path draws — beginning of movement */
+/** Path draws - beginning of movement */
 export const INTRO_DRAW_MS = 2600;
 /** Path complete; breath before the world opens */
 export const INTRO_REVEAL_MS = 960;

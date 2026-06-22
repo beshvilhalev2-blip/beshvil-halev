@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-/** Warm off-white base — shared with hero bottom fade. */
+/** Warm off-white base - shared with hero bottom fade. */
 export const HOME_ATMOSPHERE_BASE = "#FAF8F5";
 
 type HomePageAtmosphereProps = {
@@ -17,19 +17,19 @@ export default function HomePageAtmosphere({ children }: HomePageAtmosphereProps
       className="relative -mt-4 sm:-mt-6 dark:bg-stone-950"
       style={{ backgroundColor: HOME_ATMOSPHERE_BASE }}
     >
-      {/* Base vertical wash — hero mid-tones dissolving into warm white */}
+      {/* Base vertical wash - hero mid-tones dissolving into warm white */}
       <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#F0EDE4]/88 via-[#FAF8F5]/96 to-[#FBFAF8] dark:from-stone-950 dark:via-stone-950 dark:to-stone-900"
         aria-hidden="true"
       />
 
-      {/* Sky breath — continues hero cool layer */}
+      {/* Sky breath - continues hero cool layer */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[min(58vh,34rem)] bg-[radial-gradient(ellipse_115%_72%_at_50%_-8%,rgba(220,238,248,0.32),transparent_76%)] dark:opacity-20"
         aria-hidden="true"
       />
 
-      {/* Sage drift — upper page, fades naturally with height */}
+      {/* Sage drift - upper page, fades naturally with height */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[min(72vh,42rem)] bg-[radial-gradient(ellipse_85%_55%_at_68%_22%,rgba(186,200,174,0.16),transparent_72%)] dark:opacity-15"
         aria-hidden="true"
@@ -39,7 +39,7 @@ export default function HomePageAtmosphere({ children }: HomePageAtmosphereProps
         aria-hidden="true"
       />
 
-      {/* Soft earth warmth — mid-page, very light */}
+      {/* Soft earth warmth - mid-page, very light */}
       <div
         className="pointer-events-none absolute inset-x-0 top-[28%] h-[45%] bg-[radial-gradient(ellipse_90%_50%_at_50%_42%,rgba(232,220,196,0.09),transparent_78%)] dark:opacity-10"
         aria-hidden="true"
@@ -51,7 +51,7 @@ export default function HomePageAtmosphere({ children }: HomePageAtmosphereProps
         aria-hidden="true"
       />
 
-      {/* Long fade — atmosphere quiets toward the footer */}
+      {/* Long fade - atmosphere quiets toward the footer */}
       <div
         className="pointer-events-none absolute inset-x-0 top-[48%] bottom-0 bg-gradient-to-b from-transparent via-transparent to-[#FAF8F5]/85 dark:to-stone-950/90"
         aria-hidden="true"

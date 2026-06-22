@@ -9,7 +9,7 @@ import ContactForm from "@/app/contact/contact-form";
 export const metadata: Metadata = {
   title: "צור קשר | בשביל הלב",
   description:
-    "צרו קשר עם שביל הלב — המלצות לטיול, שאלות ורעיונות לשיתוף פעולה",
+    "צרו קשר עם שביל הלב - המלצות לטיול, שאלות ורעיונות לשיתוף פעולה",
 };
 
 const heroBackground = `
@@ -42,7 +42,7 @@ export default function ContactPage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: heroBackground }}
           role="img"
-          aria-label="תמונת רקע — נוף טבעי"
+          aria-label="תמונת רקע - נוף טבעי"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-900/35 to-stone-900/10" />
 
@@ -87,7 +87,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-2xl text-center">
             <SectionHeading>נשמח להתחבר</SectionHeading>
             <p className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-              בין אם יש לך מסלול מומלץ, טיפ מהשטח או סתם רצון לומר שלום — כאן
+              בין אם יש לך מסלול מומלץ, טיפ מהשטח או סתם רצון לומר שלום - כאן
               בשביל הלב, אנחנו תמיד שמחים לשמוע, ללמוד ולשתף.
             </p>
             <Link

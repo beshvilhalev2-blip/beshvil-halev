@@ -9,7 +9,7 @@ import {
 
 const STORAGE_KEY = "beshvil-halev-find-my-trip-preferences";
 
-/** V1 stub — no persistence yet. */
+/** V1 stub - no persistence yet. */
 export function loadLocalPreferences(): LocalUserPreferences | null {
   if (typeof window === "undefined") {
     return null;
@@ -27,7 +27,7 @@ export function loadLocalPreferences(): LocalUserPreferences | null {
   }
 }
 
-/** V1 stub — wired in V2 when history UI is added. */
+/** V1 stub - wired in V2 when history UI is added. */
 export function saveWizardSnapshot(snapshot: WizardPreferenceSnapshot): void {
   if (typeof window === "undefined") {
     return;

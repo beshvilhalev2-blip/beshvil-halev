@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${region.title} | בשביל הלב`,
-    description: `${region.description} — מסלולים, טיולים והמלצות מאזור ${region.title}`,
+    description: `${region.description} - מסלולים, טיולים והמלצות מאזור ${region.title}`,
   };
 }
 

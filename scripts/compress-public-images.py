@@ -4,9 +4,9 @@ Safe image compression workflow for public/images.
 
 - Reads originals from public/images/ (never deletes or modifies them).
 - Writes path-compatible optimized files to public/images-optimized/ (same relative paths
-  and extensions — safe drop-in replacement after approval).
+  and extensions - safe drop-in replacement after approval).
 - Writes WebP previews to public/images/_optimized-report/webp-preview/ (different
-  extensions — requires data/code path updates before production use).
+  extensions - requires data/code path updates before production use).
 - Writes JSON + Markdown report to public/images/_optimized-report/.
 
 Preferred runner (uses sharp via Node):
@@ -98,7 +98,7 @@ class CompressionReport:
     webp_path_change_required: bool = True
     webp_migration_note: str = (
         "WebP previews use .webp extensions under _optimized-report/webp-preview/. "
-        "Trip data and components reference .jpeg/.jpg paths — switching to WebP "
+        "Trip data and components reference .jpeg/.jpg paths - switching to WebP "
         "requires updating data/ trip heroImage/gallery paths OR a build step that "
         "maps paths. Path-compatible JPEG/PNG outputs in public/images-optimized/ "
         "can replace originals without code changes."
@@ -304,7 +304,7 @@ def process_raster(
             elif optimized_size > soft_target:
                 result.note = f"Above soft target ({soft_target // 1024}KB) but within hard cap"
 
-    except Exception as exc:  # noqa: BLE001 — collect per-file failures in report
+    except Exception as exc:  # noqa: BLE001 - collect per-file failures in report
         result.action = "error"
         result.note = str(exc)
 
@@ -322,7 +322,7 @@ def copy_non_raster(source: Path, relative: Path, dry_run: bool) -> ImageResult:
     )
 
     if dry_run:
-        result.note = "Non-raster asset — would copy unchanged"
+        result.note = "Non-raster asset - would copy unchanged"
         return result
 
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -333,7 +333,7 @@ def copy_non_raster(source: Path, relative: Path, dry_run: bool) -> ImageResult:
 
 def format_bytes(num: int | None) -> str:
     if num is None:
-        return "—"
+        return "-"
     if num < 1024:
         return f"{num} B"
     if num < 1024 * 1024:
@@ -461,7 +461,7 @@ def write_markdown_report(report: CompressionReport, path: Path) -> None:
         lines.extend(["", "## Skipped / errors", ""])
         for item in report.skipped[:40]:
             lines.append(
-                f"- `{item['relative_path']}` — {item.get('note') or item.get('action')}"
+                f"- `{item['relative_path']}` - {item.get('note') or item.get('action')}"
             )
 
     if report.over_target:
@@ -469,7 +469,7 @@ def write_markdown_report(report: CompressionReport, path: Path) -> None:
         for item in report.over_target[:40]:
             lines.append(
                 f"- `{item['relative_path']}` ({item['category']}): "
-                f"{format_bytes(item.get('optimized_bytes'))} — {item.get('note')}"
+                f"{format_bytes(item.get('optimized_bytes'))} - {item.get('note')}"
             )
 
     lines.extend(
@@ -582,7 +582,7 @@ def main() -> int:
     )
     print(f"  Report:     {md_path.relative_to(PROJECT_ROOT)}")
     if args.dry_run:
-        print("  (dry run — no files written except report)")
+        print("  (dry run - no files written except report)")
     else:
         print(f"  Output:     {OPTIMIZED_ROOT.relative_to(PROJECT_ROOT)}/")
     print("")

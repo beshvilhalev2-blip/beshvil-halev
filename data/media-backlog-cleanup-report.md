@@ -29,7 +29,7 @@ Generated: 2026-06-22 (post-cleanup)
 
 | | |
 |---|---|
-| **Root cause** | Folder `north/נחל נקרות יקנעם` aliases to excelName **פארק נחל קרת**, but trip title was **נחל נקרות יקנעם** — weak title match. |
+| **Root cause** | Folder `north/נחל נקרות יקנעם` aliases to excelName **פארק נחל קרת**, but trip title was **נחל נקרות יקנעם** - weak title match. |
 | **Fix** | Renamed trip title to **פארק נחל קרת** (matches filter/excel). Sync connected folder via existing alias. |
 | **Result** | Hero: `/images/places/north/נחל נקרות יקנעם/hero.JPG` · Gallery: 1 image (folder has only hero + 1 extra) |
 
@@ -47,7 +47,7 @@ Generated: 2026-06-22 (post-cleanup)
 |---|---|
 | **Root cause** | Region was **מרכז** in visited data; filter/excel and expected folder path use **השרון** / `hasharon`. |
 | **Fix** | Region corrected to **השרון** in `data/visited-place-trips.ts`. |
-| **Result** | Region aligned. **No hero** — `hasharon/פארק רעננה/` folder does not exist on disk (no images to connect). |
+| **Result** | Region aligned. **No hero** - `hasharon/פארק רעננה/` folder does not exist on disk (no images to connect). |
 
 ### 5. רבדים region mismatch (`rbdym`)
 
@@ -55,13 +55,13 @@ Generated: 2026-06-22 (post-cleanup)
 |---|---|
 | **Root cause** | Region was **דרום**; images live in `center/רבדים`; filter says **מרכז**. |
 | **Fix** | Region corrected to **מרכז**. Hero was already connected via folder name match. |
-| **Result** | Hero: `/images/places/center/רבדים/hero.jpeg` · **No gallery** — folder contains hero only. |
+| **Result** | Hero: `/images/places/center/רבדים/hero.jpeg` · **No gallery** - folder contains hero only. |
 
 ---
 
 ## Remaining trips with no hero (21)
 
-Placeholder gradient only — no real photo connected.
+Placeholder gradient only - no real photo connected.
 
 | Slug | Title | Region | Visibility |
 |------|-------|--------|------------|
@@ -125,12 +125,12 @@ Placeholder gradient only — no real photo connected.
 
 ### Needs photo import (no folder or empty folder)
 
-- **`prk-rnnh` פארק רעננה** — Region fixed to השרון; no `hasharon/פארק רעננה/` folder. Import photos before hero can connect.
-- **`rbdym` רבדים** — Hero connected; only one file in folder. Import additional gallery photos.
+- **`prk-rnnh` פארק רעננה** - Region fixed to השרון; no `hasharon/פארק רעננה/` folder. Import photos before hero can connect.
+- **`rbdym` רבדים** - Hero connected; only one file in folder. Import additional gallery photos.
 
 ### Thin galleries (connected but incomplete)
 
-- **`nchl-nkrvt-yknm` פארק נחל קרת** — 1 gallery image on disk (hero + 1). Folder name differs from trip title; alias works.
+- **`nchl-nkrvt-yknm` פארק נחל קרת** - 1 gallery image on disk (hero + 1). Folder name differs from trip title; alias works.
 
 ### Folders without trip entries (intentionally not merged)
 
@@ -153,10 +153,10 @@ Placeholder gradient only — no real photo connected.
 
 ## Files changed
 
-- `scripts/audit-sync-all-place-photos.py` — `SLUG_FOLDER_OVERRIDES` for `nchl-shvpt`
-- `data/visited-place-trips.ts` — heroes/galleries for `nchl-shvpt`, `nchl-nkrvt-yknm`; title fix for `nchl-nkrvt-yknm`; region fixes for `prk-rnnh`, `rbdym`
-- `data/trips.ts` — `ein-moda` hero + gallery migrated to places paths
-- `data/places-filter-sync.ts` — `prk-rnnh` region (if not already from prior pass)
-- `public/images/places/north/עין מודע/` — 4 images copied from legacy trips path
+- `scripts/audit-sync-all-place-photos.py` - `SLUG_FOLDER_OVERRIDES` for `nchl-shvpt`
+- `data/visited-place-trips.ts` - heroes/galleries for `nchl-shvpt`, `nchl-nkrvt-yknm`; title fix for `nchl-nkrvt-yknm`; region fixes for `prk-rnnh`, `rbdym`
+- `data/trips.ts` - `ein-moda` hero + gallery migrated to places paths
+- `data/places-filter-sync.ts` - `prk-rnnh` region (if not already from prior pass)
+- `public/images/places/north/עין מודע/` - 4 images copied from legacy trips path
 
 Full backlog snapshot: `data/media-backlog-report.md`

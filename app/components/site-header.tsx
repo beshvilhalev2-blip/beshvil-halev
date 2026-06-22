@@ -10,7 +10,7 @@ const navItems = [
   { label: "המלצות לטיולים", href: "/recommendations" },
   { label: "בא לי לטייל", href: "/want-to-travel" },
   { label: "אזורים בארץ", href: "/regions" },
-  { label: "שטח 4x4", href: "/offroad" },
+  { label: "4x4 למתחילים", href: "/offroad" },
   { label: "רשימת ציוד", href: "/gear" },
   { label: "אודות", href: "/about" },
   { label: "צור קשר", href: "/contact" },

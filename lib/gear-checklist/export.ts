@@ -80,7 +80,7 @@ export function formatGearChecklistForWhatsApp(
   tripUrl?: string,
 ): string {
   const lines: string[] = [
-    `🎒 מוכנים לטיול? — ${snapshot.tripTitle}`,
+    `🎒 מוכנים לטיול? - ${snapshot.tripTitle}`,
     "",
     `אתם מוכנים ב־${snapshot.readinessPercent}% לטיול`,
     "",
@@ -102,7 +102,7 @@ export function formatGearChecklistForWhatsApp(
     lines.push("");
   }
 
-  lines.push(`— ${GEAR_SHARE.siteName}`);
+  lines.push(`- ${GEAR_SHARE.siteName}`);
 
   if (tripUrl) {
     lines.push(tripUrl);

@@ -6,7 +6,7 @@ import WantToTravelView from "@/app/components/want-to-travel-view";
 export const metadata: Metadata = {
   title: "בא לי לטייל | בשביל הלב",
   description:
-    "המקומות ששמרת לרגע שבו תרצי פשוט לצאת לדרך — רשימת טיולים אישית",
+    "המקומות ששמרת לרגע שבו תרצי פשוט לצאת לדרך - רשימת טיולים אישית",
 };
 
 export default function WantToTravelPage() {

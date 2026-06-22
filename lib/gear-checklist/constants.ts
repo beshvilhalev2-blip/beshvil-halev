@@ -32,7 +32,7 @@ export const GEAR_HOMEPAGE_CTA = {
 export const GEAR_LANDING_PAGE = {
   title: "רשימת ציוד לטיול",
   subtitle:
-    "בחרו את סוג הרשימה שמתאים לכם — או בנו רשימה חכמה לפי טיול ספציפי.",
+    "בחרו את סוג הרשימה שמתאים לכם - או בנו רשימה חכמה לפי טיול ספציפי.",
   eyebrow: "הכנה לטיול",
 } as const;
 

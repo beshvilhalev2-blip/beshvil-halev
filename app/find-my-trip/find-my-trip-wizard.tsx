@@ -209,7 +209,7 @@ export default function FindMyTripWizard() {
             בואו נמצא את הטיול המתאים
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-            ענו על {WIZARD_STEP_COUNT} שאלות קצרות — ונציע לכם מסלולים שמתאימים
+            ענו על {WIZARD_STEP_COUNT} שאלות קצרות - ונציע לכם מסלולים שמתאימים
           </p>
         </div>
 
@@ -290,7 +290,7 @@ export default function FindMyTripWizard() {
                     onClick={handleSkipVehicle}
                     className="flex w-full min-h-12 items-center justify-center rounded-2xl bg-stone-900 px-5 py-4 text-base font-semibold text-white transition-colors hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
                   >
-                    דלגו — לא רלוונטי
+                    דלגו - לא רלוונטי
                   </button>
 
                   <div>

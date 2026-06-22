@@ -176,7 +176,7 @@ export function inferTripCostNis(trip: TripRef): number | "free" {
     return Number(numeric);
   }
 
-  if (value === "—" || value.includes("—")) {
+  if (value === "-" || value.includes("-")) {
     return DEFAULT_UNKNOWN_COST_NIS;
   }
 

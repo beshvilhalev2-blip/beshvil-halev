@@ -39,8 +39,8 @@ const REGION_TITLE_BY_SLUG = Object.fromEntries(
   regions.map((region) => [region.slug, region.title]),
 ) as Record<string, string>;
 
-const MIN_GROUP_SIZE = 3;
-const MAX_GROUP_SIZE = 6;
+const MIN_GROUP_SIZE = 2;
+const MAX_GROUP_SIZE = 3;
 const WIZARD_RESULT_LIMIT = 6;
 
 function rankTrips(trips: Trip[]): Trip[] {

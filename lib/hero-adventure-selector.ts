@@ -25,7 +25,7 @@ export type AdventureCategoryData = {
   label: string;
   tagline: string;
   matchCount: number;
-  /** Stable SSR default — first matches in ranked order */
+  /** Stable SSR default - first matches in ranked order */
   destinations: AdventureDestination[];
   /** Full synced match pool for client-side rotation */
   allDestinations: AdventureDestination[];

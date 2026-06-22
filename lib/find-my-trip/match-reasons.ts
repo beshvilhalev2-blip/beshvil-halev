@@ -79,7 +79,7 @@ export function buildMatchReasons(
       candidates,
       {
         id: "weather-water-friendly",
-        label: "מקום עם מים — מציל בחום",
+        label: "מקום עם מים - מציל בחום",
         category: "weather",
       },
       3,

@@ -140,7 +140,7 @@ export function categoryMoodPresentation(
   };
 }
 
-/** Legacy flat tint fallback — unused when presentation gradients active. */
+/** Legacy flat tint fallback - unused when presentation gradients active. */
 export function categoryMoodTint(
   category: AdventureCategoryId | null,
   intensity: number,

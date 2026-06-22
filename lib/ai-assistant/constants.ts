@@ -3,7 +3,7 @@ import type { AiAssistantMessage, AiAssistantSuggestion } from "@/lib/ai-assista
 export const AI_ASSISTANT_AVATAR_SRC =
   "/images/ai-assistant/milana-ai-avatar/milana-ai-avatar.png";
 
-export const AI_ASSISTANT_AVATAR_ALT = "מילאנה AI — עוזרת הטיולים";
+export const AI_ASSISTANT_AVATAR_ALT = "מילאנה AI - עוזרת הטיולים";
 
 export const AI_ASSISTANT_WELCOME_MESSAGE =
   "היי 🌿\nאני מילאנה AI, העוזרת הטיולית האישית שלך.\nספרו לי מה בא לכם לעשות, ואני אעזור לכם למצוא טיול שמתאים בדיוק בשבילכם.";

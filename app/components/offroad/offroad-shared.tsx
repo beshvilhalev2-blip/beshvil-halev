@@ -1,40 +1,57 @@
 import type { OffroadIconId } from "@/lib/offroad/content";
 
-export const offroadGlassCard =
-  "rounded-2xl border border-stone-200/70 bg-white/85 shadow-sm backdrop-blur-[2px] dark:border-stone-700/80 dark:bg-stone-900/80";
+/** Unified surface card — use across safety, routes intro, cooking, gear, mistakes */
+export const offroadCard =
+  "group relative overflow-hidden rounded-2xl border border-stone-200/45 bg-white/70 shadow-[0_10px_36px_-22px_rgba(28,25,23,0.18)] backdrop-blur-md transition-all duration-300 ease-out dark:border-stone-700/45 dark:bg-stone-900/55 dark:shadow-[0_10px_36px_-22px_rgba(0,0,0,0.45)]";
+
+export const offroadCardHover =
+  "hover:-translate-y-0.5 hover:border-emerald-200/55 hover:bg-white/82 hover:shadow-[0_18px_44px_-24px_rgba(28,25,23,0.22)] dark:hover:border-emerald-800/40 dark:hover:bg-stone-900/72";
+
+/** @deprecated use offroadCard */
+export const offroadGlassCard = `${offroadCard} ${offroadCardHover}`;
 
 export const offroadSectionShell =
-  "relative px-4 py-14 sm:px-6 sm:py-20";
+  "relative scroll-mt-24 px-4 py-14 sm:px-6 sm:py-18 lg:py-20";
 
-export const offroadSectionInner = "mx-auto max-w-6xl";
+export const offroadSectionInner = "relative z-10 mx-auto max-w-6xl";
 
 export function OffroadSectionHeader({
   title,
-  description,
+  subtitle,
   id,
+  centered = true,
 }: {
   id?: string;
   title: string;
-  description?: string;
+  subtitle?: string;
+  centered?: boolean;
 }) {
   return (
-    <div className="mb-8 text-center sm:mb-10">
+    <div
+      className={`mb-8 sm:mb-10 ${centered ? "mx-auto max-w-2xl text-center" : ""}`}
+    >
       <h2
         id={id}
-        className="mb-3 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl"
+        className="text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl"
       >
         {title}
       </h2>
-      {description ? (
-        <p className="mx-auto max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-          {description}
+      {subtitle ? (
+        <p className="mt-2 text-sm leading-relaxed text-stone-500 dark:text-stone-400 sm:text-base">
+          {subtitle}
         </p>
       ) : null}
     </div>
   );
 }
 
-export function OffroadIcon({ id, className = "size-6" }: { id: OffroadIconId; className?: string }) {
+export function OffroadIcon({
+  id,
+  className = "size-6",
+}: {
+  id: OffroadIconId;
+  className?: string;
+}) {
   switch (id) {
     case "route":
       return (
@@ -87,6 +104,50 @@ export function OffroadIcon({ id, className = "size-6" }: { id: OffroadIconId; c
         </svg>
       );
     case "gear":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">
+          <path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z" />
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" strokeLinecap="round" />
+        </svg>
+      );
+    case "shield":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">
+          <path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z" strokeLinejoin="round" />
+          <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case "trail":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">
+          <path d="M4 17c2-4 4-6 8-6s6 2 8 6" strokeLinecap="round" />
+          <path d="M8 7h8M10 11h4" strokeLinecap="round" />
+        </svg>
+      );
+    case "convoy":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">
+          <rect x="3" y="8" width="7" height="5" rx="1" />
+          <rect x="14" y="8" width="7" height="5" rx="1" />
+          <path d="M5.5 13v2M18.5 13v2M10 10.5h4" strokeLinecap="round" />
+        </svg>
+      );
+    case "sunset":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">
+          <path d="M4 18h16" strokeLinecap="round" />
+          <path d="M12 4v4M7 7l2.5 2.5M17 7l-2.5 2.5" strokeLinecap="round" />
+          <path d="M8 14a4 4 0 0 1 8 0" strokeLinecap="round" />
+        </svg>
+      );
+    case "nature":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">
+          <path d="M12 21V11" strokeLinecap="round" />
+          <path d="M8 14c-2-4 0-8 4-10 4 2 6 6 4 10" strokeLinejoin="round" />
+          <path d="M16 14c2-4 0-8-4-10" strokeLinejoin="round" />
+        </svg>
+      );
     default:
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">

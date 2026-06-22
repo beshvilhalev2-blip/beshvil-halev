@@ -156,7 +156,7 @@ function RegionMapMarker({
       onBlur={() => onHover(null)}
       onClick={() => onSelect(region.slug)}
       aria-pressed={isSelected}
-      aria-label={`${region.title} — ${formatTripCount(count)}`}
+      aria-label={`${region.title} - ${formatTripCount(count)}`}
       className="absolute z-[3] touch-manipulation text-start transition-all duration-250 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F5E48] focus-visible:ring-offset-2"
       style={{
         top: `${top}%`,
@@ -264,7 +264,7 @@ function RegionDiscoveryPanel({
     <div className="flex h-full min-h-[24rem] flex-col overflow-hidden rounded-2xl border border-stone-200/55 bg-[#FAF7F1] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] sm:min-h-[26rem] lg:min-h-[28rem]">
       <div className="border-b border-stone-200/45 px-4 py-3.5 text-end sm:px-5">
         <h3 className="text-base font-bold text-stone-900 sm:text-lg">איפה תרצו לטייל?</h3>
-        <p className="mt-0.5 text-xs text-stone-500 sm:text-sm">בחרו אזור — המסלולים יתעדכנו מיד</p>
+        <p className="mt-0.5 text-xs text-stone-500 sm:text-sm">בחרו אזור - המסלולים יתעדכנו מיד</p>
       </div>
 
       <div
@@ -391,7 +391,7 @@ export default function HeartTrailMap() {
           </p>
           <h2 className="mb-2 text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">מפת השבילים</h2>
           <p className="mx-auto max-w-lg text-sm leading-relaxed text-stone-600 sm:text-base">
-            בחרו אזור בארץ וגלו מסלולים — המפה והכרטיסיות מתעדכנות יחד
+            בחרו אזור בארץ וגלו מסלולים - המפה והכרטיסיות מתעדכנות יחד
           </p>
         </div>
 

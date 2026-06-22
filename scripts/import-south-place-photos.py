@@ -301,7 +301,7 @@ def main() -> int:
     print("\nGallery counts per place:")
     for slug, info in sorted(report["gallery_counts"].items(), key=lambda x: x[1]["title"]):
         print(f"  {info['title']} ({slug}): {info['count']}")
-    print(f"\nHero only ({len(report['hero_only'])}): {', '.join(report['hero_only']) or '—'}")
+    print(f"\nHero only ({len(report['hero_only'])}): {', '.join(report['hero_only']) or '-'}")
     print(f"\nMissing hero ({len(missing_hero)}):")
     for item in missing_hero:
         print(f"  - {item}")

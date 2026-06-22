@@ -98,7 +98,7 @@ export const LANDSCAPE = {
   destinationHalo: "#E2D0AD",
 } as const;
 
-/** @deprecated Use LANDSCAPE — kept for internal references during transition. */
+/** @deprecated Use LANDSCAPE - kept for internal references during transition. */
 export const SUNRISE = LANDSCAPE;
 
 const POINTER_STrength = 52;
@@ -215,7 +215,7 @@ export function buildMistBands(): MistBand[] {
   ];
 }
 
-/** Main hero journey — rises from search area into distant hills. */
+/** Main hero journey - rises from search area into distant hills. */
 export function buildHeroJourney(width: number, height: number): HeroJourney {
   const isMobile = width < 768;
   const start = { x: width * (isMobile ? 0.5 : 0.48), y: height * 0.91 };

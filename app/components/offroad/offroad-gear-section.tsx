@@ -14,23 +14,19 @@ export default function OffroadGearSection() {
       className={`${offroadSectionShell} scroll-mt-24 border-y border-stone-200/60 bg-stone-50/70 dark:border-stone-800 dark:bg-stone-950/40`}
     >
       <div className={offroadSectionInner}>
-        <OffroadSectionHeader
-          title="ציוד שמומלץ שיהיה ברכב"
-          description="לא חייבים הכל — אבל כמה דברים בסיסיים נותנים שקט נפשי."
-        />
+        <OffroadSectionHeader title="ציוד שמומלץ שיהיה ברכב" />
 
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {OFFROAD_GEAR_ITEMS.map((item) => {
+            const cardClass = `${offroadGlassCard} flex flex-col items-center p-4 text-center transition-all hover:-translate-y-0.5 hover:shadow-md`;
+
             const content = (
               <>
-                <span className="mb-4 flex size-12 items-center justify-center rounded-2xl bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-200">
-                  <OffroadIcon id={item.icon} className="size-6" />
+                <span className="mb-3 flex size-10 items-center justify-center rounded-xl bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-200">
+                  <OffroadIcon id={item.icon} className="size-5" />
                 </span>
-                <span className="text-lg font-bold text-stone-900 dark:text-stone-50">
+                <span className="text-sm font-bold text-stone-900 dark:text-stone-50">
                   {item.label}
-                </span>
-                <span className="mt-2 text-xs font-medium text-stone-500 dark:text-stone-400">
-                  {item.affiliateHref ? "לרכישה" : "מומלץ לשמור ברכב"}
                 </span>
               </>
             );
@@ -40,18 +36,14 @@ export default function OffroadGearSection() {
                 {item.affiliateHref ? (
                   <a
                     href={item.affiliateHref}
-                    className={`${offroadGlassCard} flex h-full min-h-[9.5rem] flex-col p-5 transition-all hover:-translate-y-0.5 hover:shadow-md`}
+                    className={cardClass}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
                     {content}
                   </a>
                 ) : (
-                  <div
-                    className={`${offroadGlassCard} flex h-full min-h-[9.5rem] flex-col p-5`}
-                  >
-                    {content}
-                  </div>
+                  <div className={cardClass}>{content}</div>
                 )}
               </li>
             );

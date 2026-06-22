@@ -105,7 +105,7 @@ function PersonalRav4Card() {
         {!imageError ? (
           <Image
             src={PERSONAL_RAV4_IMAGE}
-            alt="Toyota RAV4 2011 שחורה — הרכב המשפחתי שלנו בטיול"
+            alt="Toyota RAV4 2011 שחורה - הרכב המשפחתי שלנו בטיול"
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 768px"
@@ -316,7 +316,7 @@ function VehicleResultCard({
 
       <div>
         <h3 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-50">
-          סוגי מסלולים — מה מתאים?
+          סוגי מסלולים - מה מתאים?
         </h3>
         <ul className="grid gap-3 sm:grid-cols-2">
           {compatibility.suitableTripTypes.map((tripType) => (
@@ -362,7 +362,7 @@ function VehicleResultCard({
           התאמה מפורטת לפי סוג גישה
         </h3>
         <p className="mb-4 text-sm text-stone-500 dark:text-stone-400">
-          מיפוי ל{tripCategory.label} — לבדיקת מסלולים ספציפיים באתר
+          מיפוי ל{tripCategory.label} - לבדיקת מסלולים ספציפיים באתר
         </p>
         <ul className="grid gap-3 sm:grid-cols-2">
           {routes.map((route) => (
@@ -424,7 +424,11 @@ function VehicleResultCard({
   );
 }
 
-export default function VehicleTripMatch() {
+export default function VehicleTripMatch({
+  layout = "standalone",
+}: {
+  layout?: "standalone" | "offroad";
+}) {
   const brands = getVehicleBrands();
   const [brandId, setBrandId] = useState("");
   const [modelId, setModelId] = useState("");
@@ -499,17 +503,22 @@ export default function VehicleTripMatch() {
   const modelSelected = Boolean(modelId);
   const selectionComplete = Boolean(resolvedVehicle);
 
+  const sectionClassName =
+    layout === "offroad"
+      ? "relative scroll-mt-24 border-b border-stone-200/60 bg-white/70 px-4 py-12 dark:border-stone-800 dark:bg-stone-900/40 sm:px-6 sm:py-14"
+      : "relative border-b border-stone-200/80 bg-white/88 px-6 py-16 backdrop-blur-[2px] dark:border-stone-800 dark:bg-stone-900/88 sm:py-20";
+
+  const innerClassName =
+    layout === "offroad" ? "mx-auto max-w-6xl" : "mx-auto max-w-3xl";
+
   return (
-    <section
-      id="vehicle-match"
-      className="relative border-b border-stone-200/80 bg-white/88 px-6 py-16 backdrop-blur-[2px] dark:border-stone-800 dark:bg-stone-900/88 sm:py-20"
-    >
-      <div className="mx-auto max-w-3xl">
+    <section id="vehicle-match" className={sectionClassName}>
+      <div className={innerClassName}>
         <h2 className="mb-3 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
           איזה רכב יש לך?
         </h2>
         <p className="mb-6 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-          בחרו יצרן ודגם — ונראה לכם איזה סוגי מסלולים עשויים להתאים לרכב
+          בחרו יצרן ודגם - ונראה לכם איזה סוגי מסלולים עשויים להתאים לרכב
           שלכם. שנה היא אופציונלית.
         </p>
 
@@ -518,7 +527,7 @@ export default function VehicleTripMatch() {
           role="note"
         >
           <strong className="font-semibold">שימו לב:</strong> זהו מדריך ראשוני
-          וידידותי בלבד — לא תעודת כשירות, לא ייעוץ מקצועי ולא המלצה לנסוע
+          וידידותי בלבד - לא תעודת כשירות, לא ייעוץ מקצועי ולא המלצה לנסוע
           בשטח. תמיד בדקו מצב דרך, רכב וניסיון לפני יציאה.
         </div>
 
@@ -615,7 +624,7 @@ export default function VehicleTripMatch() {
               <p className="text-stone-500 dark:text-stone-400">
                 {matchedTrips.length > 0
                   ? `${matchedTrips.length} מסלולים מתאימים ל${getCategoryById(resolvedVehicle.tripCategory).shortLabel}`
-                  : "לא נמצאו מסלולים מתאימים כרגע — נוסיף עוד בקרוב"}
+                  : "לא נמצאו מסלולים מתאימים כרגע - נוסיף עוד בקרוב"}
               </p>
             </div>
 
@@ -632,7 +641,7 @@ export default function VehicleTripMatch() {
             ) : (
               <div className="rounded-2xl border border-dashed border-stone-300 bg-stone-50 px-6 py-12 text-center dark:border-stone-700 dark:bg-stone-950">
                 <p className="mb-4 text-stone-600 dark:text-stone-400">
-                  בינתיים אין מסלולים מתויגים ברמת הגישה המתאימה — עיינו בכל
+                  בינתיים אין מסלולים מתויגים ברמת הגישה המתאימה - עיינו בכל
                   ההמלצות שלנו.
                 </p>
                 <Link

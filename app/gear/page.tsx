@@ -7,7 +7,7 @@ import GearHubView from "@/app/components/gear-hub-view";
 export const metadata: Metadata = {
   title: "מרכז הציוד | בשביל הלב",
   description:
-    "רשימות ציוד חכמות לטיולים, קמפינג, שטח ובישול בטבע — בשביל הלב",
+    "רשימות ציוד חכמות לטיולים, קמפינג, שטח ובישול בטבע - בשביל הלב",
 };
 
 export default function GearPage() {

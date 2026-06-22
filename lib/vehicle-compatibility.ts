@@ -36,7 +36,7 @@ const compatibilityCategories: Record<
     id: "offroad",
     label: "מתאים לשטח קל / 4x4",
     summary:
-      "רכב עם הנעה כפולה ועבירות טובה — מתאים לשבילי עפר, קק״ל ושטח קל עד בינוני, בתנאי בדיקה מראש.",
+      "רכב עם הנעה כפולה ועבירות טובה - מתאים לשבילי עפר, קק״ל ושטח קל עד בינוני, בתנאי בדיקה מראש.",
     warningLevel: "medium",
     warningLabel: "בדקו מסלול, מזג אוויר וצמיגים לפני יציאה",
     recommendedFilters: [
@@ -56,7 +56,7 @@ const compatibilityCategories: Record<
     id: "softroad",
     label: "מתאים לשבילי עפר קלים בלבד",
     summary:
-      "SUV / קרוסאובר — מתאים לשבילים מסומנים ויציבים, לא לשטח מאתגר או לאחר גשם.",
+      "SUV / קרוסאובר - מתאים לשבילים מסומנים ויציבים, לא לשטח מאתגר או לאחר גשם.",
     warningLevel: "medium",
     warningLabel: "הימנעו משטח רטוב, בוץ ושבילים לא מסומנים",
     recommendedFilters: [
@@ -74,9 +74,9 @@ const compatibilityCategories: Record<
   },
   privateCar: {
     id: "privateCar",
-    label: "מתאים לרכב פרטי בלבד — לא מומלץ לשטח",
+    label: "מתאים לרכב פרטי בלבד - לא מומלץ לשטח",
     summary:
-      "רכב שטחי נמוך — מתאים לכביש סלול ולמסלולים עם חניה קרובה בלבד.",
+      "רכב שטחי נמוך - מתאים לכביש סלול ולמסלולים עם חניה קרובה בלבד.",
     warningLevel: "high",
     warningLabel: "לא מומלץ להיכנס לשבילי עפר או שטח",
     recommendedFilters: [...PRIVATE_CAR_RECOMMENDATIONS],
@@ -88,9 +88,9 @@ const compatibilityCategories: Record<
   },
   unknown: {
     id: "unknown",
-    label: "אין מספיק מידע — מומלץ לבדוק לפני יציאה",
+    label: "אין מספיק מידע - מומלץ לבדוק לפני יציאה",
     summary:
-      "לא מצאנו מספיק נתונים על הרכב — התייעצו, בדקו מפרט ואל תיכנסו לשטח ללא ודאות.",
+      "לא מצאנו מספיק נתונים על הרכב - התייעצו, בדקו מפרט ואל תיכנסו לשטח ללא ודאות.",
     warningLevel: "info",
     warningLabel: "בדקו מפרט רכב, מרווח גחון וצמיגים לפני מסלול",
     recommendedFilters: [

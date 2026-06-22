@@ -54,7 +54,7 @@ export const RECOMMENDATIONS_REGION_FILTERS: RecommendationsRegionFilterOption[]
 const COFFEE_KEYWORD = /קפה|עגל(?:ת|ות)\s*קפה|מסעד/i;
 
 /**
- * No dedicated Excel column yet — matches places with coffee / food-stop signals
+ * No dedicated Excel column yet - matches places with coffee / food-stop signals
  * in synced Excel names or trip copy.
  */
 export function matchesCoffeeCartFilter(trip: Trip): boolean {

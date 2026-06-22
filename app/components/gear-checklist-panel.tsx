@@ -108,7 +108,7 @@ function GearItemRow({
       <button
         type="button"
         onClick={onCycle}
-        aria-label={`${item.label} — ${statusLabel}`}
+        aria-label={`${item.label} - ${statusLabel}`}
         aria-pressed={status !== "unset"}
         className={`flex w-full min-h-11 items-center gap-3 rounded-lg px-3 py-3 text-start transition-colors ${rowClass}`}
       >
@@ -227,7 +227,46 @@ type GearChecklistPanelProps = {
     onChange: (cookingPlans: boolean) => void;
   };
   onReset?: () => void;
+  onStateChange?: () => void;
+  hideShareButton?: boolean;
 };
+
+export function GearChecklistWhatsAppShare({
+  whatsAppShareUrl,
+  canShareWhatsApp,
+}: {
+  whatsAppShareUrl: string | null;
+  canShareWhatsApp: boolean;
+}) {
+  return (
+    <div>
+      {canShareWhatsApp && whatsAppShareUrl ? (
+        <a
+          href={whatsAppShareUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex min-h-11 w-full items-center justify-center rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#20BD5A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
+        >
+          📲 שלחו לי את הרשימה לוואטסאפ
+        </a>
+      ) : (
+        <div>
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="flex min-h-11 w-full cursor-not-allowed items-center justify-center rounded-xl bg-stone-200 px-4 py-2.5 text-sm font-semibold text-stone-400 dark:bg-stone-800 dark:text-stone-500"
+          >
+            📲 שלחו לי את הרשימה לוואטסאפ
+          </button>
+          <p className="mt-2 text-center text-sm text-stone-500 dark:text-stone-400">
+            סמנו לפחות פריט אחד כדי לשתף
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function GearChecklistPanel({
   storageKey,
@@ -235,6 +274,8 @@ export default function GearChecklistPanel({
   sections,
   cookingToggle,
   onReset,
+  onStateChange,
+  hideShareButton = false,
 }: GearChecklistPanelProps) {
   const [storageState, setStorageState] = useState<TripGearStorageState>(
     createInitialStorageState,
@@ -296,16 +337,19 @@ export default function GearChecklistPanel({
       setStorageState((current) => {
         const currentStatus = current.items[itemId] ?? "unset";
         const next = cycleGearItemStatus(currentStatus);
-        return updateGearItemStatus(storageKey, current, itemId, next);
+        const updated = updateGearItemStatus(storageKey, current, itemId, next);
+        onStateChange?.();
+        return updated;
       });
     },
-    [storageKey],
+    [onStateChange, storageKey],
   );
 
   const handleReset = useCallback(() => {
     setStorageState(clearGearState(storageKey));
+    onStateChange?.();
     onReset?.();
-  }, [storageKey, onReset]);
+  }, [onReset, onStateChange, storageKey]);
 
   const toggleGroup = useCallback((groupId: string) => {
     setOpenGroups((current) => {
@@ -429,32 +473,14 @@ export default function GearChecklistPanel({
         </div>
       )}
 
-      <div className="mb-4">
-        {canShareWhatsApp && whatsAppShareUrl ? (
-          <a
-            href={whatsAppShareUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex min-h-11 w-full items-center justify-center rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#20BD5A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
-          >
-            📲 שלחו לי את הרשימה לוואטסאפ
-          </a>
-        ) : (
-          <div>
-            <button
-              type="button"
-              disabled
-              aria-disabled="true"
-              className="flex min-h-11 w-full cursor-not-allowed items-center justify-center rounded-xl bg-stone-200 px-4 py-2.5 text-sm font-semibold text-stone-400 dark:bg-stone-800 dark:text-stone-500"
-            >
-              📲 שלחו לי את הרשימה לוואטסאפ
-            </button>
-            <p className="mt-2 text-center text-sm text-stone-500 dark:text-stone-400">
-              סמנו לפחות פריט אחד כדי לשתף
-            </p>
-          </div>
-        )}
-      </div>
+      {!hideShareButton ? (
+        <div className="mb-4">
+          <GearChecklistWhatsAppShare
+            canShareWhatsApp={canShareWhatsApp}
+            whatsAppShareUrl={whatsAppShareUrl}
+          />
+        </div>
+      ) : null}
 
       <button
         type="button"

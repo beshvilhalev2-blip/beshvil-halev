@@ -145,7 +145,7 @@ function ActionCell({
     <button
       type="button"
       disabled
-      aria-label={`${ariaLabel} — בקרוב`}
+      aria-label={`${ariaLabel} - בקרוב`}
       className={cellClassName}
     >
       {content}

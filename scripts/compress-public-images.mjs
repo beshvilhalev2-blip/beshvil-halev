@@ -58,7 +58,7 @@ const limitArg = args.find((arg) => arg.startsWith("--limit="));
 const limit = limitArg ? Number.parseInt(limitArg.split("=")[1] ?? "0", 10) : 0;
 
 function formatBytes(num) {
-  if (num == null) return "—";
+  if (num == null) return "-";
   if (num < 1024) return `${num} B`;
   if (num < 1024 * 1024) return `${(num / 1024).toFixed(1)} KB`;
   return `${(num / (1024 * 1024)).toFixed(2)} MB`;
@@ -374,7 +374,7 @@ function buildReport(results) {
     dry_run: dryRun,
     webp_path_change_required: true,
     webp_migration_note:
-      "WebP previews use .webp extensions under _optimized-report/webp-preview/. Trip data and components reference .jpeg/.jpg paths — switching to WebP requires updating data/ trip heroImage/gallery paths OR a build step that maps paths. Path-compatible JPEG/PNG outputs in public/images-optimized/ can replace originals without code changes.",
+      "WebP previews use .webp extensions under _optimized-report/webp-preview/. Trip data and components reference .jpeg/.jpg paths - switching to WebP requires updating data/ trip heroImage/gallery paths OR a build step that maps paths. Path-compatible JPEG/PNG outputs in public/images-optimized/ can replace originals without code changes.",
     totals: {
       files_scanned: results.length,
       images_optimized: processed.length,
@@ -449,7 +449,7 @@ function buildMarkdown(report) {
   if (report.skipped.length > 0) {
     lines.push("", "## Skipped / errors", "");
     for (const item of report.skipped.slice(0, 40)) {
-      lines.push(`- \`${item.relative_path}\` — ${item.note ?? item.action}`);
+      lines.push(`- \`${item.relative_path}\` - ${item.note ?? item.action}`);
     }
   }
 
@@ -457,7 +457,7 @@ function buildMarkdown(report) {
     lines.push("", "## Still above hard target", "");
     for (const item of report.over_target.slice(0, 40)) {
       lines.push(
-        `- \`${item.relative_path}\` (${item.category}): ${formatBytes(item.optimized_bytes)} — ${item.note}`,
+        `- \`${item.relative_path}\` (${item.category}): ${formatBytes(item.optimized_bytes)} - ${item.note}`,
       );
     }
   }
@@ -524,7 +524,7 @@ async function main() {
         original_bytes: size,
         optimized_bytes: size,
         action: dryRun ? "dry-run" : "copied-as-is",
-        note: dryRun ? "Non-raster asset — would copy unchanged" : null,
+        note: dryRun ? "Non-raster asset - would copy unchanged" : null,
       });
       continue;
     }
@@ -535,7 +535,7 @@ async function main() {
         category: "asset",
         original_bytes: (await fs.stat(fullPath)).size,
         action: "skipped",
-        note: `Unknown extension ${ext} — not processed`,
+        note: `Unknown extension ${ext} - not processed`,
       });
       continue;
     }
@@ -568,7 +568,7 @@ async function main() {
   );
   console.log(`  Report:     ${path.relative(PROJECT_ROOT, mdPath)}`);
   if (dryRun) {
-    console.log("  (dry run — no optimized files written except report)");
+    console.log("  (dry run - no optimized files written except report)");
   } else {
     console.log(`  Output:     ${path.relative(PROJECT_ROOT, OPTIMIZED_ROOT)}/`);
   }

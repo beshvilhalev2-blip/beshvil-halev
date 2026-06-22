@@ -131,7 +131,7 @@ export default function WizardCitySelect({
     if (typeof window === "undefined" || !navigator.geolocation) {
       setGeoStatus("error");
       setGeoMessage(
-        "לא הצלחנו לזהות מיקום — נסו שוב או בחרו עיר ידנית",
+        "לא הצלחנו לזהות מיקום - נסו שוב או בחרו עיר ידנית",
       );
       return;
     }
@@ -154,14 +154,14 @@ export default function WizardCitySelect({
         if (error.code === error.PERMISSION_DENIED) {
           setGeoStatus("denied");
           setGeoMessage(
-            "לא קיבלנו הרשאה למיקום — אפשר לבחור עיר מהרשימה",
+            "לא קיבלנו הרשאה למיקום - אפשר לבחור עיר מהרשימה",
           );
           return;
         }
 
         setGeoStatus("error");
         setGeoMessage(
-          "לא הצלחנו לזהות מיקום — נסו שוב או בחרו עיר ידנית",
+          "לא הצלחנו לזהות מיקום - נסו שוב או בחרו עיר ידנית",
         );
       },
       {
@@ -242,7 +242,7 @@ export default function WizardCitySelect({
             </ul>
           ) : (
             <p className="px-4 py-6 text-center text-sm text-stone-500 dark:text-stone-400">
-              לא נמצאה עיר — נסו חיפוש אחר
+              לא נמצאה עיר - נסו חיפוש אחר
             </p>
           )
         ) : (

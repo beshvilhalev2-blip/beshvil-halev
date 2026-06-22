@@ -72,7 +72,7 @@ export default function FindMyTripResults({
           role="note"
           className="mb-8 rounded-2xl border border-amber-200/80 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-100"
         >
-          לא מצאנו התאמה מושלמת — הנה הצעות קרובות למה שחיפשתם.
+          לא מצאנו התאמה מושלמת - הנה הצעות קרובות למה שחיפשתם.
         </div>
       ) : null}
 

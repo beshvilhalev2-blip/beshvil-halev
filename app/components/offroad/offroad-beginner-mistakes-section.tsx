@@ -2,35 +2,48 @@ import { OFFROAD_BEGINNER_MISTAKES } from "@/lib/offroad/content";
 import {
   OffroadIcon,
   OffroadSectionHeader,
-  offroadGlassCard,
+  offroadCard,
+  offroadCardHover,
   offroadSectionInner,
   offroadSectionShell,
 } from "./offroad-shared";
 
 export default function OffroadBeginnerMistakesSection() {
   return (
-    <section
-      id="beginner-mistakes"
-      className={`${offroadSectionShell} scroll-mt-24`}
-    >
+    <section id="beginner-mistakes" className={`${offroadSectionShell} scroll-mt-24`}>
       <div className={offroadSectionInner}>
         <OffroadSectionHeader
           title="טעויות של מתחילים"
-          description="כמה דברים קטנים שיכולים לחסוך לכם כאב ראש — ולהפוך את היציאה לכיפית יותר."
+          subtitle="עשרה דברים שכדאי להימנע מהם לפני שיוצאים לשטח"
         />
 
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {OFFROAD_BEGINNER_MISTAKES.map((mistake) => (
-            <li
-              key={mistake.id}
-              className={`${offroadGlassCard} flex items-start gap-4 border-amber-200/70 bg-amber-50/70 p-5 dark:border-amber-900/40 dark:bg-amber-950/20`}
-            >
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200">
-                <OffroadIcon id="warning" className="size-5" />
-              </span>
-              <p className="pt-1 text-base font-semibold leading-snug text-amber-950 dark:text-amber-100">
-                {mistake.text}
-              </p>
+        <ul className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2 sm:gap-4">
+          {OFFROAD_BEGINNER_MISTAKES.map((mistake, index) => (
+            <li key={mistake.id}>
+              <article
+                className={`${offroadCard} ${offroadCardHover} relative flex gap-3.5 p-4 sm:p-4`}
+              >
+                <span
+                  className="absolute inset-y-3 end-0 w-1 rounded-full bg-gradient-to-b from-amber-400/80 to-orange-500/50"
+                  aria-hidden="true"
+                />
+
+                <span
+                  className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-orange-50 text-amber-800 shadow-sm dark:from-amber-950/60 dark:to-orange-950/40 dark:text-amber-200"
+                  aria-hidden="true"
+                >
+                  <OffroadIcon id={mistake.icon} className="size-5" />
+                </span>
+
+                <div className="min-w-0 flex-1 pe-2">
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-amber-700/80 dark:text-amber-300/70">
+                    הימנעו · {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <p className="text-sm font-semibold leading-snug text-stone-800 dark:text-stone-100 sm:text-[15px]">
+                    {mistake.text}
+                  </p>
+                </div>
+              </article>
             </li>
           ))}
         </ul>

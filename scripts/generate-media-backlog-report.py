@@ -199,16 +199,16 @@ def write_markdown(report: dict) -> None:
     ]
     for item in report["A_placeholderHeroTrips"]:
         vis = "site-visible" if item["siteVisible"] else "hidden"
-        lines.append(f"- `{item['slug']}` — {item['title']} ({item['region']}, {vis})")
+        lines.append(f"- `{item['slug']}` - {item['title']} ({item['region']}, {vis})")
 
     lines.extend(["", "## B. Trips with no gallery", ""])
     for item in report["B_tripsWithNoGallery"]:
-        lines.append(f"- `{item['slug']}` — {item['title']}")
+        lines.append(f"- `{item['slug']}` - {item['title']}")
 
     lines.extend(["", "## C. Incomplete media", ""])
     for item in report["C_tripsWithIncompleteMedia"][:50]:
         lines.append(
-            f"- `{item['slug']}` — {item['title']} ({', '.join(item['issues'])})"
+            f"- `{item['slug']}` - {item['title']} ({', '.join(item['issues'])})"
         )
 
     lines.extend(["", "## D. Image folders without trip entries", ""])

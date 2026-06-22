@@ -6,7 +6,7 @@ import RegionsOverview from "@/app/components/regions-overview";
 export const metadata: Metadata = {
   title: "אזורים בארץ | בשביל הלב",
   description:
-    "בחרו אזור בארץ וגלו את הטיולים, המעיינות, התצפיות והמסלולים המומלצים — צפון, השרון, מרכז, ירושלים והסביבה ודרום.",
+    "בחרו אזור בארץ וגלו את הטיולים, המעיינות, התצפיות והמסלולים המומלצים - צפון, השרון, מרכז, ירושלים והסביבה ודרום.",
 };
 
 export default function RegionsPage() {

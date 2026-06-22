@@ -65,7 +65,7 @@ export type MatchResult = {
   summaryChips: string[];
 };
 
-/** Minimal trip shape for matching — keeps lib decoupled from full article fields. */
+/** Minimal trip shape for matching - keeps lib decoupled from full article fields. */
 export type TripRef = {
   slug: string;
   title: string;

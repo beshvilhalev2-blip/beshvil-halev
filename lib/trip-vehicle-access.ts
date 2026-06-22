@@ -21,7 +21,7 @@ const VEHICLE_MAX_ACCESS: Record<VehicleCategoryId, TripVehicleAccess> = {
   serious_jeep: "hard-4x4",
 };
 
-/** Resolve trip access from data only — never infer from slug, title, or category. */
+/** Resolve trip access from data only - never infer from slug, title, or category. */
 export function getTripVehicleAccess(trip: Trip): TripVehicleAccess {
   return trip.vehicleAccess ?? DEFAULT_TRIP_VEHICLE_ACCESS;
 }

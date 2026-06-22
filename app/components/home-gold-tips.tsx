@@ -54,7 +54,7 @@ export default function HomeGoldTips() {
               <Link
                 href="#"
                 className="group flex h-full min-h-[7.5rem] flex-col justify-between rounded-2xl border border-stone-200/70 bg-white/85 p-5 text-right shadow-sm backdrop-blur-[2px] transition-shadow hover:bg-white/95 hover:shadow-md dark:border-stone-700 dark:bg-stone-900/80"
-                aria-label={`${title} — בקרוב`}
+                aria-label={`${title} - בקרוב`}
               >
                 <span className="mb-3 inline-flex w-fit rounded-full bg-stone-200/80 px-2.5 py-0.5 text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-400">
                   בקרוב

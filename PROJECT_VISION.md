@@ -1,4 +1,4 @@
-# Beshvil HaLev — Project Vision
+# Beshvil HaLev - Project Vision
 
 ## Identity
 

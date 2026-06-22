@@ -22,7 +22,7 @@ const tripIdeaLinks = [
 const travelerToolLinks = [
   { label: "רשימות ציוד", href: "/gear" },
   { label: "טיפים של זהב בשביל הלב", href: "/#gold-tips" },
-  { label: "שטח 4x4", href: "/offroad" },
+  { label: "שטח 4x4 למתחילים", href: "/offroad" },
 ] as const;
 
 function FooterColumn({

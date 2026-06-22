@@ -6,14 +6,13 @@ export type OffroadIconId =
   | "sun"
   | "warning"
   | "gear"
-  | "coffee";
+  | "coffee"
+  | "shield"
+  | "trail"
+  | "convoy"
+  | "sunset"
+  | "nature";
 
-export type OffroadTipCard = {
-  id: string;
-  title: string;
-  icon: OffroadIconId;
-  items: string[];
-};
 
 export type OffroadDifficultyCard = {
   id: "easy" | "medium" | "hard";
@@ -25,6 +24,7 @@ export type OffroadDifficultyCard = {
 export type OffroadMistake = {
   id: string;
   text: string;
+  icon: OffroadIconId;
 };
 
 export type OffroadGearItem = {
@@ -35,30 +35,42 @@ export type OffroadGearItem = {
   affiliateHref?: string;
 };
 
-export const OFFROAD_FIRST_TIME_CARDS: OffroadTipCard[] = [
+export type OffroadFirstTimeTip = {
+  id: string;
+  title: string;
+  body: string;
+};
+
+export const OFFROAD_FIRST_TIME_TIPS: OffroadFirstTimeTip[] = [
   {
-    id: "choose-route",
-    title: "איך לבחור מסלול",
-    icon: "route",
-    items: [
-      "להתחיל במסלול קל",
-      "לבדוק מזג אוויר",
-      "לבחור מסלול מתאים לילדים",
-    ],
+    id: "easy-route",
+    title: "בחרו מסלול קל",
+    body: "אל תתחילו במסלול שמוגדר ל־4x4 מתקדם. לטיול ראשון עדיף לבחור שבילי עפר נוחים ומסלולים ידידותיים למשפחות.",
   },
   {
-    id: "what-to-bring",
-    title: "מה לקחת איתכם",
-    icon: "pack",
-    items: ["מים", "כובע", "ערכת עזרה ראשונה", "גלגל רזרבי"],
+    id: "not-alone",
+    title: "אל תצאו לבד",
+    body: "במיוחד באזורים מרוחקים. בטיולים הראשונים מומלץ לצאת עם רכב נוסף או עם חברים בעלי ניסיון.",
   },
   {
-    id: "with-kids",
-    title: "נוסעים עם ילדים",
-    icon: "kids",
-    items: ["עצירות", "אוכל", "הצללה", "פעילויות בדרך"],
+    id: "vehicle-fit",
+    title: "בדקו שהרכב מתאים",
+    body: "לא כל מסלול מתאים לכל רכב. בדקו את רמת הקושי ואת דרישות הרכב לפני היציאה.",
+  },
+  {
+    id: "time-buffer",
+    title: "תכננו זמן ביטחון",
+    body: "השטח תמיד איטי יותר ממה שנראה במפה. צאו מוקדם ותכננו לחזור לפני החשיכה.",
+  },
+  {
+    id: "essentials",
+    title: "מים, טעינה וניווט",
+    body: "הצטיידו בכמות מים מספקת, טלפון טעון ומפת ניווט זמינה גם ללא קליטה.",
   },
 ];
+
+export const OFFROAD_FIRST_TIME_SUBTITLE =
+  "5 דברים שכדאי לדעת לפני שיוצאים לטיול השטח הראשון";
 
 export const OFFROAD_DIFFICULTY_CARDS: OffroadDifficultyCard[] = [
   {
@@ -85,12 +97,95 @@ export const OFFROAD_DIFFICULTY_CARDS: OffroadDifficultyCard[] = [
   },
 ];
 
+export type OffroadSafetyRule = {
+  id: string;
+  text: string;
+  description?: string;
+  icon: OffroadIconId;
+};
+
+export type OffroadVehicleLevel = {
+  id: "private-car" | "soft-suv" | "real-4x4" | "hard-4x4";
+  title: string;
+  explanation: string;
+  examples: string;
+  tone: "stone" | "green" | "amber" | "rose";
+};
+
+export const OFFROAD_SAFETY_RULES: OffroadSafetyRule[] = [
+  { id: "marked-trails", text: "נוסעים רק בשבילים מסומנים", icon: "trail" },
+  {
+    id: "not-alone",
+    text: "לא יוצאים לבד באזורים מרוחקים",
+    icon: "convoy",
+  },
+  {
+    id: "before-dark",
+    text: "מתכננים לחזור לפני החשיכה",
+    icon: "sunset",
+  },
+  {
+    id: "convoy-distance",
+    text: "שומרים מרחק בין רכבים",
+    icon: "convoy",
+  },
+  {
+    id: "after-rain",
+    text: "נמנעים מבוץ, מעברי מים ותוואי דרך לא מוכר",
+    icon: "water",
+  },
+  {
+    id: "leave-clean",
+    text: "שומרים על הטבע ומשאירים נקי",
+    icon: "nature",
+  },
+];
+
+export const OFFROAD_VEHICLE_LEVELS: OffroadVehicleLevel[] = [
+  {
+    id: "private-car",
+    title: "רכב רגיל",
+    explanation: "מתאים לכביש סלול ולגישה קלה בלבד - לא לשטח.",
+    examples: "למשל: מזדה 3, טויוטה קורולה, יונדאי i30",
+    tone: "stone",
+  },
+  {
+    id: "soft-suv",
+    title: "ג׳יפון / SUV",
+    explanation:
+      "מתאים לדרכי עפר קלות, שבילי קק״ל ומסלולים משפחתיים רכים.",
+    examples: "למשל: סובארו פורסטר, טויוטה RAV4, פולקסווגן טיגואן",
+    tone: "green",
+  },
+  {
+    id: "real-4x4",
+    title: "4x4 אמיתי",
+    explanation:
+      "מתאים לשטח בינוני - עפר רטוב, עליות מתונות והילוך כח כשצריך.",
+    examples: "למשל: ג׳יפ Wrangler, טויוטה לנד קרוזר, מיצובישי Pajero",
+    tone: "amber",
+  },
+  {
+    id: "hard-4x4",
+    title: "4x4 מתקדם",
+    explanation:
+      "מתאים למסלולים מאתגרים - מדרגות, סלעים ובוץ עמוק, לנהגים מנוסים.",
+    examples: "למשל: ג׳יפ מוגבה, לנד קרוזר מחוזק, רכב עם עבירות גבוהה",
+    tone: "rose",
+  },
+];
+
 export const OFFROAD_BEGINNER_MISTAKES: OffroadMistake[] = [
-  { id: "water", text: "יוצאים בלי מספיק מים" },
-  { id: "rain", text: "נכנסים לשטח אחרי גשם" },
-  { id: "signal", text: "לא בודקים קליטה" },
-  { id: "waze", text: "סומכים רק על ווייז" },
-  { id: "alone", text: "יוצאים לבד בפעם הראשונה" },
+  { id: "alone", text: "לא יוצאים לבד בפעם הראשונה", icon: "convoy" },
+  { id: "rain", text: "לא נכנסים לשטח אחרי גשם", icon: "water" },
+  { id: "waze", text: "לא סומכים רק על ווייז", icon: "route" },
+  { id: "water", text: "לא יוצאים בלי מספיק מים", icon: "water" },
+  { id: "signal", text: "בודקים קליטה ומזג אוויר", icon: "sun" },
+  { id: "off-trail", text: "ירידה מהשביל המסומן", icon: "trail" },
+  { id: "late-start", text: "יציאה מאוחרת מדי", icon: "sunset" },
+  { id: "tire-pressure", text: "לחץ אוויר לא מתאים", icon: "gear" },
+  { id: "wadi-rain", text: "כניסה לנחל אחרי גשם", icon: "warning" },
+  { id: "unknown-vehicle", text: "יציאה בלי להכיר את הרכב", icon: "shield" },
 ];
 
 export const OFFROAD_GEAR_ITEMS: OffroadGearItem[] = [
@@ -102,21 +197,35 @@ export const OFFROAD_GEAR_ITEMS: OffroadGearItem[] = [
   { id: "coffee", label: "ערכת קפה", icon: "coffee" },
 ];
 
+export type OffroadCookingTip = {
+  id: string;
+  text: string;
+};
+
+export const OFFROAD_ROUTES_INTRO =
+  "המסלולים המופיעים בעמוד זה מתאימים לרכבי SUV וג׳יפונים, למשפחות ולמטיילים בתחילת הדרך. מדובר במסלולי שטח קלים, עבירות קלה וללא צורך בהילוך כוח.";
+
+export const OFFROAD_COOKING_TIPS: OffroadCookingTip[] = [
+  { id: "plan-meals", text: "תכננו מראש את הארוחות" },
+  { id: "simple-gear", text: "העדיפו ציוד פשוט וקל לניקוי" },
+  { id: "water-cooking", text: "הביאו מים גם לבישול ולשטיפה" },
+  { id: "fire-safety", text: "שמרו על בטיחות ליד גזייה ומנגל" },
+  { id: "trash", text: "אספו את כל האשפה בסיום" },
+  { id: "prep-ahead", text: "הכינו מראש ירקות, רטבים וחומרי גלם" },
+];
+
 export const OFFROAD_ROUTE_GROUPS = [
   {
     id: "beginner-families" as const,
     title: "למשפחות מתחילות",
-    description: "מסלולים רכים, נגישים ומתאימים ליציאה ראשונה מהאספלט",
   },
   {
     id: "viewpoints" as const,
     title: "תצפיות ושקיעות",
-    description: "נקודות נוף מרהיבות ששווה להגיע אליהן בדרך",
   },
   {
     id: "water-terrain" as const,
     title: "מים ושטח",
-    description: "שילוב של התרעננות, טבע ודרך מעניינת",
   },
 ];
 

@@ -4,7 +4,7 @@ import { getDistanceKm } from "@/lib/geo";
 
 const TRAVEL_TIME_ORDER: TravelTime[] = ["30m", "1h", "1h-plus", "any"];
 
-/** Conservative straight-line caps — not driving time. */
+/** Conservative straight-line caps - not driving time. */
 const STRAIGHT_LINE_KM_LIMIT: Record<TravelTime, number> = {
   "30m": 20,
   "1h": 45,

@@ -73,7 +73,7 @@ export default function WantToTravelSaveButton({
         onClick={handleSave}
         disabled={!hydrated || saved}
         aria-pressed={saved}
-        aria-label={saved ? "שמור לטיול הבא — נשמר" : "שמור לטיול הבא"}
+        aria-label={saved ? "שמור לטיול הבא - נשמר" : "שמור לטיול הבא"}
         title={saved ? "נשמר לטיול הבא" : "שמור לטיול הבא"}
         className={[
           "inline-flex size-10 items-center justify-center rounded-full border shadow-sm backdrop-blur-sm transition-all duration-200",

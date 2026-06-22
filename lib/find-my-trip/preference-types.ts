@@ -13,7 +13,7 @@ export const PREFERENCE_SCHEMA_VERSION = 3 as const;
 
 export type InferredPreferences = {
   favoriteActivities?: ActivityType[];
-  /** Free-form trip type labels inferred from history — e.g. category strings. */
+  /** Free-form trip type labels inferred from history - e.g. category strings. */
   favoriteTripTypes?: string[];
   favoriteCity?: CityId;
   typicalBudget?: BudgetTier;

@@ -6,7 +6,7 @@ import { getSiteVisibleTrips } from "@/data/trips";
 export const metadata = {
   title: "המלצות לטיולים | בשביל הלב",
   description:
-    "כל המסלולים, המעיינים והטיולים המומלצים שלנו — סננו לפי סוג חוויה ואזור, עם מדריכים מלאים וטיפים מהשטח",
+    "כל המסלולים, המעיינים והטיולים המומלצים שלנו - סננו לפי סוג חוויה ואזור, עם מדריכים מלאים וטיפים מהשטח",
 };
 
 export default function RecommendationsPage() {

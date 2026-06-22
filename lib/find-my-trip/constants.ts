@@ -126,7 +126,7 @@ export const VEHICLE_LABELS: Record<VehicleCategoryId, string> = {
   serious_jeep: "ג׳יפ גבוה",
 };
 
-/** Stable ids for match reasons — used for future personalization and analytics. */
+/** Stable ids for match reasons - used for future personalization and analytics. */
 export const REASON_IDS = {
   activity: (activity: ActivityType) => `activity-${activity}`,
   location: (city: CityId) => `location-${city}`,
@@ -146,7 +146,7 @@ export const RESULTS_SLOT_IDS = {
   affiliate: "find-my-trip-affiliate",
 } as const;
 
-/** Homepage CTA copy — wizard lives only at /find-my-trip. */
+/** Homepage CTA copy - wizard lives only at /find-my-trip. */
 export const HOMEPAGE_CTA = {
   title: "לא יודעים לאן לטייל היום?",
   description:

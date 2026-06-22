@@ -30,7 +30,7 @@ export type RegionSelectorMarker = {
   scale?: number;
 };
 
-/** Original stylized silhouette — decorative background only */
+/** Original stylized silhouette - decorative background only */
 export const ISRAEL_SILHOUETTE =
   "M 108 24 C 138 18 168 28 186 48 C 198 64 204 82 200 102 C 196 118 184 132 172 142 C 164 152 160 168 156 188 C 150 214 144 242 134 278 C 124 318 112 362 98 408 C 88 448 78 488 68 518 C 62 532 56 528 50 508 C 44 482 40 448 38 408 C 36 362 38 318 44 272 C 52 228 64 188 78 152 C 88 124 98 98 104 72 C 106 56 108 38 108 24 Z";
 
