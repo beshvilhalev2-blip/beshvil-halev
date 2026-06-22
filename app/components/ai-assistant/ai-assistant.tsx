@@ -1,13 +1,15 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useId, useState } from "react";
-import AiAssistantChatPanel from "@/app/components/ai-assistant/ai-assistant-chat-panel";
 import AiAssistantFloatingButton from "@/app/components/ai-assistant/ai-assistant-floating-button";
-import {
-  createWelcomeMessage,
-  searchAssistantTrips,
-  type AiAssistantMessage,
-} from "@/lib/ai-assistant";
+import { createWelcomeMessage } from "@/lib/ai-assistant/constants";
+import type { AiAssistantMessage } from "@/lib/ai-assistant/types";
+
+const AiAssistantChatPanel = dynamic(
+  () => import("@/app/components/ai-assistant/ai-assistant-chat-panel"),
+  { ssr: false },
+);
 
 const REPLY_DELAY_MS = 500;
 
@@ -18,6 +20,7 @@ function createMessageId(prefix: string): string {
 export default function AiAssistant() {
   const instanceId = useId();
   const [open, setOpen] = useState(false);
+  const [panelMounted, setPanelMounted] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState<AiAssistantMessage[]>(() => [
@@ -29,6 +32,7 @@ export default function AiAssistant() {
   }, []);
 
   const openPanel = useCallback(() => {
+    setPanelMounted(true);
     setOpen(true);
   }, []);
 
@@ -54,6 +58,7 @@ export default function AiAssistant() {
         window.setTimeout(resolve, REPLY_DELAY_MS);
       });
 
+      const { searchAssistantTrips } = await import("@/lib/ai-assistant/search-trips");
       const result = searchAssistantTrips(trimmed, suggestionId);
 
       const assistantMessage: AiAssistantMessage = {
@@ -118,16 +123,18 @@ export default function AiAssistant() {
   return (
     <div data-ai-assistant-root={instanceId}>
       <AiAssistantFloatingButton onOpen={openPanel} hidden={open} />
-      <AiAssistantChatPanel
-        open={open}
-        messages={messages}
-        inputValue={inputValue}
-        isTyping={isTyping}
-        onClose={closePanel}
-        onInputChange={setInputValue}
-        onSend={handleSend}
-        onSuggestionClick={handleSuggestionClick}
-      />
+      {panelMounted ? (
+        <AiAssistantChatPanel
+          open={open}
+          messages={messages}
+          inputValue={inputValue}
+          isTyping={isTyping}
+          onClose={closePanel}
+          onInputChange={setInputValue}
+          onSend={handleSend}
+          onSuggestionClick={handleSuggestionClick}
+        />
+      ) : null}
     </div>
   );
 }

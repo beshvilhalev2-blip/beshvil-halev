@@ -2,8 +2,9 @@ import Link from "next/link";
 import type { Trip } from "@/data/trips";
 import { getRegionForTrip } from "@/app/components/trip-card";
 import MatchReasonsList from "@/app/find-my-trip/components/match-reasons-list";
+import TripCardImage from "@/app/components/trip-card-image";
 import { PRIMARY_RECOMMENDATION_TITLE } from "@/lib/find-my-trip/constants";
-import { getTripCardLayerStyle } from "@/lib/trip-media";
+import { TRIP_CARD_IMAGE_SIZES } from "@/lib/trip-image-sizes";
 import type { MatchReason } from "@/lib/find-my-trip/types";
 
 function ArrowIcon() {
@@ -42,12 +43,8 @@ export default function PrimaryRecommendationCard({
       className={`overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900 ${borderHover}`}
     >
       <Link href={`/trips/${trip.slug}`} className="group block">
-        <div
-          className="relative aspect-[16/9] bg-no-repeat sm:aspect-[21/9]"
-          style={getTripCardLayerStyle(trip)}
-          role="img"
-          aria-label={trip.heroImageLabel}
-        >
+        <div className="relative aspect-[16/9] overflow-hidden bg-stone-200 sm:aspect-[21/9]">
+          <TripCardImage trip={trip} sizes={TRIP_CARD_IMAGE_SIZES} priority />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
           <span className="absolute right-4 top-4 rounded-full border border-amber-200/40 bg-amber-500/90 px-4 py-1.5 text-xs font-bold text-white shadow-sm sm:text-sm">
             {PRIMARY_RECOMMENDATION_TITLE}

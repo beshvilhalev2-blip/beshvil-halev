@@ -83,7 +83,7 @@ export default function WantToTravelView() {
   const isEmpty = savedTrips.length === 0;
 
   return (
-    <section className="bg-stone-50 px-4 pb-16 pt-28 dark:bg-stone-950 sm:px-6 sm:pb-20 sm:pt-32">
+    <section className="relative px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32">
       <div className="mx-auto max-w-6xl">
         <header className="mb-8 text-center sm:mb-10">
           <p className="mb-3 inline-block rounded-full border border-stone-200 bg-white px-4 py-1.5 text-sm font-medium text-stone-600 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300">

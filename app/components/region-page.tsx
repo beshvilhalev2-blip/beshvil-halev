@@ -46,7 +46,7 @@ export default function RegionPage({
         </div>
       </section>
 
-      <section className="bg-stone-50 px-4 py-12 dark:bg-stone-950 sm:px-6 sm:py-16 md:py-20">
+      <section className="relative px-4 py-12 sm:px-6 sm:py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex items-end justify-between gap-4">
             <div>

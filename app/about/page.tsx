@@ -76,7 +76,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <article className="bg-stone-50 dark:bg-stone-950">
+      <article className="relative">
         {/* My Story */}
         <section className="border-b border-stone-200/80 px-6 py-16 dark:border-stone-800 sm:py-20">
           <div className="mx-auto max-w-3xl">
@@ -112,7 +112,7 @@ export default function AboutPage() {
         </section>
 
         {/* Why I Started */}
-        <section className="border-b border-stone-200/80 bg-white px-6 py-16 dark:border-stone-800 dark:bg-stone-900 sm:py-20">
+        <section className="border-b border-stone-200/80 bg-white/88 px-6 py-16 backdrop-blur-[2px] dark:border-stone-800 dark:bg-stone-900/88 sm:py-20">
           <div className="mx-auto max-w-3xl">
             <SectionHeading>למה הקמנו את בשביל הלב</SectionHeading>
             <div className="space-y-5 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">

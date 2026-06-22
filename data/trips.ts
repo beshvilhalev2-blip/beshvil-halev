@@ -253,6 +253,7 @@ const rawTrips: Trip[] = [
     },
     metaDescription:
       "מסלול מים קסום וקליל למשפחות בצפון — מדריך מלא לנחל השופט עם טיפים, עלויות ומקומות נוספים באזור",
+    heroImage: "/images/places/north/נחל שופט/hero.jpeg",
     heroImageLabel: "תמונת רקע — נחל השופט",
     heroBackgroundImage: nahalHashofetHeroBackground,
     about: [
@@ -278,14 +279,15 @@ const rawTrips: Trip[] = [
       "חנו בחניון המסודר ולכו ברגל עד לנקודת הכניסה",
     ],
     gallery: [
-      { label: "בריכות טבעיות", gradient: "from-emerald-400/40 to-teal-600/30" },
-      { label: "שביל לאורך הנחל", gradient: "from-teal-400/40 to-cyan-600/30" },
-      { label: "צמחייה ירוקה", gradient: "from-green-400/40 to-emerald-700/30" },
-      { label: "משפחה בטיול", gradient: "from-sky-400/40 to-blue-600/30" },
-      { label: "מפל קטן", gradient: "from-cyan-400/40 to-teal-700/30" },
-      { label: "נוף מהשביל", gradient: "from-emerald-500/40 to-stone-600/30" },
+      { src: "/images/places/north/נחל שופט/IMG_3836.jpeg" },
+      { src: "/images/places/north/נחל שופט/IMG_3871%203.jpeg" },
+      { src: "/images/places/north/נחל שופט/IMG_8734.jpeg" },
+      { src: "/images/places/north/נחל שופט/IMG_8748.jpeg" },
+      { src: "/images/places/north/נחל שופט/IMG_8762%202.jpeg" },
+      { src: "/images/places/north/נחל שופט/IMG_8764.jpeg" },
+      { src: "/images/places/north/נחל שופט/IMG_9108.jpeg" },
     ],
-    gallerySubtitle: "תמונות מהמסלול — יוחלפו בתוכן אמיתי",
+    gallerySubtitle: "",
     nearbyPlaces: [
       {
         title: "מעיינות השופט",
@@ -575,9 +577,9 @@ const rawTrips: Trip[] = [
     seoTitle: "עין מודע – מעיין מומלץ למשפחות בצפון | שביל הלב",
     metaDescription:
       "עין מודע הוא אחד המעיינות היפים בצפון. מים צלולים, צל טבעי, שולחנות פיקניק, שירותים ומסלול נוח למשפחות עם ילדים.",
-    heroImage: einModaImages[0],
+    heroImage: "/images/places/north/עין מודע/hero.jpeg",
     heroImageLabel: "תמונת רקע — עין מודע",
-    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(28, 25, 23, 0.7) 100%), url("${einModaImages[0]}")`,
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/עין מודע/hero.jpeg")`,
     wazeUrl:
       "https://waze.com/ul?q=%D7%A2%D7%99%D7%9F%20%D7%9E%D7%95%D7%93%D7%A2&navigate=yes",
     googleMapsUrl:
@@ -618,12 +620,11 @@ const rawTrips: Trip[] = [
       "לשלב עם טיולים נוספים באזור עמק המעיינות",
     ],
     gallery: [
-      { label: "בריכת המעיין", src: einModaImages[0] },
-      { label: "מים צלולים", src: einModaImages[1] },
-      { label: "צל טבעי ועצים", src: einModaImages[2] },
-      { label: "שולחנות פיקניק", src: einModaImages[3] },
+      { src: "/images/places/north/עין מודע/IMG_02.jpeg" },
+      { src: "/images/places/north/עין מודע/IMG_03.jpeg" },
+      { src: "/images/places/north/עין מודע/IMG_04.jpeg" },
     ],
-    gallerySubtitle: "תמונות מעין מודע — בריכה, צל ופיקניק בטבע",
+    gallerySubtitle: "",
     nearbyPlaces: [
       {
         title: "נחל השופט",

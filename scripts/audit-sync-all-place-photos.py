@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
@@ -29,15 +30,22 @@ SYNC_REGIONS = ["north", "hasharon", "center", "jerusalem", "south"]
 HERO_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".heic"}
 WEB_GALLERY_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
+# Direct slug → (region_key, folder_name) for title/alias mismatches (e.g. coming-soon duplicates).
+SLUG_FOLDER_OVERRIDES: dict[str, tuple[str, str]] = {
+    "nchl-shvpt": ("north", "נחל שופט"),
+}
+
 FOLDER_TITLE_ALIASES: dict[str, str] = {
     "פארק נחל לכיש": "פארק לכיש",
-    "מצפה נתן": "מצפה אלון",
     "נחל נקרות יקנעם": "פארק נחל קרת",
     "נחל שופט": "נחל השופט",
     "שמורת תל דן": "נחל דן",
+    "תל דן": "נחל דן",
     "המפל הנסתר פתח תקווה": "המפל הנסתר",
     "שמורת טבע נחל שורק": "שפך נחל שורק",
     "עין חרוד": "מעיין חרוד",
+    "משק בגבעה": "משק בגבעה גדרה",
+    "מצפה אלון": "מצפה נתן",
 }
 
 
@@ -49,6 +57,7 @@ class FolderPhotos:
     gallery_files: list[str] = field(default_factory=list)
     skipped_files: list[str] = field(default_factory=list)
     missing_hero: bool = False
+    auto_selected_hero: bool = False
     newest_mtime: Optional[float] = None
 
 
@@ -108,6 +117,61 @@ def is_gallery_file(name: str) -> bool:
     return not is_hero_file(name)
 
 
+def is_raster_file(name: str) -> bool:
+    return Path(name).suffix.lower() in WEB_GALLERY_EXTENSIONS
+
+
+def get_image_dimensions(path: Path) -> tuple[int, int]:
+    try:
+        result = subprocess.run(
+            ["sips", "-g", "pixelWidth", "-g", "pixelHeight", str(path)],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        width = height = 0
+        for line in result.stdout.splitlines():
+            if "pixelWidth:" in line:
+                width = int(line.split(":")[-1].strip())
+            if "pixelHeight:" in line:
+                height = int(line.split(":")[-1].strip())
+        if width > 0 and height > 0:
+            return width, height
+    except (OSError, ValueError, subprocess.SubprocessError):
+        pass
+    return 0, 0
+
+
+def score_hero_candidate(path: Path) -> tuple[float, int, int]:
+    width, height = get_image_dimensions(path)
+    if width <= 0 or height <= 0:
+        size = path.stat().st_size
+        return float(size), 0, 0
+
+    landscape_bonus = 1.35 if width >= height else 1.0
+    megapixels = (width * height) / 1_000_000
+    size_mb = path.stat().st_size / (1024 * 1024)
+    score = megapixels * landscape_bonus + min(size_mb, 8.0) * 0.15
+    return score, width, height
+
+
+def pick_best_hero_file(folder_path: Path, filenames: list[str]) -> Optional[str]:
+    candidates = [
+        name
+        for name in filenames
+        if is_raster_file(name) and not is_hero_file(name)
+    ]
+    if not candidates:
+        return None
+
+    ranked = sorted(
+        candidates,
+        key=lambda name: score_hero_candidate(folder_path / name),
+        reverse=True,
+    )
+    return ranked[0]
+
+
 def scan_region_folders(region_key: str) -> dict[str, FolderPhotos]:
     region_root = PLACES_ROOT / region_key
     results: dict[str, FolderPhotos] = {}
@@ -123,6 +187,7 @@ def scan_region_folders(region_key: str) -> dict[str, FolderPhotos]:
         files = sorted(
             f for f in folder.iterdir() if f.is_file() and not f.name.startswith(".")
         )
+        filenames = [f.name for f in files]
 
         for file in files:
             filename = file.name
@@ -135,6 +200,14 @@ def scan_region_folders(region_key: str) -> dict[str, FolderPhotos]:
                 photos.gallery_files.append(filename)
             elif Path(filename).suffix.lower() in HERO_EXTENSIONS:
                 photos.skipped_files.append(filename)
+
+        if photos.hero_file is None:
+            auto_hero = pick_best_hero_file(folder, filenames)
+            if auto_hero:
+                photos.hero_file = auto_hero
+                photos.auto_selected_hero = True
+                if auto_hero in photos.gallery_files:
+                    photos.gallery_files.remove(auto_hero)
 
         photos.missing_hero = photos.hero_file is None
         results[folder.name] = photos
@@ -234,6 +307,11 @@ def match_folders_to_trips(
             missing_hero.append(f"{region_key}/{folder_name} → {trip['slug']} ({title})")
             continue
 
+        if photos.auto_selected_hero and photos.hero_file:
+            missing_hero.append(
+                f"AUTO_HERO {region_key}/{folder_name} → {trip['slug']} ({photos.hero_file})"
+            )
+
         hero_url = (
             image_url(region_key, folder_name, photos.hero_file)
             if photos.hero_file
@@ -273,6 +351,44 @@ def match_folders_to_trips(
         matches.append(best)
 
     return matches, unmatched_folders, missing_hero
+
+
+def build_slug_override_matches(
+    all_folders: dict[str, dict[str, FolderPhotos]],
+    all_trips: list[dict[str, str]],
+) -> list[PlaceMatch]:
+    slug_to_trip = {trip["slug"]: trip for trip in all_trips}
+    matches: list[PlaceMatch] = []
+
+    for slug, (region_key, folder_name) in SLUG_FOLDER_OVERRIDES.items():
+        trip = slug_to_trip.get(slug)
+        photos = all_folders.get(region_key, {}).get(folder_name)
+        if trip is None or photos is None or photos.missing_hero:
+            continue
+
+        hero_url = (
+            image_url(region_key, folder_name, photos.hero_file)
+            if photos.hero_file
+            else None
+        )
+        gallery_urls = [
+            image_url(region_key, folder_name, filename)
+            for filename in photos.gallery_files
+        ]
+        matches.append(
+            PlaceMatch(
+                region_key=region_key,
+                folder_name=folder_name,
+                slug=slug,
+                title=trip["title"],
+                trip_region=trip["region"],
+                source=trip["source"],
+                hero_url=hero_url,
+                gallery_urls=gallery_urls,
+            )
+        )
+
+    return matches
 
 
 def render_gallery(urls: list[str], indent: str = "    ") -> str:
@@ -375,6 +491,125 @@ def patch_trips_file(
 
 def disk_path_from_url(url: str) -> Path:
     return PROJECT_ROOT / "public" / unquote(url.lstrip("/"))
+
+
+def url_from_disk_path(path: Path) -> str:
+    rel = path.relative_to(PROJECT_ROOT / "public")
+    parts = rel.parts
+    if len(parts) < 4 or parts[0] != "images" or parts[1] != "places":
+        return "/" + rel.as_posix()
+    region_key, folder_name = parts[2], parts[3]
+    filename = "/".join(parts[4:])
+    return image_url(region_key, folder_name, filename)
+
+
+def resolve_broken_image_url(url: str) -> tuple[str, bool]:
+    path = disk_path_from_url(url)
+    if path.is_file():
+        return url, False
+
+    parent = path.parent
+    if not parent.is_dir():
+        return url, False
+
+    target_name = path.name
+    target_stem = path.stem.lower()
+    target_suffix = path.suffix.lower()
+
+    for candidate in parent.iterdir():
+        if not candidate.is_file() or candidate.name.startswith("."):
+            continue
+        if candidate.name == target_name:
+            return url_from_disk_path(candidate), True
+        if (
+            candidate.stem.lower() == target_stem
+            and candidate.suffix.lower() == target_suffix
+        ):
+            return url_from_disk_path(candidate), True
+
+    return url, False
+
+
+def validate_and_fix_trip_file_paths(path: Path) -> tuple[list[dict], list[dict]]:
+    text = path.read_text(encoding="utf-8")
+    fixed: list[dict] = []
+    broken: list[dict] = []
+
+    def replace_url(match: re.Match[str]) -> str:
+        key = match.group(1)
+        url = match.group(2)
+        if not url.startswith("/images/places/"):
+            return match.group(0)
+        resolved, changed = resolve_broken_image_url(url)
+        if not disk_path_from_url(resolved).is_file():
+            broken.append({"file": path.name, "field": key, "url": url})
+            return match.group(0)
+        if changed:
+            fixed.append({"file": path.name, "field": key, "from": url, "to": resolved})
+            return f'{key}: "{escape_ts(resolved)}"'
+        return match.group(0)
+
+    patterns = [
+        re.compile(r'(heroImage): "([^"]+)"'),
+        re.compile(r'(src): "([^"]+)"'),
+    ]
+
+    updated = text
+    for pattern in patterns:
+        updated = pattern.sub(replace_url, updated)
+
+    if updated != text:
+        path.write_text(updated, encoding="utf-8")
+
+    return fixed, broken
+
+
+def load_site_visible_slugs() -> dict[str, str]:
+    sync_file = PROJECT_ROOT / "data" / "places-filter-sync.ts"
+    text = sync_file.read_text(encoding="utf-8")
+    slugs: dict[str, str] = {}
+    pattern = re.compile(
+        r'"([^"]+)": \{ region: "[^"]+", regionSlug: "[^"]+", excelName: "([^"]+)"'
+    )
+    for match in pattern.finditer(text):
+        slugs[match.group(1)] = match.group(2)
+    return slugs
+
+
+def find_trips_without_folders(
+    site_slugs: dict[str, str],
+    all_trips: list[dict[str, str]],
+    all_folders: dict[str, dict[str, FolderPhotos]],
+) -> list[dict]:
+    folder_titles = {
+        trip_title_for_folder(name)
+        for folders in all_folders.values()
+        for name, photos in folders.items()
+        if photos.hero_file or photos.gallery_files
+    }
+    slug_to_title = {trip["slug"]: trip["title"] for trip in all_trips}
+
+    missing: list[dict] = []
+    for slug, excel_name in sorted(site_slugs.items(), key=lambda item: item[1]):
+        title = slug_to_title.get(slug, excel_name)
+        names_to_check = {title, excel_name, trip_title_for_folder(excel_name)}
+        if not any(name in folder_titles for name in names_to_check):
+            has_any_folder = any(
+                folder_name == title
+                or folder_name == excel_name
+                or trip_title_for_folder(folder_name) == title
+                for folders in all_folders.values()
+                for folder_name in folders
+            )
+            missing.append(
+                {
+                    "slug": slug,
+                    "title": title,
+                    "excelName": excel_name,
+                    "hasImageFolderOnDisk": has_any_folder,
+                }
+            )
+    return missing
 
 
 def verify_paths(matches: list[PlaceMatch]) -> tuple[list[str], list[str]]:
@@ -490,6 +725,16 @@ def main() -> int:
     before_states = extract_trip_media_states()
     all_trips = load_all_trips()
 
+    path_fixes: list[dict] = []
+    remaining_broken: list[dict] = []
+    for trip_file in (VISITED_TRIPS_FILE, TRIPS_FILE):
+        fixed, broken = validate_and_fix_trip_file_paths(trip_file)
+        path_fixes.extend(fixed)
+        remaining_broken.extend(broken)
+
+    if path_fixes:
+        before_states = extract_trip_media_states()
+
     all_folders: dict[str, dict[str, FolderPhotos]] = {}
     all_matches: list[PlaceMatch] = []
     all_unmatched: list[str] = []
@@ -505,6 +750,13 @@ def main() -> int:
         all_unmatched.extend(unmatched)
         all_missing_hero.extend(missing_hero)
 
+    override_matches = build_slug_override_matches(all_folders, all_trips)
+    existing_slug_matches = {m.slug for m in all_matches}
+    for match in override_matches:
+        if match.slug not in existing_slug_matches:
+            all_matches.append(match)
+            existing_slug_matches.add(match.slug)
+
     visited_updated = patch_trips_file(
         VISITED_TRIPS_FILE, all_matches, "visited", before_states
     )
@@ -516,6 +768,18 @@ def main() -> int:
     new_heroes, new_galleries = build_sync_changes(before_states, after_states)
     missing_files, duplicates = verify_paths(all_matches)
     recent_images = detect_new_disk_images(all_folders)
+    site_slugs = load_site_visible_slugs()
+    trips_without_folders = find_trips_without_folders(
+        site_slugs, all_trips, all_folders
+    )
+    auto_selected_heroes = [
+        entry
+        for entry in all_missing_hero
+        if entry.startswith("AUTO_HERO ")
+    ]
+    folders_still_missing_hero = [
+        entry for entry in all_missing_hero if not entry.startswith("AUTO_HERO ")
+    ]
 
     matched_slugs = {m.slug for m in all_matches}
     folders_with_hero = sum(
@@ -565,7 +829,12 @@ def main() -> int:
             "newOrUpdatedGalleries": new_galleries,
             "visitedTripsUpdated": visited_updated,
             "publishedTripsUpdated": published_updated,
+            "totalTripsUpdated": len(set(visited_updated + published_updated)),
         },
+        "autoSelectedHeroes": auto_selected_heroes,
+        "brokenPathsFixed": path_fixes,
+        "brokenPathsRemaining": remaining_broken,
+        "tripsWithoutImageFolders": trips_without_folders,
         "B_unmatched_folders": all_unmatched,
         "C_missing_media": missing_media,
         "D_coverage_summary": {
@@ -577,9 +846,10 @@ def main() -> int:
             "totalPlaceFolders": total_folders,
             "foldersWithHeroFile": folders_with_hero,
             "foldersMatchedToTrips": len(all_matches),
+            "autoHeroSelections": len(auto_selected_heroes),
         },
         "recentDiskImages": recent_images,
-        "foldersMissingHero": all_missing_hero,
+        "foldersMissingHero": folders_still_missing_hero,
         "missingFilesOnDisk": missing_files,
         "duplicateAssignments": duplicates,
         "previousAuditGeneratedAt": previous_report.get("generatedAt"),
@@ -590,13 +860,23 @@ def main() -> int:
     print("Image sync audit")
     print(f"Folders scanned: {total_folders} ({folders_with_hero} with hero.*)")
     print(f"Matched to trips: {len(all_matches)}")
+    print(f"Auto-selected heroes: {len(auto_selected_heroes)}")
     print(f"New hero images: {len(new_heroes)}")
     print(f"Gallery updates: {len(new_galleries)}")
     print(f"Visited updated: {len(visited_updated)}")
     print(f"Published updated: {len(published_updated)}")
+    print(f"Total trips updated: {len(set(visited_updated + published_updated))}")
+    print(f"Broken paths fixed: {len(path_fixes)}")
+    print(f"Broken paths remaining: {len(remaining_broken)}")
     print(f"Unmatched folders: {len(all_unmatched)}")
+    print(f"Trips without image folders: {len(trips_without_folders)}")
     print(f"Trips with real hero: {real_hero_count}/{len(after_states)}")
     print(f"\nReport: {REPORT_FILE}")
+
+    if auto_selected_heroes:
+        print("\nAuto-selected hero images:")
+        for item in auto_selected_heroes:
+            print(f"  ✓ {item.replace('AUTO_HERO ', '')}")
 
     if new_heroes:
         print("\nNew hero images:")
@@ -610,6 +890,18 @@ def main() -> int:
                 f"  ✓ {item['title']} ({item['slug']}): "
                 f"{item['previousGalleryCount']} → {item['galleryCount']}"
             )
+
+    if path_fixes:
+        print("\nBroken paths fixed:")
+        for item in path_fixes[:20]:
+            print(f"  ✓ {item['file']} {item['field']}: {item['from']} → {item['to']}")
+        if len(path_fixes) > 20:
+            print(f"  ... and {len(path_fixes) - 20} more")
+
+    if remaining_broken:
+        print("\nBroken paths remaining:")
+        for item in remaining_broken[:20]:
+            print(f"  - {item['file']} {item['field']}: {item['url']}")
 
     if all_unmatched:
         print("\nUnmatched folders:")

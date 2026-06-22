@@ -72,7 +72,7 @@ export default function SiteFooter({ variant = "default" }: { variant?: "default
   const footerSurfaceClass =
     variant === "home"
       ? "relative border-t border-stone-200/40 bg-transparent px-4 py-12 sm:px-6 sm:py-14"
-      : "border-t border-stone-200 bg-stone-100 px-4 py-12 dark:border-stone-800 dark:bg-stone-950 sm:px-6 sm:py-14";
+      : "relative border-t border-stone-200/45 bg-[#FAF8F5]/35 px-4 py-12 backdrop-blur-[2px] dark:border-stone-800/60 dark:bg-stone-950/40 sm:px-6 sm:py-14";
 
   return (
     <footer className={footerSurfaceClass}>

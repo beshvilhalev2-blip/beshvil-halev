@@ -1,17 +1,94 @@
 {
   "regions": {
     "NORTH": {
-      "locations_found": 36,
-      "photos_found": 31,
-      "locations_matched": 4,
-      "locations_matched_in_region": 4,
+      "locations_found": 34,
+      "photos_found": 143,
+      "locations_matched": 22,
+      "locations_matched_in_region": 22,
       "matched": [
+        {
+          "title": "אגמון החולה",
+          "slug": "gmvn-hchvlh",
+          "folder": "אגמון החולה",
+          "trip_region": "צפון",
+          "gallery_count": 0
+        },
+        {
+          "title": "בניאס",
+          "slug": "bnys",
+          "folder": "בניאס",
+          "trip_region": "צפון",
+          "gallery_count": 5
+        },
+        {
+          "title": "בריכת רם - מסעדה",
+          "slug": "brykt-rm-msdh",
+          "folder": "בריכת רם - מסעדה",
+          "trip_region": "צפון",
+          "gallery_count": 2
+        },
+        {
+          "title": "בת שלמה",
+          "slug": "bt-shlmh",
+          "folder": "בת שלמה",
+          "trip_region": "צפון",
+          "gallery_count": 12
+        },
+        {
+          "title": "גני חוגה",
+          "slug": "gny-chvgh",
+          "folder": "גני חוגה",
+          "trip_region": "צפון",
+          "gallery_count": 3
+        },
         {
           "title": "החוף של מוש אכזיב",
           "slug": "hchvf-shl-mvsh-kzyb",
           "folder": "החוף של מוש אכזיב",
           "trip_region": "צפון",
           "gallery_count": 3
+        },
+        {
+          "title": "חרמון",
+          "slug": "chrmvn",
+          "folder": "חרמון",
+          "trip_region": "צפון",
+          "gallery_count": 4
+        },
+        {
+          "title": "יבניאל כפר כמא",
+          "slug": "ybnyl-kpr-km",
+          "folder": "יבניאל כפר כמא",
+          "trip_region": "צפון",
+          "gallery_count": 6
+        },
+        {
+          "title": "יקב רמת הגולן",
+          "slug": "ykb-rmt-hgvln",
+          "folder": "יקב רמת הגולן",
+          "trip_region": "צפון",
+          "gallery_count": 3
+        },
+        {
+          "title": "כינרת",
+          "slug": "kynrt",
+          "folder": "כינרת",
+          "trip_region": "צפון",
+          "gallery_count": 9
+        },
+        {
+          "title": "מסעדת דג על הדן",
+          "slug": "msdt-dg-l-hdn",
+          "folder": "מסעדת דג על הדן",
+          "trip_region": "צפון",
+          "gallery_count": 2
+        },
+        {
+          "title": "מעיין חרוד",
+          "slug": "myyn-chrvd",
+          "folder": "מעיין חרוד",
+          "trip_region": "צפון",
+          "gallery_count": 6
         },
         {
           "title": "מפל תנור גבול לבנון",
@@ -21,6 +98,27 @@
           "gallery_count": 3
         },
         {
+          "title": "נחל נקרות יקנעם",
+          "slug": "nchl-nkrvt-yknm",
+          "folder": "נחל נקרות יקנעם",
+          "trip_region": "צפון",
+          "gallery_count": 1
+        },
+        {
+          "title": "נחל שופט",
+          "slug": "nchl-shvpt",
+          "folder": "נחל שופט",
+          "trip_region": "צפון",
+          "gallery_count": 7
+        },
+        {
+          "title": "סכר אלומות",
+          "slug": "skr-lvmvt",
+          "folder": "סכר אלומות",
+          "trip_region": "צפון",
+          "gallery_count": 2
+        },
+        {
           "title": "עין חרדלית",
           "slug": "yn-chrdlyt",
           "folder": "עין חרדלית",
@@ -28,152 +126,99 @@
           "gallery_count": 3
         },
         {
+          "title": "פארק המעיינות",
+          "slug": "prk-hmyynvt",
+          "folder": "פארק המעיינות",
+          "trip_region": "צפון",
+          "gallery_count": 3
+        },
+        {
+          "title": "קיבוץ אפיקים",
+          "slug": "kybvtz-pykym",
+          "folder": "קיבוץ אפיקים",
+          "trip_region": "צפון",
+          "gallery_count": 10
+        },
+        {
           "title": "ראש הנקרה",
           "slug": "rsh-hnkrh",
           "folder": "ראש הנקרה",
           "trip_region": "צפון",
           "gallery_count": 6
+        },
+        {
+          "title": "רוב רוי",
+          "slug": "rvb-rvy",
+          "folder": "רוב רוי",
+          "trip_region": "צפון",
+          "gallery_count": 6
+        },
+        {
+          "title": "שמורת טבע גמלא",
+          "slug": "shmvrt-tb-gml",
+          "folder": "שמורת טבע גמלא",
+          "trip_region": "צפון",
+          "gallery_count": 4
         }
       ],
       "still_using_placeholders": [
         "מצפה ארבל",
         "נחל דן",
-        "בריכת רם - מסעדה",
-        "חרמון",
-        "אגמון החולה",
-        "קיבוץ אפיקים",
         "פוסט קיבוץ אפיקים",
-        "יבניאל כפר כמא",
-        "נחל שופט",
-        "פארק המעיינות",
         "מעיין הסוסים",
         "שמורת טבע בניאס",
-        "מסעדת דג על הדן",
         "קלאב הוטל",
         "נצרת",
-        "נחל נקרות יקנעם",
-        "רוב רוי",
         "נחל הקיבוצים",
         "נחל האסי",
         "חורשת גדעונה",
-        "בניאס",
-        "שמורת טבע גמלא",
-        "יקב רמת הגולן",
-        "מעיין חרוד",
-        "כינרת",
-        "גני חוגה",
-        "סכר אלומות",
         "עכו",
-        "בת שלמה",
         "נחל השופט",
         "עין מודע",
         "בלאגן ביגור",
         "חוף נהריה",
-        "אגמון החולה",
-        "בניאס",
-        "בריכת רם - מסעדה",
-        "בת שלמה",
-        "גני חוגה",
+        "תל דן",
         "חורשת גדעונה",
-        "חרמון",
-        "יבניאל כפר כמא",
-        "יקב רמת הגולן",
-        "כינרת",
-        "מסעדת דג על הדן",
         "מעיין הסוסים",
-        "מעיין חרוד",
         "מצפה ארבל",
-        "נחל דן",
         "נחל האסי",
         "נחל הקיבוצים",
-        "נחל נקרות יקנעם",
-        "נחל שופט",
         "נצרת",
-        "סכר אלומות",
         "עין מודע",
         "עכו",
-        "פארק המעיינות",
-        "פוסט קיבוץ אפיקים",
-        "קיבוץ אפיקים",
-        "קלאב הוטל",
-        "רוב רוי",
-        "שמורת טבע בניאס",
-        "שמורת טבע גמלא"
+        "שמורת טבע בניאס"
       ],
       "unmatched_folders": [
         "בלאגן ביגור",
-        "חוף נהריה"
+        "חוף נהריה",
+        "תל דן"
       ],
       "folders_missing_hero": [
-        "אגמון החולה",
-        "בניאס",
-        "בריכת רם - מסעדה",
-        "בת שלמה",
-        "גני חוגה",
         "חורשת גדעונה",
-        "חרמון",
-        "יבניאל כפר כמא",
-        "יקב רמת הגולן",
-        "כינרת",
-        "מסעדת דג על הדן",
         "מעיין הסוסים",
-        "מעיין חרוד",
         "מצפה ארבל",
-        "נחל דן",
         "נחל האסי",
         "נחל הקיבוצים",
-        "נחל נקרות יקנעם",
-        "נחל שופט",
         "נצרת",
-        "סכר אלומות",
         "עין מודע",
         "עכו",
-        "פארק המעיינות",
-        "פוסט קיבוץ אפיקים",
-        "קיבוץ אפיקים",
-        "קלאב הוטל",
-        "רוב רוי",
-        "שמורת טבע בניאס",
-        "שמורת טבע גמלא"
+        "שמורת טבע בניאס"
       ],
       "empty_folders": [
-        "אגמון החולה",
-        "בניאס",
-        "בריכת רם - מסעדה",
-        "בת שלמה",
-        "גני חוגה",
         "חורשת גדעונה",
-        "חרמון",
-        "יבניאל כפר כמא",
-        "יקב רמת הגולן",
-        "כינרת",
-        "מסעדת דג על הדן",
         "מעיין הסוסים",
-        "מעיין חרוד",
         "מצפה ארבל",
-        "נחל דן",
-        "נחל האסי",
-        "נחל הקיבוצים",
-        "נחל נקרות יקנעם",
-        "נחל שופט",
         "נצרת",
-        "סכר אלומות",
         "עין מודע",
         "עכו",
-        "פארק המעיינות",
-        "פוסט קיבוץ אפיקים",
-        "קיבוץ אפיקים",
-        "קלאב הוטל",
-        "רוב רוי",
-        "שמורת טבע בניאס",
-        "שמורת טבע גמלא"
+        "שמורת טבע בניאס"
       ]
     },
     "HASHARON": {
-      "locations_found": 10,
-      "photos_found": 61,
-      "locations_matched": 6,
-      "locations_matched_in_region": 0,
+      "locations_found": 11,
+      "photos_found": 69,
+      "locations_matched": 7,
+      "locations_matched_in_region": 1,
       "matched": [
         {
           "title": "חוף עתלית",
@@ -211,6 +256,13 @@
           "gallery_count": 9
         },
         {
+          "title": "פארק אוטופיה",
+          "slug": "prk-vtvpyh",
+          "folder": "פארק אוטופיה",
+          "trip_region": "השרון",
+          "gallery_count": 7
+        },
+        {
           "title": "פארק אקולוגי הוד השרון",
           "slug": "prk-kvlvgy-hvd-hshrvn",
           "folder": "פארק אקולוגי הוד השרון",
@@ -238,9 +290,9 @@
     },
     "CENTER": {
       "locations_found": 29,
-      "photos_found": 70,
-      "locations_matched": 8,
-      "locations_matched_in_region": 7,
+      "photos_found": 130,
+      "locations_matched": 18,
+      "locations_matched_in_region": 17,
       "matched": [
         {
           "title": "בית לאה",
@@ -257,11 +309,46 @@
           "gallery_count": 7
         },
         {
+          "title": "גבעת הרקפות",
+          "slug": "gbt-hrkpvt",
+          "folder": "גבעת הרקפות",
+          "trip_region": "מרכז",
+          "gallery_count": 1
+        },
+        {
+          "title": "גן לאומי מגדל צדק",
+          "slug": "gn-lvmy-mgdl-tzdk",
+          "folder": "גן לאומי מגדל צדק",
+          "trip_region": "מרכז",
+          "gallery_count": 5
+        },
+        {
           "title": "המפל הנסתר",
           "slug": "hmpl-hnstr",
           "folder": "המפל הנסתר",
           "trip_region": "מרכז",
           "gallery_count": 6
+        },
+        {
+          "title": "חוף החשמל",
+          "slug": "chvf-hchshml",
+          "folder": "חוף החשמל",
+          "trip_region": "מרכז",
+          "gallery_count": 4
+        },
+        {
+          "title": "טל שחר",
+          "slug": "tl-shchr",
+          "folder": "טל שחר",
+          "trip_region": "מרכז",
+          "gallery_count": 4
+        },
+        {
+          "title": "יער המגינים",
+          "slug": "yr-hmgynym",
+          "folder": "יער המגינים",
+          "trip_region": "מרכז",
+          "gallery_count": 1
         },
         {
           "title": "לגעת בחיות",
@@ -271,11 +358,39 @@
           "gallery_count": 6
         },
         {
+          "title": "מוזיאון הילדים חולון",
+          "slug": "mvzyvn-hyldym-chvlvn",
+          "folder": "מוזיאון הילדים חולון",
+          "trip_region": "מרכז",
+          "gallery_count": 6
+        },
+        {
           "title": "מעיינות גיבתון",
           "slug": "myynvt-gybtvn",
           "folder": "מעיינות גיבתון",
           "trip_region": "מרכז",
           "gallery_count": 8
+        },
+        {
+          "title": "משמר דוד",
+          "slug": "mshmr-dvd",
+          "folder": "משמר דוד",
+          "trip_region": "מרכז",
+          "gallery_count": 8
+        },
+        {
+          "title": "משק בגבעה גדרה",
+          "slug": "mshk-bgbh-gdrh",
+          "folder": "משק בגבעה",
+          "trip_region": "מרכז",
+          "gallery_count": 3
+        },
+        {
+          "title": "פארק אריאל שרון",
+          "slug": "prk-ryl-shrvn",
+          "folder": "פארק אריאל שרון",
+          "trip_region": "מרכז",
+          "gallery_count": 3
         },
         {
           "title": "רבדים",
@@ -297,11 +412,17 @@
           "folder": "תל אפק",
           "trip_region": "מרכז",
           "gallery_count": 9
+        },
+        {
+          "title": "תל חדיד",
+          "slug": "tl-chdyd",
+          "folder": "תל חדיד",
+          "trip_region": "מרכז",
+          "gallery_count": 4
         }
       ],
       "still_using_placeholders": [
         "רמת גן - ספארי",
-        "פארק אריאל שרון",
         "פארק מים שפיים",
         "פארק רעננה",
         "נחל אלכסנדר",
@@ -311,101 +432,60 @@
         "נחל תנינים",
         "מעגן מיכאל פסל הלב",
         "יקב כרם ברק",
-        "חוף החשמל",
         "תל גזר",
         "פארק קנדה",
         "פארק אקולוגי הוד השרון",
         "תחנת אבו רבאח",
-        "יער המגינים",
         "קלחים ומבוכים",
-        "גן לאומי מגדל צדק",
-        "טל שחר",
         "עיזה פזיזה",
-        "משמר דוד",
-        "מוזיאון הילדים חולון",
         "נוף איילון",
         "פארק בריטניה",
-        "גבעת הרקפות",
-        "תל חדיד",
         "מצפה נתן",
-        "משק בגבעה גדרה",
         "יער בן שמן",
         "שפך נחל שורק",
         "גבעת החרובים",
         "מצפה אלון",
-        "גבעת הרקפות",
-        "גן לאומי מגדל צדק",
-        "חוף החשמל",
-        "טל שחר",
-        "יער המגינים",
         "יקב כרם ברק",
-        "מוזיאון הילדים חולון",
-        "משמר דוד",
-        "משק בגבעה",
         "נוף איילון",
         "עיזה פזיזה",
-        "פארק אריאל שרון",
         "פארק בריטניה",
         "פארק מים שפיים",
         "פארק קנדה",
         "רמת גן - ספארי",
         "תחנת אבו רבאח",
-        "תל גזר",
-        "תל חדיד"
+        "תל גזר"
       ],
       "unmatched_folders": [
         "גבעת החרובים",
         "מצפה אלון"
       ],
       "folders_missing_hero": [
-        "גבעת הרקפות",
-        "גן לאומי מגדל צדק",
-        "חוף החשמל",
-        "טל שחר",
-        "יער המגינים",
         "יקב כרם ברק",
-        "מוזיאון הילדים חולון",
-        "משמר דוד",
-        "משק בגבעה",
         "נוף איילון",
         "עיזה פזיזה",
-        "פארק אריאל שרון",
         "פארק בריטניה",
         "פארק מים שפיים",
         "פארק קנדה",
         "רמת גן - ספארי",
         "תחנת אבו רבאח",
-        "תל גזר",
-        "תל חדיד"
+        "תל גזר"
       ],
       "empty_folders": [
-        "גבעת הרקפות",
-        "גן לאומי מגדל צדק",
-        "חוף החשמל",
-        "טל שחר",
-        "יער המגינים",
-        "יקב כרם ברק",
-        "מוזיאון הילדים חולון",
-        "משמר דוד",
-        "משק בגבעה",
         "נוף איילון",
-        "עיזה פזיזה",
-        "פארק אריאל שרון",
         "פארק בריטניה",
         "פארק מים שפיים",
         "פארק קנדה",
         "רמת גן - ספארי",
         "תחנת אבו רבאח",
-        "תל גזר",
-        "תל חדיד"
+        "תל גזר"
       ]
     }
   },
   "summary": {
-    "total_folders_scanned": 75,
-    "total_photos_found": 162,
-    "total_locations_matched": 18,
-    "visited_trips_updated": 18,
+    "total_folders_scanned": 74,
+    "total_photos_found": 342,
+    "total_locations_matched": 47,
+    "visited_trips_updated": 47,
     "published_trips_updated": 0,
     "missing_files_on_disk": [],
     "duplicate_assignments": []

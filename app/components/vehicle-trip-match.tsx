@@ -5,7 +5,15 @@ import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 import TripCard, { getRegionForTrip } from "@/app/components/trip-card";
 import { getPublishedTrips } from "@/data/trips";
-import { getTripsForVehicleCategory } from "@/lib/trip-vehicle-access";
+import {
+  getTripsForVehicleCategory,
+} from "@/lib/trip-vehicle-access";
+import {
+  COMPATIBILITY_DISCLAIMER,
+  getCompatibilityCategoryInfo,
+  getWarningLevelStyles,
+  PRIVATE_CAR_RECOMMENDATIONS,
+} from "@/lib/vehicle-compatibility";
 import {
   getModelsForBrand,
   getVehicleBrands,
@@ -268,9 +276,11 @@ function VehicleResultCard({
   onFindTrips: () => void;
   showTrips: boolean;
 }) {
-  const category = getCategoryById(vehicle.category);
-  const routes = getRoutesForCategory(vehicle.category);
-  const warnings = getWarningsForCategory(vehicle.category);
+  const compatibility = getCompatibilityCategoryInfo(vehicle.category);
+  const warningStyles = getWarningLevelStyles(compatibility.warningLevel);
+  const tripCategory = getCategoryById(vehicle.tripCategory);
+  const routes = getRoutesForCategory(vehicle.tripCategory);
+  const warnings = getWarningsForCategory(vehicle.tripCategory);
 
   return (
     <div
@@ -285,14 +295,22 @@ function VehicleResultCard({
         <p className="mb-1 text-sm font-medium text-stone-500 dark:text-stone-400">
           הרכב שלכם
         </p>
-        <p className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-50 sm:text-2xl">
+        <p className="mb-3 text-xl font-bold text-stone-900 dark:text-stone-50 sm:text-2xl">
           {vehicle.label}
         </p>
-        <p className="mb-1 text-base font-semibold text-stone-800 dark:text-stone-200">
-          {category.label}
+        <span
+          className={`mb-3 inline-flex rounded-full px-3 py-1 text-sm font-semibold ${warningStyles.badge}`}
+        >
+          {compatibility.label}
+        </span>
+        <p className="mb-4 text-base leading-relaxed text-stone-600 dark:text-stone-400">
+          {compatibility.summary}
         </p>
-        <p className="text-base leading-relaxed text-stone-600 dark:text-stone-400">
-          {category.summary}
+        <p
+          className={`rounded-xl border px-4 py-3 text-sm leading-relaxed ${warningStyles.panel}`}
+        >
+          <strong className="font-semibold">רמת זהירות: </strong>
+          {compatibility.warningLabel}
         </p>
       </div>
 
@@ -300,6 +318,52 @@ function VehicleResultCard({
         <h3 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-50">
           סוגי מסלולים — מה מתאים?
         </h3>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {compatibility.suitableTripTypes.map((tripType) => (
+            <li
+              key={tripType}
+              className="flex items-start gap-3 rounded-xl border border-emerald-200/80 bg-emerald-50/60 px-4 py-3.5 shadow-sm dark:border-emerald-900/40 dark:bg-emerald-950/20"
+            >
+              <span
+                className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
+                aria-hidden="true"
+              >
+                <CheckIcon />
+              </span>
+              <span className="text-sm leading-relaxed text-stone-700 dark:text-stone-300 sm:text-base">
+                {tripType}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-50">
+          מסננים מומלצים
+        </h3>
+        <ul className="flex flex-wrap gap-2">
+          {(vehicle.category === "privateCar"
+            ? PRIVATE_CAR_RECOMMENDATIONS
+            : compatibility.recommendedFilters
+          ).map((filter) => (
+            <li
+              key={filter}
+              className="rounded-full border border-stone-200/80 bg-white px-4 py-2 text-sm font-medium text-stone-700 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-300"
+            >
+              {filter}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 className="mb-2 text-lg font-bold text-stone-900 dark:text-stone-50">
+          התאמה מפורטת לפי סוג גישה
+        </h3>
+        <p className="mb-4 text-sm text-stone-500 dark:text-stone-400">
+          מיפוי ל{tripCategory.label} — לבדיקת מסלולים ספציפיים באתר
+        </p>
         <ul className="grid gap-3 sm:grid-cols-2">
           {routes.map((route) => (
             <li
@@ -342,6 +406,13 @@ function VehicleResultCard({
         </div>
       )}
 
+      <p
+        className="rounded-xl border border-stone-200/80 bg-stone-50 px-4 py-3.5 text-sm leading-relaxed text-stone-600 dark:border-stone-700 dark:bg-stone-950 dark:text-stone-400"
+        role="note"
+      >
+        {COMPATIBILITY_DISCLAIMER}
+      </p>
+
       <button
         type="button"
         onClick={onFindTrips}
@@ -372,17 +443,20 @@ export default function VehicleTripMatch() {
   );
 
   const resolvedVehicle = useMemo(() => {
-    if (!brandId || !modelId || !year) return null;
+    if (!brandId || !modelId) return null;
     return resolveVehicleSelection({
       brandId,
       modelId,
-      year: Number(year),
+      year: year ? Number(year) : undefined,
     });
   }, [brandId, modelId, year]);
 
   const matchedTrips = useMemo(() => {
     if (!resolvedVehicle) return [];
-    return getTripsForVehicleCategory(getPublishedTrips(), resolvedVehicle.category);
+    return getTripsForVehicleCategory(
+      getPublishedTrips(),
+      resolvedVehicle.tripCategory,
+    );
   }, [resolvedVehicle]);
 
   function resetResults() {
@@ -422,21 +496,21 @@ export default function VehicleTripMatch() {
     });
   }
 
-  const yearSelected = Boolean(year);
+  const modelSelected = Boolean(modelId);
   const selectionComplete = Boolean(resolvedVehicle);
 
   return (
     <section
       id="vehicle-match"
-      className="border-b border-stone-200/80 bg-white px-6 py-16 dark:border-stone-800 dark:bg-stone-900 sm:py-20"
+      className="relative border-b border-stone-200/80 bg-white/88 px-6 py-16 backdrop-blur-[2px] dark:border-stone-800 dark:bg-stone-900/88 sm:py-20"
     >
       <div className="mx-auto max-w-3xl">
         <h2 className="mb-3 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
           איזה רכב יש לך?
         </h2>
         <p className="mb-6 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-          בחרו יצרן, דגם ושנה — ונראה לכם איזה סוגי מסלולים עשויים להתאים לרכב
-          שלכם.
+          בחרו יצרן ודגם — ונראה לכם איזה סוגי מסלולים עשויים להתאים לרכב
+          שלכם. שנה היא אופציונלית.
         </p>
 
         <div
@@ -499,7 +573,7 @@ export default function VehicleTripMatch() {
               htmlFor="vehicle-year"
               className="mb-2 block text-sm font-semibold text-stone-800 dark:text-stone-200"
             >
-              שנה
+              שנה <span className="font-normal text-stone-500">(אופציונלי)</span>
             </label>
             <select
               id="vehicle-year"
@@ -508,7 +582,7 @@ export default function VehicleTripMatch() {
               disabled={!modelId}
               className={selectClassName}
             >
-              <option value="">בחרו שנה</option>
+              <option value="">לא חובה</option>
               {[...years].reverse().map((item) => (
                 <option key={item} value={item}>
                   {item}
@@ -518,9 +592,9 @@ export default function VehicleTripMatch() {
           </div>
         </div>
 
-        {!yearSelected && (
+        {!modelSelected && (
           <p className="mb-8 text-sm text-stone-500 dark:text-stone-500">
-            בחרו יצרן, דגם ושנה כדי לראות התאמה והמלצות.
+            בחרו יצרן ודגם כדי לראות התאמה והמלצות.
           </p>
         )}
 
@@ -540,7 +614,7 @@ export default function VehicleTripMatch() {
               </h3>
               <p className="text-stone-500 dark:text-stone-400">
                 {matchedTrips.length > 0
-                  ? `${matchedTrips.length} מסלולים מתאימים ל${getCategoryById(resolvedVehicle.category).shortLabel}`
+                  ? `${matchedTrips.length} מסלולים מתאימים ל${getCategoryById(resolvedVehicle.tripCategory).shortLabel}`
                   : "לא נמצאו מסלולים מתאימים כרגע — נוסיף עוד בקרוב"}
               </p>
             </div>

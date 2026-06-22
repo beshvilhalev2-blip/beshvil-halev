@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
-import AiAssistant from "@/app/components/ai-assistant/ai-assistant";
+import AiAssistantLazy from "@/app/components/ai-assistant/ai-assistant-lazy";
+import SiteAtmosphereGate from "@/app/components/site-atmosphere-gate";
+import { HOME_ATMOSPHERE_BASE } from "@/app/components/home-page-atmosphere";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -32,9 +34,13 @@ export default function RootLayout({
       dir="rtl"
       className={`${heebo.variable} h-full antialiased`}
     >
-      <body className="flex min-h-screen flex-col font-sans">
-        {children}
-        <AiAssistant />
+      <body
+        className="flex min-h-screen flex-col font-sans"
+        style={{ backgroundColor: HOME_ATMOSPHERE_BASE }}
+      >
+        <SiteAtmosphereGate />
+        <div className="relative z-10 flex min-h-screen flex-1 flex-col">{children}</div>
+        <AiAssistantLazy />
       </body>
     </html>
   );

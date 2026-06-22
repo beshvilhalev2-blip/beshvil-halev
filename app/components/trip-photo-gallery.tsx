@@ -17,7 +17,7 @@ export default function TripPhotoGallery({ trip }: { trip: Trip }) {
   }
 
   return (
-    <section className="border-t border-stone-200/80 bg-white px-4 py-12 dark:border-stone-800 dark:bg-stone-900 sm:px-6 sm:py-16 md:py-20">
+    <section className="relative border-t border-stone-200/60 px-4 py-12 sm:px-6 sm:py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 text-center">
           <h2 className="mb-3 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
@@ -47,6 +47,7 @@ export default function TripPhotoGallery({ trip }: { trip: Trip }) {
                   src={item.src!}
                   alt={item.label ?? ""}
                   fill
+                  loading="lazy"
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />

@@ -4,7 +4,7 @@ import Image from "next/image";
 import {
   AI_ASSISTANT_AVATAR_ALT,
   AI_ASSISTANT_AVATAR_SRC,
-} from "@/lib/ai-assistant";
+} from "@/lib/ai-assistant/constants";
 
 type AiAssistantFloatingButtonProps = {
   onOpen: () => void;

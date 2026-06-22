@@ -6,7 +6,7 @@ import { getRegionForTrip } from "@/app/components/trip-card";
 import VisitedStamp from "@/app/components/visited-stamp";
 import TripPhotoGallery from "@/app/components/trip-photo-gallery";
 import WantToTravelSaveButton from "@/app/components/want-to-travel-save-button";
-import { getTripHeroLayerStyle } from "@/lib/trip-media";
+import TripHeroImage from "@/app/components/trip-hero-image";
 
 function ArrowIcon() {
   return (
@@ -35,12 +35,7 @@ export default function TripComingSoon({ trip }: { trip: Trip }) {
       <SiteHeader />
 
       <section className="relative flex min-h-[45vh] items-end overflow-hidden pt-20 sm:min-h-[50vh] sm:pt-24">
-        <div
-          className="absolute inset-0 bg-no-repeat"
-          style={getTripHeroLayerStyle(trip)}
-          role="img"
-          aria-label={trip.heroImageLabel}
-        />
+        <TripHeroImage trip={trip} />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/85 via-stone-900/35 to-stone-900/10" />
 
         {trip.visitedByMilana ? (
@@ -61,7 +56,7 @@ export default function TripComingSoon({ trip }: { trip: Trip }) {
 
       <TripPhotoGallery trip={trip} />
 
-      <section className="bg-stone-50 px-4 py-12 dark:bg-stone-950 sm:px-6 sm:py-16 md:py-20">
+      <section className="relative px-4 py-12 sm:px-6 sm:py-16 md:py-20">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-lg leading-relaxed text-stone-600 dark:text-stone-300 sm:text-xl">
             מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.

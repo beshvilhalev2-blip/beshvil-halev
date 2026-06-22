@@ -1,21 +1,21 @@
 /**
- * Vehicle catalog for the off-road trip matcher.
- * To add a brand: append a new entry to `vehicleBrands`.
+ * Local vehicle catalog for off-road compatibility checks.
+ * To add a vehicle: append make → model with category + optional tripCategory override.
  */
+import type { VehicleCompatibilityCategory } from "@/lib/vehicle-compatibility";
+import {
+  getCompatibilityCategoryInfo,
+  getTripCategoryForCompatibility,
+} from "@/lib/vehicle-compatibility";
 import type { VehicleCategoryId } from "@/lib/vehicle-trip-match";
-
-export type VehicleBodyType =
-  | "sedan"
-  | "crossover"
-  | "suv"
-  | "pickup"
-  | "jeep";
 
 export type VehicleModel = {
   id: string;
   name: string;
-  category: VehicleCategoryId;
-  bodyType: VehicleBodyType;
+  label: string;
+  category: VehicleCompatibilityCategory;
+  /** Overrides default trip-access mapping when finer control is needed. */
+  tripCategory?: VehicleCategoryId;
   years: number[];
 };
 
@@ -29,16 +29,18 @@ export type VehicleBrand = {
 export type VehicleSelection = {
   brandId: string;
   modelId: string;
-  year: number;
+  year?: number;
 };
 
 export type ResolvedVehicle = {
   brand: VehicleBrand;
   model: VehicleModel;
-  year: number;
+  year?: number;
   label: string;
   labelHe: string;
-  category: VehicleCategoryId;
+  category: VehicleCompatibilityCategory;
+  categoryLabel: string;
+  tripCategory: VehicleCategoryId;
 };
 
 export const YEAR_OPTIONS = Array.from({ length: 21 }, (_, index) => 2005 + index);
@@ -47,47 +49,34 @@ function yearsForModel(): number[] {
   return YEAR_OPTIONS;
 }
 
+function model(
+  id: string,
+  name: string,
+  category: VehicleCompatibilityCategory,
+  tripCategory?: VehicleCategoryId,
+): VehicleModel {
+  return {
+    id,
+    name,
+    label: name,
+    category,
+    tripCategory,
+    years: yearsForModel(),
+  };
+}
+
 export const vehicleBrands: VehicleBrand[] = [
   {
     id: "toyota",
     name: "Toyota",
     nameHe: "טויוטה",
     models: [
-      {
-        id: "rav4",
-        name: "RAV4",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
-      {
-        id: "land-cruiser",
-        name: "Land Cruiser",
-        category: "serious_jeep",
-        bodyType: "suv",
-        years: yearsForModel(),
-      },
-      {
-        id: "hilux",
-        name: "Hilux",
-        category: "real_4x4",
-        bodyType: "pickup",
-        years: yearsForModel(),
-      },
-    ],
-  },
-  {
-    id: "hyundai",
-    name: "Hyundai",
-    nameHe: "יונדאי",
-    models: [
-      {
-        id: "tucson",
-        name: "Tucson",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
+      model("rav4", "RAV4", "softroad"),
+      model("land-cruiser", "Land Cruiser", "offroad", "serious_jeep"),
+      model("hilux", "Hilux", "offroad"),
+      model("corolla", "Corolla", "privateCar"),
+      model("yaris", "Yaris", "privateCar"),
+      model("c-hr", "C-HR", "privateCar"),
     ],
   },
   {
@@ -95,20 +84,10 @@ export const vehicleBrands: VehicleBrand[] = [
     name: "Subaru",
     nameHe: "סובארו",
     models: [
-      {
-        id: "forester",
-        name: "Forester",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
-      {
-        id: "xv",
-        name: "XV",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
+      model("forester", "Forester", "offroad"),
+      model("xv-crosstrek", "XV / Crosstrek", "softroad"),
+      model("outback", "Outback", "softroad"),
+      model("impreza", "Impreza", "privateCar"),
     ],
   },
   {
@@ -116,41 +95,24 @@ export const vehicleBrands: VehicleBrand[] = [
     name: "Suzuki",
     nameHe: "סוזוקי",
     models: [
-      {
-        id: "jimny",
-        name: "Jimny",
-        category: "real_4x4",
-        bodyType: "jeep",
-        years: yearsForModel(),
-      },
-      {
-        id: "vitara",
-        name: "Vitara",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
+      model("jimny", "Jimny", "offroad"),
+      model("grand-vitara", "Grand Vitara", "offroad"),
+      model("vitara", "Vitara", "softroad"),
+      model("swift", "Swift", "privateCar"),
     ],
   },
   {
-    id: "jeep",
-    name: "Jeep",
-    nameHe: "ג'יפ",
+    id: "hyundai",
+    name: "Hyundai",
+    nameHe: "יונדאי",
     models: [
-      {
-        id: "wrangler",
-        name: "Wrangler",
-        category: "serious_jeep",
-        bodyType: "jeep",
-        years: yearsForModel(),
-      },
-      {
-        id: "grand-cherokee",
-        name: "Grand Cherokee",
-        category: "real_4x4",
-        bodyType: "suv",
-        years: yearsForModel(),
-      },
+      model("tucson", "Tucson", "softroad"),
+      model("santa-fe", "Santa Fe", "softroad"),
+      model("kona", "Kona", "privateCar"),
+      model("i10", "i10", "privateCar"),
+      model("i20", "i20", "privateCar"),
+      model("i30", "i30", "privateCar"),
+      model("elantra", "Elantra", "privateCar"),
     ],
   },
   {
@@ -158,48 +120,11 @@ export const vehicleBrands: VehicleBrand[] = [
     name: "Kia",
     nameHe: "קיה",
     models: [
-      {
-        id: "picanto",
-        name: "Picanto",
-        category: "private_car",
-        bodyType: "sedan",
-        years: yearsForModel(),
-      },
-      {
-        id: "sportage",
-        name: "Sportage",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
-    ],
-  },
-  {
-    id: "mazda",
-    name: "Mazda",
-    nameHe: "מאזדה",
-    models: [
-      {
-        id: "mazda-2",
-        name: "2",
-        category: "private_car",
-        bodyType: "sedan",
-        years: yearsForModel(),
-      },
-      {
-        id: "mazda-3",
-        name: "3",
-        category: "private_car",
-        bodyType: "sedan",
-        years: yearsForModel(),
-      },
-      {
-        id: "cx-5",
-        name: "CX-5",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
+      model("sportage", "Sportage", "softroad"),
+      model("sorento", "Sorento", "softroad"),
+      model("niro", "Niro", "privateCar"),
+      model("picanto", "Picanto", "privateCar"),
+      model("ceed", "Ceed", "privateCar"),
     ],
   },
   {
@@ -207,27 +132,61 @@ export const vehicleBrands: VehicleBrand[] = [
     name: "Nissan",
     nameHe: "ניסאן",
     models: [
-      {
-        id: "qashqai",
-        name: "Qashqai",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
-      {
-        id: "x-trail",
-        name: "X-Trail",
-        category: "soft_suv",
-        bodyType: "crossover",
-        years: yearsForModel(),
-      },
-      {
-        id: "patrol",
-        name: "Patrol",
-        category: "serious_jeep",
-        bodyType: "suv",
-        years: yearsForModel(),
-      },
+      model("x-trail", "X-Trail", "softroad"),
+      model("qashqai", "Qashqai", "softroad"),
+      model("juke", "Juke", "privateCar"),
+      model("micra", "Micra", "privateCar"),
+      model("patrol", "Patrol", "offroad", "serious_jeep"),
+    ],
+  },
+  {
+    id: "mitsubishi",
+    name: "Mitsubishi",
+    nameHe: "מיצובישי",
+    models: [
+      model("pajero", "Pajero", "offroad"),
+      model("outlander", "Outlander", "softroad"),
+      model("asx", "ASX", "softroad"),
+      model("attrage", "Attrage", "privateCar"),
+    ],
+  },
+  {
+    id: "dacia",
+    name: "Dacia",
+    nameHe: "דאצ'יה",
+    models: [model("duster", "Duster", "softroad")],
+  },
+  {
+    id: "jeep",
+    name: "Jeep",
+    nameHe: "ג'יפ",
+    models: [
+      model("wrangler", "Wrangler", "offroad", "serious_jeep"),
+      model("grand-cherokee", "Grand Cherokee", "offroad"),
+      model("compass", "Compass", "softroad"),
+      model("renegade", "Renegade", "softroad"),
+    ],
+  },
+  {
+    id: "mazda",
+    name: "Mazda",
+    nameHe: "מאזדה",
+    models: [
+      model("cx-5", "CX-5", "softroad"),
+      model("cx-30", "CX-30", "privateCar"),
+      model("mazda-3", "3", "privateCar"),
+      model("mazda-2", "2", "privateCar"),
+    ],
+  },
+  {
+    id: "skoda",
+    name: "Skoda",
+    nameHe: "סקודה",
+    models: [
+      model("kodiaq", "Kodiaq", "softroad"),
+      model("karog", "Karoq", "softroad"),
+      model("octavia", "Octavia", "privateCar"),
+      model("fabia", "Fabia", "privateCar"),
     ],
   },
 ];
@@ -248,30 +207,46 @@ export function getModelById(
   brandId: string,
   modelId: string,
 ): VehicleModel | undefined {
-  return getModelsForBrand(brandId).find((model) => model.id === modelId);
+  return getModelsForBrand(brandId).find((item) => item.id === modelId);
 }
 
 export function getYearsForModel(brandId: string, modelId: string): number[] {
-  const model = getModelById(brandId, modelId);
-  return model?.years ?? [];
+  const item = getModelById(brandId, modelId);
+  return item?.years ?? [];
 }
 
 export function resolveVehicleSelection(
   selection: VehicleSelection,
 ): ResolvedVehicle | null {
   const brand = getBrandById(selection.brandId);
-  const model = getModelById(selection.brandId, selection.modelId);
+  const item = getModelById(selection.brandId, selection.modelId);
 
-  if (!brand || !model || !model.years.includes(selection.year)) {
+  if (!brand || !item) {
     return null;
   }
 
+  if (
+    selection.year !== undefined &&
+    !item.years.includes(selection.year)
+  ) {
+    return null;
+  }
+
+  const yearSuffix =
+    selection.year !== undefined ? ` · ${selection.year}` : "";
+  const tripCategory = getTripCategoryForCompatibility(
+    item.category,
+    item.tripCategory,
+  );
+
   return {
     brand,
-    model,
+    model: item,
     year: selection.year,
-    label: `${brand.name} ${model.name} · ${selection.year}`,
-    labelHe: `${brand.nameHe} ${model.name} · ${selection.year}`,
-    category: model.category,
+    label: `${brand.name} ${item.name}${yearSuffix}`,
+    labelHe: `${brand.nameHe} ${item.name}${yearSuffix}`,
+    category: item.category,
+    categoryLabel: getCompatibilityCategoryInfo(item.category).label,
+    tripCategory,
   };
 }

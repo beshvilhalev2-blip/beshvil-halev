@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beshvil Halev — Hero Background Mockup v1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Heebo, sans-serif;
+      background: #f5f5f4;
+      color: #1c1917;
+      padding: 2rem 1rem 3rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .note {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #57534e;
+      max-width: 42rem;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    .frames {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .frame-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+    .frame-label { font-size: 0.875rem; font-weight: 600; color: #44403c; }
+    .frame-sublabel { font-size: 0.75rem; color: #78716c; }
+
+    /* Desktop frame */
+    .desktop {
+      width: min(100%, 1440px);
+      aspect-ratio: 1440 / 900;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(28, 25, 23, 0.25);
+      border: 1px solid rgba(28, 25, 23, 0.08);
+    }
+    .desktop .bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Mobile frame */
+    .mobile-shell {
+      width: 390px;
+      max-width: 100%;
+      border-radius: 28px;
+      padding: 10px;
+      background: #1c1917;
+      box-shadow: 0 25px 50px -12px rgba(28, 25, 23, 0.35);
+    }
+    .mobile {
+      width: 100%;
+      aspect-ratio: 390 / 844;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    .mobile .bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-ui {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 1.5rem 2rem;
+      color: #1c1917;
+    }
+    .mobile .hero-ui {
+      padding: 4.5rem 1rem 1.5rem;
+      justify-content: flex-start;
+      padding-top: 3.5rem;
+    }
+    .mock-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      color: rgba(28, 25, 23, 0.92);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .mobile .mock-header { padding: 0.875rem 1rem; font-size: 0.875rem; }
+    .mock-nav { display: flex; gap: 1rem; opacity: 0.85; font-size: 0.8rem; font-weight: 500; }
+    .mobile .mock-nav { display: none; }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid rgba(28, 25, 23, 0.12);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(4px);
+      padding: 0.375rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: rgba(28, 25, 23, 0.85);
+    }
+    .mobile .badge { font-size: 0.8125rem; margin-bottom: 0.75rem; }
+
+    .hero-ui h2 {
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-shadow: 0 1px 8px rgba(255, 251, 247, 0.8);
+    }
+    .mobile .hero-ui h2 { font-size: 2.25rem; margin-bottom: 0.75rem; }
+
+    .motto-strong {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .motto-soft {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      font-weight: 400;
+      color: #57534e;
+      margin-bottom: 1.5rem;
+      max-width: 36rem;
+    }
+    .mobile .motto-strong { font-size: 1.125rem; }
+    .mobile .motto-soft { font-size: 1rem; margin-bottom: 1.25rem; }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.75rem;
+      padding: 0.875rem 2rem;
+      background: #1c1917;
+      color: white;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      width: 100%;
+      max-width: 20rem;
+    }
+    .desktop .cta { width: auto; }
+
+    .search {
+      display: flex;
+      width: 100%;
+      max-width: 36rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 1rem;
+      padding: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .desktop .search {
+      flex-direction: row;
+      align-items: center;
+      border-radius: 9999px;
+      padding: 0.5rem;
+    }
+    .search-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 1rem;
+      flex: 1;
+      color: #78716c;
+      font-size: 1rem;
+    }
+    .search input {
+      border: none;
+      background: transparent;
+      flex: 1;
+      font-family: inherit;
+      font-size: 1rem;
+      color: #292524;
+      outline: none;
+    }
+    .search-btn {
+      background: #1c1917;
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.875rem 1.5rem;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: default;
+      min-height: 2.75rem;
+    }
+    .desktop .search-btn { border-radius: 9999px; }
+
+    .chips {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      max-width: 36rem;
+      width: 100%;
+      padding-bottom: 0.25rem;
+      scrollbar-width: none;
+    }
+    .chips::-webkit-scrollbar { display: none; }
+    .chip {
+      flex-shrink: 0;
+      border: 1px solid rgba(28, 25, 23, 0.14);
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      color: rgba(28, 25, 23, 0.88);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .legend {
+      max-width: 52rem;
+      margin: 2.5rem auto 0;
+      padding: 1.25rem 1.5rem;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e7e5e4;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: #44403c;
+    }
+    .legend strong { color: #1c1917; }
+  </style>
+</head>
+<body>
+  <h1>Hero Background Mockup v1 — Light Mode</h1>
+  <p class="note">
+    Visual validation only · 70% nature / 20% map / 10% path · Static · Squint test: path should disappear.<br />
+    Open this file locally: <code>design/mockups/hero-v1/preview.html</code>
+  </p>
+
+  <div class="frames">
+    <div class="frame-wrap">
+      <div class="frame-label">Desktop · 1440 × 900</div>
+      <div class="frame-sublabel">Light mode · with placeholder hero UI</div>
+      <div class="desktop">
+        <img class="bg" src="./hero-background-desktop-light.svg" alt="" />
+        <div class="mock-header">
+          <span>בשביל הלב</span>
+          <nav class="mock-nav" aria-hidden="true">
+            <span>ראשי</span>
+            <span>המלצות</span>
+            <span>אזורים</span>
+            <span>ציוד</span>
+          </nav>
+        </div>
+        <div class="hero-ui">
+          <span class="badge">לצאת לטבע • בקצב שלכם</span>
+          <h2>בשביל הלב</h2>
+          <p class="motto-strong">להיות בתנועה זאת התרופה.</p>
+          <p class="motto-soft">מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.</p>
+          <div class="cta">מצאו לי טיול</div>
+          <form class="search" onsubmit="return false">
+            <div class="search-row">
+              <span aria-hidden="true">⌕</span>
+              <input type="search" placeholder="חפשו מסלול, אזור או חוויה..." readonly tabindex="-1" />
+            </div>
+            <button type="button" class="search-btn">חיפוש</button>
+          </form>
+          <div class="chips" aria-hidden="true">
+            <span class="chip">מים</span>
+            <span class="chip">תצפיות</span>
+            <span class="chip">עגלת קפה</span>
+            <span class="chip">4×4</span>
+            <span class="chip">פיקניק</span>
+            <span class="chip">קמפינג</span>
+            <span class="chip">חינם</span>
+            <span class="chip">משפחות</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="frame-wrap">
+      <div class="frame-label">Mobile · 390 × 844</div>
+      <div class="frame-sublabel">Light mode · with placeholder hero UI</div>
+      <div class="mobile-shell">
+        <div class="mobile">
+          <img class="bg" src="./hero-background-mobile-light.svg" alt="" />
+          <div class="mock-header">
+            <span>☰</span>
+            <span>בשביל הלב</span>
+            <span>⌕</span>
+          </div>
+          <div class="hero-ui">
+            <span class="badge">לצאת לטבע • בקצב שלכם</span>
+            <h2>בשביל הלב</h2>
+            <p class="motto-strong">להיות בתנועה זאת התרופה.</p>
+            <p class="motto-soft">מקומות, ציוד ותכנון שיעזרו לכם פשוט לצאת לדרך.</p>
+            <div class="cta">מצאו לי טיול</div>
+            <form class="search" onsubmit="return false">
+              <div class="search-row">
+                <span aria-hidden="true">⌕</span>
+                <input type="search" placeholder="חפשו מסלול..." readonly tabindex="-1" />
+              </div>
+              <button type="button" class="search-btn">חיפוש</button>
+            </form>
+            <div class="chips" aria-hidden="true">
+              <span class="chip">מים</span>
+              <span class="chip">תצפיות</span>
+              <span class="chip">עגלת קפה</span>
+              <span class="chip">4×4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <strong>Review checklist</strong>
+    <ul style="margin-top: 0.5rem; padding-right: 1.25rem;">
+      <li>Squint: path vanishes; warmth remains</li>
+      <li>Feels like nature first, not a map app</li>
+      <li>Olive reads as shade / Israeli landscape</li>
+      <li>3-second feeling: “I want to go somewhere this weekend”</li>
+      <li>Hero text remains the clearest focal point</li>
+    </ul>
+  </div>
+</body>
+</html>

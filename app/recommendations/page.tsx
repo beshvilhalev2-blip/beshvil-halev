@@ -16,7 +16,7 @@ export default function RecommendationsPage() {
     <div className="flex flex-1 flex-col">
       <SiteHeader />
 
-      <section className="bg-stone-50 px-4 pb-16 pt-28 dark:bg-stone-950 sm:px-6 sm:pb-24 sm:pt-32">
+      <section className="relative px-4 pb-16 pt-28 sm:px-6 sm:pb-24 sm:pt-32">
         <div className="mx-auto max-w-6xl">
           <RecommendationsDiscovery trips={publishedTrips} />
         </div>

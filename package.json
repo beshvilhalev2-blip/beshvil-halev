@@ -9,7 +9,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "compress:images": "node scripts/compress-public-images.mjs",
+    "compress:images:dry-run": "node scripts/compress-public-images.mjs --dry-run"
   },
   "dependencies": {
     "next": "16.2.9",
@@ -23,6 +25,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "sharp": "^0.35.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

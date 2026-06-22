@@ -7,9 +7,11 @@ import {
   AI_ASSISTANT_AVATAR_ALT,
   AI_ASSISTANT_AVATAR_SRC,
   AI_ASSISTANT_SUGGESTIONS,
-  type AiAssistantMessage,
-  type AiAssistantTripRecommendation,
-} from "@/lib/ai-assistant";
+} from "@/lib/ai-assistant/constants";
+import type {
+  AiAssistantMessage,
+  AiAssistantTripRecommendation,
+} from "@/lib/ai-assistant/types";
 
 type AiAssistantChatPanelProps = {
   open: boolean;

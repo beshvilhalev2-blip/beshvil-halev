@@ -1,0 +1,781 @@
+{
+  "generatedAt": "2026-06-22T10:59:37.578542+00:00",
+  "folderAliasesInUse": {
+    "פארק נחל לכיש": "פארק לכיש",
+    "נחל נקרות יקנעם": "פארק נחל קרת",
+    "נחל שופט": "נחל השופט",
+    "שמורת תל דן": "נחל דן",
+    "תל דן": "נחל דן",
+    "המפל הנסתר פתח תקווה": "המפל הנסתר",
+    "שמורת טבע נחל שורק": "שפך נחל שורק",
+    "עין חרוד": "מעיין חרוד",
+    "משק בגבעה": "משק בגבעה גדרה",
+    "מצפה אלון": "מצפה נתן"
+  },
+  "A_placeholderHeroTrips": [
+    {
+      "slug": "kvvryvm-yshrl",
+      "title": "אקווריום ישראל",
+      "region": "ירושלים",
+      "siteVisible": true
+    },
+    {
+      "slug": "chvrsht-gdvnh",
+      "title": "חורשת גדעונה",
+      "region": "צפון",
+      "siteVisible": true
+    },
+    {
+      "slug": "ben-shemen-forest",
+      "title": "יער בן שמן",
+      "region": "מרכז",
+      "siteVisible": true
+    },
+    {
+      "slug": "lvnd",
+      "title": "לונדע",
+      "region": "דרום",
+      "siteVisible": true
+    },
+    {
+      "slug": "myyn-hsvsym",
+      "title": "מעיין הסוסים",
+      "region": "צפון",
+      "siteVisible": true
+    },
+    {
+      "slug": "mtzph-rbl",
+      "title": "מצפה ארבל",
+      "region": "צפון",
+      "siteVisible": true
+    },
+    {
+      "slug": "nvf-yylvn",
+      "title": "נוף איילון",
+      "region": "מרכז",
+      "siteVisible": true
+    },
+    {
+      "slug": "ntzrt",
+      "title": "נצרת",
+      "region": "צפון",
+      "siteVisible": false
+    },
+    {
+      "slug": "kv",
+      "title": "עכו",
+      "region": "צפון",
+      "siteVisible": false
+    },
+    {
+      "slug": "prk-brytnyh",
+      "title": "פארק בריטניה",
+      "region": "מרכז",
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-ytbth",
+      "title": "פארק יטבתה",
+      "region": "דרום",
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-mym-shpyym",
+      "title": "פארק מים שפיים",
+      "region": "מרכז",
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-kndh",
+      "title": "פארק קנדה",
+      "region": "מרכז",
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-rnnh",
+      "title": "פארק רעננה",
+      "region": "השרון",
+      "siteVisible": true
+    },
+    {
+      "slug": "pvst-kybvtz-pykym",
+      "title": "פוסט קיבוץ אפיקים",
+      "region": "צפון",
+      "siteVisible": false
+    },
+    {
+      "slug": "klb-hvtl",
+      "title": "קלאב הוטל",
+      "region": "צפון",
+      "siteVisible": false
+    },
+    {
+      "slug": "rmt-gn-spry",
+      "title": "רמת גן - ספארי",
+      "region": "מרכז",
+      "siteVisible": true
+    },
+    {
+      "slug": "shmvrt-tb-bnys",
+      "title": "שמורת טבע בניאס",
+      "region": "צפון",
+      "siteVisible": true
+    },
+    {
+      "slug": "nahal-sorek-estuary",
+      "title": "שפך נחל שורק",
+      "region": "מרכז",
+      "siteVisible": true
+    },
+    {
+      "slug": "tchnt-bv-rbch",
+      "title": "תחנת אבו רבאח",
+      "region": "מרכז",
+      "siteVisible": true
+    },
+    {
+      "slug": "tl-gzr",
+      "title": "תל גזר",
+      "region": "מרכז",
+      "siteVisible": true
+    }
+  ],
+  "B_tripsWithNoGallery": [
+    {
+      "slug": "gmvn-hchvlh",
+      "title": "אגמון החולה",
+      "region": "צפון",
+      "hasRealHero": true,
+      "siteVisible": true
+    },
+    {
+      "slug": "kvvryvm-yshrl",
+      "title": "אקווריום ישראל",
+      "region": "ירושלים",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "chvrsht-gdvnh",
+      "title": "חורשת גדעונה",
+      "region": "צפון",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "ben-shemen-forest",
+      "title": "יער בן שמן",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "yr-hmlkym",
+      "title": "יער המלאכים",
+      "region": "דרום",
+      "hasRealHero": true,
+      "siteVisible": true
+    },
+    {
+      "slug": "lvnd",
+      "title": "לונדע",
+      "region": "דרום",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "myyn-hsvsym",
+      "title": "מעיין הסוסים",
+      "region": "צפון",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "mtzph-rbl",
+      "title": "מצפה ארבל",
+      "region": "צפון",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "nvf-yylvn",
+      "title": "נוף איילון",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "ntzrt",
+      "title": "נצרת",
+      "region": "צפון",
+      "hasRealHero": false,
+      "siteVisible": false
+    },
+    {
+      "slug": "kv",
+      "title": "עכו",
+      "region": "צפון",
+      "hasRealHero": false,
+      "siteVisible": false
+    },
+    {
+      "slug": "mk-hlh",
+      "title": "עמק האלה",
+      "region": "ירושלים",
+      "hasRealHero": true,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-brytnyh",
+      "title": "פארק בריטניה",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-ytbth",
+      "title": "פארק יטבתה",
+      "region": "דרום",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-mym-shpyym",
+      "title": "פארק מים שפיים",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-kndh",
+      "title": "פארק קנדה",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-rnnh",
+      "title": "פארק רעננה",
+      "region": "השרון",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "pvst-kybvtz-pykym",
+      "title": "פוסט קיבוץ אפיקים",
+      "region": "צפון",
+      "hasRealHero": false,
+      "siteVisible": false
+    },
+    {
+      "slug": "klb-hvtl",
+      "title": "קלאב הוטל",
+      "region": "צפון",
+      "hasRealHero": false,
+      "siteVisible": false
+    },
+    {
+      "slug": "rbdym",
+      "title": "רבדים",
+      "region": "מרכז",
+      "hasRealHero": true,
+      "siteVisible": true
+    },
+    {
+      "slug": "rmt-gn-spry",
+      "title": "רמת גן - ספארי",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "shmvrt-tb-bnys",
+      "title": "שמורת טבע בניאס",
+      "region": "צפון",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "nahal-sorek-estuary",
+      "title": "שפך נחל שורק",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "tchnt-bv-rbch",
+      "title": "תחנת אבו רבאח",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    },
+    {
+      "slug": "tl-gzr",
+      "title": "תל גזר",
+      "region": "מרכז",
+      "hasRealHero": false,
+      "siteVisible": true
+    }
+  ],
+  "C_tripsWithIncompleteMedia": [
+    {
+      "slug": "gmvn-hchvlh",
+      "title": "אגמון החולה",
+      "region": "צפון",
+      "issues": [
+        "empty_gallery"
+      ],
+      "heroImage": "/images/places/north/אגמון החולה/hero.jpeg",
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "kvvryvm-yshrl",
+      "title": "אקווריום ישראל",
+      "region": "ירושלים",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "brykt-rm-msdh",
+      "title": "בריכת רם - מסעדה",
+      "region": "צפון",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/north/בריכת רם - מסעדה/hero.jpeg",
+      "galleryCount": 2,
+      "siteVisible": true
+    },
+    {
+      "slug": "gbt-hrkpvt",
+      "title": "גבעת הרקפות",
+      "region": "מרכז",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/center/גבעת הרקפות/hero.jpeg",
+      "galleryCount": 1,
+      "siteVisible": true
+    },
+    {
+      "slug": "chvf-tlyt",
+      "title": "חוף עתלית",
+      "region": "מרכז",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/hasharon/חוף עתלית/hero.jpeg",
+      "galleryCount": 2,
+      "siteVisible": true
+    },
+    {
+      "slug": "chvrsht-gdvnh",
+      "title": "חורשת גדעונה",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "ben-shemen-forest",
+      "title": "יער בן שמן",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "yr-hmgynym",
+      "title": "יער המגינים",
+      "region": "מרכז",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/center/יער המגינים/hero.jpeg",
+      "galleryCount": 1,
+      "siteVisible": true
+    },
+    {
+      "slug": "yr-hmlkym",
+      "title": "יער המלאכים",
+      "region": "דרום",
+      "issues": [
+        "empty_gallery"
+      ],
+      "heroImage": "/images/places/south/יער המלאכים/hero.jpeg",
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "lvnd",
+      "title": "לונדע",
+      "region": "דרום",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "msdt-dg-l-hdn",
+      "title": "מסעדת דג על הדן",
+      "region": "צפון",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/north/מסעדת דג על הדן/hero.jpg",
+      "galleryCount": 2,
+      "siteVisible": true
+    },
+    {
+      "slug": "myyn-hsvsym",
+      "title": "מעיין הסוסים",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "mtzph-rbl",
+      "title": "מצפה ארבל",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "nvf-yylvn",
+      "title": "נוף איילון",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "nchl-dn",
+      "title": "נחל דן",
+      "region": "צפון",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/north/תל דן/hero.jpeg",
+      "galleryCount": 2,
+      "siteVisible": true
+    },
+    {
+      "slug": "nchl-hkybvtzym",
+      "title": "נחל הקיבוצים",
+      "region": "צפון",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/north/נחל הקיבוצים/IMG_6363.JPG",
+      "galleryCount": 1,
+      "siteVisible": true
+    },
+    {
+      "slug": "ntzrt",
+      "title": "נצרת",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": false
+    },
+    {
+      "slug": "skr-lvmvt",
+      "title": "סכר אלומות",
+      "region": "צפון",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/north/סכר אלומות/hero.jpeg",
+      "galleryCount": 2,
+      "siteVisible": true
+    },
+    {
+      "slug": "kv",
+      "title": "עכו",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": false
+    },
+    {
+      "slug": "mk-hlh",
+      "title": "עמק האלה",
+      "region": "ירושלים",
+      "issues": [
+        "empty_gallery"
+      ],
+      "heroImage": "/images/places/jerusalem/עמק האלה/hero.jpg",
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-brytnyh",
+      "title": "פארק בריטניה",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-ytbth",
+      "title": "פארק יטבתה",
+      "region": "דרום",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-mym-shpyym",
+      "title": "פארק מים שפיים",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "nchl-nkrvt-yknm",
+      "title": "פארק נחל קרת",
+      "region": "צפון",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/north/נחל נקרות יקנעם/hero.JPG",
+      "galleryCount": 1,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-kndh",
+      "title": "פארק קנדה",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "prk-rnnh",
+      "title": "פארק רעננה",
+      "region": "השרון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "pvst-kybvtz-pykym",
+      "title": "פוסט קיבוץ אפיקים",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": false
+    },
+    {
+      "slug": "kvmrn",
+      "title": "קומראן",
+      "region": "דרום",
+      "issues": [
+        "incomplete_gallery"
+      ],
+      "heroImage": "/images/places/south/קומראן/hero.jpeg",
+      "galleryCount": 2,
+      "siteVisible": true
+    },
+    {
+      "slug": "klb-hvtl",
+      "title": "קלאב הוטל",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": false
+    },
+    {
+      "slug": "rbdym",
+      "title": "רבדים",
+      "region": "מרכז",
+      "issues": [
+        "empty_gallery"
+      ],
+      "heroImage": "/images/places/center/רבדים/hero.jpeg",
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "rmt-gn-spry",
+      "title": "רמת גן - ספארי",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "shmvrt-tb-bnys",
+      "title": "שמורת טבע בניאס",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "nahal-sorek-estuary",
+      "title": "שפך נחל שורק",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "tchnt-bv-rbch",
+      "title": "תחנת אבו רבאח",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    },
+    {
+      "slug": "tl-gzr",
+      "title": "תל גזר",
+      "region": "מרכז",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "siteVisible": true
+    }
+  ],
+  "D_foldersWithoutTripEntries": [
+    {
+      "folderTitle": "גבעת החרובים",
+      "folders": [
+        "center/גבעת החרובים"
+      ]
+    },
+    {
+      "folderTitle": "חוף בוקק",
+      "folders": [
+        "south/חוף בוקק"
+      ]
+    },
+    {
+      "folderTitle": "חוף מעגן מיכאל",
+      "folders": [
+        "hasharon/חוף מעגן מיכאל"
+      ]
+    },
+    {
+      "folderTitle": "חוף נהריה",
+      "folders": [
+        "north/חוף נהריה"
+      ]
+    }
+  ],
+  "E_unmatchedImageFolders": [
+    "north/חוף נהריה → (no trip for 'חוף נהריה')",
+    "hasharon/חוף מעגן מיכאל → (no trip for 'חוף מעגן מיכאל')",
+    "center/גבעת החרובים → (no trip for 'גבעת החרובים')",
+    "south/חוף בוקק → (no trip for 'חוף בוקק')"
+  ],
+  "validation": {
+    "brokenImagePaths": [],
+    "duplicateHeroAssignments": [
+      {
+        "url": "/images/places/north/נחל שופט/hero.jpeg",
+        "slugA": "nchl-shvpt",
+        "slugB": "nahal-hashofet"
+      }
+    ],
+    "brokenPathCount": 0,
+    "duplicateCount": 1
+  },
+  "summary": {
+    "totalTrips": 100,
+    "placeholderHeroCount": 21,
+    "noGalleryCount": 25,
+    "incompleteMediaCount": 35,
+    "foldersWithoutTripCount": 4,
+    "unmatchedFolderCount": 4,
+    "siteVisibleTrips": 92
+  }
+}

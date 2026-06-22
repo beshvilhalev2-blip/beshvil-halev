@@ -15,6 +15,7 @@ export type PlacesFilterSyncEntry = {
 
 export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "ben-shemen-forest": { region: "מרכז", regionSlug: "center", excelName: "יער בן שמן", tags: { water: false, viewpoint: true, camping: true, offroad: true, strollerAccessible: "partial", free: true } },
+  "blgn-bygvr": { region: "צפון", regionSlug: "north", excelName: "בלאגן ביגור", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "bnys": { region: "צפון", regionSlug: "north", excelName: "בניאס", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: false, free: false } },
   "brbtb": { region: "מרכז", regionSlug: "center", excelName: "ברבטבע", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "brykt-rm-msdh": { region: "צפון", regionSlug: "north", excelName: "בריכת רם - מסעדה", tags: { water: true, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
@@ -79,6 +80,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "prk-mym-shpyym": { region: "מרכז", regionSlug: "center", excelName: "פארק מים שפיים", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
   "prk-rnnh": { region: "השרון", regionSlug: "hasharon", excelName: "פארק רעננה", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "prk-ryl-shrvn": { region: "מרכז", regionSlug: "center", excelName: "פארק אריאל שרון", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
+  "prk-vtvpyh": { region: "השרון", regionSlug: "hasharon", excelName: "פארק אוטופיה", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
   "prk-ytbth": { region: "דרום", regionSlug: "south", excelName: "פארק יטבתה", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "rbdym": { region: "מרכז", regionSlug: "center", excelName: "רבדים", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "rmt-gn-spry": { region: "מרכז", regionSlug: "center", excelName: "רמת גן - ספארי", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
@@ -107,28 +109,28 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
 };
 
 export const placesFilterAudit = {
-  "excelTotal": 95,
-  "siteTotal": 98,
-  "matched": 91,
-  "activeTrips": 90,
+  "excelTotal": 97,
+  "siteTotal": 100,
+  "matched": 93,
+  "activeTrips": 92,
   "hiddenUnmatchedSiteTrips": 8,
   "regionCounts": {
-    "north": 28,
-    "hasharon": 9,
+    "north": 29,
+    "hasharon": 10,
     "center": 29,
     "jerusalem": 8,
     "south": 16,
     "judea-samaria": 0
   },
   "filterCounts": {
-    "water": 42,
+    "water": 43,
     "viewpoint": 35,
     "camping": 16,
     "offroad": 26,
-    "strollerAccessible": 65,
-    "free": 61
+    "strollerAccessible": 67,
+    "free": 62
   },
-  "totalSynced": 90,
+  "totalSynced": 92,
   "missingFromExcel": [
     "פוסט קיבוץ אפיקים",
     "יבניאל כפר כמא",

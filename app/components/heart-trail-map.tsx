@@ -14,7 +14,8 @@ import {
   REGION_SELECTOR_MARKERS,
   type DiscoveryRegionSlug,
 } from "@/lib/israel-discovery-map";
-import { getTripCardLayerStyle } from "@/lib/trip-media";
+import TripCardImage from "@/app/components/trip-card-image";
+import { TRIP_MAP_CARD_IMAGE_SIZES } from "@/lib/trip-image-sizes";
 
 type RegionSlug = DiscoveryRegionSlug;
 type FilterSlug = "all" | RegionSlug;
@@ -86,12 +87,7 @@ function MapTripCard({ trip }: { trip: Trip }) {
       className="group flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-[0_4px_16px_rgba(28,25,23,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(28,25,23,0.08)]"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-[1.03]"
-          style={getTripCardLayerStyle(trip)}
-          role="img"
-          aria-label={trip.heroImageLabel}
-        />
+        <TripCardImage trip={trip} sizes={TRIP_MAP_CARD_IMAGE_SIZES} />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-900/25 to-transparent" />
       </div>
       <div className="flex flex-1 flex-col p-3 sm:p-3.5">

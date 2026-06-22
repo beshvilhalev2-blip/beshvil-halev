@@ -16,6 +16,10 @@ import {
   pickRotatedDestinations,
   type CategoryRecommendationDisplay,
 } from "@/lib/hero-recommendation-rotation";
+import {
+  HERO_DESTINATION_IMAGE_SIZES,
+  HERO_DESTINATION_THUMB_SIZES,
+} from "@/lib/trip-image-sizes";
 
 type HeroAdventureSelectorProps = {
   categories: AdventureCategoryData[];
@@ -49,7 +53,8 @@ function FeaturedImage({
           src={destination.image}
           alt={destination.title}
           fill
-          sizes="(max-width: 1024px) 100vw, 520px"
+          sizes={HERO_DESTINATION_IMAGE_SIZES}
+          priority
           className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
         />
       ) : (
@@ -82,7 +87,8 @@ function RecommendationThumb({
             src={destination.image}
             alt=""
             fill
-            sizes="60px"
+            sizes={HERO_DESTINATION_THUMB_SIZES}
+            loading="lazy"
             className="object-cover transition-transform duration-500 group-hover/rec:scale-110"
           />
         ) : (

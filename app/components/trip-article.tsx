@@ -6,7 +6,7 @@ import TripActionBar from "@/app/components/trip-action-bar";
 import TripGearChecklist from "@/app/components/trip-gear-checklist";
 import WantToTravelSaveButton from "@/app/components/want-to-travel-save-button";
 import TripPhotoGallery from "@/app/components/trip-photo-gallery";
-import { getTripHeroLayerStyle } from "@/lib/trip-media";
+import TripHeroImage from "@/app/components/trip-hero-image";
 
 function ArrowIcon() {
   return (
@@ -32,12 +32,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
 
       {/* Hero */}
       <section className="relative flex min-h-0 items-end overflow-hidden pt-20 sm:min-h-[55vh] sm:pt-24 lg:min-h-[65vh]">
-        <div
-          className="absolute inset-0 bg-no-repeat"
-          style={getTripHeroLayerStyle(trip)}
-          role="img"
-          aria-label={trip.heroImageLabel}
-        />
+        <TripHeroImage trip={trip} />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-900/20 to-transparent" />
 
         <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-12">
@@ -67,7 +62,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
       </section>
 
       {/* Article body */}
-      <article className="bg-stone-50 dark:bg-stone-950">
+      <article className="relative">
         <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
           {/* על המקום */}
           <section className="mb-12 sm:mb-16">

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { getRegionBySlug, regions, type Region, type Trip } from "@/data/trips";
 import VisitedStamp from "@/app/components/visited-stamp";
-import { getTripCardLayerStyle } from "@/lib/trip-media";
+import TripCardImage from "@/app/components/trip-card-image";
+import { TRIP_CARD_IMAGE_SIZES } from "@/lib/trip-image-sizes";
 
 const HIDDEN_CATEGORY = "מקום שביקרנו";
 
@@ -47,12 +48,8 @@ export default function TripCard({
       className={`group relative flex flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 ${theme.borderHover}`}
     >
       <div className="relative">
-        <div
-          className="relative aspect-[16/10] bg-no-repeat"
-          style={getTripCardLayerStyle(trip)}
-          role="img"
-          aria-label={trip.heroImageLabel}
-        >
+        <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
+          <TripCardImage trip={trip} sizes={TRIP_CARD_IMAGE_SIZES} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
           {showCategory ? (

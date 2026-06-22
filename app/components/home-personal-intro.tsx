@@ -130,6 +130,7 @@ export default function HomePersonalIntro() {
                   src={HOME_INTRO_PHOTO.src}
                   alt={HOME_INTRO_PHOTO.alt}
                   fill
+                  loading="lazy"
                   className="object-cover object-center"
                   sizes="(max-width: 640px) 90px, 112px"
                 />

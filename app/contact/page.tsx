@@ -59,7 +59,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <article className="bg-stone-50 dark:bg-stone-950">
+      <article className="relative">
         {/* Contact Form */}
         <section className="border-b border-stone-200/80 px-6 py-16 dark:border-stone-800 sm:py-20">
           <div className="mx-auto max-w-xl">
@@ -72,7 +72,7 @@ export default function ContactPage() {
         </section>
 
         {/* Social Links */}
-        <section className="border-b border-stone-200/80 bg-white px-6 py-16 dark:border-stone-800 dark:bg-stone-900 sm:py-20">
+        <section className="border-b border-stone-200/80 bg-white/88 px-6 py-16 backdrop-blur-[2px] dark:border-stone-800 dark:bg-stone-900/88 sm:py-20">
           <div className="mx-auto max-w-xl text-center">
             <SectionHeading>עקבו אחרינו</SectionHeading>
             <p className="mb-10 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
