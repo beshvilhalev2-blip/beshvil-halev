@@ -78,3 +78,167 @@ html {
     animation: none !important;
   }
 }
+
+@keyframes about-hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-hero-reveal .about-hero-reveal-item {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  .about-hero-reveal.is-visible .about-hero-reveal-item {
+    animation: about-hero-fade-up 680ms ease-out forwards;
+  }
+
+  .about-hero-reveal.is-visible .about-hero-reveal-item-delayed {
+    animation-delay: 120ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-hero-reveal .about-hero-reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* About page — scroll reveals */
+@media (prefers-reduced-motion: no-preference) {
+  .about-scroll-reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 620ms ease-out,
+      transform 620ms ease-out;
+  }
+
+  .about-scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* About page — collage float */
+@keyframes about-collage-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-collage-float {
+    animation: about-collage-float 7s ease-in-out infinite;
+  }
+
+  .about-collage-float-delayed {
+    animation-delay: 1.4s;
+  }
+}
+
+/* About page — breathing landscape atmosphere */
+@keyframes about-atmosphere-drift-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2.5%, -2%, 0) scale(1.04);
+  }
+}
+
+@keyframes about-atmosphere-drift-b {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-2%, 2.5%, 0) scale(1.03);
+  }
+}
+
+@keyframes about-atmosphere-drift-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.5%, 2%, 0) scale(0.97);
+  }
+}
+
+@keyframes about-atmosphere-drift-d {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-1.5%, -1.5%, 0) scale(1.02);
+  }
+}
+
+@keyframes about-atmosphere-contour-shift {
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 18px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-atmosphere-breathe-a {
+    animation: about-atmosphere-drift-a 54s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .about-atmosphere-breathe-b {
+    animation: about-atmosphere-drift-b 62s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .about-atmosphere-breathe-c {
+    animation: about-atmosphere-drift-c 48s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .about-atmosphere-breathe-d {
+    animation: about-atmosphere-drift-d 58s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .about-atmosphere-contours {
+    animation: about-atmosphere-contour-shift 140s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-atmosphere-breathe-a,
+  .about-atmosphere-breathe-b,
+  .about-atmosphere-breathe-c,
+  .about-atmosphere-breathe-d,
+  .about-atmosphere-contours {
+    animation: none !important;
+  }
+}
