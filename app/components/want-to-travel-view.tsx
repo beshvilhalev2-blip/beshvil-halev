@@ -7,7 +7,6 @@ import { getPublicTripBySlug, type Trip } from "@/data/trips";
 import {
   buildWantToTravelWhatsAppUrl,
   clearAllWantToTravelTrips,
-  getWantToTravelDisplayTags,
   removeTripFromWantToTravel,
   useSavedTripSlugs,
 } from "@/lib/want-to-travel";
@@ -19,8 +18,6 @@ function SavedTripListItem({
   trip: Trip;
   onRemove: (slug: string) => void;
 }) {
-  const tags = getWantToTravelDisplayTags(trip);
-
   return (
     <article className="space-y-2">
       <div className="flex items-center justify-end px-1">
@@ -34,20 +31,6 @@ function SavedTripListItem({
       </div>
 
       <TripCard trip={trip} />
-
-      <div className="flex flex-wrap gap-2 px-1">
-        <span className="rounded-full bg-stone-100 px-2.5 py-1 text-xs font-medium text-stone-600 dark:bg-stone-800 dark:text-stone-300">
-          {trip.region}
-        </span>
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full bg-stone-100 px-2.5 py-1 text-xs font-medium text-stone-700 dark:bg-stone-800 dark:text-stone-300"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
     </article>
   );
 }

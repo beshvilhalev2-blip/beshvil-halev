@@ -1,10 +1,5 @@
 import type { Trip } from "@/data/trips";
-import {
-  inferTripActivities,
-  inferTripCompanions,
-  inferTripCostNis,
-  toTripRef,
-} from "@/lib/find-my-trip/trip-profile";
+import { getTripCardTags, TRIP_CARD_TAG_LABELS } from "@/lib/trip-card-tags";
 
 export type WantToTravelDisplayTag =
   | "מים"
@@ -13,48 +8,19 @@ export type WantToTravelDisplayTag =
   | "שטח"
   | "קמפינג";
 
-const TAG_ORDER: WantToTravelDisplayTag[] = [
-  "מים",
-  "ילדים",
-  "חינם",
-  "שטח",
-  "קמפינג",
-];
+const LEGACY_LABEL_MAP: Record<string, WantToTravelDisplayTag | undefined> = {
+  [TRIP_CARD_TAG_LABELS.water]: "מים",
+  [TRIP_CARD_TAG_LABELS.offroad]: "שטח",
+  [TRIP_CARD_TAG_LABELS.camping]: "קמפינג",
+  [TRIP_CARD_TAG_LABELS.kids]: "ילדים",
+  [TRIP_CARD_TAG_LABELS.free]: "חינם",
+};
 
+/** @deprecated Prefer getTripCardTags from @/lib/trip-card-tags */
 export function getWantToTravelDisplayTags(
   trip: Trip,
 ): WantToTravelDisplayTag[] {
-  const ref = toTripRef(trip);
-  const tags = new Set<WantToTravelDisplayTag>();
-
-  const activities = inferTripActivities(ref);
-  if (activities.includes("water")) {
-    tags.add("מים");
-  }
-
-  if (activities.includes("camping")) {
-    tags.add("קמפינג");
-  }
-
-  const companions = inferTripCompanions(ref);
-  if (companions.includes("kids") || companions.includes("family")) {
-    tags.add("ילדים");
-  }
-
-  const cost = inferTripCostNis(ref);
-  if (cost === "free" || cost === 0) {
-    tags.add("חינם");
-  }
-
-  const vehicleAccess = trip.vehicleAccess ?? "private-car";
-  if (
-    trip.category === "שטח 4x4" ||
-    vehicleAccess === "soft-suv" ||
-    vehicleAccess === "real-4x4" ||
-    vehicleAccess === "hard-4x4"
-  ) {
-    tags.add("שטח");
-  }
-
-  return TAG_ORDER.filter((tag) => tags.has(tag));
+  return getTripCardTags(trip)
+    .map((tag) => LEGACY_LABEL_MAP[tag])
+    .filter((tag): tag is WantToTravelDisplayTag => tag !== undefined);
 }

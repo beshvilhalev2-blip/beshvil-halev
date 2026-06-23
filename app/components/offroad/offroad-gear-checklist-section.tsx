@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import GearChecklistPanel, {
   GearChecklistWhatsAppShare,
   type GearChecklistSection,
@@ -18,7 +18,6 @@ import {
 import {
   OffroadSectionHeader,
   offroadCard,
-  offroadCardHover,
   offroadSectionInner,
   offroadSectionShell,
 } from "./offroad-shared";
@@ -45,25 +44,7 @@ function buildOffroadSections(
   });
 }
 
-function ChevronIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={`size-5 shrink-0 text-stone-400 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-      aria-hidden="true"
-    >
-      <path d="m6 9 6 6 6-6" />
-    </svg>
-  );
-}
-
 export default function OffroadGearChecklistSection() {
-  const [open, setOpen] = useState(true);
   const [shareRevision, setShareRevision] = useState(0);
 
   const checklist = useMemo(() => buildPresetChecklist("offroad"), []);
@@ -84,8 +65,7 @@ export default function OffroadGearChecklistSection() {
       state.items,
       readiness,
     );
-    const canShare =
-      summary.have.length + summary.missing.length > 0;
+    const canShare = summary.have.length + summary.missing.length > 0;
 
     return {
       canShareWhatsApp: canShare,
@@ -94,14 +74,6 @@ export default function OffroadGearChecklistSection() {
         : null,
     };
   }, [checklist.items, checklist.storageKey, shareRevision]);
-
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-
-    handleStateChange();
-  }, [handleStateChange, open]);
 
   return (
     <section
@@ -112,52 +84,41 @@ export default function OffroadGearChecklistSection() {
         <div className="mx-auto max-w-3xl">
           <OffroadSectionHeader
             title="צריכים עזרה עם רשימת ציוד?"
-            subtitle="הכינו את כל מה שצריך לטיול שטח משפחתי בלחיצה אחת."
+            subtitle="סמנו מה יש לכם ומה חסר - הרשימה נשמרת אוטומטית."
           />
 
-          <div className="mb-4">
-            <GearChecklistWhatsAppShare
-              canShareWhatsApp={canShareWhatsApp}
-              whatsAppShareUrl={whatsAppShareUrl}
+          <div className={`${offroadCard} overflow-hidden p-3 sm:p-4`}>
+            <div className="mb-3 border-b border-stone-100 pb-3 dark:border-stone-800">
+              <h3 className="text-sm font-semibold text-stone-900 dark:text-stone-50 sm:text-base">
+                {checklist.title}
+              </h3>
+              <p className="mt-0.5 text-xs text-stone-500 dark:text-stone-400">
+                {checklist.items.length} פריטים · לחצו על פריט לסימון ✓ או ✕
+              </p>
+            </div>
+
+            <GearChecklistPanel
+              storageKey={checklist.storageKey}
+              items={checklist.items}
+              sections={sections}
+              compact
+              embedded
+              defaultExpandMode="first-only"
+              showCountInLabel
+              hideShareButton
+              onStateChange={handleStateChange}
             />
-          </div>
 
-          <div className={`${offroadCard} ${offroadCardHover} overflow-hidden`}>
-            <button
-              type="button"
-              id="offroad-gear-checklist-trigger"
-              aria-expanded={open}
-              aria-controls="offroad-gear-checklist-panel"
-              onClick={() => setOpen((current) => !current)}
-              className="flex w-full items-center justify-between gap-4 px-4 py-4 text-right transition-colors hover:bg-stone-50/60 dark:hover:bg-stone-800/30 sm:px-5 sm:py-5"
-            >
-              <div className="min-w-0 flex-1">
-                <p className="text-base font-semibold text-stone-900 dark:text-stone-50">
-                  {checklist.title}
-                </p>
-                <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
-                  {checklist.items.length} פריטים · סמנו ✓ יש לי או ○ צריך להביא
-                </p>
-              </div>
-              <ChevronIcon open={open} />
-            </button>
-
-            {open ? (
-              <div
-                id="offroad-gear-checklist-panel"
-                role="region"
-                aria-labelledby="offroad-gear-checklist-trigger"
-                className="border-t border-stone-200/60 px-1 pb-3 pt-1 dark:border-stone-700/60 sm:px-2 sm:pb-4 [&>div]:rounded-none [&>div]:border-0 [&>div]:bg-transparent [&>div]:p-3 [&>div]:shadow-none sm:[&>div]:p-4"
-              >
-                <GearChecklistPanel
-                  storageKey={checklist.storageKey}
-                  items={checklist.items}
-                  sections={sections}
-                  hideShareButton
-                  onStateChange={handleStateChange}
-                />
-              </div>
-            ) : null}
+            <div className="mt-4 border-t border-stone-100 pt-4 dark:border-stone-800">
+              <p className="mb-2 text-center text-xs text-stone-500 dark:text-stone-400">
+                סיימתם? שלחו את הרשימה לוואטסאפ
+              </p>
+              <GearChecklistWhatsAppShare
+                canShareWhatsApp={canShareWhatsApp}
+                whatsAppShareUrl={whatsAppShareUrl}
+                prominent
+              />
+            </div>
           </div>
         </div>
       </div>

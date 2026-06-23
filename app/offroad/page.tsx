@@ -5,6 +5,7 @@ import OffroadHeroSection from "@/app/components/offroad/offroad-hero-section";
 import OffroadJourneyBackground from "@/app/components/offroad/offroad-journey-background";
 import OffroadSafetySection from "@/app/components/offroad/offroad-safety-section";
 import OffroadFirstTimeSection from "@/app/components/offroad/offroad-first-time-section";
+import OffroadPersonalLearningGallery from "@/app/components/offroad/offroad-personal-learning-gallery";
 import OffroadRecommendedRoutes from "@/app/components/offroad/offroad-recommended-routes";
 import OffroadBeginnerMistakesSection from "@/app/components/offroad/offroad-beginner-mistakes-section";
 import OffroadCookingTipsSection from "@/app/components/offroad/offroad-cooking-tips-section";
@@ -36,6 +37,7 @@ export default function OffroadPage() {
           <OffroadFirstTimeSection />
           <OffroadRecommendedRoutes groups={routeGroups} />
           <OffroadBeginnerMistakesSection />
+          <OffroadPersonalLearningGallery />
           <OffroadCookingTipsSection />
           <OffroadGearChecklistSection />
           <OffroadFinalCta />

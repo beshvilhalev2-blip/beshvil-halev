@@ -20,7 +20,7 @@ export default function OffroadHeroSection() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(68vh-6rem)] max-w-6xl flex-col justify-end px-6 pb-14 pt-16 sm:min-h-[calc(72vh-6rem)] sm:pb-16 lg:min-h-[calc(78vh-6rem)] lg:pb-20">
+      <div className="relative z-10 mx-auto flex min-h-[calc(68vh-6rem)] max-w-6xl flex-col justify-end px-6 pb-11 pt-16 sm:min-h-[calc(72vh-6rem)] sm:pb-12 lg:min-h-[calc(78vh-6rem)] lg:pb-16">
         <h1 className="mb-4 max-w-3xl text-[2rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-[0_2px_28px_rgba(0,0,0,0.42)] sm:text-[2.75rem] lg:text-5xl">
           שטח 4x4 למתחילים
         </h1>

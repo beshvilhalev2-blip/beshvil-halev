@@ -9,11 +9,11 @@ import {
   type SafetyVariantProps,
 } from "./safety-section-shared";
 
-/** A — Glass Glow: frosted tiles, amber hover glow, topographic backdrop */
+/** A - Glass Glow: frosted tiles, amber hover glow, topographic backdrop */
 export default function OffroadSafetyVariantA({
   id = "safety-rules-a",
   showLabel = false,
-  label = "Approach A — Glass Glow",
+  label = "Approach A - Glass Glow",
 }: SafetyVariantProps) {
   return (
     <section

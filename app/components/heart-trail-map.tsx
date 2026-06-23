@@ -14,7 +14,7 @@ import {
   REGION_SELECTOR_MARKERS,
   type DiscoveryRegionSlug,
 } from "@/lib/israel-discovery-map";
-import TripCardImage from "@/app/components/trip-card-image";
+import TripCard from "@/app/components/trip-card";
 import { TRIP_MAP_CARD_IMAGE_SIZES } from "@/lib/trip-image-sizes";
 
 type RegionSlug = DiscoveryRegionSlug;
@@ -30,8 +30,6 @@ const FILTER_OPTIONS: { slug: FilterSlug; label: string }[] = [
     return { slug, label: region.title };
   }),
 ];
-
-const HIDDEN_CATEGORY = "מקום שביקרנו";
 
 function formatTripCount(count: number): string {
   return count === 1 ? "מסלול אחד" : `${count} מסלולים`;
@@ -71,53 +69,6 @@ function RegionFilters({
         );
       })}
     </div>
-  );
-}
-
-function MapTripCard({ trip }: { trip: Trip }) {
-  const showCategory = trip.category !== HIDDEN_CATEGORY;
-  const tagItems = [
-    ...(showCategory ? [trip.category] : []),
-    ...(trip.tags?.slice(0, 2) ?? []),
-  ];
-
-  return (
-    <Link
-      href={`/trips/${trip.slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-[0_4px_16px_rgba(28,25,23,0.05)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(28,25,23,0.08)]"
-    >
-      <div className="relative aspect-[16/10] overflow-hidden bg-stone-200">
-        <TripCardImage trip={trip} sizes={TRIP_MAP_CARD_IMAGE_SIZES} />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/25 to-transparent" />
-      </div>
-      <div className="flex flex-1 flex-col p-3 sm:p-3.5">
-        <h3 className="mb-1 line-clamp-1 text-sm font-bold text-stone-900 sm:text-[0.9375rem]">
-          {trip.title}
-        </h3>
-        {tagItems.length > 0 ? (
-          <div className="mb-1.5 flex flex-wrap gap-1">
-            {tagItems.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-600"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        ) : null}
-        <p className="mb-2.5 line-clamp-2 flex-1 text-xs leading-relaxed text-stone-600">
-          {trip.subtitle}
-        </p>
-        <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#A8895C] transition-colors group-hover:text-[#8F7348]">
-          גלה המסלול
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-3.5" aria-hidden="true">
-            <path d="M19 12H5" />
-            <path d="m12 19-7-7 7-7" />
-          </svg>
-        </span>
-      </div>
-    </Link>
   );
 }
 
@@ -423,7 +374,12 @@ export default function HeartTrailMap() {
                   <div className="max-h-[26rem] overflow-y-auto overscroll-contain pe-1 [scrollbar-gutter:stable]">
                     <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
                       {visibleTrips.map((trip) => (
-                        <MapTripCard key={trip.slug} trip={trip} />
+                        <TripCard
+                          key={trip.slug}
+                          trip={trip}
+                          density="compact"
+                          imageSizes={TRIP_MAP_CARD_IMAGE_SIZES}
+                        />
                       ))}
                     </div>
                   </div>

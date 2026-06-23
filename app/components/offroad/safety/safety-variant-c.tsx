@@ -9,11 +9,11 @@ import {
   type SafetyVariantProps,
 } from "./safety-section-shared";
 
-/** C — Contour Accent: minimal frame, left accent bar, refined typography */
+/** C - Contour Accent: minimal frame, left accent bar, refined typography */
 export default function OffroadSafetyVariantC({
   id = "safety-rules-c",
   showLabel = false,
-  label = "Approach C — Contour Accent",
+  label = "Approach C - Contour Accent",
 }: SafetyVariantProps) {
   return (
     <section

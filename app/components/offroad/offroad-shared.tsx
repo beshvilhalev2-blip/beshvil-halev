@@ -1,6 +1,6 @@
 import type { OffroadIconId } from "@/lib/offroad/content";
 
-/** Unified surface card — use across safety, routes intro, cooking, gear, mistakes */
+/** Unified surface card - use across safety, routes intro, cooking, gear, mistakes */
 export const offroadCard =
   "group relative overflow-hidden rounded-2xl border border-stone-200/45 bg-white/70 shadow-[0_10px_36px_-22px_rgba(28,25,23,0.18)] backdrop-blur-md transition-all duration-300 ease-out dark:border-stone-700/45 dark:bg-stone-900/55 dark:shadow-[0_10px_36px_-22px_rgba(0,0,0,0.45)]";
 
@@ -11,7 +11,7 @@ export const offroadCardHover =
 export const offroadGlassCard = `${offroadCard} ${offroadCardHover}`;
 
 export const offroadSectionShell =
-  "relative scroll-mt-24 px-4 py-14 sm:px-6 sm:py-18 lg:py-20";
+  "relative scroll-mt-24 px-4 py-11 sm:px-6 sm:py-14 lg:py-16";
 
 export const offroadSectionInner = "relative z-10 mx-auto max-w-6xl";
 

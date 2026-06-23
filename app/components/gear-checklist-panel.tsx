@@ -51,11 +51,19 @@ function ChevronIcon({ open }: { open: boolean }) {
   );
 }
 
-function StatusIndicator({ status }: { status: GearItemStatus }) {
+function StatusIndicator({
+  status,
+  compact = false,
+}: {
+  status: GearItemStatus;
+  compact?: boolean;
+}) {
+  const sizeClass = compact ? "size-5 text-xs" : "size-6 text-sm";
+
   if (status === "have") {
     return (
       <span
-        className="flex size-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
+        className={`flex shrink-0 items-center justify-center rounded-full bg-emerald-100 font-bold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 ${sizeClass}`}
         aria-hidden="true"
       >
         ✓
@@ -66,7 +74,7 @@ function StatusIndicator({ status }: { status: GearItemStatus }) {
   if (status === "missing") {
     return (
       <span
-        className="flex size-6 shrink-0 items-center justify-center rounded-full bg-rose-100 text-sm font-bold text-rose-700 dark:bg-rose-950 dark:text-rose-300"
+        className={`flex shrink-0 items-center justify-center rounded-full bg-rose-100 font-bold text-rose-700 dark:bg-rose-950 dark:text-rose-300 ${sizeClass}`}
         aria-hidden="true"
       >
         ✕
@@ -76,7 +84,7 @@ function StatusIndicator({ status }: { status: GearItemStatus }) {
 
   return (
     <span
-      className="flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-stone-300 text-sm text-stone-400 dark:border-stone-600 dark:text-stone-500"
+      className={`flex shrink-0 items-center justify-center rounded-full border-2 border-stone-300 text-stone-400 dark:border-stone-600 dark:text-stone-500 ${sizeClass}`}
       aria-hidden="true"
     >
       ○
@@ -88,10 +96,12 @@ function GearItemRow({
   item,
   status,
   onCycle,
+  compact = false,
 }: {
   item: ResolvedGearItem;
   status: GearItemStatus;
   onCycle: () => void;
+  compact?: boolean;
 }) {
   const rowClass =
     status === "have"
@@ -110,11 +120,15 @@ function GearItemRow({
         onClick={onCycle}
         aria-label={`${item.label} - ${statusLabel}`}
         aria-pressed={status !== "unset"}
-        className={`flex w-full min-h-11 items-center gap-3 rounded-lg px-3 py-3 text-start transition-colors ${rowClass}`}
+        className={`flex w-full items-center gap-2.5 text-start transition-colors ${
+          compact ? "min-h-9 rounded-md px-2 py-1.5" : "min-h-11 rounded-lg px-3 py-3"
+        } ${rowClass}`}
       >
-        <StatusIndicator status={status} />
+        <StatusIndicator status={status} compact={compact} />
         <span
-          className={`min-w-0 flex-1 text-sm font-medium leading-snug ${
+          className={`min-w-0 flex-1 font-medium leading-snug ${
+            compact ? "text-[13px]" : "text-sm"
+          } ${
             status === "have"
               ? "text-emerald-900 dark:text-emerald-100"
               : status === "missing"
@@ -138,6 +152,8 @@ function GearGroupAccordion({
   onToggle,
   statuses,
   onCycleItem,
+  compact = false,
+  showCountInLabel = false,
 }: {
   groupId: string;
   emoji: string;
@@ -147,10 +163,16 @@ function GearGroupAccordion({
   onToggle: () => void;
   statuses: Record<string, GearItemStatus>;
   onCycleItem: (itemId: string) => void;
+  compact?: boolean;
+  showCountInLabel?: boolean;
 }) {
   const missingCount = items.filter(
     (item) => (statuses[item.id] ?? "unset") === "missing",
   ).length;
+
+  const displayLabel = showCountInLabel
+    ? `${label} (${items.length})`
+    : label;
 
   return (
     <div className="border-b border-stone-100 last:border-b-0 dark:border-stone-800">
@@ -160,18 +182,30 @@ function GearGroupAccordion({
         aria-expanded={isOpen}
         aria-controls={`gear-group-panel-${groupId}`}
         onClick={onToggle}
-        className="flex min-h-12 w-full items-center gap-3 py-3.5 text-start transition-colors"
+        className={`flex w-full items-center gap-2.5 text-start transition-colors ${
+          compact ? "min-h-10 py-2" : "min-h-12 gap-3 py-3.5"
+        }`}
       >
-        <span className="text-lg" aria-hidden="true">
+        <span className={compact ? "text-base" : "text-lg"} aria-hidden="true">
           {emoji}
         </span>
-        <span className="min-w-0 flex-1 text-sm font-semibold text-stone-800 dark:text-stone-100">
-          {label}
+        <span
+          className={`min-w-0 flex-1 font-semibold text-stone-800 dark:text-stone-100 ${
+            compact ? "text-[13px]" : "text-sm"
+          }`}
+        >
+          {displayLabel}
         </span>
-        <span className="shrink-0 text-xs text-stone-400 dark:text-stone-500">
-          {items.length} פריטים
-          {missingCount > 0 ? ` · ${missingCount} חסר` : ""}
-        </span>
+        {!showCountInLabel ? (
+          <span className="shrink-0 text-xs text-stone-400 dark:text-stone-500">
+            {items.length} פריטים
+            {missingCount > 0 ? ` · ${missingCount} חסר` : ""}
+          </span>
+        ) : missingCount > 0 ? (
+          <span className="shrink-0 text-[11px] text-rose-500 dark:text-rose-400">
+            {missingCount} חסר
+          </span>
+        ) : null}
         <ChevronIcon open={isOpen} />
       </button>
 
@@ -184,13 +218,14 @@ function GearGroupAccordion({
         }`}
       >
         <div className="overflow-hidden">
-          <ul className="space-y-0.5 pb-3">
+          <ul className={compact ? "pb-2" : "space-y-0.5 pb-3"}>
             {items.map((item) => (
               <GearItemRow
                 key={item.id}
                 item={item}
                 status={statuses[item.id] ?? "unset"}
                 onCycle={() => onCycleItem(item.id)}
+                compact={compact}
               />
             ))}
           </ul>
@@ -200,10 +235,18 @@ function GearGroupAccordion({
   );
 }
 
+export type GearDefaultExpandMode = "first-only" | "missing";
+
 function getDefaultOpenGroups(
   sections: GearChecklistSection[],
   statuses: Record<string, GearItemStatus>,
+  mode: GearDefaultExpandMode = "missing",
 ): Set<string> {
+  if (mode === "first-only") {
+    const first = sections[0];
+    return first ? new Set([first.id]) : new Set();
+  }
+
   const open = new Set<string>();
 
   for (const section of sections) {
@@ -229,15 +272,29 @@ type GearChecklistPanelProps = {
   onReset?: () => void;
   onStateChange?: () => void;
   hideShareButton?: boolean;
+  compact?: boolean;
+  embedded?: boolean;
+  defaultExpandMode?: GearDefaultExpandMode;
+  showCountInLabel?: boolean;
 };
 
 export function GearChecklistWhatsAppShare({
   whatsAppShareUrl,
   canShareWhatsApp,
+  prominent = false,
 }: {
   whatsAppShareUrl: string | null;
   canShareWhatsApp: boolean;
+  prominent?: boolean;
 }) {
+  const buttonClass = prominent
+    ? "flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-base font-semibold text-white shadow-[0_8px_24px_-8px_rgba(37,211,102,0.55)] transition-all hover:bg-[#20BD5A] hover:shadow-[0_10px_28px_-8px_rgba(37,211,102,0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
+    : "flex min-h-11 w-full items-center justify-center rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#20BD5A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]";
+
+  const disabledClass = prominent
+    ? "flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-xl bg-stone-200 px-5 py-3 text-base font-semibold text-stone-400 dark:bg-stone-800 dark:text-stone-500"
+    : "flex min-h-11 w-full cursor-not-allowed items-center justify-center rounded-xl bg-stone-200 px-4 py-2.5 text-sm font-semibold text-stone-400 dark:bg-stone-800 dark:text-stone-500";
+
   return (
     <div>
       {canShareWhatsApp && whatsAppShareUrl ? (
@@ -245,7 +302,7 @@ export function GearChecklistWhatsAppShare({
           href={whatsAppShareUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex min-h-11 w-full items-center justify-center rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#20BD5A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366]"
+          className={buttonClass}
         >
           📲 שלחו לי את הרשימה לוואטסאפ
         </a>
@@ -255,11 +312,15 @@ export function GearChecklistWhatsAppShare({
             type="button"
             disabled
             aria-disabled="true"
-            className="flex min-h-11 w-full cursor-not-allowed items-center justify-center rounded-xl bg-stone-200 px-4 py-2.5 text-sm font-semibold text-stone-400 dark:bg-stone-800 dark:text-stone-500"
+            className={disabledClass}
           >
             📲 שלחו לי את הרשימה לוואטסאפ
           </button>
-          <p className="mt-2 text-center text-sm text-stone-500 dark:text-stone-400">
+          <p
+            className={`text-center text-stone-500 dark:text-stone-400 ${
+              prominent ? "mt-2 text-sm" : "mt-2 text-sm"
+            }`}
+          >
             סמנו לפחות פריט אחד כדי לשתף
           </p>
         </div>
@@ -276,6 +337,10 @@ export default function GearChecklistPanel({
   onReset,
   onStateChange,
   hideShareButton = false,
+  compact = false,
+  embedded = false,
+  defaultExpandMode = "missing",
+  showCountInLabel = false,
 }: GearChecklistPanelProps) {
   const [storageState, setStorageState] = useState<TripGearStorageState>(
     createInitialStorageState,
@@ -302,8 +367,10 @@ export default function GearChecklistPanel({
       return;
     }
 
-    setOpenGroups(getDefaultOpenGroups(sections, displayState.items));
-  }, [hydrated, storageKey]);
+    setOpenGroups(
+      getDefaultOpenGroups(sections, displayState.items, defaultExpandMode),
+    );
+  }, [hydrated, storageKey, defaultExpandMode, sections]);
 
   const motivation = useMemo(
     () => getReadinessMotivation(readiness, hydrated),
@@ -367,39 +434,81 @@ export default function GearChecklistPanel({
     return null;
   }
 
+  const shellClass = embedded
+    ? ""
+    : compact
+      ? "rounded-xl border border-stone-200/70 bg-white p-3 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:p-4"
+      : "rounded-2xl border border-stone-200/80 bg-white p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:p-6";
+
   return (
-    <div className="rounded-2xl border border-stone-200/80 bg-white p-4 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:p-6">
-      <p className="mb-4 text-sm text-stone-500 dark:text-stone-400">
+    <div className={shellClass}>
+      <p
+        className={`text-stone-500 dark:text-stone-400 ${
+          compact ? "mb-2 text-xs" : "mb-4 text-sm"
+        }`}
+      >
         {AUTO_SAVE_NOTE}
       </p>
 
-      <div
-        className="mb-5 rounded-xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50/90 to-teal-50/50 p-4 dark:border-emerald-900/60 dark:from-emerald-950/40 dark:to-teal-950/20"
-        role="status"
-      >
-        <p className="mb-1 text-sm font-semibold text-stone-700 dark:text-stone-200">
-          🎒 מוכנות לטיול
-        </p>
-        <p className="mb-2 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
-          {displayPercent}%
-        </p>
+      {compact ? (
         <div
-          className="mb-3 h-2 overflow-hidden rounded-full bg-stone-200/80 dark:bg-stone-700"
-          role="progressbar"
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={displayPercent}
-          aria-label="אחוז מוכנות לטיול"
+          className="mb-3 rounded-lg border border-emerald-200/70 bg-emerald-50/60 px-3 py-2 dark:border-emerald-900/50 dark:bg-emerald-950/25"
+          role="status"
         >
+          <div className="mb-1.5 flex items-baseline justify-between gap-2">
+            <p className="text-xs font-medium text-stone-600 dark:text-stone-300">
+              🎒 מוכנות לטיול
+            </p>
+            <p className="text-xl font-bold tabular-nums text-stone-900 dark:text-stone-50">
+              {displayPercent}%
+            </p>
+          </div>
           <div
-            className="h-full rounded-full bg-emerald-500 transition-all duration-300 ease-out"
-            style={{ width: `${displayPercent}%` }}
-          />
+            className="h-1.5 overflow-hidden rounded-full bg-stone-200/80 dark:bg-stone-700"
+            role="progressbar"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={displayPercent}
+            aria-label="אחוז מוכנות לטיול"
+          >
+            <div
+              className="h-full rounded-full bg-emerald-500 transition-all duration-300 ease-out"
+              style={{ width: `${displayPercent}%` }}
+            />
+          </div>
+          <p className="mt-1.5 text-xs text-stone-600 dark:text-stone-400">
+            {motivation}
+          </p>
         </div>
-        <p className="text-sm text-stone-600 dark:text-stone-400">
-          {motivation}
-        </p>
-      </div>
+      ) : (
+        <div
+          className="mb-5 rounded-xl border border-emerald-200/80 bg-gradient-to-br from-emerald-50/90 to-teal-50/50 p-4 dark:border-emerald-900/60 dark:from-emerald-950/40 dark:to-teal-950/20"
+          role="status"
+        >
+          <p className="mb-1 text-sm font-semibold text-stone-700 dark:text-stone-200">
+            🎒 מוכנות לטיול
+          </p>
+          <p className="mb-2 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
+            {displayPercent}%
+          </p>
+          <div
+            className="mb-3 h-2 overflow-hidden rounded-full bg-stone-200/80 dark:bg-stone-700"
+            role="progressbar"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={displayPercent}
+            aria-label="אחוז מוכנות לטיול"
+          >
+            <div
+              className="h-full rounded-full bg-emerald-500 transition-all duration-300 ease-out"
+              style={{ width: `${displayPercent}%` }}
+            />
+          </div>
+          <p className="text-sm text-stone-600 dark:text-stone-400">
+            {motivation}
+          </p>
+        </div>
+      )}
 
       {cookingToggle && (
         <div className="mb-4 flex items-center justify-between gap-3 rounded-xl border border-amber-200/70 bg-amber-50/40 px-3 py-3 dark:border-amber-900/40 dark:bg-amber-950/15">
@@ -435,7 +544,7 @@ export default function GearChecklistPanel({
         </div>
       )}
 
-      <div className="mb-4">
+      <div className={compact ? "mb-3" : "mb-4"}>
         {sections.map((section) => (
           <GearGroupAccordion
             key={section.id}
@@ -447,23 +556,33 @@ export default function GearChecklistPanel({
             onToggle={() => toggleGroup(section.id)}
             statuses={displayState.items}
             onCycleItem={handleCycleItem}
+            compact={compact}
+            showCountInLabel={showCountInLabel}
           />
         ))}
       </div>
 
       {hydrated && readiness.missingItems.length > 0 && (
         <div
-          className="mb-4 rounded-xl border border-rose-200/70 bg-rose-50/40 px-3 py-3 dark:border-rose-900/40 dark:bg-rose-950/15"
+          className={`rounded-lg border border-rose-200/70 bg-rose-50/40 dark:border-rose-900/40 dark:bg-rose-950/15 ${
+            compact ? "mb-3 px-2.5 py-2" : "mb-4 rounded-xl px-3 py-3"
+          }`}
           aria-live="polite"
         >
-          <h3 className="mb-2 text-sm font-semibold text-stone-800 dark:text-stone-100">
+          <h3
+            className={`font-semibold text-stone-800 dark:text-stone-100 ${
+              compact ? "mb-1 text-xs" : "mb-2 text-sm"
+            }`}
+          >
             🛒 חסר לכם:
           </h3>
-          <ul className="space-y-1.5">
+          <ul className={compact ? "space-y-0.5" : "space-y-1.5"}>
             {readiness.missingItems.map((item) => (
               <li
                 key={item.id}
-                className="flex items-center gap-2 text-sm text-stone-700 dark:text-stone-300"
+                className={`flex items-center gap-2 text-stone-700 dark:text-stone-300 ${
+                  compact ? "text-xs" : "text-sm"
+                }`}
               >
                 <span className="text-rose-500 dark:text-rose-400">•</span>
                 <span>{item.label}</span>
@@ -485,7 +604,9 @@ export default function GearChecklistPanel({
       <button
         type="button"
         onClick={handleReset}
-        className="inline-flex min-h-11 items-center text-sm font-medium text-stone-500 underline-offset-2 transition-colors hover:text-stone-700 hover:underline dark:text-stone-400 dark:hover:text-stone-200"
+        className={`inline-flex items-center font-medium text-stone-500 underline-offset-2 transition-colors hover:text-stone-700 hover:underline dark:text-stone-400 dark:hover:text-stone-200 ${
+          compact ? "min-h-9 text-xs" : "min-h-11 text-sm"
+        }`}
       >
         איפוס הרשימה
       </button>

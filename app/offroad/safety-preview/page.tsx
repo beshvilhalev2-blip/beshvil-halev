@@ -14,7 +14,7 @@ export default function OffroadSafetyPreviewPage() {
       <div className="border-b border-stone-200 bg-white px-4 py-6 dark:border-stone-800 dark:bg-stone-900">
         <div className="mx-auto max-w-6xl">
           <h1 className="text-lg font-bold text-stone-900 dark:text-stone-50">
-            Safety Rules — 3 Visual Approaches
+            Safety Rules - 3 Visual Approaches
           </h1>
           <p className="mt-1 text-sm text-stone-500">
             Compare variants below. Hover tiles on desktop to preview interaction.

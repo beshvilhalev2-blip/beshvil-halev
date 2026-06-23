@@ -19,7 +19,7 @@ export default function OffroadFinalCta() {
   return (
     <section
       id="find-route"
-      className={`${offroadSectionShell} scroll-mt-24 pb-16 sm:pb-20`}
+      className={`${offroadSectionShell} scroll-mt-24 pb-12 sm:pb-16`}
     >
       <div className={offroadSectionInner}>
         <OffroadSectionHeader title="לא יודעים לאן לנסוע?" />

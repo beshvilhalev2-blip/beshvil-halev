@@ -9,11 +9,11 @@ import {
 } from "./safety-section-shared";
 import { offroadCard, offroadCardHover, offroadSectionShell } from "../offroad-shared";
 
-/** B — Soft Elevate: warm stone surfaces, emerald accent, clean lift */
+/** B - Soft Elevate: warm stone surfaces, emerald accent, clean lift */
 export default function OffroadSafetyVariantB({
   id = "safety-rules-b",
   showLabel = false,
-  label = "Approach B — Soft Elevate",
+  label = "Approach B - Soft Elevate",
 }: SafetyVariantProps) {
   return (
     <section id={id} className={`${offroadSectionShell} scroll-mt-24`}>
