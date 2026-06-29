@@ -17,17 +17,21 @@ import {
 
 type TripGearChecklistProps = {
   trip: Trip;
+  variant?: "full" | "embedded";
 };
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="mb-2 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
+    <h2 className="mb-2 text-center text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
       {children}
     </h2>
   );
 }
 
-export default function TripGearChecklist({ trip }: TripGearChecklistProps) {
+export default function TripGearChecklist({
+  trip,
+  variant = "full",
+}: TripGearChecklistProps) {
   const baseChecklist = useMemo(
     () => buildTripGearChecklist(trip),
     [trip],
@@ -97,18 +101,29 @@ export default function TripGearChecklist({ trip }: TripGearChecklistProps) {
     return null;
   }
 
+  const isEmbedded = variant === "embedded";
+  const Wrapper = isEmbedded ? "div" : "section";
+
   return (
-    <section
-      id="trip-gear-checklist"
-      className="mb-12 scroll-mt-24 sm:mb-16 sm:scroll-mt-28"
-      aria-labelledby="trip-gear-checklist-heading"
+    <Wrapper
+      id={isEmbedded ? undefined : "trip-gear-checklist"}
+      className={
+        isEmbedded
+          ? ""
+          : "mb-8 scroll-mt-24 sm:mb-9 sm:scroll-mt-28"
+      }
+      aria-labelledby={isEmbedded ? undefined : "trip-gear-checklist-heading"}
     >
-      <SectionHeading>
-        <span id="trip-gear-checklist-heading">מוכנים לטיול?</span>
-      </SectionHeading>
-      <p className="mb-6 text-base text-stone-600 dark:text-stone-400">
-        רשימת ציוד מומלצת לפי סוג הטיול
-      </p>
+      {isEmbedded ? null : (
+        <>
+          <SectionHeading>
+            <span id="trip-gear-checklist-heading">ציוד מומלץ</span>
+          </SectionHeading>
+          <p className="mb-5 text-center text-base text-stone-600 dark:text-stone-400">
+            רשימת ציוד מומלצת לפי סוג הטיול
+          </p>
+        </>
+      )}
 
       <GearChecklistPanel
         storageKey={trip.slug}
@@ -124,6 +139,6 @@ export default function TripGearChecklist({ trip }: TripGearChecklistProps) {
             : undefined
         }
       />
-    </section>
+    </Wrapper>
   );
 }

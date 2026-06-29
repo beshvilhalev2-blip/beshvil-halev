@@ -15,3 +15,7 @@ export {
   getWantToTravelDisplayTags,
   type WantToTravelDisplayTag,
 } from "@/lib/want-to-travel/display-tags";
+export {
+  WANT_TO_TRAVEL_PAGE_METADATA_TITLE,
+  WANT_TO_TRAVEL_PAGE_TITLE,
+} from "@/lib/want-to-travel/labels";

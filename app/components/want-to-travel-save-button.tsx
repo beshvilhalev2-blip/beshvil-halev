@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState, type MouseEvent } from "react";
 import { saveTripToWantToTravel } from "@/lib/want-to-travel";
+import { WANT_TO_TRAVEL_PAGE_TITLE } from "@/lib/want-to-travel/labels";
 import { useIsTripSaved } from "@/lib/want-to-travel/use-saved-trips";
 
 type WantToTravelSaveButtonProps = {
@@ -89,35 +90,35 @@ export default function WantToTravelSaveButton({
   }
 
   return (
-    <div className={isHero ? "mb-4" : ""}>
+    <div className={isHero ? "mx-auto mt-2.5 w-full max-w-lg" : ""}>
       <button
         type="button"
         onClick={handleSave}
         disabled={!hydrated || saved}
         aria-pressed={saved}
-        className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors sm:w-auto ${
+        className={`inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-colors ${
           saved
             ? isHero
-              ? "border border-white/30 bg-white/15 text-white backdrop-blur-sm"
+              ? "border border-white/25 bg-white/18 text-white/85 backdrop-blur-sm"
               : "border border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-200"
             : isHero
-              ? "bg-white/15 text-white backdrop-blur-sm hover:bg-white/22"
+              ? "border border-white/25 bg-white/18 text-white/90 backdrop-blur-sm hover:bg-white/24"
               : "border border-stone-200 bg-white text-stone-800 hover:border-rose-200 hover:text-rose-600 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100"
-        } ${!hydrated ? "cursor-wait opacity-80" : ""}`}
+        } ${!hydrated ? "cursor-wait opacity-80" : ""} ${isHero ? "" : "sm:w-auto"}`}
       >
         <HeartIcon filled={saved} />
-        {saved ? "שמרתי לפעם הבאה" : "שמור לטיול הבא"}
+        {saved ? "שמרתי לפעם הבאה" : isHero ? "שמור לטיול הבא שלי" : "שמור לטיול הבא"}
       </button>
 
       {showConfirmation && (
         <p
-          className={`mt-2 text-sm ${
-            isHero ? "text-white/85" : "text-stone-600 dark:text-stone-400"
+          className={`mt-2 text-center text-sm ${
+            isHero ? "text-white/70" : "text-stone-600 dark:text-stone-400"
           }`}
           role="status"
           aria-live="polite"
         >
-          נשמר לרשימת בא לי לטייל
+          נוסף ל{WANT_TO_TRAVEL_PAGE_TITLE}
         </p>
       )}
     </div>

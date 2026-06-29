@@ -457,7 +457,7 @@ export default function GearChecklistPanel({
         >
           <div className="mb-1.5 flex items-baseline justify-between gap-2">
             <p className="text-xs font-medium text-stone-600 dark:text-stone-300">
-              🎒 מוכנות לטיול
+              🎒 מוכנות
             </p>
             <p className="text-xl font-bold tabular-nums text-stone-900 dark:text-stone-50">
               {displayPercent}%
@@ -469,7 +469,7 @@ export default function GearChecklistPanel({
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={displayPercent}
-            aria-label="אחוז מוכנות לטיול"
+            aria-label="אחוז מוכנות"
           >
             <div
               className="h-full rounded-full bg-emerald-500 transition-all duration-300 ease-out"
@@ -486,7 +486,7 @@ export default function GearChecklistPanel({
           role="status"
         >
           <p className="mb-1 text-sm font-semibold text-stone-700 dark:text-stone-200">
-            🎒 מוכנות לטיול
+            🎒 מוכנות
           </p>
           <p className="mb-2 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
             {displayPercent}%
@@ -497,7 +497,7 @@ export default function GearChecklistPanel({
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={displayPercent}
-            aria-label="אחוז מוכנות לטיול"
+            aria-label="אחוז מוכנות"
           >
             <div
               className="h-full rounded-full bg-emerald-500 transition-all duration-300 ease-out"

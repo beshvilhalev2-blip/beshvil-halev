@@ -9,6 +9,7 @@ import {
   clearAllWantToTravelTrips,
   removeTripFromWantToTravel,
   useSavedTripSlugs,
+  WANT_TO_TRAVEL_PAGE_TITLE,
 } from "@/lib/want-to-travel";
 
 function SavedTripListItem({
@@ -73,7 +74,7 @@ export default function WantToTravelView() {
             הרשימה שלך
           </p>
           <h1 className="mb-3 text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
-            בא לי לטייל
+            {WANT_TO_TRAVEL_PAGE_TITLE}
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
             המקומות ששמרתם לרגע שבו תרצו פשוט לצאת לדרך

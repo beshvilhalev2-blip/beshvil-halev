@@ -15,6 +15,17 @@ export type TripCostItem = {
   note?: string;
 };
 
+export type TripQuickFact = {
+  label: string;
+  value: string;
+  emphasis?: boolean;
+};
+
+export type TripFaqItem = {
+  question: string;
+  answer: string;
+};
+
 export type TripGalleryItem = {
   label?: string;
   gradient?: string;
@@ -25,6 +36,12 @@ export type TripNearbyPlace = {
   title: string;
   description: string;
   href: string;
+};
+
+export type TripGettingThere = {
+  parking?: string;
+  walking?: string;
+  notes?: string[];
 };
 
 export type TripVehicleAccess =
@@ -61,10 +78,16 @@ export type Trip = {
   heroImagePosition?: string;
   heroImageLabel: string;
   heroBackgroundImage: string;
+  heroNote?: string;
+  heroNoteLabel?: string;
   location?: TripLocation;
   wazeUrl?: string;
   googleMapsUrl?: string;
   highlights?: string[];
+  quickFacts?: TripQuickFact[];
+  gettingThere?: TripGettingThere;
+  closingNote?: string;
+  faq?: TripFaqItem[];
   about: string[];
   personalStory: string[];
   cost: TripCostItem[];
@@ -545,6 +568,8 @@ const rawTrips: Trip[] = [
     slug: "ein-moda",
     title: "עין מודע",
     subtitle: "מים צלולים, צל טבעי והמון מקום לילדים להשתולל",
+    heroNote: "ביקרנו כאן מספר פעמים עם הילדים",
+    heroNoteLabel: "המלצה אישית",
     region: "צפון",
     category: "מעיין",
     featured: true,
@@ -611,6 +636,51 @@ const rawTrips: Trip[] = [
       { label: "כניסה", value: "חינם" },
       { label: "חניה", value: "הליכה ~10 דק׳" },
       { label: "משך בילוי", value: "2–4 שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן, במיוחד" },
+      { label: "מים כל השנה", value: "כן, נעים בכל עונה" },
+      { label: "נגיש לעגלות", value: "כן" },
+      { label: "זמן הליכה", value: "כ-10 דקות מהחניה" },
+      { label: "זמן ביקור", value: "2–4 שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה בחוץ + הליכה קצרה",
+      walking:
+        "ההליכה מהחניה למעיין לוקחת בערך 10 דקות. המסלול נוח גם למשפחות עם עגלת תינוק.",
+      notes: [
+        "בסופי שבוע וחגים כדאי להגיע מוקדם — המקום מתמלא מהר.",
+        "יש שירותים במקום.",
+      ],
+    },
+    closingNote:
+      "בואו נשמור על הטבע יפה. קחו איתכם את האשפה והשאירו את המקום בדיוק כמו שמצאתם אותו 💚",
+    faq: [
+      {
+        question: "מתאים לעגלות?",
+        answer:
+          "כן. הגישה למעיין נוחה יחסית, ויש מסלול מתאים גם למשפחות עם עגלת תינוק.",
+      },
+      {
+        question: "יש שירותים?",
+        answer: "כן, יש שירותים במקום.",
+      },
+      {
+        question: "יש צל?",
+        answer:
+          "כן. סביב הבריכה יש עצים גבוהים ואזורי ישיבה מוצלים — אחד היתרונות הגדולים של המקום.",
+      },
+      {
+        question: "אפשר לעשות מנגל?",
+        answer:
+          "לא מומלץ לעשות מנגל ליד הבריכה עצמה. אפשר להביא פיקניק, מחצלת ואוכל, אבל כדאי לשמור על ניקיון המקום.",
+      },
+      {
+        question: "כמה זמן לוקח המסלול?",
+        answer:
+          "ההליכה מהחניה למעיין לוקחת בערך 10 דקות. רוב המבקרים נשארים 2–4 שעות, תלוי בקצב ובמזג האוויר.",
+      },
     ],
     tips: [
       "להגיע מוקדם בבוקר",

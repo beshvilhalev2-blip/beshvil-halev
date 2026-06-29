@@ -4,11 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { SocialLinksMobileList, SocialLinksRow } from "@/app/components/social-links";
+import { WANT_TO_TRAVEL_PAGE_TITLE } from "@/lib/want-to-travel/labels";
 
 const navItems = [
   { label: "ראשי", href: "/" },
   { label: "המלצות לטיולים", href: "/recommendations" },
-  { label: "בא לי לטייל", href: "/want-to-travel" },
+  { label: WANT_TO_TRAVEL_PAGE_TITLE, href: "/want-to-travel" },
   { label: "אזורים בארץ", href: "/regions" },
   { label: "4x4 למתחילים", href: "/offroad" },
   { label: "רשימת ציוד", href: "/gear" },

@@ -71,10 +71,32 @@ html {
   .hero-panel-enter {
     animation: hero-panel-enter 420ms ease-out both;
   }
+
+  .trip-hero-ken-burns {
+    animation: trip-hero-ken-burns 28s ease-out forwards;
+  }
+
+  .trip-hero-content-enter {
+    animation: hero-panel-enter 560ms ease-out both;
+  }
+}
+
+@keyframes trip-hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.02);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .field-updates-marquee-track {
+    animation: none !important;
+  }
+
+  .trip-hero-ken-burns,
+  .trip-hero-content-enter {
     animation: none !important;
   }
 }

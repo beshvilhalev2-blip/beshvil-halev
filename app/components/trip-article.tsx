@@ -2,11 +2,32 @@ import Link from "next/link";
 import type { Trip } from "@/data/trips";
 import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
-import TripActionBar from "@/app/components/trip-action-bar";
-import TripGearChecklist from "@/app/components/trip-gear-checklist";
+import TripHeroActions from "@/app/components/trip-hero-actions";
+import TripGearCollapsible from "@/app/components/trip-gear-collapsible";
 import WantToTravelSaveButton from "@/app/components/want-to-travel-save-button";
 import TripPhotoGallery from "@/app/components/trip-photo-gallery";
 import TripHeroImage from "@/app/components/trip-hero-image";
+import TripQuickFacts from "@/app/components/trip-quick-facts";
+import TripAboutPlace from "@/app/components/trip-about-place";
+import TripOurExperience from "@/app/components/trip-our-experience";
+import TripGettingThereSection from "@/app/components/trip-getting-there";
+import TripMilanaTips from "@/app/components/trip-milana-tips";
+import TripStayNearby from "@/app/components/trip-stay-nearby";
+import TripBeforeYouGo from "@/app/components/trip-before-you-go";
+import {
+  getExpectationParagraphs,
+  getRealContentParagraphs,
+  getRealNearbyPlaces,
+  getRealTips,
+} from "@/lib/trip-content-utils";
+import { resolveTripQuickFacts } from "@/lib/trip-quick-facts";
+import { getTripHeroPills } from "@/lib/trip-hero-tags";
+import { resolveTripGettingThere } from "@/lib/trip-getting-there";
+import {
+  tripSectionHeadingClass,
+  tripSectionStackClass,
+  tripSurfaceClass,
+} from "@/lib/trip-page-ui";
 
 function ArrowIcon() {
   return (
@@ -17,15 +38,17 @@ function ArrowIcon() {
   );
 }
 
-function SectionHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h2 className="mb-4 text-xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:mb-6 sm:text-2xl md:text-3xl">
-      {children}
-    </h2>
-  );
-}
-
 export default function TripArticle({ trip }: { trip: Trip }) {
+  const quickFacts = resolveTripQuickFacts(trip);
+  const heroPills = getTripHeroPills(trip);
+  const aboutParagraphs = getExpectationParagraphs(trip.about, 3);
+  const personalStoryParagraphs = getRealContentParagraphs(trip.personalStory);
+  const tips = getRealTips(trip.tips, 5);
+  const gettingThere = resolveTripGettingThere(trip);
+  const wazeDestination = trip.location?.label?.trim() || trip.title;
+  const nearbyPlaces = getRealNearbyPlaces(trip.nearbyPlaces);
+  const nearbySubtitle = trip.nearbySubtitle?.trim();
+
   return (
     <div className="flex flex-1 flex-col">
       <SiteHeader />
@@ -35,184 +58,95 @@ export default function TripArticle({ trip }: { trip: Trip }) {
         <TripHeroImage trip={trip} />
         <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-900/20 to-transparent" />
 
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-12">
-          <div className="mb-4 flex flex-wrap items-center gap-2 sm:mb-5 sm:gap-3">
-            <span className="rounded-full border border-white/20 bg-emerald-500/20 px-4 py-1.5 text-sm font-medium text-emerald-100 backdrop-blur-sm">
-              {trip.region}
+        <div className="trip-hero-content-enter relative z-10 mx-auto w-full max-w-4xl px-4 pb-9 pt-6 text-center sm:px-6 sm:pb-11 sm:pt-8">
+          <div className="-translate-y-1 mb-2 flex flex-wrap items-center justify-center gap-1.5 sm:-translate-y-2 sm:mb-2.5 sm:gap-2">
+            <span className="rounded-full border border-white/15 bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-100/90 backdrop-blur-sm sm:text-[0.8125rem]">
+              {heroPills.region}
             </span>
-            <span className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm">
-              {trip.category}
-            </span>
+            {heroPills.category ? (
+              <span className="rounded-full border border-white/12 bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm sm:text-[0.8125rem]">
+                {heroPills.category}
+              </span>
+            ) : null}
+            {heroPills.attribute ? (
+              <span className="rounded-full border border-white/12 bg-white/10 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm sm:text-[0.8125rem]">
+                {heroPills.attribute}
+              </span>
+            ) : null}
           </div>
 
-          <h1 className="mb-3 text-3xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="mx-auto mb-1.5 max-w-3xl text-[2.025rem] font-bold leading-tight tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.5),0_4px_32px_rgba(0,0,0,0.35)] sm:mb-2 sm:text-[2.43rem] md:text-[3.24rem] lg:text-[4.05rem]">
             {trip.title}
           </h1>
 
-          <p className="mb-5 max-w-2xl text-base leading-relaxed text-white/85 sm:mb-6 sm:text-lg md:text-xl">
+          <p className="mx-auto mb-3 w-fit max-w-2xl rounded-lg border border-white/20 bg-white/12 px-3.5 py-2 text-sm font-semibold leading-snug text-white backdrop-blur-md [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:mb-3.5 sm:px-4 sm:py-2.5 sm:text-base md:text-lg md:leading-relaxed">
             {trip.subtitle}
           </p>
 
-          <div className="mb-3">
-            <TripActionBar trip={trip} variant="hero" />
+          <div className="mb-2">
+            <TripHeroActions trip={trip} />
           </div>
 
           <WantToTravelSaveButton tripSlug={trip.slug} variant="hero" />
         </div>
       </section>
 
-      {/* Article body */}
+      <TripQuickFacts facts={quickFacts} />
+
       <article className="relative">
-        <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16 md:py-20">
-          {/* על המקום */}
-          <section className="mb-12 sm:mb-16">
-            <SectionHeading>על המקום</SectionHeading>
-            <div className="space-y-4 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-              {trip.about.map((paragraph) => (
-                <p
-                  key={paragraph}
-                  className={
-                    paragraph.startsWith("[")
-                      ? "text-stone-500 dark:text-stone-500"
-                      : undefined
-                  }
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </section>
+        <div className={`mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-8 ${tripSectionStackClass}`}>
+          <TripAboutPlace paragraphs={aboutParagraphs} />
+          <TripOurExperience paragraphs={personalStoryParagraphs} />
+          <TripPhotoGallery trip={trip} />
 
-          {trip.highlights && trip.highlights.length > 0 && (
-            <section className="mb-12 sm:mb-16">
-              <SectionHeading>למה לבקר?</SectionHeading>
-              <ul className="grid gap-3 sm:grid-cols-2">
-                {trip.highlights.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 rounded-xl border border-emerald-200/80 bg-emerald-50/60 px-5 py-4 dark:border-emerald-900 dark:bg-emerald-950/40"
-                  >
-                    <span className="mt-0.5 text-emerald-600 dark:text-emerald-400">✓</span>
-                    <span className="text-base leading-relaxed text-stone-700 dark:text-stone-300">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
+          {gettingThere ? (
+            <TripGettingThereSection
+              gettingThere={gettingThere}
+              wazeDestination={wazeDestination}
+            />
+          ) : null}
 
-          {/* הסיפור האישי שלי */}
-          <section className="mb-12 sm:mb-16">
-            <SectionHeading>הסיפור האישי שלי</SectionHeading>
-            <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900 sm:p-8">
-              <div className="mb-4 inline-flex size-12 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="size-6" aria-hidden="true">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <div className="space-y-4 text-base leading-relaxed text-stone-600 dark:text-stone-400 sm:text-lg">
-                {trip.personalStory.map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    className={
-                      paragraph.startsWith("[")
-                        ? "text-stone-500 italic dark:text-stone-500"
-                        : undefined
-                    }
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* עלות */}
-          <section className="mb-12 sm:mb-16">
-            <SectionHeading>עלות</SectionHeading>
-            <div className="overflow-hidden rounded-2xl border border-stone-200/80 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900">
-              <div className="grid divide-y divide-stone-100 dark:divide-stone-800 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:divide-x-reverse">
-                {trip.cost.map((item) => (
-                  <div key={item.label} className="p-6 text-center sm:p-8">
-                    <p className="mb-1 text-sm font-medium text-stone-500 dark:text-stone-400">
-                      {item.label}
-                    </p>
-                    <p className="text-2xl font-bold text-stone-900 dark:text-stone-50">
-                      {item.value}
-                    </p>
-                    {item.note && (
-                      <p className="mt-1 text-sm text-stone-400">{item.note}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* טיפים מיוחדים */}
-          <section className="mb-12 sm:mb-16">
-            <SectionHeading>טיפים מיוחדים</SectionHeading>
-            <ul className="space-y-3">
-              {trip.tips.map((tip) => (
-                <li
-                  key={tip}
-                  className="flex items-start gap-4 rounded-xl border border-stone-200/80 bg-white px-5 py-4 shadow-sm dark:border-stone-800 dark:bg-stone-900"
-                >
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
-                    ✓
-                  </span>
-                  <span className="text-base leading-relaxed text-stone-600 dark:text-stone-400">
-                    {tip}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <TripGearChecklist trip={trip} />
+          <TripGearCollapsible trip={trip} />
+          <TripMilanaTips tips={tips} />
+          <TripStayNearby />
+          <TripBeforeYouGo note={trip.closingNote} />
         </div>
 
-        <TripPhotoGallery trip={trip} />
-
-        <div className="mx-auto max-w-3xl px-4 pb-6 sm:px-6">
-          <TripActionBar trip={trip} variant="article" className="mx-auto sm:mx-0" />
-        </div>
-
-        {/* מקומות נוספים באזור */}
-        <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-10 text-center">
-              <h2 className="mb-3 text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
-                מקומות נוספים באזור
+        {nearbyPlaces.length > 0 ? (
+          <section className="px-4 pb-8 sm:px-6 sm:pb-10">
+            <div className="mx-auto max-w-6xl">
+              <h2 className={`${tripSectionHeadingClass} sm:mb-6`}>
+                עוד מקומות שלא כדאי לפספס באזור 🧭
               </h2>
-              <p className="text-stone-500 dark:text-stone-400">
-                {trip.nearbySubtitle}
-              </p>
-            </div>
+              {nearbySubtitle ? (
+                <p className="-mt-2 mb-6 text-center text-sm text-stone-500 dark:text-stone-400 sm:mb-8 sm:text-base">
+                  {nearbySubtitle}
+                </p>
+              ) : null}
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {trip.nearbyPlaces.map((place) => (
-                <Link
-                  key={place.title}
-                  href={place.href}
-                  className="group flex flex-col rounded-2xl border border-stone-200/80 bg-white p-7 shadow-sm transition-shadow duration-300 hover:border-emerald-200 hover:shadow-md dark:border-stone-800 dark:bg-stone-900 dark:hover:border-emerald-800"
-                >
-                  <h3 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-50">
-                    {place.title}
-                  </h3>
-                  <p className="mb-6 flex-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400">
-                    {place.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition-colors group-hover:text-emerald-900 dark:text-emerald-400 dark:group-hover:text-emerald-300">
-                    קראו עוד
-                    <ArrowIcon />
-                  </span>
-                </Link>
-              ))}
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {nearbyPlaces.map((place) => (
+                  <Link
+                    key={place.title}
+                    href={place.href}
+                    className={`group flex flex-col p-5 transition-colors hover:border-stone-300 dark:hover:border-stone-700 ${tripSurfaceClass}`}
+                  >
+                    <h3 className="mb-2 text-lg font-bold text-stone-900 dark:text-stone-50">
+                      {place.title}
+                    </h3>
+                    <p className="mb-5 flex-1 text-sm leading-relaxed text-stone-500 dark:text-stone-400">
+                      {place.description}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 transition-colors group-hover:text-emerald-900 dark:text-emerald-400 dark:group-hover:text-emerald-300">
+                      קראו עוד
+                      <ArrowIcon />
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : null}
       </article>
 
       <SiteFooter />

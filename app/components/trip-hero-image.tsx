@@ -14,30 +14,32 @@ export default function TripHeroImage({
   sizes = TRIP_HERO_IMAGE_SIZES,
   priority = true,
 }: TripHeroImageProps) {
-  if (trip.heroImage) {
-    return (
-      <Image
-        src={trip.heroImage}
-        alt={trip.heroImageLabel ?? trip.title}
-        fill
-        sizes={sizes}
-        priority={priority}
-        className="object-cover"
-        style={
-          trip.heroImagePosition
-            ? { objectPosition: trip.heroImagePosition }
-            : undefined
-        }
-      />
-    );
-  }
-
   return (
-    <div
-      className="absolute inset-0 bg-no-repeat"
-      style={getTripHeroLayerStyle(trip)}
-      role="img"
-      aria-label={trip.heroImageLabel ?? trip.title}
-    />
+    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="trip-hero-ken-burns absolute inset-[-3%] size-[106%] will-change-transform">
+        {trip.heroImage ? (
+          <Image
+            src={trip.heroImage}
+            alt={trip.heroImageLabel ?? trip.title}
+            fill
+            sizes={sizes}
+            priority={priority}
+            className="object-cover"
+            style={
+              trip.heroImagePosition
+                ? { objectPosition: trip.heroImagePosition }
+                : undefined
+            }
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-no-repeat"
+            style={getTripHeroLayerStyle(trip)}
+            role="img"
+            aria-label={trip.heroImageLabel ?? trip.title}
+          />
+        )}
+      </div>
+    </div>
   );
 }
