@@ -14,8 +14,8 @@ import TripGettingThereSection from "@/app/components/trip-getting-there";
 import TripMilanaTips from "@/app/components/trip-milana-tips";
 import TripStayNearby from "@/app/components/trip-stay-nearby";
 import TripBeforeYouGo from "@/app/components/trip-before-you-go";
+import TripFaqAccordion from "@/app/components/trip-faq-accordion";
 import {
-  getExpectationParagraphs,
   getRealContentParagraphs,
   getRealNearbyPlaces,
   getRealTips,
@@ -41,7 +41,7 @@ function ArrowIcon() {
 export default function TripArticle({ trip }: { trip: Trip }) {
   const quickFacts = resolveTripQuickFacts(trip);
   const heroPills = getTripHeroPills(trip);
-  const aboutParagraphs = getExpectationParagraphs(trip.about, 3);
+  const aboutParagraphs = getRealContentParagraphs(trip.about);
   const personalStoryParagraphs = getRealContentParagraphs(trip.personalStory);
   const tips = getRealTips(trip.tips, 5);
   const gettingThere = resolveTripGettingThere(trip);
@@ -108,6 +108,9 @@ export default function TripArticle({ trip }: { trip: Trip }) {
 
           <TripGearCollapsible trip={trip} />
           <TripMilanaTips tips={tips} />
+          {trip.faq && trip.faq.length > 0 ? (
+            <TripFaqAccordion items={trip.faq} />
+          ) : null}
           <TripStayNearby />
           <TripBeforeYouGo note={trip.closingNote} />
         </div>
