@@ -17,12 +17,16 @@ import TripBeforeYouGo from "@/app/components/trip-before-you-go";
 import TripFaqAccordion from "@/app/components/trip-faq-accordion";
 import {
   getRealContentParagraphs,
-  getRealNearbyPlaces,
   getRealTips,
 } from "@/lib/trip-content-utils";
 import { resolveTripQuickFacts } from "@/lib/trip-quick-facts";
 import { getTripHeroPills } from "@/lib/trip-hero-tags";
 import { resolveTripGettingThere } from "@/lib/trip-getting-there";
+import {
+  resolveNearbyPlaces,
+  resolveNearbySubtitle,
+} from "@/lib/trip-nearby";
+import { getPublishedTrips } from "@/data/trips";
 import {
   tripSectionHeadingClass,
   tripSectionStackClass,
@@ -46,8 +50,9 @@ export default function TripArticle({ trip }: { trip: Trip }) {
   const tips = getRealTips(trip.tips, 5);
   const gettingThere = resolveTripGettingThere(trip);
   const wazeDestination = trip.location?.label?.trim() || trip.title;
-  const nearbyPlaces = getRealNearbyPlaces(trip.nearbyPlaces);
-  const nearbySubtitle = trip.nearbySubtitle?.trim();
+  const publishedTrips = getPublishedTrips();
+  const nearbyPlaces = resolveNearbyPlaces(trip, publishedTrips);
+  const nearbySubtitle = resolveNearbySubtitle(trip, nearbyPlaces);
 
   return (
     <div className="flex flex-1 flex-col">

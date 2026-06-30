@@ -28,7 +28,7 @@ Dry run: **false**
 
 ## WebP migration
 
-WebP previews use .webp extensions under _optimized-report/webp-preview/. Trip data and components reference .jpeg/.jpg paths — switching to WebP requires updating data/ trip heroImage/gallery paths OR a build step that maps paths. Path-compatible JPEG/PNG outputs in public/images-optimized/ can replace originals without code changes.
+WebP previews use .webp extensions under _optimized-report/webp-preview/. Trip data and components reference .jpeg/.jpg paths - switching to WebP requires updating data/ trip heroImage/gallery paths OR a build step that maps paths. Path-compatible JPEG/PNG outputs in public/images-optimized/ can replace originals without code changes.
 
 - Files still above hard target after optimization: **13**
 
@@ -64,29 +64,29 @@ WebP previews use .webp extensions under _optimized-report/webp-preview/. Trip d
 
 ## Skipped / errors
 
-- `hero/living-landscape-desktop-light.svg` — Unsupported extension .svg (not processed)
-- `hero/living-landscape-mobile-light.svg` — Unsupported extension .svg (not processed)
-- `places/center/לגעת בחיות/IMG_5747.HEIC` — Unsupported extension .heic (not processed)
-- `places/center/לגעת בחיות/IMG_5769.HEIC` — Unsupported extension .heic (not processed)
-- `places/jerusalem/עמק האלה/IMG_0358.HEIC` — Unsupported extension .heic (not processed)
-- `places/jerusalem/עמק האלה/IMG_0368.HEIC` — Unsupported extension .heic (not processed)
-- `places/jerusalem/עמק האלה/IMG_0372.HEIC` — Unsupported extension .heic (not processed)
+- `hero/living-landscape-desktop-light.svg` - Unsupported extension .svg (not processed)
+- `hero/living-landscape-mobile-light.svg` - Unsupported extension .svg (not processed)
+- `places/center/לגעת בחיות/IMG_5747.HEIC` - Unsupported extension .heic (not processed)
+- `places/center/לגעת בחיות/IMG_5769.HEIC` - Unsupported extension .heic (not processed)
+- `places/jerusalem/עמק האלה/IMG_0358.HEIC` - Unsupported extension .heic (not processed)
+- `places/jerusalem/עמק האלה/IMG_0368.HEIC` - Unsupported extension .heic (not processed)
+- `places/jerusalem/עמק האלה/IMG_0372.HEIC` - Unsupported extension .heic (not processed)
 
 ## Still above hard target
 
-- `about/mommy-4x4-correct.png` (other): 1.14 MB — Still above hard target (488KB)
-- `ai-assistant/milana-ai-avatar/milana-ai-avatar.png` (other): 830.4 KB — Still above hard target (488KB)
-- `places/center/בית לאה/IMG_1414.jpeg` (gallery): 315.7 KB — Still above hard target (293KB)
-- `places/center/ברבטבע/IMG_6972.JPG` (gallery): 313.6 KB — Still above hard target (293KB)
-- `places/center/ברבטבע/IMG_8720.jpeg` (gallery): 293.0 KB — Still above hard target (293KB)
-- `places/center/מעיינות גיבתון/IMG_9481.jpeg` (gallery): 321.5 KB — Still above hard target (293KB)
-- `places/center/מעיינות גיבתון/IMG_9490.jpeg` (gallery): 310.8 KB — Still above hard target (293KB)
-- `places/center/שמורת פלמחים/IMG_2020.jpeg` (gallery): 302.6 KB — Still above hard target (293KB)
-- `places/jerusalem/עין חמד/IMG_7562.jpeg` (gallery): 311.3 KB — Still above hard target (293KB)
-- `places/jerusalem/עין חמד/IMG_7605.jpeg` (gallery): 296.6 KB — Still above hard target (293KB)
-- `places/south/בתרונות רוחמה/IMG_8298.jpeg` (gallery): 320.8 KB — Still above hard target (293KB)
-- `places/south/פארק נחל לכיש/IMG_1551.jpeg` (gallery): 308.5 KB — Still above hard target (293KB)
-- `vehicles/my-rav4-2011-black-v2.png` (other): 898.6 KB — Still above hard target (488KB)
+- `about/mommy-4x4-correct.png` (other): 1.14 MB - Still above hard target (488KB)
+- `ai-assistant/milana-ai-avatar/milana-ai-avatar.png` (other): 830.4 KB - Still above hard target (488KB)
+- `places/center/בית לאה/IMG_1414.jpeg` (gallery): 315.7 KB - Still above hard target (293KB)
+- `places/center/ברבטבע/IMG_6972.JPG` (gallery): 313.6 KB - Still above hard target (293KB)
+- `places/center/ברבטבע/IMG_8720.jpeg` (gallery): 293.0 KB - Still above hard target (293KB)
+- `places/center/מעיינות גיבתון/IMG_9481.jpeg` (gallery): 321.5 KB - Still above hard target (293KB)
+- `places/center/מעיינות גיבתון/IMG_9490.jpeg` (gallery): 310.8 KB - Still above hard target (293KB)
+- `places/center/שמורת פלמחים/IMG_2020.jpeg` (gallery): 302.6 KB - Still above hard target (293KB)
+- `places/jerusalem/עין חמד/IMG_7562.jpeg` (gallery): 311.3 KB - Still above hard target (293KB)
+- `places/jerusalem/עין חמד/IMG_7605.jpeg` (gallery): 296.6 KB - Still above hard target (293KB)
+- `places/south/בתרונות רוחמה/IMG_8298.jpeg` (gallery): 320.8 KB - Still above hard target (293KB)
+- `places/south/פארק נחל לכיש/IMG_1551.jpeg` (gallery): 308.5 KB - Still above hard target (293KB)
+- `vehicles/my-rav4-2011-black-v2.png` (other): 898.6 KB - Still above hard target (488KB)
 
 ## Next steps (manual approval required)
 

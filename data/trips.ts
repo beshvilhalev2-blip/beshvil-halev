@@ -94,6 +94,8 @@ export type Trip = {
   tips: string[];
   gallery: TripGalleryItem[];
   gallerySubtitle: string;
+  /** Manual nearby trip slugs - when set (including []), overrides coordinate lookup. */
+  nearbyTripSlugs?: string[];
   nearbyPlaces: TripNearbyPlace[];
   nearbySubtitle: string;
   vehicleAccess?: TripVehicleAccess;
@@ -745,7 +747,7 @@ const rawTrips: Trip[] = [
       wazeUrl:
         "https://waze.com/ul?q=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%AA%D7%9C%20%D7%93%D7%9F&navigate=yes",
       googleMapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=33.248611%2C35.651944",
+        "https://www.google.com/maps/search/?api=1&query=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%AA%D7%9C%20%D7%93%D7%9F",
     },
     seoTitle: "שמורת תל דן - מסלול קל למשפחות בצפון | בשביל הלב",
     metaDescription:
@@ -756,7 +758,7 @@ const rawTrips: Trip[] = [
     wazeUrl:
       "https://waze.com/ul?q=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%AA%D7%9C%20%D7%93%D7%9F&navigate=yes",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=33.248611%2C35.651944",
+      "https://www.google.com/maps/search/?api=1&query=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%AA%D7%9C%20%D7%93%D7%9F",
     about: [
       "אם יש מקום אחד בצפון שגורם לכם להרגיש כאילו נכנסתם לעולם אחר - זאת שמורת תל דן.",
       "כבר מהרגע שנכנסים לשמורה שומעים את זרימת המים מכל עבר. ככל שמתקדמים בשבילים, הנחל מלווה אתכם כמעט לכל אורך הדרך, העצים הגבוהים מספקים צל נעים גם בימים חמים, והאוויר מרגיש אחר - שקט, רגוע ומלא חיים.",
@@ -804,9 +806,9 @@ const rawTrips: Trip[] = [
       notes: [
         "כניסה בתשלום של רשות הטבע והגנים. מנויי מטמון נכנסים ללא תשלום.",
         "בחגים ובתקופות עמוסות מומלץ לבדוק באתר parks.org.il האם נדרשת הזמנה מראש.",
-        "טלפון לשאלות: 04-6951579.",
       ],
     },
+    nearbyTripSlugs: [],
     faq: [
       {
         question: "האם מתאים לעגלות?",
@@ -839,31 +841,30 @@ const rawTrips: Trip[] = [
       "לפעמים כל מה שהם צריכים זה מבוגר אחד שיגיד להם: \"בוא ננסה ביחד.\"",
     ],
     gallery: [
-      { src: "/images/places/north/שמורת תל דן/IMG_2313%202%202.jpeg" },
-      { src: "/images/places/north/שמורת תל דן/IMG_2315%202.jpeg" },
-      { src: "/images/places/north/שמורת תל דן/IMG_2317.jpeg" },
-      { src: "/images/places/north/שמורת תל דן/IMG_2320%202%202.jpeg" },
-      { src: "/images/places/north/שמורת תל דן/IMG_2328.jpeg" },
+      {
+        src: "/images/places/north/שמורת תל דן/IMG_2313%202%202.jpeg",
+        label: "שמורת תל דן - תמונה 1",
+      },
+      {
+        src: "/images/places/north/שמורת תל דן/IMG_2315%202.jpeg",
+        label: "שמורת תל דן - תמונה 2",
+      },
+      {
+        src: "/images/places/north/שמורת תל דן/IMG_2317.jpeg",
+        label: "שמורת תל דן - תמונה 3",
+      },
+      {
+        src: "/images/places/north/שמורת תל דן/IMG_2320%202%202.jpeg",
+        label: "שמורת תל דן - תמונה 4",
+      },
+      {
+        src: "/images/places/north/שמורת תל דן/IMG_2328.jpeg",
+        label: "שמורת תל דן - תמונה 5",
+      },
     ],
     gallerySubtitle: "",
-    nearbyPlaces: [
-      {
-        title: "נחל השופט",
-        description: "מסלול מים קסום וקליל למשפחות בגליל",
-        href: "/trips/nahal-hashofet",
-      },
-      {
-        title: "עין מודע",
-        description: "מעיין צלול ונעים עם פיקניק בעמק המעיינות",
-        href: "/trips/ein-moda",
-      },
-      {
-        title: "שמורת טבע בניאס",
-        description: "מפלים, נחל ושבילים מוצלים בגליל העליון",
-        href: "#",
-      },
-    ],
-    nearbySubtitle: "המשיכו לגלות את הגליל העליון",
+    nearbyPlaces: [],
+    nearbySubtitle: "",
   },
   {
     slug: "ben-shemen-forest",

@@ -3,8 +3,20 @@ import { isPlaceholderContent, isPlaceholderValue } from "@/lib/trip-content-uti
 
 function cleanGettingThereNotes(notes: string[] | undefined): string[] {
   return (notes ?? []).filter(
-    (note) => note.trim() && !isPlaceholderContent(note),
+    (note) =>
+      note.trim() &&
+      !isPlaceholderContent(note) &&
+      !isPhoneInquiryNote(note),
   );
+}
+
+function isPhoneInquiryNote(note: string): boolean {
+  const trimmed = note.trim();
+  if (/טלפון\s+לשאלות|טלפון\s+ליצירת|לשאלות\s*:/i.test(trimmed)) {
+    return true;
+  }
+
+  return /\b0\d{1,2}[-\s]?\d{3}[-\s]?\d{4}\b/.test(trimmed);
 }
 
 function cleanGettingThereField(value: string | undefined): string | undefined {

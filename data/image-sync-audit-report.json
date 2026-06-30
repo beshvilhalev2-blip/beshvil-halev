@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T17:51:16.500916+00:00",
+  "generatedAt": "2026-06-30T18:11:37.269060+00:00",
   "A_successfully_synced": {
     "newHeroImages": [],
     "newOrUpdatedGalleries": [],
@@ -663,5 +663,5 @@
   "duplicateAssignments": [
     "Duplicate hero URL /images/places/north/נחל שופט/hero.jpeg: None and nchl-shvpt"
   ],
-  "previousAuditGeneratedAt": "2026-06-22T10:58:46.845522+00:00"
+  "previousAuditGeneratedAt": "2026-06-30T17:51:16.500916+00:00"
 }

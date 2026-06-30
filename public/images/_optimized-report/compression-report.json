@@ -5,7 +5,7 @@
   "webp_preview_root": "public/images/_optimized-report/webp-preview",
   "dry_run": false,
   "webp_path_change_required": true,
-  "webp_migration_note": "WebP previews use .webp extensions under _optimized-report/webp-preview/. Trip data and components reference .jpeg/.jpg paths — switching to WebP requires updating data/ trip heroImage/gallery paths OR a build step that maps paths. Path-compatible JPEG/PNG outputs in public/images-optimized/ can replace originals without code changes.",
+  "webp_migration_note": "WebP previews use .webp extensions under _optimized-report/webp-preview/. Trip data and components reference .jpeg/.jpg paths - switching to WebP requires updating data/ trip heroImage/gallery paths OR a build step that maps paths. Path-compatible JPEG/PNG outputs in public/images-optimized/ can replace originals without code changes.",
   "totals": {
     "files_scanned": 330,
     "images_optimized": 323,
