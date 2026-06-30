@@ -642,7 +642,6 @@ const rawTrips: Trip[] = [
       { label: "מתאים לילדים", value: "כן, במיוחד" },
       { label: "מים כל השנה", value: "כן, נעים בכל עונה" },
       { label: "נגיש לעגלות", value: "כן" },
-      { label: "זמן הליכה", value: "כ-10 דקות מהחניה" },
       { label: "זמן ביקור", value: "2–4 שעות" },
     ],
     gettingThere: {
@@ -797,10 +796,6 @@ const rawTrips: Trip[] = [
       { label: "מתאים לילדים", value: "בהחלט" },
       { label: "נגיש לעגלות", value: "במסלול הקצר בלבד" },
       { label: "זמן ביקור", value: "כשעתיים" },
-      {
-        label: "זמן הליכה",
-        value: "מסלול מונגש כ-2 ק\"מ (רשות הטבע והגנים)",
-      },
     ],
     gettingThere: {
       parking: "יש חניה מסודרת",

@@ -48,7 +48,7 @@ function QuickFactIcon({ label, tone }: { label: string; tone: QuickFactTone }) 
     );
   }
 
-  if (label.includes("זמן") || label.includes("הליכה")) {
+  if (label.includes("זמן ביקור")) {
     return (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" className={className} aria-hidden="true">
         <circle cx="12" cy="12" r="8" />
@@ -160,7 +160,7 @@ export default function TripQuickFacts({ facts }: TripQuickFactsProps) {
           במבט מהיר
         </h2>
 
-        <dl className="grid grid-cols-4 gap-x-1 gap-y-3 sm:gap-x-2 sm:gap-y-4 lg:hidden">
+        <dl className="grid grid-cols-2 gap-x-2 gap-y-3 sm:grid-cols-3 sm:gap-x-3 sm:gap-y-4 lg:hidden">
           {facts.map((fact) => (
             <QuickFactItem key={fact.label} fact={fact} />
           ))}

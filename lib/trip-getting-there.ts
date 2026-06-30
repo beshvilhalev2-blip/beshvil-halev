@@ -44,17 +44,7 @@ export function resolveTripGettingThere(trip: Trip): TripGettingThere | null {
   const parking = findCostItem(trip, (label) => label.includes("חניה"));
 
   if (parking?.value.trim() && !isPlaceholderValue(parking.value)) {
-    const value = parking.value.trim();
-    if (/הליכה|דק/i.test(value)) {
-      derived.walking = value;
-    } else {
-      derived.parking = value;
-    }
-  }
-
-  const walk = findCostItem(trip, (label) => label.includes("הליכה"));
-  if (walk?.value.trim() && !isPlaceholderValue(walk.value) && !derived.walking) {
-    derived.walking = walk.value.trim();
+    derived.parking = parking.value.trim();
   }
 
   return hasGettingThereContent(derived) ? normalizeGettingThere(derived) : null;

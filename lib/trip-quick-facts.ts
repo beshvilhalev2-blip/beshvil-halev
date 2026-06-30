@@ -11,7 +11,6 @@ const QUICK_FACT_LABELS = [
   "מתאים לילדים",
   "מים כל השנה",
   "נגיש לעגלות",
-  "זמן הליכה",
   "זמן ביקור",
 ] as const;
 
@@ -34,30 +33,6 @@ function deriveQuickFacts(trip: Trip): TripQuickFact[] {
     derived.set("זמן ביקור", {
       label: "זמן ביקור",
       value: visitDuration.value.trim(),
-    });
-  }
-
-  const parking = findCostItem(trip, (label) => label.includes("חניה"));
-  if (parking?.value.trim() && !isPlaceholderValue(parking.value)) {
-    const parkingValue = parking.value.trim();
-
-    if (/הליכה|דק/i.test(parkingValue) && !derived.has("זמן הליכה")) {
-      derived.set("זמן הליכה", {
-        label: "זמן הליכה",
-        value: parkingValue,
-      });
-    }
-  }
-
-  const walkDuration = findCostItem(trip, (label) => label.includes("הליכה"));
-  if (
-    walkDuration?.value.trim() &&
-    !isPlaceholderValue(walkDuration.value) &&
-    !derived.has("זמן הליכה")
-  ) {
-    derived.set("זמן הליכה", {
-      label: "זמן הליכה",
-      value: walkDuration.value.trim(),
     });
   }
 
