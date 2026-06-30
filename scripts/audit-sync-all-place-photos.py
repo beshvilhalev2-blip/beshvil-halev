@@ -32,6 +32,7 @@ WEB_GALLERY_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
 
 # Direct slug → (region_key, folder_name) for title/alias mismatches (e.g. coming-soon duplicates).
 SLUG_FOLDER_OVERRIDES: dict[str, tuple[str, str]] = {
+    "nchl-dn": ("north", "שמורת תל דן"),
     "nchl-shvpt": ("north", "נחל שופט"),
 }
 
@@ -39,8 +40,7 @@ FOLDER_TITLE_ALIASES: dict[str, str] = {
     "פארק נחל לכיש": "פארק לכיש",
     "נחל נקרות יקנעם": "פארק נחל קרת",
     "נחל שופט": "נחל השופט",
-    "שמורת תל דן": "נחל דן",
-    "תל דן": "נחל דן",
+    "תל דן": "שמורת תל דן",
     "המפל הנסתר פתח תקווה": "המפל הנסתר",
     "שמורת טבע נחל שורק": "שפך נחל שורק",
     "עין חרוד": "מעיין חרוד",

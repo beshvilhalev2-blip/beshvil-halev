@@ -1,65 +1,11 @@
 {
-  "generatedAt": "2026-06-22T10:58:46.845522+00:00",
+  "generatedAt": "2026-06-30T17:51:16.500916+00:00",
   "A_successfully_synced": {
-    "newHeroImages": [
-      {
-        "slug": "nchl-shvpt",
-        "title": "נחל שופט",
-        "heroImage": "/images/places/north/נחל שופט/hero.jpeg",
-        "previousHero": null
-      },
-      {
-        "slug": "nchl-nkrvt-yknm",
-        "title": "פארק נחל קרת",
-        "heroImage": "/images/places/north/נחל נקרות יקנעם/hero.JPG",
-        "previousHero": null
-      }
-    ],
-    "newOrUpdatedGalleries": [
-      {
-        "slug": "nchl-shvpt",
-        "title": "נחל שופט",
-        "galleryCount": 7,
-        "previousGalleryCount": 0,
-        "addedImages": [
-          "/images/places/north/נחל שופט/IMG_3836.jpeg",
-          "/images/places/north/נחל שופט/IMG_3871%203.jpeg",
-          "/images/places/north/נחל שופט/IMG_8734.jpeg",
-          "/images/places/north/נחל שופט/IMG_8748.jpeg",
-          "/images/places/north/נחל שופט/IMG_8762%202.jpeg",
-          "/images/places/north/נחל שופט/IMG_8764.jpeg",
-          "/images/places/north/נחל שופט/IMG_9108.jpeg"
-        ]
-      },
-      {
-        "slug": "nchl-nkrvt-yknm",
-        "title": "פארק נחל קרת",
-        "galleryCount": 1,
-        "previousGalleryCount": 0,
-        "addedImages": [
-          "/images/places/north/נחל נקרות יקנעם/IMG_0630.JPG"
-        ]
-      },
-      {
-        "slug": "ein-moda",
-        "title": "עין מודע",
-        "galleryCount": 3,
-        "previousGalleryCount": 0,
-        "addedImages": [
-          "/images/places/north/עין מודע/IMG_02.jpeg",
-          "/images/places/north/עין מודע/IMG_03.jpeg",
-          "/images/places/north/עין מודע/IMG_04.jpeg"
-        ]
-      }
-    ],
-    "visitedTripsUpdated": [
-      "nchl-nkrvt-yknm",
-      "nchl-shvpt"
-    ],
-    "publishedTripsUpdated": [
-      "ein-moda"
-    ],
-    "totalTripsUpdated": 3
+    "newHeroImages": [],
+    "newOrUpdatedGalleries": [],
+    "visitedTripsUpdated": [],
+    "publishedTripsUpdated": [],
+    "totalTripsUpdated": 0
   },
   "autoSelectedHeroes": [
     "AUTO_HERO north/נחל האסי → nchl-hsy (IMG_1974.jpeg)",
@@ -70,12 +16,24 @@
     "AUTO_HERO center/עיזה פזיזה → yzh-pzyzh (IMG_6046.jpeg)"
   ],
   "brokenPathsFixed": [],
-  "brokenPathsRemaining": [],
+  "brokenPathsRemaining": [
+    {
+      "file": "visited-place-trips.ts",
+      "field": "src",
+      "url": "/images/places/south/בתרונות רוחמה/IMG_8254.jpeg"
+    }
+  ],
   "tripsWithoutImageFolders": [
     {
       "slug": "kvvryvm-yshrl",
       "title": "אקווריום ישראל",
       "excelName": "אקווריום ישראל",
+      "hasImageFolderOnDisk": true
+    },
+    {
+      "slug": "beit-jan",
+      "title": "בית ג׳ן",
+      "excelName": "בית ג׳ן",
       "hasImageFolderOnDisk": true
     },
     {
@@ -106,6 +64,24 @@
       "slug": "nvf-yylvn",
       "title": "נוף איילון",
       "excelName": "נוף איילון",
+      "hasImageFolderOnDisk": true
+    },
+    {
+      "slug": "ein-ayub",
+      "title": "עין איוב",
+      "excelName": "עין איוב",
+      "hasImageFolderOnDisk": true
+    },
+    {
+      "slug": "ein-migdal",
+      "title": "עין מגדל",
+      "excelName": "עין מגדל",
+      "hasImageFolderOnDisk": true
+    },
+    {
+      "slug": "ein-nun",
+      "title": "עין נון",
+      "excelName": "עין נון",
       "hasImageFolderOnDisk": true
     },
     {
@@ -167,6 +143,12 @@
       "title": "תל גזר",
       "excelName": "תל גזר",
       "hasImageFolderOnDisk": true
+    },
+    {
+      "slug": "har-hari-viewpoint",
+      "title": "תצפית הר הארי",
+      "excelName": "תצפית הר הארי",
+      "hasImageFolderOnDisk": true
     }
   ],
   "B_unmatched_folders": [
@@ -191,6 +173,18 @@
       "slug": "kvvryvm-yshrl",
       "title": "אקווריום ישראל",
       "region": "ירושלים",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "beit-jan",
+      "title": "בית ג׳ן",
+      "region": "צפון",
       "issues": [
         "placeholder_or_missing_hero",
         "empty_gallery"
@@ -326,17 +320,6 @@
       "hasFolderWithHero": false
     },
     {
-      "slug": "nchl-dn",
-      "title": "נחל דן",
-      "region": "צפון",
-      "issues": [
-        "incomplete_gallery"
-      ],
-      "heroImage": "/images/places/north/תל דן/hero.jpeg",
-      "galleryCount": 2,
-      "hasFolderWithHero": true
-    },
-    {
       "slug": "nchl-hkybvtzym",
       "title": "נחל הקיבוצים",
       "region": "צפון",
@@ -371,15 +354,40 @@
       "hasFolderWithHero": true
     },
     {
-      "slug": "ein-moda",
-      "title": "עין מודע",
+      "slug": "ein-ayub",
+      "title": "עין איוב",
       "region": "צפון",
       "issues": [
-        "placeholder_or_missing_hero"
+        "placeholder_or_missing_hero",
+        "empty_gallery"
       ],
       "heroImage": null,
-      "galleryCount": 3,
-      "hasFolderWithHero": true
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "ein-migdal",
+      "title": "עין מגדל",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
+    },
+    {
+      "slug": "ein-nun",
+      "title": "עין נון",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
     },
     {
       "slug": "kv",
@@ -580,1483 +588,65 @@
       "heroImage": null,
       "galleryCount": 0,
       "hasFolderWithHero": false
+    },
+    {
+      "slug": "har-hari-viewpoint",
+      "title": "תצפית הר הארי",
+      "region": "צפון",
+      "issues": [
+        "placeholder_or_missing_hero",
+        "empty_gallery"
+      ],
+      "heroImage": null,
+      "galleryCount": 0,
+      "hasFolderWithHero": false
     }
   ],
   "D_coverage_summary": {
-    "totalTrips": 100,
-    "tripsWithRealHeroImages": 78,
-    "tripsUsingPlaceholders": 22,
+    "totalTrips": 104,
+    "tripsWithRealHeroImages": 79,
+    "tripsUsingPlaceholders": 25,
     "tripsWithGalleries": 75,
-    "tripsMissingMedia": 36,
-    "totalPlaceFolders": 99,
+    "tripsMissingMedia": 38,
+    "totalPlaceFolders": 103,
     "foldersWithHeroFile": 82,
     "foldersMatchedToTrips": 79,
     "autoHeroSelections": 6
   },
   "recentDiskImages": [
     {
-      "path": "images/places/center/ברבטבע/IMG_8720.jpeg",
-      "modifiedAt": "2026-06-21T11:28:33.091432+00:00",
-      "region": "center",
-      "folder": "ברבטבע",
-      "file": "IMG_8720.jpeg"
-    },
-    {
-      "path": "images/places/center/ברבטבע/IMG_8722.jpeg",
-      "modifiedAt": "2026-06-21T11:28:32.537119+00:00",
-      "region": "center",
-      "folder": "ברבטבע",
-      "file": "IMG_8722.jpeg"
-    },
-    {
-      "path": "images/places/center/ברבטבע/IMG_8723.jpeg",
-      "modifiedAt": "2026-06-21T11:28:32.885524+00:00",
-      "region": "center",
-      "folder": "ברבטבע",
-      "file": "IMG_8723.jpeg"
-    },
-    {
-      "path": "images/places/center/ברבטבע/IMG_8845.jpeg",
-      "modifiedAt": "2026-06-21T11:28:32.729120+00:00",
-      "region": "center",
-      "folder": "ברבטבע",
-      "file": "IMG_8845.jpeg"
-    },
-    {
-      "path": "images/places/center/ברבטבע/IMG_8853.jpeg",
-      "modifiedAt": "2026-06-21T11:28:31.902915+00:00",
-      "region": "center",
-      "folder": "ברבטבע",
-      "file": "IMG_8853.jpeg"
-    },
-    {
-      "path": "images/places/center/ברבטבע/IMG_9576.jpeg",
-      "modifiedAt": "2026-06-21T11:28:32.285044+00:00",
-      "region": "center",
-      "folder": "ברבטבע",
-      "file": "IMG_9576.jpeg"
-    },
-    {
-      "path": "images/places/center/ברבטבע/hero.jpeg",
-      "modifiedAt": "2026-06-21T11:28:32.104030+00:00",
-      "region": "center",
-      "folder": "ברבטבע",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/IMG_2108.jpeg",
-      "modifiedAt": "2026-06-21T11:31:06.455196+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "IMG_2108.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/IMG_2114.jpeg",
-      "modifiedAt": "2026-06-21T11:31:06.234628+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "IMG_2114.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/IMG_2121.jpeg",
-      "modifiedAt": "2026-06-21T11:31:06.716269+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "IMG_2121.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/IMG_2124.jpeg",
-      "modifiedAt": "2026-06-21T11:31:05.932824+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "IMG_2124.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/IMG_2162.jpeg",
-      "modifiedAt": "2026-06-21T11:31:05.091760+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "IMG_2162.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/IMG_2167.jpeg",
-      "modifiedAt": "2026-06-21T11:31:05.547250+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "IMG_2167.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/IMG_2179.jpeg",
-      "modifiedAt": "2026-06-21T11:31:05.810424+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "IMG_2179.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/IMG_2180.jpeg",
-      "modifiedAt": "2026-06-21T11:31:05.365916+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "IMG_2180.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת החרובים/hero.jpeg",
-      "modifiedAt": "2026-06-21T11:31:06.587782+00:00",
-      "region": "center",
-      "folder": "גבעת החרובים",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת הרקפות/IMG_9477.jpeg",
-      "modifiedAt": "2026-06-22T08:23:28.819857+00:00",
-      "region": "center",
-      "folder": "גבעת הרקפות",
-      "file": "IMG_9477.jpeg"
-    },
-    {
-      "path": "images/places/center/גבעת הרקפות/hero.jpeg",
-      "modifiedAt": "2026-06-22T08:23:28.964101+00:00",
-      "region": "center",
-      "folder": "גבעת הרקפות",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/גן לאומי מגדל צדק/IMG_5160.jpeg",
-      "modifiedAt": "2026-06-22T08:38:46.510654+00:00",
-      "region": "center",
-      "folder": "גן לאומי מגדל צדק",
-      "file": "IMG_5160.jpeg"
-    },
-    {
-      "path": "images/places/center/גן לאומי מגדל צדק/IMG_5163.jpeg",
-      "modifiedAt": "2026-06-22T08:38:47.292527+00:00",
-      "region": "center",
-      "folder": "גן לאומי מגדל צדק",
-      "file": "IMG_5163.jpeg"
-    },
-    {
-      "path": "images/places/center/גן לאומי מגדל צדק/IMG_5166.jpeg",
-      "modifiedAt": "2026-06-22T08:38:46.705842+00:00",
-      "region": "center",
-      "folder": "גן לאומי מגדל צדק",
-      "file": "IMG_5166.jpeg"
-    },
-    {
-      "path": "images/places/center/גן לאומי מגדל צדק/IMG_5175.jpeg",
-      "modifiedAt": "2026-06-22T08:38:46.334060+00:00",
-      "region": "center",
-      "folder": "גן לאומי מגדל צדק",
-      "file": "IMG_5175.jpeg"
-    },
-    {
-      "path": "images/places/center/גן לאומי מגדל צדק/IMG_5182.jpeg",
-      "modifiedAt": "2026-06-22T08:38:47.091618+00:00",
-      "region": "center",
-      "folder": "גן לאומי מגדל צדק",
-      "file": "IMG_5182.jpeg"
-    },
-    {
-      "path": "images/places/center/גן לאומי מגדל צדק/hero.jpeg",
-      "modifiedAt": "2026-06-22T08:38:46.874814+00:00",
-      "region": "center",
-      "folder": "גן לאומי מגדל צדק",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/המפל הנסתר/IMG_1368.jpeg",
-      "modifiedAt": "2026-06-21T11:26:20.619088+00:00",
-      "region": "center",
-      "folder": "המפל הנסתר",
-      "file": "IMG_1368.jpeg"
-    },
-    {
-      "path": "images/places/center/המפל הנסתר/IMG_1372.jpeg",
-      "modifiedAt": "2026-06-21T11:26:20.457874+00:00",
-      "region": "center",
-      "folder": "המפל הנסתר",
-      "file": "IMG_1372.jpeg"
-    },
-    {
-      "path": "images/places/center/המפל הנסתר/IMG_1376.jpeg",
-      "modifiedAt": "2026-06-21T11:26:20.999898+00:00",
-      "region": "center",
-      "folder": "המפל הנסתר",
-      "file": "IMG_1376.jpeg"
-    },
-    {
-      "path": "images/places/center/המפל הנסתר/IMG_1378.jpeg",
-      "modifiedAt": "2026-06-21T11:26:20.115556+00:00",
-      "region": "center",
-      "folder": "המפל הנסתר",
-      "file": "IMG_1378.jpeg"
-    },
-    {
-      "path": "images/places/center/המפל הנסתר/IMG_1391.jpeg",
-      "modifiedAt": "2026-06-21T11:26:19.972479+00:00",
-      "region": "center",
-      "folder": "המפל הנסתר",
-      "file": "IMG_1391.jpeg"
-    },
-    {
-      "path": "images/places/center/המפל הנסתר/IMG_1534.jpeg",
-      "modifiedAt": "2026-06-21T11:26:20.871183+00:00",
-      "region": "center",
-      "folder": "המפל הנסתר",
-      "file": "IMG_1534.jpeg"
-    },
-    {
-      "path": "images/places/center/המפל הנסתר/hero.jpeg",
-      "modifiedAt": "2026-06-21T11:26:20.308051+00:00",
-      "region": "center",
-      "folder": "המפל הנסתר",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/חוף החשמל/IMG_0022.jpeg",
-      "modifiedAt": "2026-06-22T08:40:49.435013+00:00",
-      "region": "center",
-      "folder": "חוף החשמל",
-      "file": "IMG_0022.jpeg"
-    },
-    {
-      "path": "images/places/center/חוף החשמל/IMG_0041.jpeg",
-      "modifiedAt": "2026-06-22T08:40:49.220999+00:00",
-      "region": "center",
-      "folder": "חוף החשמל",
-      "file": "IMG_0041.jpeg"
-    },
-    {
-      "path": "images/places/center/חוף החשמל/IMG_3932.jpeg",
-      "modifiedAt": "2026-06-22T08:40:49.561084+00:00",
-      "region": "center",
-      "folder": "חוף החשמל",
-      "file": "IMG_3932.jpeg"
-    },
-    {
-      "path": "images/places/center/חוף החשמל/IMG_3944.jpeg",
-      "modifiedAt": "2026-06-22T08:40:49.813632+00:00",
-      "region": "center",
-      "folder": "חוף החשמל",
-      "file": "IMG_3944.jpeg"
-    },
-    {
-      "path": "images/places/center/חוף החשמל/hero.jpeg",
-      "modifiedAt": "2026-06-22T08:40:49.003013+00:00",
-      "region": "center",
-      "folder": "חוף החשמל",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/טל שחר/IMG_7870.jpeg",
-      "modifiedAt": "2026-06-22T08:46:11.157660+00:00",
-      "region": "center",
-      "folder": "טל שחר",
-      "file": "IMG_7870.jpeg"
-    },
-    {
-      "path": "images/places/center/טל שחר/IMG_9474.jpeg",
-      "modifiedAt": "2026-06-22T08:24:58.708042+00:00",
-      "region": "center",
-      "folder": "טל שחר",
-      "file": "IMG_9474.jpeg"
-    },
-    {
-      "path": "images/places/center/טל שחר/IMG_9475.jpeg",
-      "modifiedAt": "2026-06-22T08:24:58.377399+00:00",
-      "region": "center",
-      "folder": "טל שחר",
-      "file": "IMG_9475.jpeg"
-    },
-    {
-      "path": "images/places/center/טל שחר/IMG_9476.jpeg",
-      "modifiedAt": "2026-06-22T08:24:58.536915+00:00",
-      "region": "center",
-      "folder": "טל שחר",
-      "file": "IMG_9476.jpeg"
-    },
-    {
-      "path": "images/places/center/טל שחר/hero.jpeg",
-      "modifiedAt": "2026-06-22T08:46:10.774633+00:00",
-      "region": "center",
-      "folder": "טל שחר",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/יער המגינים/IMG_5156.jpeg",
-      "modifiedAt": "2026-06-22T09:00:34.373156+00:00",
-      "region": "center",
-      "folder": "יער המגינים",
-      "file": "IMG_5156.jpeg"
-    },
-    {
-      "path": "images/places/center/יער המגינים/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:00:34.693679+00:00",
-      "region": "center",
-      "folder": "יער המגינים",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/מוזיאון הילדים חולון/IMG_7220.jpeg",
-      "modifiedAt": "2026-06-22T10:11:29.585771+00:00",
-      "region": "center",
-      "folder": "מוזיאון הילדים חולון",
-      "file": "IMG_7220.jpeg"
-    },
-    {
-      "path": "images/places/center/מוזיאון הילדים חולון/IMG_7223.jpeg",
-      "modifiedAt": "2026-06-22T10:11:29.351340+00:00",
-      "region": "center",
-      "folder": "מוזיאון הילדים חולון",
-      "file": "IMG_7223.jpeg"
-    },
-    {
-      "path": "images/places/center/מוזיאון הילדים חולון/IMG_7227.jpeg",
-      "modifiedAt": "2026-06-22T10:11:29.078546+00:00",
-      "region": "center",
-      "folder": "מוזיאון הילדים חולון",
-      "file": "IMG_7227.jpeg"
-    },
-    {
-      "path": "images/places/center/מוזיאון הילדים חולון/IMG_7237.jpeg",
-      "modifiedAt": "2026-06-22T10:11:28.930713+00:00",
-      "region": "center",
-      "folder": "מוזיאון הילדים חולון",
-      "file": "IMG_7237.jpeg"
-    },
-    {
-      "path": "images/places/center/מוזיאון הילדים חולון/IMG_7257.jpeg",
-      "modifiedAt": "2026-06-22T10:11:28.653044+00:00",
-      "region": "center",
-      "folder": "מוזיאון הילדים חולון",
-      "file": "IMG_7257.jpeg"
-    },
-    {
-      "path": "images/places/center/מוזיאון הילדים חולון/IMG_7260.jpeg",
-      "modifiedAt": "2026-06-22T10:11:28.493886+00:00",
-      "region": "center",
-      "folder": "מוזיאון הילדים חולון",
-      "file": "IMG_7260.jpeg"
-    },
-    {
-      "path": "images/places/center/מוזיאון הילדים חולון/hero.jpeg",
-      "modifiedAt": "2026-06-22T10:11:28.784378+00:00",
-      "region": "center",
-      "folder": "מוזיאון הילדים חולון",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/IMG_9457 3.jpeg",
-      "modifiedAt": "2026-06-20T14:10:48.982144+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "IMG_9457 3.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/IMG_9462.jpeg",
-      "modifiedAt": "2026-06-20T14:10:47.858479+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "IMG_9462.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/IMG_9466.jpeg",
-      "modifiedAt": "2026-06-20T14:10:48.079435+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "IMG_9466.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/IMG_9471.jpeg",
-      "modifiedAt": "2026-06-20T14:10:48.663697+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "IMG_9471.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/IMG_9481.jpeg",
-      "modifiedAt": "2026-06-20T14:10:48.436829+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "IMG_9481.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/IMG_9488.jpeg",
-      "modifiedAt": "2026-06-20T14:10:48.238729+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "IMG_9488.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/IMG_9490.jpeg",
-      "modifiedAt": "2026-06-20T14:10:47.646455+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "IMG_9490.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/IMG_9501.jpeg",
-      "modifiedAt": "2026-06-20T14:10:49.349500+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "IMG_9501.jpeg"
-    },
-    {
-      "path": "images/places/center/מעיינות גיבתון/hero.jpeg",
-      "modifiedAt": "2026-06-20T14:10:47.315369+00:00",
-      "region": "center",
-      "folder": "מעיינות גיבתון",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/מצפה אלון/IMG_2093.jpeg",
-      "modifiedAt": "2026-06-20T14:23:41.597400+00:00",
-      "region": "center",
-      "folder": "מצפה אלון",
-      "file": "IMG_2093.jpeg"
-    },
-    {
-      "path": "images/places/center/מצפה אלון/IMG_2094.jpeg",
-      "modifiedAt": "2026-06-20T14:23:41.417006+00:00",
-      "region": "center",
-      "folder": "מצפה אלון",
-      "file": "IMG_2094.jpeg"
-    },
-    {
-      "path": "images/places/center/מצפה אלון/IMG_2097.jpeg",
-      "modifiedAt": "2026-06-20T14:23:40.910033+00:00",
-      "region": "center",
-      "folder": "מצפה אלון",
-      "file": "IMG_2097.jpeg"
-    },
-    {
-      "path": "images/places/center/מצפה אלון/IMG_2103.jpeg",
-      "modifiedAt": "2026-06-20T14:23:41.075817+00:00",
-      "region": "center",
-      "folder": "מצפה אלון",
-      "file": "IMG_2103.jpeg"
-    },
-    {
-      "path": "images/places/center/מצפה אלון/hero.jpeg",
-      "modifiedAt": "2026-06-20T14:23:41.979546+00:00",
-      "region": "center",
-      "folder": "מצפה אלון",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/IMG_0033.jpeg",
-      "modifiedAt": "2026-06-22T08:47:59.903101+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "IMG_0033.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/IMG_7820.jpeg",
-      "modifiedAt": "2026-06-22T08:48:01.033623+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "IMG_7820.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/IMG_7821.jpeg",
-      "modifiedAt": "2026-06-22T08:48:00.284886+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "IMG_7821.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/IMG_7823.jpeg",
-      "modifiedAt": "2026-06-22T08:47:59.565614+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "IMG_7823.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/IMG_7827.jpeg",
-      "modifiedAt": "2026-06-22T08:48:00.096071+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "IMG_7827.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/IMG_7832.jpeg",
-      "modifiedAt": "2026-06-22T08:48:00.664756+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "IMG_7832.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/IMG_7848.jpeg",
-      "modifiedAt": "2026-06-22T08:48:00.480820+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "IMG_7848.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/IMG_7861.jpeg",
-      "modifiedAt": "2026-06-22T08:48:00.829475+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "IMG_7861.jpeg"
-    },
-    {
-      "path": "images/places/center/משמר דוד/hero.jpeg",
-      "modifiedAt": "2026-06-22T08:47:59.719445+00:00",
-      "region": "center",
-      "folder": "משמר דוד",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/משק בגבעה/IMG_1505.jpeg",
-      "modifiedAt": "2026-06-21T11:38:57.303263+00:00",
-      "region": "center",
-      "folder": "משק בגבעה",
-      "file": "IMG_1505.jpeg"
-    },
-    {
-      "path": "images/places/center/משק בגבעה/IMG_1521.jpeg",
-      "modifiedAt": "2026-06-21T11:38:56.870171+00:00",
-      "region": "center",
-      "folder": "משק בגבעה",
-      "file": "IMG_1521.jpeg"
-    },
-    {
-      "path": "images/places/center/משק בגבעה/IMG_1528.jpeg",
-      "modifiedAt": "2026-06-21T11:38:57.499332+00:00",
-      "region": "center",
-      "folder": "משק בגבעה",
-      "file": "IMG_1528.jpeg"
-    },
-    {
-      "path": "images/places/center/משק בגבעה/hero.jpeg",
-      "modifiedAt": "2026-06-21T11:38:57.115649+00:00",
-      "region": "center",
-      "folder": "משק בגבעה",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/עיזה פזיזה/IMG_6027.jpeg",
-      "modifiedAt": "2026-06-22T08:42:48.334319+00:00",
-      "region": "center",
-      "folder": "עיזה פזיזה",
-      "file": "IMG_6027.jpeg"
-    },
-    {
-      "path": "images/places/center/עיזה פזיזה/IMG_6029.jpeg",
-      "modifiedAt": "2026-06-22T08:42:48.952359+00:00",
-      "region": "center",
-      "folder": "עיזה פזיזה",
-      "file": "IMG_6029.jpeg"
-    },
-    {
-      "path": "images/places/center/עיזה פזיזה/IMG_6032.jpeg",
-      "modifiedAt": "2026-06-22T08:42:48.763369+00:00",
-      "region": "center",
-      "folder": "עיזה פזיזה",
-      "file": "IMG_6032.jpeg"
-    },
-    {
-      "path": "images/places/center/עיזה פזיזה/IMG_6035.jpeg",
-      "modifiedAt": "2026-06-22T08:42:49.200319+00:00",
-      "region": "center",
-      "folder": "עיזה פזיזה",
-      "file": "IMG_6035.jpeg"
-    },
-    {
-      "path": "images/places/center/עיזה פזיזה/IMG_6046.jpeg",
-      "modifiedAt": "2026-06-22T08:42:48.525840+00:00",
-      "region": "center",
-      "folder": "עיזה פזיזה",
-      "file": "IMG_6046.jpeg"
-    },
-    {
-      "path": "images/places/center/שמורת פלמחים/IMG_1839.jpeg",
-      "modifiedAt": "2026-06-20T14:21:28.687022+00:00",
-      "region": "center",
-      "folder": "שמורת פלמחים",
-      "file": "IMG_1839.jpeg"
-    },
-    {
-      "path": "images/places/center/שמורת פלמחים/IMG_1869.jpeg",
-      "modifiedAt": "2026-06-20T14:21:27.501196+00:00",
-      "region": "center",
-      "folder": "שמורת פלמחים",
-      "file": "IMG_1869.jpeg"
-    },
-    {
-      "path": "images/places/center/שמורת פלמחים/IMG_1870.jpeg",
-      "modifiedAt": "2026-06-20T14:21:27.331037+00:00",
-      "region": "center",
-      "folder": "שמורת פלמחים",
-      "file": "IMG_1870.jpeg"
-    },
-    {
-      "path": "images/places/center/שמורת פלמחים/IMG_1946.jpeg",
-      "modifiedAt": "2026-06-20T14:21:27.034725+00:00",
-      "region": "center",
-      "folder": "שמורת פלמחים",
-      "file": "IMG_1946.jpeg"
-    },
-    {
-      "path": "images/places/center/שמורת פלמחים/IMG_2020.jpeg",
-      "modifiedAt": "2026-06-20T14:21:28.210150+00:00",
-      "region": "center",
-      "folder": "שמורת פלמחים",
-      "file": "IMG_2020.jpeg"
-    },
-    {
-      "path": "images/places/center/שמורת פלמחים/hero.jpeg",
-      "modifiedAt": "2026-06-20T14:21:27.778280+00:00",
-      "region": "center",
-      "folder": "שמורת פלמחים",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/center/תל חדיד/IMG_0054.jpeg",
-      "modifiedAt": "2026-06-22T10:18:24.749120+00:00",
-      "region": "center",
-      "folder": "תל חדיד",
-      "file": "IMG_0054.jpeg"
-    },
-    {
-      "path": "images/places/center/תל חדיד/IMG_0069.jpeg",
-      "modifiedAt": "2026-06-22T10:18:25.558732+00:00",
-      "region": "center",
-      "folder": "תל חדיד",
-      "file": "IMG_0069.jpeg"
-    },
-    {
-      "path": "images/places/center/תל חדיד/IMG_1560.jpeg",
-      "modifiedAt": "2026-06-22T10:18:25.375082+00:00",
-      "region": "center",
-      "folder": "תל חדיד",
-      "file": "IMG_1560.jpeg"
-    },
-    {
-      "path": "images/places/center/תל חדיד/IMG_9450.jpeg",
-      "modifiedAt": "2026-06-22T10:18:25.196541+00:00",
-      "region": "center",
-      "folder": "תל חדיד",
-      "file": "IMG_9450.jpeg"
-    },
-    {
-      "path": "images/places/center/תל חדיד/hero.jpeg",
-      "modifiedAt": "2026-06-22T10:18:24.926229+00:00",
-      "region": "center",
-      "folder": "תל חדיד",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אוטופיה/IMG_0913.jpeg",
-      "modifiedAt": "2026-06-22T08:52:19.680148+00:00",
-      "region": "hasharon",
-      "folder": "פארק אוטופיה",
-      "file": "IMG_0913.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אוטופיה/IMG_0925.jpeg",
-      "modifiedAt": "2026-06-22T08:52:20.913580+00:00",
-      "region": "hasharon",
-      "folder": "פארק אוטופיה",
-      "file": "IMG_0925.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אוטופיה/IMG_0932.jpeg",
-      "modifiedAt": "2026-06-22T08:52:20.182687+00:00",
-      "region": "hasharon",
-      "folder": "פארק אוטופיה",
-      "file": "IMG_0932.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אוטופיה/IMG_0934.jpeg",
-      "modifiedAt": "2026-06-22T08:52:20.383288+00:00",
-      "region": "hasharon",
-      "folder": "פארק אוטופיה",
-      "file": "IMG_0934.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אוטופיה/IMG_0937.jpeg",
-      "modifiedAt": "2026-06-22T08:52:19.928652+00:00",
-      "region": "hasharon",
-      "folder": "פארק אוטופיה",
-      "file": "IMG_0937.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אוטופיה/IMG_0995.jpeg",
-      "modifiedAt": "2026-06-22T08:52:19.034493+00:00",
-      "region": "hasharon",
-      "folder": "פארק אוטופיה",
-      "file": "IMG_0995.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אוטופיה/IMG_1005.jpeg",
-      "modifiedAt": "2026-06-22T08:52:19.439993+00:00",
-      "region": "hasharon",
-      "folder": "פארק אוטופיה",
-      "file": "IMG_1005.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אוטופיה/hero.jpeg",
-      "modifiedAt": "2026-06-22T08:52:20.609394+00:00",
-      "region": "hasharon",
-      "folder": "פארק אוטופיה",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אקולוגי הוד השרון/IMG_1353.jpeg",
-      "modifiedAt": "2026-06-21T11:23:44.757287+00:00",
-      "region": "hasharon",
-      "folder": "פארק אקולוגי הוד השרון",
-      "file": "IMG_1353.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אקולוגי הוד השרון/IMG_1356.jpeg",
-      "modifiedAt": "2026-06-21T11:23:45.442569+00:00",
-      "region": "hasharon",
-      "folder": "פארק אקולוגי הוד השרון",
-      "file": "IMG_1356.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אקולוגי הוד השרון/IMG_1360.jpeg",
-      "modifiedAt": "2026-06-21T11:23:44.593207+00:00",
-      "region": "hasharon",
-      "folder": "פארק אקולוגי הוד השרון",
-      "file": "IMG_1360.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אקולוגי הוד השרון/IMG_1364.jpeg",
-      "modifiedAt": "2026-06-21T11:23:45.074846+00:00",
-      "region": "hasharon",
-      "folder": "פארק אקולוגי הוד השרון",
-      "file": "IMG_1364.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אקולוגי הוד השרון/IMG_1365.jpeg",
-      "modifiedAt": "2026-06-21T11:23:45.215772+00:00",
-      "region": "hasharon",
-      "folder": "פארק אקולוגי הוד השרון",
-      "file": "IMG_1365.jpeg"
-    },
-    {
-      "path": "images/places/hasharon/פארק אקולוגי הוד השרון/hero.jpeg",
-      "modifiedAt": "2026-06-21T11:23:44.922879+00:00",
-      "region": "hasharon",
-      "folder": "פארק אקולוגי הוד השרון",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/אגמון החולה/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:49:04.448579+00:00",
-      "region": "north",
-      "folder": "אגמון החולה",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/בריכת רם - מסעדה/IMG_2379.jpeg",
-      "modifiedAt": "2026-06-22T09:50:49.013804+00:00",
-      "region": "north",
-      "folder": "בריכת רם - מסעדה",
-      "file": "IMG_2379.jpeg"
-    },
-    {
-      "path": "images/places/north/בריכת רם - מסעדה/IMG_2383 2.jpeg",
-      "modifiedAt": "2026-06-22T09:50:48.895822+00:00",
-      "region": "north",
-      "folder": "בריכת רם - מסעדה",
-      "file": "IMG_2383 2.jpeg"
-    },
-    {
-      "path": "images/places/north/בריכת רם - מסעדה/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:50:48.776872+00:00",
-      "region": "north",
-      "folder": "בריכת רם - מסעדה",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5614.jpeg",
-      "modifiedAt": "2026-06-22T08:55:28.990328+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5614.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5617.jpeg",
-      "modifiedAt": "2026-06-22T08:55:29.560189+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5617.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5618.jpeg",
-      "modifiedAt": "2026-06-22T08:55:27.962357+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5618.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5637.jpeg",
-      "modifiedAt": "2026-06-22T08:55:29.394347+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5637.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5651.jpeg",
-      "modifiedAt": "2026-06-22T08:55:27.787655+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5651.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5676.jpeg",
-      "modifiedAt": "2026-06-22T08:55:28.370568+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5676.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5680.jpeg",
-      "modifiedAt": "2026-06-22T08:55:28.543962+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5680.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5684.jpeg",
-      "modifiedAt": "2026-06-22T08:55:27.323455+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5684.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5689.jpeg",
-      "modifiedAt": "2026-06-22T08:55:27.156647+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5689.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5710.jpeg",
-      "modifiedAt": "2026-06-22T08:55:29.199653+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5710.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5730.jpeg",
-      "modifiedAt": "2026-06-22T08:55:27.602450+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5730.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/IMG_5734.jpeg",
-      "modifiedAt": "2026-06-22T08:55:28.736987+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "IMG_5734.jpeg"
-    },
-    {
-      "path": "images/places/north/בת שלמה/hero.jpeg",
-      "modifiedAt": "2026-06-22T08:55:28.170698+00:00",
-      "region": "north",
-      "folder": "בת שלמה",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/גני חוגה/IMG_2003.jpeg",
-      "modifiedAt": "2026-06-22T09:12:12.719836+00:00",
-      "region": "north",
-      "folder": "גני חוגה",
-      "file": "IMG_2003.jpeg"
-    },
-    {
-      "path": "images/places/north/גני חוגה/IMG_2020.jpeg",
-      "modifiedAt": "2026-06-22T09:12:12.466113+00:00",
-      "region": "north",
-      "folder": "גני חוגה",
-      "file": "IMG_2020.jpeg"
-    },
-    {
-      "path": "images/places/north/גני חוגה/IMG_2021.jpeg",
-      "modifiedAt": "2026-06-22T09:12:12.248895+00:00",
-      "region": "north",
-      "folder": "גני חוגה",
-      "file": "IMG_2021.jpeg"
-    },
-    {
-      "path": "images/places/north/גני חוגה/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:12:12.082377+00:00",
-      "region": "north",
-      "folder": "גני חוגה",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/חרמון/IMG_2349 2.jpeg",
-      "modifiedAt": "2026-06-22T09:56:10.660372+00:00",
-      "region": "north",
-      "folder": "חרמון",
-      "file": "IMG_2349 2.jpeg"
-    },
-    {
-      "path": "images/places/north/חרמון/IMG_2351.jpeg",
-      "modifiedAt": "2026-06-22T09:56:10.516854+00:00",
-      "region": "north",
-      "folder": "חרמון",
-      "file": "IMG_2351.jpeg"
-    },
-    {
-      "path": "images/places/north/חרמון/IMG_2352.jpeg",
-      "modifiedAt": "2026-06-22T09:56:10.382792+00:00",
-      "region": "north",
-      "folder": "חרמון",
-      "file": "IMG_2352.jpeg"
-    },
-    {
-      "path": "images/places/north/חרמון/IMG_2362 2.jpeg",
-      "modifiedAt": "2026-06-22T09:56:10.208972+00:00",
-      "region": "north",
-      "folder": "חרמון",
-      "file": "IMG_2362 2.jpeg"
-    },
-    {
-      "path": "images/places/north/חרמון/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:56:10.045205+00:00",
-      "region": "north",
-      "folder": "חרמון",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/יבניאל כפר כמא/IMG_1606 2.jpeg",
-      "modifiedAt": "2026-06-22T10:01:49.972023+00:00",
-      "region": "north",
-      "folder": "יבניאל כפר כמא",
-      "file": "IMG_1606 2.jpeg"
-    },
-    {
-      "path": "images/places/north/יבניאל כפר כמא/IMG_1608.jpeg",
-      "modifiedAt": "2026-06-22T10:01:49.801639+00:00",
-      "region": "north",
-      "folder": "יבניאל כפר כמא",
-      "file": "IMG_1608.jpeg"
-    },
-    {
-      "path": "images/places/north/יבניאל כפר כמא/IMG_1642.jpeg",
-      "modifiedAt": "2026-06-22T10:01:49.506734+00:00",
-      "region": "north",
-      "folder": "יבניאל כפר כמא",
-      "file": "IMG_1642.jpeg"
-    },
-    {
-      "path": "images/places/north/יבניאל כפר כמא/IMG_1665.jpeg",
-      "modifiedAt": "2026-06-22T10:01:49.314349+00:00",
-      "region": "north",
-      "folder": "יבניאל כפר כמא",
-      "file": "IMG_1665.jpeg"
-    },
-    {
-      "path": "images/places/north/יבניאל כפר כמא/IMG_1697.jpeg",
-      "modifiedAt": "2026-06-22T10:01:49.147281+00:00",
-      "region": "north",
-      "folder": "יבניאל כפר כמא",
-      "file": "IMG_1697.jpeg"
-    },
-    {
-      "path": "images/places/north/יבניאל כפר כמא/IMG_1728.jpeg",
-      "modifiedAt": "2026-06-22T10:01:48.757109+00:00",
-      "region": "north",
-      "folder": "יבניאל כפר כמא",
-      "file": "IMG_1728.jpeg"
-    },
-    {
-      "path": "images/places/north/יבניאל כפר כמא/hero.jpeg",
-      "modifiedAt": "2026-06-22T10:01:48.950430+00:00",
-      "region": "north",
-      "folder": "יבניאל כפר כמא",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/יקב רמת הגולן/IMG_8868.jpeg",
-      "modifiedAt": "2026-06-22T09:48:01.925387+00:00",
-      "region": "north",
-      "folder": "יקב רמת הגולן",
-      "file": "IMG_8868.jpeg"
-    },
-    {
-      "path": "images/places/north/יקב רמת הגולן/IMG_8870.jpeg",
-      "modifiedAt": "2026-06-22T09:48:01.631932+00:00",
-      "region": "north",
-      "folder": "יקב רמת הגולן",
-      "file": "IMG_8870.jpeg"
-    },
-    {
-      "path": "images/places/north/יקב רמת הגולן/IMG_8873.jpeg",
-      "modifiedAt": "2026-06-22T09:48:01.356409+00:00",
-      "region": "north",
-      "folder": "יקב רמת הגולן",
-      "file": "IMG_8873.jpeg"
-    },
-    {
-      "path": "images/places/north/יקב רמת הגולן/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:48:02.170073+00:00",
-      "region": "north",
-      "folder": "יקב רמת הגולן",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/IMG_0420.jpeg",
-      "modifiedAt": "2026-06-22T09:38:57.275883+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "IMG_0420.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/IMG_1911.jpeg",
-      "modifiedAt": "2026-06-22T09:44:43.563846+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "IMG_1911.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/IMG_1922.jpeg",
-      "modifiedAt": "2026-06-22T09:44:43.412274+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "IMG_1922.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/IMG_2135.jpeg",
-      "modifiedAt": "2026-06-22T09:43:57.498574+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "IMG_2135.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/IMG_2245.jpeg",
-      "modifiedAt": "2026-06-22T09:44:43.227762+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "IMG_2245.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/IMG_5663.jpeg",
-      "modifiedAt": "2026-06-22T09:40:41.039721+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "IMG_5663.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/IMG_5763.jpeg",
-      "modifiedAt": "2026-06-22T09:40:40.813035+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "IMG_5763.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/IMG_5778.jpeg",
-      "modifiedAt": "2026-06-22T09:40:40.647862+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "IMG_5778.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:44:43.765711+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/כינרת/yuy.jpeg",
-      "modifiedAt": "2026-06-22T09:38:57.105584+00:00",
-      "region": "north",
-      "folder": "כינרת",
-      "file": "yuy.jpeg"
-    },
-    {
-      "path": "images/places/north/מעיין חרוד/IMG_1866.jpeg",
-      "modifiedAt": "2026-06-22T09:02:42.280075+00:00",
-      "region": "north",
-      "folder": "מעיין חרוד",
-      "file": "IMG_1866.jpeg"
-    },
-    {
-      "path": "images/places/north/מעיין חרוד/IMG_1868.jpeg",
-      "modifiedAt": "2026-06-22T09:02:42.053863+00:00",
-      "region": "north",
-      "folder": "מעיין חרוד",
-      "file": "IMG_1868.jpeg"
-    },
-    {
-      "path": "images/places/north/מעיין חרוד/IMG_1882.jpeg",
-      "modifiedAt": "2026-06-22T09:02:41.324338+00:00",
-      "region": "north",
-      "folder": "מעיין חרוד",
-      "file": "IMG_1882.jpeg"
-    },
-    {
-      "path": "images/places/north/מעיין חרוד/IMG_1886.jpeg",
-      "modifiedAt": "2026-06-22T09:02:41.100869+00:00",
-      "region": "north",
-      "folder": "מעיין חרוד",
-      "file": "IMG_1886.jpeg"
-    },
-    {
-      "path": "images/places/north/מעיין חרוד/IMG_1891.jpeg",
-      "modifiedAt": "2026-06-22T09:02:41.733364+00:00",
-      "region": "north",
-      "folder": "מעיין חרוד",
-      "file": "IMG_1891.jpeg"
-    },
-    {
-      "path": "images/places/north/מעיין חרוד/IMG_1901.jpeg",
-      "modifiedAt": "2026-06-22T09:02:40.876277+00:00",
-      "region": "north",
-      "folder": "מעיין חרוד",
-      "file": "IMG_1901.jpeg"
-    },
-    {
-      "path": "images/places/north/מעיין חרוד/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:02:41.535058+00:00",
-      "region": "north",
-      "folder": "מעיין חרוד",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל האסי/IMG_1964.jpeg",
-      "modifiedAt": "2026-06-22T09:06:23.459187+00:00",
-      "region": "north",
-      "folder": "נחל האסי",
-      "file": "IMG_1964.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל האסי/IMG_1972.jpeg",
-      "modifiedAt": "2026-06-22T09:06:23.634256+00:00",
-      "region": "north",
-      "folder": "נחל האסי",
-      "file": "IMG_1972.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל האסי/IMG_1974.jpeg",
-      "modifiedAt": "2026-06-22T09:06:23.832875+00:00",
-      "region": "north",
-      "folder": "נחל האסי",
-      "file": "IMG_1974.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל שופט/IMG_3836.jpeg",
-      "modifiedAt": "2026-06-22T10:08:40.986709+00:00",
-      "region": "north",
-      "folder": "נחל שופט",
-      "file": "IMG_3836.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל שופט/IMG_3871 3.jpeg",
-      "modifiedAt": "2026-06-22T10:08:40.737896+00:00",
-      "region": "north",
-      "folder": "נחל שופט",
-      "file": "IMG_3871 3.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל שופט/IMG_8734.jpeg",
-      "modifiedAt": "2026-06-22T10:06:14.760798+00:00",
-      "region": "north",
-      "folder": "נחל שופט",
-      "file": "IMG_8734.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל שופט/IMG_8748.jpeg",
-      "modifiedAt": "2026-06-22T10:06:14.496917+00:00",
-      "region": "north",
-      "folder": "נחל שופט",
-      "file": "IMG_8748.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל שופט/IMG_8762 2.jpeg",
-      "modifiedAt": "2026-06-22T10:06:14.221147+00:00",
-      "region": "north",
-      "folder": "נחל שופט",
-      "file": "IMG_8762 2.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל שופט/IMG_8764.jpeg",
-      "modifiedAt": "2026-06-22T10:06:13.853113+00:00",
-      "region": "north",
-      "folder": "נחל שופט",
-      "file": "IMG_8764.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל שופט/IMG_9108.jpeg",
-      "modifiedAt": "2026-06-22T10:08:39.990669+00:00",
-      "region": "north",
-      "folder": "נחל שופט",
-      "file": "IMG_9108.jpeg"
-    },
-    {
-      "path": "images/places/north/נחל שופט/hero.jpeg",
-      "modifiedAt": "2026-06-22T10:08:40.316000+00:00",
-      "region": "north",
-      "folder": "נחל שופט",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/סכר אלומות/IMG_2092.jpeg",
-      "modifiedAt": "2026-06-22T09:17:21.786284+00:00",
-      "region": "north",
-      "folder": "סכר אלומות",
-      "file": "IMG_2092.jpeg"
-    },
-    {
-      "path": "images/places/north/סכר אלומות/IMG_2095.jpeg",
-      "modifiedAt": "2026-06-22T09:17:21.542123+00:00",
-      "region": "north",
-      "folder": "סכר אלומות",
-      "file": "IMG_2095.jpeg"
-    },
-    {
-      "path": "images/places/north/סכר אלומות/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:17:21.140023+00:00",
-      "region": "north",
-      "folder": "סכר אלומות",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/עין מודע/IMG_02.jpeg",
-      "modifiedAt": "2026-06-22T10:58:23.065385+00:00",
-      "region": "north",
-      "folder": "עין מודע",
-      "file": "IMG_02.jpeg"
-    },
-    {
-      "path": "images/places/north/עין מודע/IMG_03.jpeg",
-      "modifiedAt": "2026-06-22T10:58:23.161796+00:00",
-      "region": "north",
-      "folder": "עין מודע",
-      "file": "IMG_03.jpeg"
-    },
-    {
-      "path": "images/places/north/עין מודע/IMG_04.jpeg",
-      "modifiedAt": "2026-06-22T10:58:23.285775+00:00",
-      "region": "north",
-      "folder": "עין מודע",
-      "file": "IMG_04.jpeg"
-    },
-    {
-      "path": "images/places/north/עין מודע/hero.jpeg",
-      "modifiedAt": "2026-06-22T10:58:22.951522+00:00",
-      "region": "north",
-      "folder": "עין מודע",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/פארק המעיינות/IMG_9111.jpeg",
-      "modifiedAt": "2026-06-22T09:09:31.748403+00:00",
-      "region": "north",
-      "folder": "פארק המעיינות",
-      "file": "IMG_9111.jpeg"
-    },
-    {
-      "path": "images/places/north/פארק המעיינות/IMG_9119.jpeg",
-      "modifiedAt": "2026-06-22T09:09:31.501302+00:00",
-      "region": "north",
-      "folder": "פארק המעיינות",
-      "file": "IMG_9119.jpeg"
-    },
-    {
-      "path": "images/places/north/פארק המעיינות/IMG_9121.jpeg",
-      "modifiedAt": "2026-06-22T09:09:31.031046+00:00",
-      "region": "north",
-      "folder": "פארק המעיינות",
-      "file": "IMG_9121.jpeg"
-    },
-    {
-      "path": "images/places/north/פארק המעיינות/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:09:31.243695+00:00",
-      "region": "north",
-      "folder": "פארק המעיינות",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_1162 2.jpeg",
-      "modifiedAt": "2026-06-22T09:15:31.645939+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_1162 2.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_1168 2.jpeg",
-      "modifiedAt": "2026-06-22T09:15:31.464272+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_1168 2.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_1958.jpeg",
-      "modifiedAt": "2026-06-22T09:15:30.325207+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_1958.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_2034.jpeg",
-      "modifiedAt": "2026-06-22T09:15:29.861929+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_2034.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_2042.jpeg",
-      "modifiedAt": "2026-06-22T09:15:30.078336+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_2042.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_2413.jpeg",
-      "modifiedAt": "2026-06-22T09:15:31.327138+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_2413.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_2429.jpeg",
-      "modifiedAt": "2026-06-22T09:15:31.019892+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_2429.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_3927 2.jpeg",
-      "modifiedAt": "2026-06-22T09:15:31.199550+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_3927 2.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_4006 2.jpeg",
-      "modifiedAt": "2026-06-22T09:15:32.036512+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_4006 2.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/IMG_8799.jpeg",
-      "modifiedAt": "2026-06-22T09:15:30.574877+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "IMG_8799.jpeg"
-    },
-    {
-      "path": "images/places/north/קיבוץ אפיקים/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:15:30.855556+00:00",
-      "region": "north",
-      "folder": "קיבוץ אפיקים",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/רוב רוי/IMG_2068.jpeg",
-      "modifiedAt": "2026-06-22T09:20:15.511121+00:00",
-      "region": "north",
-      "folder": "רוב רוי",
-      "file": "IMG_2068.jpeg"
-    },
-    {
-      "path": "images/places/north/רוב רוי/IMG_2072.jpeg",
-      "modifiedAt": "2026-06-22T09:20:14.736005+00:00",
-      "region": "north",
-      "folder": "רוב רוי",
-      "file": "IMG_2072.jpeg"
-    },
-    {
-      "path": "images/places/north/רוב רוי/IMG_2077.jpeg",
-      "modifiedAt": "2026-06-22T09:20:14.242621+00:00",
-      "region": "north",
-      "folder": "רוב רוי",
-      "file": "IMG_2077.jpeg"
-    },
-    {
-      "path": "images/places/north/רוב רוי/IMG_2084.jpeg",
-      "modifiedAt": "2026-06-22T09:20:14.494903+00:00",
-      "region": "north",
-      "folder": "רוב רוי",
-      "file": "IMG_2084.jpeg"
-    },
-    {
-      "path": "images/places/north/רוב רוי/IMG_8890.jpeg",
-      "modifiedAt": "2026-06-22T09:20:14.051508+00:00",
-      "region": "north",
-      "folder": "רוב רוי",
-      "file": "IMG_8890.jpeg"
-    },
-    {
-      "path": "images/places/north/רוב רוי/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:20:15.099817+00:00",
-      "region": "north",
-      "folder": "רוב רוי",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/שמורת טבע גמלא/IMG_8812.jpeg",
-      "modifiedAt": "2026-06-22T09:46:47.896503+00:00",
-      "region": "north",
-      "folder": "שמורת טבע גמלא",
-      "file": "IMG_8812.jpeg"
-    },
-    {
-      "path": "images/places/north/שמורת טבע גמלא/IMG_8847.jpeg",
-      "modifiedAt": "2026-06-22T09:46:47.274332+00:00",
-      "region": "north",
-      "folder": "שמורת טבע גמלא",
-      "file": "IMG_8847.jpeg"
-    },
-    {
-      "path": "images/places/north/שמורת טבע גמלא/IMG_8850.jpeg",
-      "modifiedAt": "2026-06-22T09:46:47.108744+00:00",
-      "region": "north",
-      "folder": "שמורת טבע גמלא",
-      "file": "IMG_8850.jpeg"
-    },
-    {
-      "path": "images/places/north/שמורת טבע גמלא/IMG_8854.jpeg",
-      "modifiedAt": "2026-06-22T09:46:46.914116+00:00",
-      "region": "north",
-      "folder": "שמורת טבע גמלא",
-      "file": "IMG_8854.jpeg"
-    },
-    {
-      "path": "images/places/north/שמורת טבע גמלא/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:46:47.545502+00:00",
-      "region": "north",
-      "folder": "שמורת טבע גמלא",
-      "file": "hero.jpeg"
-    },
-    {
-      "path": "images/places/north/תל דן/IMG_2313 2 2.jpeg",
-      "modifiedAt": "2026-06-22T09:54:40.250989+00:00",
+      "path": "images/places/north/שמורת תל דן/IMG_2317.jpeg",
+      "modifiedAt": "2026-06-30T17:34:44.687291+00:00",
       "region": "north",
-      "folder": "תל דן",
-      "file": "IMG_2313 2 2.jpeg"
+      "folder": "שמורת תל דן",
+      "file": "IMG_2317.jpeg"
     },
     {
-      "path": "images/places/north/תל דן/IMG_2315 2.jpeg",
-      "modifiedAt": "2026-06-22T09:54:40.060915+00:00",
+      "path": "images/places/north/שמורת תל דן/IMG_2320 2 2.jpeg",
+      "modifiedAt": "2026-06-30T17:34:44.464694+00:00",
       "region": "north",
-      "folder": "תל דן",
-      "file": "IMG_2315 2.jpeg"
+      "folder": "שמורת תל דן",
+      "file": "IMG_2320 2 2.jpeg"
     },
     {
-      "path": "images/places/north/תל דן/hero.jpeg",
-      "modifiedAt": "2026-06-22T09:54:39.849061+00:00",
+      "path": "images/places/north/שמורת תל דן/IMG_2328.jpeg",
+      "modifiedAt": "2026-06-30T17:34:44.258786+00:00",
       "region": "north",
-      "folder": "תל דן",
-      "file": "hero.jpeg"
+      "folder": "שמורת תל דן",
+      "file": "IMG_2328.jpeg"
     }
   ],
   "foldersMissingHero": [
+    "north/בית ג׳ן → beit-jan (בית ג׳ן)",
     "north/חורשת גדעונה → chvrsht-gdvnh (חורשת גדעונה)",
     "north/מעיין הסוסים → myyn-hsvsym (מעיין הסוסים)",
     "north/נצרת → ntzrt (נצרת)",
+    "north/עין איוב → ein-ayub (עין איוב)",
+    "north/עין מגדל → ein-migdal (עין מגדל)",
+    "north/עין נון → ein-nun (עין נון)",
     "north/עכו → kv (עכו)",
     "north/שמורת טבע בניאס → shmvrt-tb-bnys (שמורת טבע בניאס)",
+    "north/תצפית הר הארי → har-hari-viewpoint (תצפית הר הארי)",
     "hasharon/פארק רעננה → prk-rnnh (פארק רעננה)",
     "center/נוף איילון → nvf-yylvn (נוף איילון)",
     "center/פארק בריטניה → prk-brytnyh (פארק בריטניה)",
@@ -2073,5 +663,5 @@
   "duplicateAssignments": [
     "Duplicate hero URL /images/places/north/נחל שופט/hero.jpeg: None and nchl-shvpt"
   ],
-  "previousAuditGeneratedAt": "2026-06-22T10:43:01.661316+00:00"
+  "previousAuditGeneratedAt": "2026-06-22T10:58:46.845522+00:00"
 }
