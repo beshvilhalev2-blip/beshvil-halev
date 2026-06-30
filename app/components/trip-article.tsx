@@ -47,7 +47,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
   const heroPills = getTripHeroPills(trip);
   const aboutParagraphs = getRealContentParagraphs(trip.about);
   const personalStoryParagraphs = getRealContentParagraphs(trip.personalStory);
-  const tips = getRealTips(trip.tips, 5);
+  const tips = getRealTips(trip.tips, 10);
   const gettingThere = resolveTripGettingThere(trip);
   const wazeDestination = trip.location?.label?.trim() || trip.title;
   const publishedTrips = getPublishedTrips();
