@@ -34,7 +34,7 @@ export default function TripGearCollapsible({ trip }: TripGearCollapsibleProps) 
       <div className={tripSurfaceClass}>
         <div className={`${tripSurfacePaddingClass} text-center`}>
           <p className="text-center text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-            הכנתי רשימת ציוד מומלצת לטיול הזה — מותאמת לסוג הביקור ולמשפחה.
+            הכנתי רשימת ציוד מומלצת לטיול הזה - מותאמת לסוג הביקור ולמשפחה.
           </p>
 
           <button

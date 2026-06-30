@@ -24,7 +24,7 @@ export default function TripStayNearby() {
       <h2 id="trip-stay-nearby-heading" className={tripSectionHeadingClass}>
         לינה באזור 🏕️
       </h2>
-      <p className={tripSectionSubtextClass}>בקרוב — אפשרויות לינה באזור</p>
+      <p className={tripSectionSubtextClass}>בקרוב - אפשרויות לינה באזור</p>
 
       <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4">
         {STAY_OPTIONS.map((option) => (
