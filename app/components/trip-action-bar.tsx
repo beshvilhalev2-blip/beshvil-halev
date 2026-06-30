@@ -161,6 +161,9 @@ export default function TripActionBar({
   const styles = variantStyles[variant];
   const wazeUrl = getTripWazeUrl(trip);
   const googleMapsUrl = getTripGoogleMapsUrl(trip);
+  const hasWaze = Boolean(wazeUrl);
+  const hasGoogleMaps = Boolean(googleMapsUrl);
+  const hasNavigation = hasWaze || hasGoogleMaps;
   const [shareHref, setShareHref] = useState<string | null>(null);
 
   useEffect(() => {
@@ -197,30 +200,40 @@ export default function TripActionBar({
         soonClassName={styles.soon}
         onClick={handleShareClick}
       />
-      <ActionDivider className={styles.divider} />
-      <ActionCell
-        href={wazeUrl}
-        label="Waze"
-        soonLabel={wazeUrl ? undefined : "בקרוב"}
-        icon={<WazeIcon className="size-5 shrink-0" />}
-        ariaLabel={`נווט עם Waze ל${trip.title}`}
-        hoverClassName={styles.wazeHover}
-        disabledClassName={styles.disabled}
-        labelClassName={styles.label}
-        soonClassName={styles.soon}
-      />
-      <ActionDivider className={styles.divider} />
-      <ActionCell
-        href={googleMapsUrl}
-        label="מפות"
-        soonLabel={googleMapsUrl ? undefined : "בקרוב"}
-        icon={<MapsIcon className="size-5 shrink-0 text-[#ea4335]" />}
-        ariaLabel={`נווט עם Google Maps ל${trip.title}`}
-        hoverClassName={styles.mapsHover}
-        disabledClassName={styles.disabled}
-        labelClassName={styles.label}
-        soonClassName={styles.soon}
-      />
+      {hasNavigation ? (
+        <>
+          {hasWaze ? (
+            <>
+              <ActionDivider className={styles.divider} />
+              <ActionCell
+                href={wazeUrl}
+                label="Waze"
+                icon={<WazeIcon className="size-5 shrink-0" />}
+                ariaLabel={`נווט עם Waze ל${trip.title}`}
+                hoverClassName={styles.wazeHover}
+                disabledClassName={styles.disabled}
+                labelClassName={styles.label}
+                soonClassName={styles.soon}
+              />
+            </>
+          ) : null}
+          {hasGoogleMaps ? (
+            <>
+              <ActionDivider className={styles.divider} />
+              <ActionCell
+                href={googleMapsUrl}
+                label="מפות"
+                icon={<MapsIcon className="size-5 shrink-0 text-[#ea4335]" />}
+                ariaLabel={`נווט עם Google Maps ל${trip.title}`}
+                hoverClassName={styles.mapsHover}
+                disabledClassName={styles.disabled}
+                labelClassName={styles.label}
+                soonClassName={styles.soon}
+              />
+            </>
+          ) : null}
+        </>
+      ) : null}
     </div>
   );
 }

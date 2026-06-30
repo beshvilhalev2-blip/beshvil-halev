@@ -747,7 +747,7 @@ const rawTrips: Trip[] = [
       wazeUrl:
         "https://waze.com/ul?q=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%AA%D7%9C%20%D7%93%D7%9F&navigate=yes",
       googleMapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%AA%D7%9C%20%D7%93%D7%9F",
+        "https://www.google.com/maps/search/?api=1&query=33.248611%2C35.651944",
     },
     seoTitle: "שמורת תל דן - מסלול קל למשפחות בצפון | בשביל הלב",
     metaDescription:
@@ -758,7 +758,7 @@ const rawTrips: Trip[] = [
     wazeUrl:
       "https://waze.com/ul?q=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%AA%D7%9C%20%D7%93%D7%9F&navigate=yes",
     googleMapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%AA%D7%9C%20%D7%93%D7%9F",
+      "https://www.google.com/maps/search/?api=1&query=33.248611%2C35.651944",
     about: [
       "אם יש מקום אחד בצפון שגורם לכם להרגיש כאילו נכנסתם לעולם אחר - זאת שמורת תל דן.",
       "כבר מהרגע שנכנסים לשמורה שומעים את זרימת המים מכל עבר. ככל שמתקדמים בשבילים, הנחל מלווה אתכם כמעט לכל אורך הדרך, העצים הגבוהים מספקים צל נעים גם בימים חמים, והאוויר מרגיש אחר - שקט, רגוע ומלא חיים.",

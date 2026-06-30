@@ -1,9 +1,15 @@
 "use client";
 
-import { useCallback, useEffect, useState, type MouseEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useState,
+  type MouseEvent,
+  type ReactNode,
+} from "react";
 import type { Trip } from "@/data/trips";
 import { buildWhatsAppShareUrl } from "@/lib/trip-share";
-import { getTripWazeUrl } from "@/lib/trip-location";
+import { getTripGoogleMapsUrl, getTripWazeUrl } from "@/lib/trip-location";
 
 function WhatsAppIcon({ className = "size-5" }: { className?: string }) {
   return (
@@ -29,12 +35,59 @@ function WazeIcon({ className = "size-5" }: { className?: string }) {
   );
 }
 
+function MapsIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.75a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z" />
+    </svg>
+  );
+}
+
 type TripHeroActionsProps = {
   trip: Trip;
 };
 
+function ActionLink({
+  href,
+  ariaLabel,
+  icon,
+  label,
+  hoverShadowClassName = "hover:shadow-[0_10px_28px_-12px_rgba(0,0,0,0.5)]",
+}: {
+  href: string;
+  ariaLabel: string;
+  icon: ReactNode;
+  label: string;
+  hoverShadowClassName?: string;
+}) {
+  const cardClassName =
+    "flex min-h-[2.875rem] flex-1 items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/92 px-3 py-2.5 text-sm font-semibold text-stone-800 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all hover:-translate-y-px hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={ariaLabel}
+      className={`${cardClassName} ${hoverShadowClassName}`}
+    >
+      {icon}
+      <span>{label}</span>
+    </a>
+  );
+}
+
 export default function TripHeroActions({ trip }: TripHeroActionsProps) {
   const wazeUrl = getTripWazeUrl(trip);
+  const googleMapsUrl = getTripGoogleMapsUrl(trip);
+  const hasWaze = Boolean(wazeUrl);
+  const hasGoogleMaps = Boolean(googleMapsUrl);
+  const hasNavigation = hasWaze || hasGoogleMaps;
   const [shareHref, setShareHref] = useState<string | null>(null);
 
   useEffect(() => {
@@ -54,47 +107,70 @@ export default function TripHeroActions({ trip }: TripHeroActionsProps) {
     [shareHref, trip.title],
   );
 
-  const cardClassName =
-    "flex min-h-[2.875rem] flex-1 items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/92 px-3 py-2.5 text-sm font-semibold text-stone-800 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all hover:-translate-y-px hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
-
-  const disabledClassName =
-    "flex min-h-[2.875rem] flex-1 cursor-not-allowed items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/50 px-3 py-2.5 text-sm font-semibold text-stone-500 opacity-80";
+  const shareButton = (
+    <a
+      href={shareHref ?? "#"}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`שתפו את ${trip.title} בוואטסאפ`}
+      onClick={handleShareClick}
+      className="flex min-h-[2.875rem] flex-1 items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/92 px-3 py-2.5 text-sm font-semibold text-stone-800 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)] backdrop-blur-md transition-all hover:-translate-y-px hover:bg-white hover:shadow-[0_10px_28px_-12px_rgba(37,211,102,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+    >
+      <WhatsAppIcon className="size-5 shrink-0 text-[#25D366]" />
+      <span>שתפו בוואטסאפ</span>
+    </a>
+  );
 
   return (
     <div
-      className="mx-auto grid w-full max-w-lg grid-cols-2 gap-2.5 sm:gap-3"
+      className="mx-auto flex w-full max-w-lg flex-col gap-2.5 sm:gap-3"
       role="group"
       aria-label="פעולות טיול"
     >
-      {wazeUrl ? (
-        <a
-          href={wazeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`נווט עם Waze ל${trip.title}`}
-          className={`${cardClassName} hover:shadow-[0_10px_28px_-12px_rgba(0,0,0,0.5)]`}
-        >
-          <WazeIcon className="size-5 shrink-0" />
-          <span>נווט עם Waze</span>
-        </a>
-      ) : (
-        <button type="button" disabled className={disabledClassName} aria-label="Waze - בקרוב">
-          <WazeIcon className="size-5 shrink-0 opacity-60" />
-          <span>Waze · בקרוב</span>
-        </button>
-      )}
+      {hasNavigation ? (
+        <>
+          {hasWaze && hasGoogleMaps ? (
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+              <ActionLink
+                href={wazeUrl!}
+                ariaLabel={`נווט עם Waze ל${trip.title}`}
+                icon={<WazeIcon className="size-5 shrink-0" />}
+                label="נווט עם Waze"
+              />
+              <ActionLink
+                href={googleMapsUrl!}
+                ariaLabel={`נווט עם Google Maps ל${trip.title}`}
+                icon={<MapsIcon className="size-5 shrink-0 text-[#ea4335]" />}
+                label="Google Maps"
+                hoverShadowClassName="hover:shadow-[0_10px_28px_-12px_rgba(234,67,53,0.25)]"
+              />
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+              {hasWaze ? (
+                <ActionLink
+                  href={wazeUrl!}
+                  ariaLabel={`נווט עם Waze ל${trip.title}`}
+                  icon={<WazeIcon className="size-5 shrink-0" />}
+                  label="נווט עם Waze"
+                />
+              ) : (
+                <ActionLink
+                  href={googleMapsUrl!}
+                  ariaLabel={`נווט עם Google Maps ל${trip.title}`}
+                  icon={<MapsIcon className="size-5 shrink-0 text-[#ea4335]" />}
+                  label="Google Maps"
+                  hoverShadowClassName="hover:shadow-[0_10px_28px_-12px_rgba(234,67,53,0.25)]"
+                />
+              )}
+              {shareButton}
+            </div>
+          )}
+        </>
+      ) : null}
 
-      <a
-        href={shareHref ?? "#"}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`שתפו את ${trip.title} בוואטסאפ`}
-        onClick={handleShareClick}
-        className={`${cardClassName} hover:shadow-[0_10px_28px_-12px_rgba(37,211,102,0.35)]`}
-      >
-        <WhatsAppIcon className="size-5 shrink-0 text-[#25D366]" />
-        <span>שתפו בוואטסאפ</span>
-      </a>
+      {hasNavigation && hasWaze && hasGoogleMaps ? shareButton : null}
+      {!hasNavigation ? shareButton : null}
     </div>
   );
 }
