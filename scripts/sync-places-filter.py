@@ -86,7 +86,7 @@ def escape_ts(value: str) -> str:
 
 def normalize_title(value: str) -> str:
     text = value.strip()
-    text = re.sub(r"[\s\-–-_/\\|]", "", text)
+    text = re.sub(r"[\s_/\\|\-–]+", "", text)
     text = re.sub(r"^ה", "", text)
     return text.casefold()
 

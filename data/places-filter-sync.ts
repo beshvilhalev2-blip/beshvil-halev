@@ -14,6 +14,7 @@ export type PlacesFilterSyncEntry = {
 };
 
 export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
+  "beit-jan": { region: "צפון", regionSlug: "north", excelName: "בית ג׳ן", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "ben-shemen-forest": { region: "מרכז", regionSlug: "center", excelName: "יער בן שמן", tags: { water: false, viewpoint: true, camping: true, offroad: true, strollerAccessible: "partial", free: true } },
   "blgn-bygvr": { region: "צפון", regionSlug: "north", excelName: "בלאגן ביגור", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "bnys": { region: "צפון", regionSlug: "north", excelName: "בניאס", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: false, free: false } },
@@ -29,13 +30,17 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "chvf-tlyt": { region: "השרון", regionSlug: "hasharon", excelName: "חוף עתלית", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
   "chvf-vlgh": { region: "השרון", regionSlug: "hasharon", excelName: "חוף אולגה", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "chvrsht-gdvnh": { region: "צפון", regionSlug: "north", excelName: "חורשת גדעונה", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
+  "ein-ayub": { region: "צפון", regionSlug: "north", excelName: "עין איוב", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: false, free: true } },
   "ein-bokek": { region: "דרום", regionSlug: "south", excelName: "עין בוקק", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: false, free: true } },
+  "ein-migdal": { region: "צפון", regionSlug: "north", excelName: "עין מגדל", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "ein-moda": { region: "צפון", regionSlug: "north", excelName: "עין מודע", tags: { water: true, viewpoint: false, camping: true, offroad: false, strollerAccessible: true, free: true } },
+  "ein-nun": { region: "צפון", regionSlug: "north", excelName: "עין נון", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "gbt-hrkpvt": { region: "מרכז", regionSlug: "center", excelName: "גבעת הרקפות", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "gmvn-hchvlh": { region: "צפון", regionSlug: "north", excelName: "אגמון החולה", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: false } },
   "gn-hchyvt-htnky": { region: "ירושלים", regionSlug: "jerusalem", excelName: "גן החיות התנכי", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
   "gn-lvmy-mgdl-tzdk": { region: "מרכז", regionSlug: "center", excelName: "גן לאומי מגדל צדק", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: "partial", free: false } },
   "gny-chvgh": { region: "צפון", regionSlug: "north", excelName: "גני חוגה", tags: { water: true, viewpoint: false, camping: true, offroad: false, strollerAccessible: true, free: false } },
+  "har-hari-viewpoint": { region: "צפון", regionSlug: "north", excelName: "תצפית הר הארי", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "hchvf-shl-mvsh-kzyb": { region: "צפון", regionSlug: "north", excelName: "החוף של מוש אכזיב", tags: { water: true, viewpoint: true, camping: true, offroad: false, strollerAccessible: true, free: true } },
   "hmpl-hnstr": { region: "מרכז", regionSlug: "center", excelName: "המפל הנסתר פתח תקווה", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "klchym-vmbvkym": { region: "השרון", regionSlug: "hasharon", excelName: "קלחים ומבוכים", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
@@ -109,13 +114,13 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
 };
 
 export const placesFilterAudit = {
-  "excelTotal": 97,
-  "siteTotal": 100,
-  "matched": 93,
-  "activeTrips": 92,
+  "excelTotal": 102,
+  "siteTotal": 105,
+  "matched": 98,
+  "activeTrips": 97,
   "hiddenUnmatchedSiteTrips": 8,
   "regionCounts": {
-    "north": 29,
+    "north": 34,
     "hasharon": 10,
     "center": 29,
     "jerusalem": 8,
@@ -123,14 +128,14 @@ export const placesFilterAudit = {
     "judea-samaria": 0
   },
   "filterCounts": {
-    "water": 43,
-    "viewpoint": 35,
+    "water": 46,
+    "viewpoint": 37,
     "camping": 16,
     "offroad": 26,
-    "strollerAccessible": 67,
-    "free": 62
+    "strollerAccessible": 71,
+    "free": 67
   },
-  "totalSynced": 92,
+  "totalSynced": 97,
   "missingFromExcel": [
     "פוסט קיבוץ אפיקים",
     "יבניאל כפר כמא",
