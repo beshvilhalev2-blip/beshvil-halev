@@ -19,7 +19,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "blgn-bygvr": { region: "צפון", regionSlug: "north", excelName: "בלאגן ביגור", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "bnys": { region: "צפון", regionSlug: "north", excelName: "בניאס", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: false, free: false } },
   "brbtb": { region: "מרכז", regionSlug: "center", excelName: "ברבטבע", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
-  "brykt-rm-msdh": { region: "צפון", regionSlug: "north", excelName: "בריכת רם - מסעדה", tags: { water: true, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
+  "brykt-rm-msdh": { region: "צפון", regionSlug: "north", excelName: "בריכת רם - מסעדה", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "bt-shlmh": { region: "צפון", regionSlug: "north", excelName: "בת שלמה", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: true, free: true } },
   "btrvnvt-rvchmh": { region: "דרום", regionSlug: "south", excelName: "בתרונות רוחמה", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "byt-gvbryn": { region: "דרום", regionSlug: "south", excelName: "בית גוברין", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: false } },

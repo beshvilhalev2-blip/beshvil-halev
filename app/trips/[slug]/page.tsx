@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import TripArticle from "@/app/components/trip-article";
 import TripComingSoon from "@/app/components/trip-coming-soon";
 import { getAllTripSlugs, getPublicTripBySlug } from "@/data/trips";
+import { buildTripPageMetadata } from "@/lib/trip-page-metadata";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -20,10 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "מסלול לא נמצא | בשביל הלב" };
   }
 
-  return {
-    title: trip.seoTitle ?? `${trip.title} | בשביל הלב`,
-    description: trip.metaDescription,
-  };
+  return buildTripPageMetadata(trip);
 }
 
 export default async function TripPage({ params }: PageProps) {

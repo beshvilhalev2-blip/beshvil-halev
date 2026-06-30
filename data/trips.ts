@@ -875,7 +875,7 @@ const rawTrips: Trip[] = [
     category: "תצפיות ונוף",
     visitedByMilana: true,
     matcher: {
-      activities: ["water", "viewpoint", "easy-trails", "picnic"],
+      activities: ["viewpoint", "easy-trails", "picnic"],
       companions: ["solo", "friends", "kids", "family"],
       estimatedCostNis: "free",
       weatherTraits: ["shade-rich", "heat-tolerant"],
@@ -896,7 +896,7 @@ const rawTrips: Trip[] = [
       lng: 35.766333,
       label: "בריכת רם",
       wazeUrl:
-        "https://waze.com/ul?q=%D7%91%D7%A8%D7%99%D7%9B%D7%AA%20%D7%A8%D7%9D&navigate=yes",
+        "https://waze.com/ul?ll=33.232528,35.766333&navigate=yes",
       googleMapsUrl:
         "https://www.google.com/maps/search/?api=1&query=33.232528%2C35.766333",
     },
@@ -907,7 +907,7 @@ const rawTrips: Trip[] = [
     heroImageLabel: "תמונת רקע - בריכת רם",
     heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/בריכת רם - מסעדה/hero.jpeg")`,
     wazeUrl:
-      "https://waze.com/ul?q=%D7%91%D7%A8%D7%99%D7%9B%D7%AA%20%D7%A8%D7%9D&navigate=yes",
+      "https://waze.com/ul?ll=33.232528,35.766333&navigate=yes",
     googleMapsUrl:
       "https://www.google.com/maps/search/?api=1&query=33.232528%2C35.766333",
     about: [
