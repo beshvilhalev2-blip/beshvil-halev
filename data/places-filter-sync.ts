@@ -25,7 +25,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "byt-gvbryn": { region: "דרום", regionSlug: "south", excelName: "בית גוברין", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: false } },
   "byt-lh": { region: "מרכז", regionSlug: "center", excelName: "בית לאה", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "chn-yn-gdy": { region: "דרום", regionSlug: "south", excelName: "חאן עין גדי", tags: { water: false, viewpoint: true, camping: true, offroad: false, strollerAccessible: true, free: false } },
-  "chrmvn": { region: "צפון", regionSlug: "north", excelName: "חרמון", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: false, free: false } },
+  "chrmvn": { region: "צפון", regionSlug: "north", excelName: "חרמון", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: "partial", free: false } },
   "chvf-hchshml": { region: "מרכז", regionSlug: "center", excelName: "חוף החשמל", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "chvf-tlyt": { region: "השרון", regionSlug: "hasharon", excelName: "חוף עתלית", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
   "chvf-vlgh": { region: "השרון", regionSlug: "hasharon", excelName: "חוף אולגה", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },

@@ -35,6 +35,7 @@ SLUG_FOLDER_OVERRIDES: dict[str, tuple[str, str]] = {
     "nchl-dn": ("north", "שמורת תל דן"),
     "nchl-shvpt": ("north", "נחל שופט"),
     "brykt-rm-msdh": ("north", "בריכת רם - מסעדה"),
+    "chrmvn": ("north", "חרמון"),
 }
 
 FOLDER_TITLE_ALIASES: dict[str, str] = {

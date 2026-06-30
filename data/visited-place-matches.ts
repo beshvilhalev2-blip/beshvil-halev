@@ -8,6 +8,7 @@ export const visitedByMilanaMatchedSlugs = [
   "nitzanim-lake",
   "nchl-dn",
   "brykt-rm-msdh",
+  "chrmvn",
   "ein-moda",
   "ein-bokek",
   "sataf",
