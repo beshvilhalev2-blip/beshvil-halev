@@ -18,7 +18,6 @@ Generated: 2026-06-22T10:59:37.578542+00:00
 - `ben-shemen-forest` - יער בן שמן (מרכז, site-visible)
 - `lvnd` - לונדע (דרום, site-visible)
 - `myyn-hsvsym` - מעיין הסוסים (צפון, site-visible)
-- `mtzph-rbl` - מצפה ארבל (צפון, site-visible)
 - `nvf-yylvn` - נוף איילון (מרכז, site-visible)
 - `ntzrt` - נצרת (צפון, hidden)
 - `kv` - עכו (צפון, hidden)
@@ -44,7 +43,6 @@ Generated: 2026-06-22T10:59:37.578542+00:00
 - `yr-hmlkym` - יער המלאכים
 - `lvnd` - לונדע
 - `myyn-hsvsym` - מעיין הסוסים
-- `mtzph-rbl` - מצפה ארבל
 - `nvf-yylvn` - נוף איילון
 - `ntzrt` - נצרת
 - `kv` - עכו
@@ -77,7 +75,6 @@ Generated: 2026-06-22T10:59:37.578542+00:00
 - `lvnd` - לונדע (placeholder_or_missing_hero, empty_gallery)
 - `msdt-dg-l-hdn` - מסעדת דג על הדן (incomplete_gallery)
 - `myyn-hsvsym` - מעיין הסוסים (placeholder_or_missing_hero, empty_gallery)
-- `mtzph-rbl` - מצפה ארבל (placeholder_or_missing_hero, empty_gallery)
 - `nvf-yylvn` - נוף איילון (placeholder_or_missing_hero, empty_gallery)
 - `nchl-dn` - נחל דן (incomplete_gallery)
 - `nchl-hkybvtzym` - נחל הקיבוצים (incomplete_gallery)

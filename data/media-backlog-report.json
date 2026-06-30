@@ -44,12 +44,6 @@
       "siteVisible": true
     },
     {
-      "slug": "mtzph-rbl",
-      "title": "מצפה ארבל",
-      "region": "צפון",
-      "siteVisible": true
-    },
-    {
       "slug": "nvf-yylvn",
       "title": "נוף איילון",
       "region": "מרכז",
@@ -186,13 +180,6 @@
     {
       "slug": "myyn-hsvsym",
       "title": "מעיין הסוסים",
-      "region": "צפון",
-      "hasRealHero": false,
-      "siteVisible": true
-    },
-    {
-      "slug": "mtzph-rbl",
-      "title": "מצפה ארבל",
       "region": "צפון",
       "hasRealHero": false,
       "siteVisible": true
@@ -446,18 +433,6 @@
     {
       "slug": "myyn-hsvsym",
       "title": "מעיין הסוסים",
-      "region": "צפון",
-      "issues": [
-        "placeholder_or_missing_hero",
-        "empty_gallery"
-      ],
-      "heroImage": null,
-      "galleryCount": 0,
-      "siteVisible": true
-    },
-    {
-      "slug": "mtzph-rbl",
-      "title": "מצפה ארבל",
       "region": "צפון",
       "issues": [
         "placeholder_or_missing_hero",

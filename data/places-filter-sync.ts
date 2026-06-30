@@ -60,7 +60,6 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "mshk-bgbh-gdrh": { region: "מרכז", regionSlug: "center", excelName: "משק בגבעה גדרה", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
   "mshmr-dvd": { region: "מרכז", regionSlug: "center", excelName: "משמר דוד", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "mtzph-ntn": { region: "מרכז", regionSlug: "center", excelName: "מצפה אלון", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
-  "mtzph-rbl": { region: "צפון", regionSlug: "north", excelName: "מצפה ארבל", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "mtzpvr-vykr": { region: "השרון", regionSlug: "hasharon", excelName: "מצפור ויקר", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "mtzyh": { region: "דרום", regionSlug: "south", excelName: "אמציה", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "mvzyvn-hyldym-chvlvn": { region: "מרכז", regionSlug: "center", excelName: "מוזיאון הילדים חולון", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
@@ -114,13 +113,13 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
 };
 
 export const placesFilterAudit = {
-  "excelTotal": 102,
-  "siteTotal": 105,
-  "matched": 98,
-  "activeTrips": 97,
+  "excelTotal": 101,
+  "siteTotal": 104,
+  "matched": 97,
+  "activeTrips": 96,
   "hiddenUnmatchedSiteTrips": 8,
   "regionCounts": {
-    "north": 34,
+    "north": 33,
     "hasharon": 10,
     "center": 29,
     "jerusalem": 8,
@@ -129,13 +128,13 @@ export const placesFilterAudit = {
   },
   "filterCounts": {
     "water": 46,
-    "viewpoint": 37,
+    "viewpoint": 36,
     "camping": 16,
     "offroad": 26,
-    "strollerAccessible": 71,
-    "free": 67
+    "strollerAccessible": 70,
+    "free": 66
   },
-  "totalSynced": 97,
+  "totalSynced": 96,
   "missingFromExcel": [
     "פוסט קיבוץ אפיקים",
     "יבניאל כפר כמא",

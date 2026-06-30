@@ -103,12 +103,6 @@
       "hasImageFolderOnDisk": true
     },
     {
-      "slug": "mtzph-rbl",
-      "title": "מצפה ארבל",
-      "excelName": "מצפה ארבל",
-      "hasImageFolderOnDisk": true
-    },
-    {
       "slug": "nvf-yylvn",
       "title": "נוף איילון",
       "excelName": "נוף איילון",
@@ -310,18 +304,6 @@
     {
       "slug": "myyn-hsvsym",
       "title": "מעיין הסוסים",
-      "region": "צפון",
-      "issues": [
-        "placeholder_or_missing_hero",
-        "empty_gallery"
-      ],
-      "heroImage": null,
-      "galleryCount": 0,
-      "hasFolderWithHero": false
-    },
-    {
-      "slug": "mtzph-rbl",
-      "title": "מצפה ארבל",
       "region": "צפון",
       "issues": [
         "placeholder_or_missing_hero",
@@ -2072,7 +2054,6 @@
   "foldersMissingHero": [
     "north/חורשת גדעונה → chvrsht-gdvnh (חורשת גדעונה)",
     "north/מעיין הסוסים → myyn-hsvsym (מעיין הסוסים)",
-    "north/מצפה ארבל → mtzph-rbl (מצפה ארבל)",
     "north/נצרת → ntzrt (נצרת)",
     "north/עכו → kv (עכו)",
     "north/שמורת טבע בניאס → shmvrt-tb-bnys (שמורת טבע בניאס)",

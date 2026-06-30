@@ -70,7 +70,6 @@ Placeholder gradient only - no real photo connected.
 | `ben-shemen-forest` | יער בן שמן | מרכז | site-visible |
 | `lvnd` | לונדע | דרום | site-visible |
 | `myyn-hsvsym` | מעיין הסוסים | צפון | site-visible |
-| `mtzph-rbl` | מצפה ארבל | צפון | site-visible |
 | `nvf-yylvn` | נוף איילון | מרכז | site-visible |
 | `ntzrt` | נצרת | צפון | hidden |
 | `kv` | עכו | צפון | hidden |
@@ -100,7 +99,6 @@ Placeholder gradient only - no real photo connected.
 | `yr-hmlkym` | יער המלאכים | Has hero |
 | `lvnd` | לונדע | No hero |
 | `myyn-hsvsym` | מעיין הסוסים | No hero |
-| `mtzph-rbl` | מצפה ארבל | No hero |
 | `nvf-yylvn` | נוף איילון | No hero |
 | `ntzrt` | נצרת | No hero |
 | `kv` | עכו | No hero |
