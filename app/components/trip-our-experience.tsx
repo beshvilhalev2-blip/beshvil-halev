@@ -22,8 +22,8 @@ export default function TripOurExperience({ paragraphs }: TripOurExperienceProps
 
       <div className={`${tripSurfaceGlassClass} ${tripSurfacePaddingClass}`}>
         <div className={`space-y-4 ${tripSectionBodyClass}`}>
-          {paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+          {paragraphs.map((paragraph, index) => (
+            <p key={`${index}-${paragraph}`}>{paragraph}</p>
           ))}
         </div>
       </div>
