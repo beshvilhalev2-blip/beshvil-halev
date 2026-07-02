@@ -19,7 +19,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "blgn-bygvr": { region: "צפון", regionSlug: "north", excelName: "בלאגן ביגור", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "brbtb": { region: "מרכז", regionSlug: "center", excelName: "ברבטבע", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "brykt-rm-msdh": { region: "צפון", regionSlug: "north", excelName: "בריכת רם - מסעדה", tags: { water: true, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
-  "bt-shlmh": { region: "צפון", regionSlug: "north", excelName: "בת שלמה", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: true, free: true } },
+  "bt-shlmh": { region: "צפון", regionSlug: "north", excelName: "בת שלמה", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: true, free: false } },
   "btrvnvt-rvchmh": { region: "דרום", regionSlug: "south", excelName: "בתרונות רוחמה", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "byt-gvbryn": { region: "דרום", regionSlug: "south", excelName: "בית גוברין", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: false } },
   "byt-lh": { region: "מרכז", regionSlug: "center", excelName: "בית לאה", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
@@ -100,7 +100,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "ykb-rmt-hgvln": { region: "צפון", regionSlug: "north", excelName: "יקב רמת הגולן", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "ym-hmlch-chvf-bynykny": { region: "דרום", regionSlug: "south", excelName: "ים המלח - חוף ביאניקני", tags: { water: true, viewpoint: false, camping: true, offroad: false, strollerAccessible: true, free: false } },
   "yn-chmd": { region: "ירושלים", regionSlug: "jerusalem", excelName: "עין חמד", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: false } },
-  "yn-chrdlyt": { region: "צפון", regionSlug: "north", excelName: "עין חרדלית", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
+  "yn-chrdlyt": { region: "צפון", regionSlug: "north", excelName: "עין חרדלית", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: false, free: true } },
   "yn-lbn": { region: "ירושלים", regionSlug: "jerusalem", excelName: "עין לבן", tags: { water: true, viewpoint: true, camping: false, offroad: false, strollerAccessible: false, free: true } },
   "yn-pshchh-yynvt-tzvkym": { region: "דרום", regionSlug: "south", excelName: "עין פאשחה עיינות צוקים", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: false } },
   "yr-hmgynym": { region: "מרכז", regionSlug: "center", excelName: "יער המגינים", tags: { water: false, viewpoint: true, camping: true, offroad: true, strollerAccessible: false, free: true } },
@@ -127,9 +127,9 @@ export const placesFilterAudit = {
     "water": 44,
     "viewpoint": 37,
     "camping": 16,
-    "offroad": 26,
+    "offroad": 25,
     "strollerAccessible": 68,
-    "free": 64
+    "free": 63
   },
   "totalSynced": 93,
   "missingFromExcel": [
