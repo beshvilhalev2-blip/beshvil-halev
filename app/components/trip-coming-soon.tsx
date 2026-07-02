@@ -7,6 +7,7 @@ import VisitedStamp from "@/app/components/visited-stamp";
 import TripPhotoGallery from "@/app/components/trip-photo-gallery";
 import WantToTravelSaveButton from "@/app/components/want-to-travel-save-button";
 import TripHeroImage from "@/app/components/trip-hero-image";
+import { getTripPlaceName } from "@/lib/trip-display-title";
 
 function ArrowIcon() {
   return (
@@ -47,7 +48,7 @@ export default function TripComingSoon({ trip }: { trip: Trip }) {
             {trip.region}
           </span>
           <h1 className="mb-4 text-3xl font-bold leading-tight tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
-            {trip.title}
+            {getTripPlaceName(trip)}
           </h1>
 
           <WantToTravelSaveButton tripSlug={trip.slug} variant="hero" />

@@ -85,7 +85,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "prk-ytbth": { region: "דרום", regionSlug: "south", excelName: "פארק יטבתה", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "rbdym": { region: "מרכז", regionSlug: "center", excelName: "רבדים", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "rmt-gn-spry": { region: "מרכז", regionSlug: "center", excelName: "רמת גן - ספארי", tags: { water: false, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: false } },
-  "rsh-hnkrh": { region: "צפון", regionSlug: "north", excelName: "ראש הנקרה", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: "partial", free: false } },
+  "rsh-hnkrh": { region: "צפון", regionSlug: "north", excelName: "ראש הנקרה", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: false } },
   "rvb-rvy": { region: "צפון", regionSlug: "north", excelName: "רוב רוי", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "sataf": { region: "ירושלים", regionSlug: "jerusalem", excelName: "הסטף", tags: { water: false, viewpoint: true, camping: true, offroad: true, strollerAccessible: false, free: true } },
   "shmvrt-plmchym": { region: "מרכז", regionSlug: "center", excelName: "שמורת פלמחים", tags: { water: true, viewpoint: false, camping: true, offroad: false, strollerAccessible: false, free: true } },

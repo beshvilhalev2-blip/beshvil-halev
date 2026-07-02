@@ -21,6 +21,8 @@ export const visitedByMilanaMatchedSlugs = [
   "chvrsht-gdvnh",
   "shmvrt-tb-gml",
   "myyn-chrvd",
+  "gny-chvgh",
+  "rsh-hnkrh",
   "ein-moda",
   "ein-bokek",
   "sataf",

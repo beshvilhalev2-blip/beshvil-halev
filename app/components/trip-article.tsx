@@ -27,6 +27,7 @@ import {
   resolveNearbySubtitle,
 } from "@/lib/trip-nearby";
 import { getPublishedTrips } from "@/data/trips";
+import { getTripPlaceName } from "@/lib/trip-display-title";
 import {
   tripSectionHeadingClass,
   tripSectionStackClass,
@@ -81,7 +82,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           </div>
 
           <h1 className="mx-auto mb-1.5 max-w-3xl text-[2.025rem] font-bold leading-tight tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.5),0_4px_32px_rgba(0,0,0,0.35)] sm:mb-2 sm:text-[2.43rem] md:text-[3.24rem] lg:text-[4.05rem]">
-            {trip.title}
+            {getTripPlaceName(trip)}
           </h1>
 
           <p className="mx-auto mb-3 w-fit max-w-2xl rounded-lg border border-white/20 bg-white/12 px-3.5 py-2 text-sm font-semibold leading-snug text-white backdrop-blur-md [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:mb-3.5 sm:px-4 sm:py-2.5 sm:text-base md:text-lg md:leading-relaxed">

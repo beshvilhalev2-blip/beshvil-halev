@@ -13,24 +13,7 @@ import { getSiteVisibleTrips } from "@/data/trips";
 import { buildAdventureCategoryData } from "@/lib/hero-adventure-selector";
 import { fetchParksFieldUpdates } from "@/lib/field-updates";
 
-function SearchIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="size-5 shrink-0 text-stone-400"
-      aria-hidden="true"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.3-4.3" />
-    </svg>
-  );
-}
+import HomeHeroSearch from "./components/home-hero-search";
 
 function HeroMainContent({
   adventureCategories,
@@ -71,28 +54,7 @@ function HeroMainContent({
       <div className="mx-auto flex w-full max-w-[min(85vw,82rem)] flex-col items-stretch">
         <HeroAdventureSelector categories={adventureCategories} />
 
-        <form
-          action="/search"
-          method="get"
-          className="mt-5 flex w-full flex-col gap-2 rounded-2xl border border-white/25 bg-white/88 p-2 shadow-[0_8px_28px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-300 focus-within:border-white/40 focus-within:bg-white/95 focus-within:shadow-[0_12px_36px_rgba(0,0,0,0.16)] sm:mx-auto sm:mt-8 sm:max-w-xl sm:flex-row sm:items-center sm:gap-2 sm:rounded-full sm:p-2 lg:mt-10 lg:max-w-[40rem]"
-        >
-          <div className="flex flex-1 items-center gap-3 px-3 sm:px-4">
-            <SearchIcon />
-            <input
-              type="search"
-              name="q"
-              placeholder="חפשו מסלול, אזור או חוויה..."
-              className="w-full bg-transparent py-2.5 text-base text-stone-700 placeholder:text-stone-400 focus:outline-none"
-              aria-label="חיפוש מסלולים"
-            />
-          </div>
-          <button
-            type="submit"
-            className="min-h-10 w-full shrink-0 rounded-xl bg-stone-800/95 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto sm:rounded-full sm:px-7"
-          >
-            חיפוש
-          </button>
-        </form>
+        <HomeHeroSearch />
       </div>
     </>
   );

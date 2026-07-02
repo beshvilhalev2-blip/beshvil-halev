@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
+import SearchAutocomplete from "@/app/components/search-autocomplete";
 import { SocialLinksMobileList, SocialLinksRow } from "@/app/components/social-links";
 import { WANT_TO_TRAVEL_NAV_LABEL } from "@/lib/want-to-travel/labels";
 
@@ -251,16 +252,6 @@ export default function SiteHeader() {
     });
   }
 
-  function handleSearchSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const query = String(formData.get("q") ?? "").trim();
-    const target = query
-      ? `/search?q=${encodeURIComponent(query)}`
-      : "/search";
-    window.location.href = target;
-  }
-
   const headerSolid =
     SOLID_HEADER_PATHS.has(pathname) ||
     scrolled ||
@@ -362,8 +353,10 @@ export default function SiteHeader() {
 
       <div
         id="header-search-panel"
-        className={`overflow-hidden border-t transition-all duration-300 ${
-          searchOpen ? "max-h-24 opacity-100" : "max-h-0 opacity-0"
+        className={`border-t transition-all duration-300 ${
+          searchOpen
+            ? "max-h-[min(28rem,70vh)] overflow-visible opacity-100"
+            : "max-h-0 overflow-hidden opacity-0"
         } ${
           headerSolid
             ? "border-stone-200/60 bg-white/95 dark:border-stone-700/60 dark:bg-stone-950/95"
@@ -371,28 +364,11 @@ export default function SiteHeader() {
         }`}
         aria-hidden={!searchOpen}
       >
-        <form
-          onSubmit={handleSearchSubmit}
-          className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6"
-        >
-          <div className="flex flex-1 items-center gap-3 rounded-2xl border border-stone-200/80 bg-white px-4 py-2.5 shadow-sm dark:border-stone-700 dark:bg-stone-900">
-            <SearchIcon />
-            <input
-              ref={searchInputRef}
-              type="search"
-              name="q"
-              placeholder="חפשו מסלול, אזור או חוויה..."
-              className="w-full bg-transparent text-base text-stone-800 placeholder:text-stone-400 focus:outline-none dark:text-stone-100 dark:placeholder:text-stone-500"
-              aria-label="חיפוש מסלולים"
-            />
-          </div>
-          <button
-            type="submit"
-            className="shrink-0 rounded-xl bg-stone-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800 min-h-11 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-200"
-          >
-            חיפוש
-          </button>
-        </form>
+        <SearchAutocomplete
+          variant="header"
+          inputRef={searchInputRef}
+          onNavigate={() => setSearchOpen(false)}
+        />
       </div>
       </div>
 
