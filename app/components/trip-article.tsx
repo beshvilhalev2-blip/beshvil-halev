@@ -12,8 +12,8 @@ import TripAboutPlace from "@/app/components/trip-about-place";
 import TripOurExperience from "@/app/components/trip-our-experience";
 import TripGettingThereSection from "@/app/components/trip-getting-there";
 import TripMilanaTips from "@/app/components/trip-milana-tips";
+import TripHighlights from "@/app/components/trip-highlights";
 import TripStayNearby from "@/app/components/trip-stay-nearby";
-import TripBeforeYouGo from "@/app/components/trip-before-you-go";
 import TripFaqAccordion from "@/app/components/trip-faq-accordion";
 import {
   getRealContentParagraphs,
@@ -113,12 +113,12 @@ export default function TripArticle({ trip }: { trip: Trip }) {
           ) : null}
 
           <TripGearCollapsible trip={trip} />
+          <TripHighlights highlights={trip.highlights ?? []} />
           <TripMilanaTips tips={tips} />
           {trip.faq && trip.faq.length > 0 ? (
             <TripFaqAccordion items={trip.faq} />
           ) : null}
           <TripStayNearby />
-          <TripBeforeYouGo note={trip.closingNote} />
         </div>
 
         {nearbyPlaces.length > 0 ? (

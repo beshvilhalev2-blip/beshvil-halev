@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import type { Trip } from "@/data/trips";
+import { resolveGalleryImageLabel } from "@/lib/trip-image-labels";
 import { tripSectionHeadingClass } from "@/lib/trip-page-ui";
 
 const PREVIEW_COUNT = 6;
@@ -12,7 +13,12 @@ function isHeicSrc(src: string): boolean {
 }
 
 export function getTripPhotoGalleryItems(trip: Trip) {
-  return trip.gallery.filter((item) => item.src);
+  return trip.gallery
+    .filter((item) => item.src)
+    .map((item) => ({
+      src: item.src!,
+      label: resolveGalleryImageLabel(trip, item.src!, item.label),
+    }));
 }
 
 type GalleryImage = {

@@ -3,6 +3,7 @@ import type { Region, Trip } from "@/data/trips";
 import VisitedStamp from "@/app/components/visited-stamp";
 import TripCardImage from "@/app/components/trip-card-image";
 import { getTripCardTags } from "@/lib/trip-card-tags";
+import { getTripPlaceName } from "@/lib/trip-display-title";
 import {
   TRIP_CARD_IMAGE_SIZES,
   TRIP_MINI_CARD_IMAGE_SIZES,
@@ -71,7 +72,7 @@ export default function TripCard({
         />
 
         <div className="relative flex flex-1 flex-col">
-          <h3 className={content.title}>{trip.title}</h3>
+          <h3 className={content.title}>{getTripPlaceName(trip)}</h3>
 
           {trip.subtitle ? (
             <p className={content.subtitle}>{trip.subtitle}</p>

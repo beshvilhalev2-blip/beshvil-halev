@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Trip } from "@/data/trips";
 import { getTripCardLayerStyle } from "@/lib/trip-media";
+import { resolveHeroImageLabel } from "@/lib/trip-image-labels";
 
 type TripCardImageProps = {
   trip: Trip;
@@ -15,11 +16,13 @@ export default function TripCardImage({
   priority = false,
   className = "object-cover transition-transform duration-300 group-hover:scale-[1.03]",
 }: TripCardImageProps) {
+  const heroAlt = resolveHeroImageLabel(trip);
+
   if (trip.heroImage) {
     return (
       <Image
         src={trip.heroImage}
-        alt={trip.heroImageLabel ?? trip.title}
+        alt={heroAlt}
         fill
         sizes={sizes}
         priority={priority}
@@ -38,7 +41,7 @@ export default function TripCardImage({
       className="absolute inset-0 bg-cover bg-center"
       style={getTripCardLayerStyle(trip)}
       role="img"
-      aria-label={trip.heroImageLabel ?? trip.title}
+      aria-label={heroAlt}
     />
   );
 }
