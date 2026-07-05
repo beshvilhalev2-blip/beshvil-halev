@@ -3,7 +3,10 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import type { Trip } from "@/data/trips";
-import { resolveGalleryImageLabel } from "@/lib/trip-image-labels";
+import {
+  resolveGalleryImageLabel,
+  resolveHeroImageLabel,
+} from "@/lib/trip-image-labels";
 import { tripSectionHeadingClass } from "@/lib/trip-page-ui";
 
 const PREVIEW_COUNT = 6;
@@ -13,12 +16,28 @@ function isHeicSrc(src: string): boolean {
 }
 
 export function getTripPhotoGalleryItems(trip: Trip) {
-  return trip.gallery
+  const galleryItems = trip.gallery
     .filter((item) => item.src)
     .map((item) => ({
       src: item.src!,
       label: resolveGalleryImageLabel(trip, item.src!, item.label),
     }));
+
+  if (!trip.heroImage) {
+    return galleryItems;
+  }
+
+  if (galleryItems.some((item) => item.src === trip.heroImage)) {
+    return galleryItems;
+  }
+
+  return [
+    {
+      src: trip.heroImage,
+      label: resolveHeroImageLabel(trip),
+    },
+    ...galleryItems,
+  ];
 }
 
 type GalleryImage = {
@@ -37,37 +56,41 @@ function GalleryImageTile({
   priority?: boolean;
   className?: string;
 }) {
+  const caption = item.label?.trim() ?? "";
+
   return (
-    <button
-      type="button"
-      onClick={onOpen}
-      className={`group relative aspect-[5/4] overflow-hidden rounded-xl bg-stone-200/80 dark:bg-stone-800 ${className}`}
-      aria-label={item.label ? `פתיחת תמונה: ${item.label}` : "פתיחת תמונה בגלריה"}
-    >
-      {isHeicSrc(item.src) ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={item.src}
-          alt=""
-          className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
-      ) : (
-        <Image
-          src={item.src}
-          alt={item.label ?? ""}
-          fill
-          priority={priority}
-          loading={priority ? undefined : "lazy"}
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-        />
-      )}
-      {item.label ? (
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-3 py-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <p className="text-xs font-medium text-white">{item.label}</p>
-        </div>
+    <figure className={`flex flex-col gap-1.5 ${className}`}>
+      <button
+        type="button"
+        onClick={onOpen}
+        className="group relative aspect-[5/4] overflow-hidden rounded-xl bg-stone-200/80 dark:bg-stone-800"
+        aria-label={caption ? `פתיחת תמונה: ${caption}` : "פתיחת תמונה בגלריה"}
+      >
+        {isHeicSrc(item.src) ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={item.src}
+            alt={caption}
+            className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <Image
+            src={item.src}
+            alt={caption}
+            fill
+            priority={priority}
+            loading={priority ? undefined : "lazy"}
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          />
+        )}
+      </button>
+      {caption ? (
+        <figcaption className="text-xs leading-snug text-stone-600 dark:text-stone-400 sm:text-sm">
+          {caption}
+        </figcaption>
       ) : null}
-    </button>
+    </figure>
   );
 }
 

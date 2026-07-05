@@ -26,6 +26,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "chn-yn-gdy": { region: "דרום", regionSlug: "south", excelName: "חאן עין גדי", tags: { water: false, viewpoint: true, camping: true, offroad: false, strollerAccessible: true, free: false } },
   "chrmvn": { region: "צפון", regionSlug: "north", excelName: "חרמון", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: false, free: false } },
   "chvf-hchshml": { region: "מרכז", regionSlug: "center", excelName: "חוף החשמל", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
+  "chvf-mgn-mykl": { region: "השרון", regionSlug: "hasharon", excelName: "חוף מעגן מיכאל", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
   "chvf-tlyt": { region: "השרון", regionSlug: "hasharon", excelName: "חוף עתלית", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
   "chvf-vlgh": { region: "השרון", regionSlug: "hasharon", excelName: "חוף אולגה", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "chvrsht-gdvnh": { region: "צפון", regionSlug: "north", excelName: "חורשת גדעונה", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
@@ -150,7 +151,6 @@ export const placesFilterAudit = {
     "פארק נחל קרת",
     "פארק מים מודיעין",
     "הגבעות של נס ציונה",
-    "עין ורדא",
-    "חוף מעגן מיכאל"
+    "עין ורדא"
   ]
 } as const;

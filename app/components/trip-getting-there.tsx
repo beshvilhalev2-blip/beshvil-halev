@@ -42,7 +42,14 @@ export default function TripGettingThereSection({
             </div>
           ) : null}
 
-          {gettingThere.walking ? (
+          {gettingThere.routeLength ? (
+            <div>
+              <h3 className={`mb-1 ${tripLabelClass}`}>אורך המסלול</h3>
+              <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-400 sm:text-[0.9375rem]">
+                {gettingThere.routeLength}
+              </p>
+            </div>
+          ) : gettingThere.walking ? (
             <div>
               <h3 className={`mb-1 ${tripLabelClass}`}>ההליכה למקום</h3>
               <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-400 sm:text-[0.9375rem]">
