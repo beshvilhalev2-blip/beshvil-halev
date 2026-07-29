@@ -10,6 +10,7 @@ export const hiddenFromPublicSlugs = [
   "beit-jan",
   "blgn-bygvr",
   "prk-ytbth",
+  "lvnd",
 ] as const;
 
 export type HiddenFromPublicSlug = (typeof hiddenFromPublicSlugs)[number];
