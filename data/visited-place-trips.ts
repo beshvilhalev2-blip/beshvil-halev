@@ -6,85 +6,362 @@
  */
 
 export const visitedPlaceTrips = [
-  {
+    {
     slug: "kybvtz-pykym",
     title: "קיבוץ אפיקים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "קיבוץ גדול בעמק הירדן, עם קהילה רב-גילית, שירותים מקומיים ונגישות נוחה לטיולים באזור הכנרת.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "קיבוץ אפיקים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h",
+        "kfar-saba": "1h30",
+        raanana: "1h30",
+        herzliya: "1h30",
+        netanya: "1h30",
+        modiin: "1h45",
+        ramla: "1h45",
+        lod: "1h45",
+      },
+    },
+    location: {
+      lat: 32.676,
+      lng: 35.578,
+      label: "קיבוץ אפיקים, עמק הירדן",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A7%D7%99%D7%91%D7%95%D7%A5%20%D7%90%D7%A4%D7%99%D7%A7%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.676%2C35.578",
+    },
+    seoTitle: "קיבוץ אפיקים - טיול בעמק הירדן | בשביל הלב",
+    metaDescription:
+      "קיבוץ אפיקים הוא הקיבוץ הגדול בעמק הירדן, עם קהילה רב-גילית ושירותים מקומיים. מידע לביקור משפחתי ושילוב עם אתרי הכנרת והגליל.",
     heroImage: "/images/places/north/קיבוץ אפיקים/hero.jpeg",
     heroImageLabel: "תמונת רקע - קיבוץ אפיקים",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/קיבוץ אפיקים/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A7%D7%99%D7%91%D7%95%D7%A5%20%D7%90%D7%A4%D7%99%D7%A7%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.676%2C35.578",
+    highlights: [
+      "משפחות",
+      "עמק הירדן",
+      "שילוב עם הכנרת",
+      "קהילה מקומית",
+      "עצירה בדרך",
+    ],
+    about: [
+      "קיבוץ אפיקים שוכן בעמק הירדן, על כביש 90 בין אשדות יעקב לבית זרע. לפי הרשות לפיתוח הגליל, זהו הקיבוץ הגדול בקיבוצי העמק, עם קהילה רב-גילית ומערך שירותים מגוון.",
+      "הקיבוץ הוקם בשנת 1932 על ידי חברי גרעין השומר הצעיר. שמו נגזר מאפיקי הירדן והירמוך הסמוכים. לאורך השנים התפתחה בו קהילה עם חינוך, תרבות ושירותים לתושבים.",
+      "בתחומי הקיבוץ וסביבתו יש אזור תעשייה, מתקני ספורט ופנאי, ספרייה ופעילויות קהילתיות. המקום מתאים כעצירה בדרך לטיולים באזור הכנרת, בנחלים ובאתרי הגליל.",
+      "הגישה לקיבוץ נוחה ברכב, והסביבה שטוחה יחסית - מה שמקל על נסיעה עם ילדים ועגלות באזורים המרכזיים.",
+    ],
+    personalStory: [
+      "קיבוץ בעמק הירדן מתאים למשפחות שמחפשות עצירה רגועה בין אתרי מים וטבע.",
+      "אפשר לשלב ביקור באזור הקיבוץ עם יום בחופי הכנרת, בסכר אלומות או בשמורות הסמוכות.",
+      "הדגש כאן הוא על אווירה קהילתית ונגישות - לא חובה \"מסלול\" אלא בילוי לפי הקצב.",
+      "הסביבה השטוחה והדרכים המסודרות מקלות על נסיעה עם ילדים קטנים.",
+      "זה יעד שעובד טוב כחלק מיום גדול יותר בצפון, לא כיעד בפני עצמו ליום שלם.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם - סיור ביישוב ללא תשלום" },
+      { label: "חניה", value: "באזורי החניה ביישוב" },
+      { label: "משך בילוי", value: "עצירה קצרה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן - באזורים המרכזיים" },
+      { label: "אזור", value: "עמק הירדן" },
+    ],
+    gettingThere: {
+      parking: "חניה באזורי הקיבוץ, ליד המרכז הקהילתי והשירותים.",
+      notes: [
+        "הקיבוץ נמצא על כביש 90, בין אשדות יעקב לבית זרע.",
+        "לפי הרשות לפיתוח הגליל, טבריה נמצאת במרחק נסיעה קצר.",
+        "מומלץ לשלב עם אתרים נוספים באזור הכנרת.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. הקיבוץ והסביבה מתאימים לעצירה משפחתית, במיוחד כחלק מיום בגליל.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן, באזורים המרכזיים והשטוחים של היישוב.",
+      },
+      {
+        question: "האם יש מה לעשות בקיבוץ?",
+        answer:
+          "יש שירותים קהילתיים, מתקני ספורט ואזור תעשייה. רוב המבקרים משלבים עם אתרי טבע ומים בסביבה.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "עצירה של שעה עד כמה שעות, בהתאם לתוכנית היום.",
+      },
+    ],
+    tips: [
+      "שלבו את העצירה עם חופי הכנרת או סכר אלומות.",
+      "בקיץ כדאי להגיע מוקדם - האזור חם.",
+      "בדקו מראש אם יש אירועים קהילתיים פתוחים למבקרים.",
+    ],
     gallery: [
-      { src: "/images/places/north/קיבוץ אפיקים/IMG_1162%202.jpeg" },
-      { src: "/images/places/north/קיבוץ אפיקים/IMG_1168%202.jpeg" },
+      { src: "/images/places/north/קיבוץ אפיקים/IMG_1162 2.jpeg" },
+      { src: "/images/places/north/קיבוץ אפיקים/IMG_1168 2.jpeg" },
       { src: "/images/places/north/קיבוץ אפיקים/IMG_1958.jpeg" },
       { src: "/images/places/north/קיבוץ אפיקים/IMG_2034.jpeg" },
       { src: "/images/places/north/קיבוץ אפיקים/IMG_2042.jpeg" },
       { src: "/images/places/north/קיבוץ אפיקים/IMG_2413.jpeg" },
       { src: "/images/places/north/קיבוץ אפיקים/IMG_2429.jpeg" },
-      { src: "/images/places/north/קיבוץ אפיקים/IMG_3927%202.jpeg" },
-      { src: "/images/places/north/קיבוץ אפיקים/IMG_4006%202.jpeg" },
+      { src: "/images/places/north/קיבוץ אפיקים/IMG_3927 2.jpeg" },
+      { src: "/images/places/north/קיבוץ אפיקים/IMG_4006 2.jpeg" },
       { src: "/images/places/north/קיבוץ אפיקים/IMG_8799.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["kynrt", "skr-lvmvt", "nchl-dn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "pvst-kybvtz-pykym",
     title: "פוסט קיבוץ אפיקים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "תצפית על הירדן, תעלת האפס ואגמון נהרים מסמוך לקיבוץ אפיקים בעמק הירדן.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פוסט קיבוץ אפיקים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h",
+        "kfar-saba": "1h30",
+        raanana: "1h30",
+        herzliya: "1h30",
+        netanya: "1h30",
+        modiin: "1h45",
+        ramla: "1h45",
+        lod: "1h45",
+      },
+    },
+    location: {
+      lat: 32.678,
+      lng: 35.582,
+      label: "פוסט קיבוץ אפיקים, עמק הירדן",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A7%D7%99%D7%91%D7%95%D7%A5%20%D7%90%D7%A4%D7%99%D7%A7%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.678%2C35.582",
+    },
+    seoTitle: "פוסט קיבוץ אפיקים - תצפית על הירדן | בשביל הלב",
+    metaDescription:
+      "פוסט קיבוץ אפיקים הוא נקודת תצפית על הירדן, תעלת האפס ואגמון נהרים ליד קיבוץ אפיקים. מידע לביקור משפחתי ושילוב עם אתרי הכנרת.",
     heroImageLabel: "תמונת רקע - פוסט קיבוץ אפיקים",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A7%D7%99%D7%91%D7%95%D7%A5%20%D7%90%D7%A4%D7%99%D7%A7%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.678%2C35.582",
+    highlights: [
+      "משפחות",
+      "תצפית על הירדן",
+      "עמק הירדן",
+      "שילוב עם הכנרת",
+      "עצירה קצרה",
+    ],
+    about: [
+      "פוסט קיבוץ אפיקים הוא נקודת תצפית בסמוך לקיבוץ אפיקים בעמק הירדן, על גדות הירדון ואזור תעלת האפס. לפי kibbutzvisit.com, הקיבוץ שוכן כ-3 ק״מ מהכנרת, ושמו נגזר מאפיקי הירדן והירמוך.",
+      "מנקודת התצפית ניתן לראות את הירדון, את סכר הוויסות ואת אגמון נהרים. תעלת האפס היא תעלה היסטורית שנחפרה לחיבור בין הירדן לירמוך, ללא שיפוע, כדי לאפשר זרימת מים בשני הכיוונים.",
+      "האזור מהווה חלק מנוף עמק הירדן השטוח, עם מים, צמחייה וציפורים. המקום מתאים לעצירה קצרה, צילום נוף והסבר לילדים על מערכת המים באזור.",
+      "ניתן לשלב את העצירה עם ביקור בקיבוץ אפיקים, בחופי הכנרת או בסכר אלומות.",
+    ],
+    personalStory: [
+      "יש עצירות שלא צריכות להיות יותר מזה.",
+      "רק לעמוד, להסתכל על הירדן ולנשום.",
+      "פוסט קיבוץ אפיקים הוא בדיוק כזה מקום.",
+      "הנוף על המים, על תעלת האפס ועל אגמון נהרים - שקט, ירוק, רחב.",
+      "אם אתם בדרך לכנרת, שווה לעצור כמה דקות. לא צריך מסלול. לא צריך להספיק.",
+      "פשוט להסביר לילדים על המים שזורמים מתחת, ולהמשיך ליעד הבא כשמרגישים מוכנים.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם - תצפית חופשית" },
+      { label: "חניה", value: "באזור הקיבוץ, לפי שילוט מקומי" },
+      { label: "משך בילוי", value: "עצירה של 20–40 דקות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - לפי מיקום העצירה" },
+      { label: "אזור", value: "עמק הירדן" },
+    ],
+    gettingThere: {
+      parking: "חניה באזור קיבוץ אפיקים, ליד נקודות התצפית על הירדן.",
+      notes: [
+        "הגישה דרך קיבוץ אפיקים על כביש 90, בין אשדות יעקב לבית זרע.",
+        "לפי kibbutzvisit.com, הקיבוץ נמצא כ-3 ק״מ מהכנרת.",
+        "מומלץ לשלב עם חופי הכנרת, סכר אלומות או סיור בקיבוץ.",
+        "בקיץ כדאי להביא מים, כובע והגנה מהשמש.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. העצירה קצרה ומתאימה למשפחות, במיוחד כחלק מיום באזור הכנרת.",
+      },
+      {
+        question: "האם יש כניסה בתשלום?",
+        answer: "לא. התצפית על הירדן באזור הקיבוץ היא ללא תשלום.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "עצירה של כ-20–40 דקות, בהתאם לתוכנית היום.",
+      },
+      {
+        question: "האם אפשר לשלב עם אתרים נוספים?",
+        answer: "כן. קרוב לקיבוץ אפיקים, חופי הכנרת וסכר אלומות.",
+      },
+    ],
+    tips: [
+      "שלבו עם ביקור בקיבוץ אפיקים או בחופי הכנרת.",
+      "בקיץ מומלץ להגיע מוקדם - האזור חם.",
+      "הביאו מים וכובע, במיוחד לילדים.",
+      "מתאים לעצירה קצרה, לא ליום שלם.",
+    ],
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["kybvtz-pykym", "kynrt", "skr-lvmvt"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "ybnyl-kpr-km",
     title: "יבניאל כפר כמא",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "יום בגליל התחתון בין מעיינות יבניאל, תצפיות נוף וכפר כמא הצ׳רקסי עם מורשת וקולינריה מקומית.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "יבניאל כפר כמא - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "shade-rich", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "45m",
+        "kfar-saba": "1h15",
+        raanana: "1h15",
+        herzliya: "1h15",
+        netanya: "1h15",
+        modiin: "1h30",
+        ramla: "1h30",
+        lod: "1h30",
+      },
+    },
+    location: {
+      lat: 32.715,
+      lng: 35.473,
+      label: "יבניאל וכפר כמא, גליל תחתון",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%99%D7%91%D7%A0%D7%99%D7%90%D7%9C&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.715%2C35.473",
+    },
+    seoTitle: "יבניאל וכפר כמא - טיול בגליל התחתון | בשביל הלב",
+    metaDescription:
+      "יבניאל וכפר כמא מציעים שילוב של מעיינות, מורשת וקולינריה צ׳רקסית בגליל התחתון. מדריך לביקור משפחתי באזור הכנרת.",
     heroImage: "/images/places/north/יבניאל כפר כמא/hero.jpeg",
     heroImageLabel: "תמונת רקע - יבניאל כפר כמא",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/יבניאל כפר כמא/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%99%D7%91%D7%A0%D7%99%D7%90%D7%9C&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.715%2C35.473",
+    highlights: [
+      "משפחות",
+      "מעיינות",
+      "קולינריה",
+      "מורשת צ׳רקסית",
+      "נוף הגליל",
+    ],
+    about: [
+      "יבניאל וכפר כמא שוכנים בגליל התחתון המזרחי, על ציר הנסיעה לכנרת. לפי החברה להגנת הטבע (teva.org.il), באזור יבניאל יש מסלולי הליכה קלים הכוללים מעיינות, תצפיות על עמק יבניאל ואתרים היסטוריים.",
+      "יבניאל היא מושבה ותיקה עם מעיינות כמו עין שרונה, מקווה היסטורי ומרכז מבקרים ״בית סבתא צילה״. לפי baliletayel.co.il, הבית שומר על מורשת ראשוני המתיישבים באזור.",
+      "כפר כמא הוא אחד משני הכפרים הצ׳רקסיים בישראל (לצד ריחאניה). לפי baliletayel.co.il, במרכז למורשת הצ׳רקסית ניתן להכיר את התרבות, האמנות והמסורות המקומיות.",
+      "המרחק בין יבניאל לכפר כמא קצר, וניתן לשלב ביום אחד מעיינות, נוף, ביקור במרכז המורשת וטעימות מהמטבח הצ׳רקסי.",
+    ],
+    personalStory: [
+      "יום בגליל התחתון יכול להיות פשוט.",
+      "מעיין ביבניאל, נוף על העמק, ואחר כך כפר כמא - עם ריחות, צבעים ומורשת שאין במקום אחר.",
+      "אין לחץ לכסות הכול. אפשר לבחור מעיין אחד, לעצור לתצפית, ולהוסיף ארוחה מהמטבח הצ׳רקסי.",
+      "יש משהו מיוחד בשילוב הזה - מים קרירים, היסטוריה קרובה, ואווירה כפרית שמרגישה רחוקה מהשגרה.",
+      "תנו ליום לזרום. אם הילדים רוצים לשחק ליד המעיין - תנו להם.",
+      "לא צריך מסלול ארוך כדי לחוש שיצאתם לטיול אמיתי.",
+    ],
+    cost: [
+      { label: "כניסה למעיינות", value: "חינם - ברוב המעיינות הפתוחים" },
+      { label: "מרכז המורשת", value: "לפי המחירון באתר baliletayel.co.il" },
+      { label: "משך בילוי", value: "יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם ברוב המעיינות" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - לפי אתר" },
+      { label: "אזור", value: "גליל תחתון" },
+    ],
+    gettingThere: {
+      parking: "חניה ביבניאל, בכפר כמא ובנקודות המעיינות - לפי שילוט מקומי.",
+      notes: [
+        "הגעה בכביש 767 בין יבניאל לכפר כמא.",
+        "לפי teva.org.il, מסלול סובב יבניאל כולל עין שרונה ומקווה היסטורי.",
+        "מרכז למורשת הצ׳רקסית בכפר כמא - לבדוק שעות פתיחה לפני יציאה.",
+        "ניתן לשלב עם חופי הכנרת או עם הר תבור.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. המעיינות, התצפיות והמרכז התרבותי מתאימים למשפחות.",
+      },
+      {
+        question: "האם יש כניסה בתשלום?",
+        answer:
+          "רוב המעיינות והתצפיות חינמיים. לכניסה למרכז המורשת יש לבדוק מחירים מראש.",
+      },
+      {
+        question: "כמה זמן מומלץ?",
+        answer: "יום שלם, עם שילוב של יבניאל וכפר כמא.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "חלקית. חלק מהמעיינות והשבילים פחות נגישים.",
+      },
+    ],
+    tips: [
+      "התחילו בעין שרונה ביבניאל - מעיין קטן ונוח לילדים.",
+      "בכפר כמא כדאי לבקר במרכז למורשת הצ׳רקסית.",
+      "שלבו ארוחה מהמטבח הצ׳רקסי המקומי.",
+      "בקיץ מומלץ להגיע מוקדם למעיינות.",
+    ],
     gallery: [
-      { src: "/images/places/north/יבניאל כפר כמא/IMG_1606%202.jpeg" },
+      { src: "/images/places/north/יבניאל כפר כמא/IMG_1606 2.jpeg" },
       { src: "/images/places/north/יבניאל כפר כמא/IMG_1608.jpeg" },
       { src: "/images/places/north/יבניאל כפר כמא/IMG_1642.jpeg" },
       { src: "/images/places/north/יבניאל כפר כמא/IMG_1665.jpeg" },
@@ -92,204 +369,1102 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
       { src: "/images/places/north/יבניאל כפר כמא/IMG_1728.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["kynrt", "kybvtz-pykym", "msdt-dg-l-hdn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "prk-hmyynvt",
     title: "פארק המעיינות",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "פארק טבע בעמק המעיינות למרגלות הגלבוע, עם מעיינות, נחל הקיבוצים והשביל הרטוב.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פארק המעיינות - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "shade-rich", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h",
+        "kfar-saba": "1h15",
+        raanana: "1h15",
+        herzliya: "1h15",
+        netanya: "1h15",
+        modiin: "1h30",
+        ramla: "1h30",
+        lod: "1h30",
+      },
+    },
+    location: {
+      lat: 32.498,
+      lng: 35.448,
+      label: "פארק המעיינות, עמק המעיינות",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%94%D7%9E%D7%A2%D7%99%D7%99%D7%A0%D7%95%D7%AA&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.498%2C35.448",
+    },
+    seoTitle: "פארק המעיינות - מעיינות ונחל קיבוצים | בשביל הלב",
+    metaDescription:
+      "פארק המעיינות בעמק המעיינות כולל את עין מודע, עין שוקק, עין מגדל, נחל הקיבוצים והשביל הרטוב. מדריך לביקור משפחתי לפי parks.org.il.",
     heroImage: "/images/places/north/פארק המעיינות/hero.jpeg",
     heroImageLabel: "תמונת רקע - פארק המעיינות",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/פארק המעיינות/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%94%D7%9E%D7%A2%D7%99%D7%99%D7%A0%D7%95%D7%AA&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.498%2C35.448",
+    highlights: [
+      "משפחות",
+      "מעיינות",
+      "נחל הקיבוצים",
+      "השביל הרטוב",
+      "נוף הגלבוע",
+    ],
+    about: [
+      "פארק המעיינות שוכן בעמק המעיינות (לשעבר עמק בית שאן), למרגלות הגלבוע. לפי רשות הטבע והגנים (parks.org.il), בפארק שלושה מעיינות הנובעים כל השנה בטמפרטורה של כ-24 מעלות: עין מודע, עין שוקק ועין מגדל.",
+      "הפארק כולל את נחל הקיבוצים, שבילים באורך של כ-15 ק״מ, אתרי מורשת ונוף על הר הגלבוע. לפי parks.org.il, הכניסה רגלית לפארק ללא תשלום.",
+      "בפארק נמצא השביל הרטוב - מסלול הליכה במים רדודים באורך 300 מטר, לזכרו של סרן צביקה קפלן. המים מגיעים מעט מעל גובה הקרסול, ומתאימים גם לילדים.",
+      "לפי parks.org.il, כניסה ברכב לפארק אסורה. ניתן לטייל ברגל, באופניים או לשכור קלאב-קאר ורכבת קרוניות בתשלום. ההגעה בכביש 669, במעגל התנועה שלפני גן השלושה (סחנה).",
+    ],
+    personalStory: [
+      "פארק המעיינות הוא מקום של מים.",
+      "שלושה מעיינות, נחל הקיבוצים, ושביל רטוב שעוברים בו עם המים עד הקרסול.",
+      "יש משהו בללכת במים - גם למבוגרים. פשוט, קריר, שונה.",
+      "אין לחץ. אפשר ללכת ברגל, לשכור קלאב-קאר, לעצור לפיקניק בצל.",
+      "לא צריך להספיק את כל 15 הקילומטרים. מספיק מעיין אחד, והשביל הרטוב.",
+      "שווה לדעת: בסופי שבוע עמוס - הגיעו מוקדם, ותנו לילדים לקחת את הקצב.",
+    ],
+    cost: [
+      { label: "כניסה רגלית", value: "חינם - לפי parks.org.il" },
+      { label: "קלאב-קאר / רכבת", value: "בתשלום - לפי שירותי הפארק" },
+      { label: "משך בילוי", value: "חצי יום עד יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם לכניסה רגלית" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - בשבילים הסלולים" },
+      { label: "אתר רשמי", value: "parks.org.il" },
+    ],
+    gettingThere: {
+      parking: "חניון פארק המעיינות, ליד גן השלושה (סחנה).",
+      notes: [
+        "נוסעים בכביש 669, במעגל התנועה שלפני גן השלושה פונים ימינה.",
+        "כ-800 מ׳ בדרך העוקפת את הגן הלאומי עד לחניון הפארק - לפי parks.org.il.",
+        "כניסה ברכב לפארק אסורה. הולכי רגל ורוכבי אופניים נכנסים ללא תשלום.",
+        "ניתן לשכור אופניים, קלאב-קאר או רכבת קרוניות בתשלום.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם הכניסה חינמית?",
+        answer:
+          "כן. לפי parks.org.il, הכניסה רגלית לפארק ללא תשלום. שכירת קלאב-קאר בתשלום.",
+      },
+      {
+        question: "האם השביל הרטוב מתאים לילדים?",
+        answer:
+          "כן. המים רדודים, מעט מעל גובה הקרסול, ומתאימים גם לילדים קטנים.",
+      },
+      {
+        question: "האם אפשר להגיע ברכב לתוך הפארק?",
+        answer: "לא. כניסה ברכב אסורה. ניתן לשכור קלאב-קאר או רכבת קרוניות.",
+      },
+      {
+        question: "מתי הכי כדאי לבקר?",
+        answer:
+          "בכל עונות השנה. באביב ובסתיו נוח במיוחד. בקיץ מומלץ להגיע מוקדם.",
+      },
+    ],
+    tips: [
+      "הגיעו מוקדם בסופי שבוע - החניון מתמלא.",
+      "הביאו נעלי מים לשביל הרטוב.",
+      "שלבו ביקור בעין מגדל - המעיין הראשון מהכניסה.",
+      "בדקו מראש שעות וזמינות שכירת קלאב-קאר.",
+    ],
     gallery: [
       { src: "/images/places/north/פארק המעיינות/IMG_9111.jpeg" },
       { src: "/images/places/north/פארק המעיינות/IMG_9119.jpeg" },
       { src: "/images/places/north/פארק המעיינות/IMG_9121.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["ein-migdal", "ein-moda", "nchl-hkybvtzym"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "msdt-dg-l-hdn",
     title: "מסעדת דג על הדן",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מסעדת דגים על מפגש נחלי הדן והחצבני, עם פורל טרי מהחווה הסמוכה ונוף מים בלב הגליל העליון.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "מסעדת דג על הדן - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 100,
+      weatherTraits: ["water-friendly", "shade-rich", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h",
+        "kfar-saba": "1h30",
+        raanana: "1h30",
+        herzliya: "1h30",
+        netanya: "1h30",
+        modiin: "1h45",
+        ramla: "1h45",
+        lod: "1h45",
+      },
+    },
+    location: {
+      lat: 33.236,
+      lng: 35.623,
+      label: "מסעדת דג על הדן, ליד קיבוץ הגושרים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%93%D7%92%20%D7%A2%D7%9C%20%D7%94%D7%93%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=33.236%2C35.623",
+    },
+    seoTitle: "מסעדת דג על הדן - דגים טריים בגליל | בשביל הלב",
+    metaDescription:
+      "מסעדת דג על הדן מגישה דגי פורל טריים מחווה מקומית, על מפגש נחלי הדן והחצבני. כל המידע לביקור משפחתי, כולל קיאקים וקמפינג.",
     heroImage: "/images/places/north/מסעדת דג על הדן/hero.jpg",
     heroImageLabel: "תמונת רקע - מסעדת דג על הדן",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/מסעדת דג על הדן/hero.jpg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%93%D7%92%20%D7%A2%D7%9C%20%D7%94%D7%93%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=33.236%2C35.623",
+    highlights: [
+      "משפחות",
+      "דגים טריים",
+      "נוף מים",
+      "שילוב עם שמורת תל דן",
+      "קיאקים",
+    ],
+    about: [
+      "מסעדת דג על הדן היא מסעדת דגים ותיקה בגליל העליון, על מפגש נחלי הדן והחצבני, סמוך לקיבוץ הגושרים. לפי האתר הרשמי dagaldan.co.il, המסעדה פועלת מזה עשרות שנים.",
+      "דגי הפורל מגדלים בחווה אקולוגית הסמוכה למסעדה, ומגיעים ישירות לצלחת. התפריט כולל מנות דגים, סלטים ותוספות, ומתאים גם לילדים.",
+      "המתחם משקיף על מי הנחל, גשרים וצמחייה. לפי האתר, ניתן לשלב ארוחה עם פעילות קיאקים בנחל החצבני (בעונה, בתיאום מראש).",
+      "הקבוצה מפעילה גם מתחם קמפינג על גדות הנחל. המסעדה מתאימה לשילוב עם ביקור בשמורת תל דן ובאתרי הגליל העליון.",
+    ],
+    personalStory: [
+      "לפעמים הטיול הכי טוב מתחיל בארוחה.",
+      "מסעדת דג על הדן יושבת על מפגש שני נחלים - מים, גשרים, ופורל שמגיע ישר מהחווה הסמוכה.",
+      "יש משהו בלשבת ליד המים, לראות את הברווזים, ופשוט לא למהר.",
+      "אפשר לשלב בוקר בתל דן וצהריים כאן. או רק לעצור לארוחה באמצע יום בגליל.",
+      "בלי לחץ. בלי תפריט מסובך. דג טרי, נוף ירוק, ואווירה שמרגישה כמו פינה נסתרת.",
+      "שווה לבדוק מראש שעות פתיחה - במיוחד אם מתכננים גם קיאקים.",
+    ],
+    cost: [
+      { label: "ארוחה", value: "בתשלום - לפי התפריט" },
+      { label: "קיאקים", value: "בתשלום - בעונה, לפי dagaldan.co.il" },
+      { label: "משך בילוי", value: "ארוחה + סיבוב באזור" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן - במתחם המסעדה" },
+      { label: "אתר רשמי", value: "dagaldan.co.il" },
+    ],
+    gettingThere: {
+      parking: "חניה במתחם המסעדה, ליד קיבוץ הגושרים.",
+      notes: [
+        "כתובת: מול קיבוץ הגושרים, באזור כביש 99.",
+        "לתיאום ושעות פתיחה - מומלץ לבדוק ב-dagaldan.co.il.",
+        "שעות פתיחה ומחירים - מומלץ לבדוק ב-dagaldan.co.il.",
+        "ניתן לשלב עם שמורת תל דן (כ-15 דקות נסיעה).",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. לפי האתר הרשמי, התפריט מגוון ומתאים לילדים, והמתחם פתוח עם נוף למים.",
+      },
+      {
+        question: "האם יש קיאקים?",
+        answer:
+          "כן. לפי dagaldan.co.il יש מסלולי שייט בנחל החצבני - יש להתעדכן לגבי העונה.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן, במתחם המסעדה והשולחנות הסמוכים למים.",
+      },
+      {
+        question: "האם אפשר לשלב עם תל דן?",
+        answer: "כן. השמורה קרובה ומתאימה לשילוב באותו יום.",
+      },
+    ],
+    tips: [
+      "בדקו שעות פתיחה באתר dagaldan.co.il לפני יציאה.",
+      "שלבו עם שמורת תל דן ליום מלא בגליל העליון.",
+      "בסופי שבוע מומלץ להזמין מקום מראש.",
+      "אם מגיעים עם ילדים - כדאי לבדוק זמינות מסלול הקיאקים המשפחתי.",
+    ],
     gallery: [
       { src: "/images/places/north/מסעדת דג על הדן/IMG_7587.JPG" },
-      { src: "/images/places/north/מסעדת דג על הדן/IMG_7614%202.JPG" },
+      { src: "/images/places/north/מסעדת דג על הדן/IMG_7614 2.JPG" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["nchl-dn", "shmvrt-tb-bnys", "ykb-rmt-hgvln"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "klb-hvtl",
     title: "קלאב הוטל",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מלון סוויטות בטבריה עם נוף לכנרת, בריכה, מועדון ילדים וחופשה משפחתית בגליל.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "קלאב הוטל - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails"],
+      companions: ["kids", "family"],
+      estimatedCostNis: 500,
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: [],
+      travelTimeFrom: {
+        haifa: "1h",
+        "kfar-saba": "1h30",
+        raanana: "1h30",
+        herzliya: "1h30",
+        netanya: "1h30",
+        modiin: "1h45",
+        ramla: "1h45",
+        lod: "1h45",
+      },
+    },
+    location: {
+      lat: 32.786,
+      lng: 35.529,
+      label: "קלאב הוטל טבריה, אחד העם 19",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A7%D7%9C%D7%90%D7%91%20%D7%94%D7%95%D7%98%D7%9C%20%D7%98%D7%91%D7%A8%D7%99%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.786%2C35.529",
+    },
+    seoTitle: "קלאב הוטל טבריה - חופשה משפחתית בגליל | בשביל הלב",
+    metaDescription:
+      "קלאב הוטל טבריה הוא מלון סוויטות על צלע הר עם נוף לכנרת, בריכה, מועדון ילדים ופעילויות לכל המשפחה. מידע לפי clubhotels.co.il.",
     heroImageLabel: "תמונת רקע - קלאב הוטל",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A7%D7%9C%D7%90%D7%91%20%D7%94%D7%95%D7%98%D7%9C%20%D7%98%D7%91%D7%A8%D7%99%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.786%2C35.529",
+    highlights: [
+      "משפחות",
+      "נוף לכנרת",
+      "בריכה",
+      "מועדון ילדים",
+      "סוויטות",
+    ],
+    about: [
+      "קלאב הוטל טבריה הוא מלון סוויטות של רשת קלאב הוטל, השוכן על צלע הר בפאתי טבריה. לפי clubhotels.co.il, זהו המלון היחיד של הרשת באזור הצפון, וכל החדרים משקיפים לכנרת ולהרי הגולן.",
+      "המלון מציע סוויטות משפחתיות מרווחות, בריכת שחייה (מקורה ומחוממת בחורף), בריכת פעוטות מוצלת ומועדון ילדים עם פעילויות יצירה ומשחקים.",
+      "לפי clubhotels.co.il, הרשת מתמחה בנופש משפחתי עם סוויטות הכוללות מטבחון, מקרר ומרפסת. ניתן לבחור בלינה בלבד, לינה וארוחת בוקר או חצי פנסיון.",
+      "המיקום מאפשר שילוב שהות במלון עם יציאות לחופי הכנרת, אתרים בגליל ובגולן - טבריה נמצאת במרחק נסיעה קצר.",
+    ],
+    personalStory: [
+      "חופשה בקלאב הוטל מתאימה למשפחות שמחפשות בסיס נוח עם בריכה, פעילויות לילדים ונוף קבוע על הכנרת.",
+      "הסוויטות המרווחות מאפשרות לילדים לנוח בשעות הצהריים ולצאת לבילויים בערב.",
+      "הבריכה והמועדון ילדים מקלים על יום גשום או חם - בלי לצאת מהמתחם.",
+      "הנוף מהמרפסת הופך את ארוחת הבוקר לחוויה בפני עצמה.",
+      "מומלץ לתכנן יציאות יומיות לאתרים בסביבה - המלון מתאים כבסיס, לא כיעד בודד.",
+    ],
+    cost: [
+      { label: "לינה", value: "בתשלום - לפי clubhotels.co.il" },
+      { label: "בסיס", value: "לינה / ארוחת בוקר / חצי פנסיון" },
+      { label: "משך בילוי", value: "לילה ומעלה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "בריכה", value: "כן - מקורה בחורף" },
+      { label: "אתר רשמי", value: "clubhotels.co.il" },
+    ],
+    gettingThere: {
+      parking: "חניה חינם במלון, לפי clubhotels.co.il.",
+      notes: [
+        "כתובת: אחד העם 19, טבריה.",
+        "מרחק נסיעה קצר ממרכז טבריה ומחופי הכנרת.",
+        "מחירים, זמינות ובסיס אירוח - לבדוק ב-clubhotels.co.il.",
+        "ניתן לשלב עם חופי איגוד ערים כינרת ואתרי הגליל.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המלון מתאים לילדים?",
+        answer:
+          "כן. לפי clubhotels.co.il, יש מועדון ילדים, בריכת פעוטות ופעילויות לכל המשפחה.",
+      },
+      {
+        question: "האם יש בריכה?",
+        answer:
+          "כן. בריכה מרכזית, מקורה ומחוממת בחורף, ובריכת פעוטות מוצלת.",
+      },
+      {
+        question: "האם יש נוף לכנרת?",
+        answer: "כן. לפי clubhotels.co.il, כל החדרים משקיפים לכנרת ולגולן.",
+      },
+      {
+        question: "איזה בסיס אירוח מוצע?",
+        answer:
+          "לינה בלבד, לינה וארוחת בוקר או חצי פנסיון - לפי clubhotels.co.il.",
+      },
+    ],
+    tips: [
+      "בדקו מחירים וזמינות ב-clubhotels.co.il לפני ההזמנה.",
+      "שלבו יציאות יומיות לחופי הכנרת ולגליל.",
+      "בקיץ כדאי לנצל את הבריכה בשעות הבוקר.",
+      "מתאים במיוחד למשפחות עם ילדים קטנים.",
+    ],
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["kynrt", "kybvtz-pykym", "msdt-dg-l-hdn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "ntzrt",
     title: "נצרת",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "עיר העתיקה בגליל עם בזיליקת הבשורה, שוק, מוזיאונים וחוויה תרבותית לכל המשפחה.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "נצרת - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "45m",
+        "kfar-saba": "1h",
+        raanana: "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        modiin: "1h15",
+        ramla: "1h15",
+        lod: "1h15",
+      },
+    },
+    location: {
+      lat: 32.702,
+      lng: 35.297,
+      label: "בזיליקת הבשורה, נצרת",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%91%D7%96%D7%99%D7%9C%D7%99%D7%A7%D7%AA%20%D7%94%D7%91%D7%A9%D7%95%D7%A8%D7%94%20%D7%A0%D7%A6%D7%A8%D7%AA&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.702%2C35.297",
+    },
+    seoTitle: "נצרת - בזיליקת הבשורה ועיר העתיקה | בשביל הלב",
+    metaDescription:
+      "נצרת היא העיר הגדולה בגליל, עם בזיליקת הבשורה, שוק עתיק, מוזיאונים ואתרים היסטוריים. מדריך לביקור משפחתי בעיר.",
     heroImageLabel: "תמונת רקע - נצרת",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%91%D7%96%D7%99%D7%9C%D7%99%D7%A7%D7%AA%20%D7%94%D7%91%D7%A9%D7%95%D7%A8%D7%94%20%D7%A0%D7%A6%D7%A8%D7%AA&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.702%2C35.297",
+    highlights: [
+      "משפחות",
+      "מורשת",
+      "שוק",
+      "מוזיאונים",
+      "עיר עתיקה",
+    ],
+    about: [
+      "נצרת היא העיר הגדולה ביותר בגליל, עם אוכלוסייה מעורבת של נוצרים, מוסלמים ויהודים. לפי hamoreshet.org.il, בזיליקת הבשורה היא הכנסייה הנוצרית הגדולה במזרח התיכון.",
+      "בזיליקת הבשורה נבנתה מעל האתר שבו, לפי המסורת, התקבלה הבשורה ממריה. הכנסייה הנוכחית נחנכה ב-1969, ומנוהלת על ידי מסדר הנזירים הפרנציסקנים.",
+      "בעיר העתיקה יש שוק, סמטאות, כנסיות נוספות (כולל כנסיית יוסף הקדוש), מוזיאונים ומרכזי מבקרים. הרחוב הראשי מוביל מכיכר העיר לכיכר המעיין.",
+      "נצרת מתאימה ליום שלם של הליכה בעיר, שילוב של אתרים דתיים, אוכל מקומי וחוויה תרבותית. חלק מהאתרים בתשלום וחלק חינמיים.",
+    ],
+    personalStory: [
+      "נצרת היא עיר של סמטאות, ריחות וצבעים.",
+      "בזיליקת הבשורה - גדולה, שקטה, מרשימה. גם מי שלא מגיע מסיבות דתיות ירגיש את המקום.",
+      "ואחר כך השוק. דוכנים, אנשים, אוכל. ילדים שאוהבים לחקור ימצאו כאן הרבה לראות.",
+      "אין לחץ לכסות הכול. בחרו כמה נקודות - בזיליקה, בשוק, בארוחה - ותנו ליום לזרום.",
+      "שווה לדעת: בקיץ חם, והרחובות תלולים. מים, כובע, ונעליים נוחות.",
+      "לא צריך להיות מדריך מקצועי. פשוט ללכת, לשאול, לטעום.",
+    ],
+    cost: [
+      { label: "בזיליקת הבשורה", value: "חינם - כניסה ללא תשלום" },
+      { label: "מוזיאונים", value: "בתשלום - לפי אתר" },
+      { label: "משך בילוי", value: "יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חלקית - חינם בבזיליקה" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - ברחובות העיר" },
+      { label: "אזור", value: "גליל תחתון" },
+    ],
+    gettingThere: {
+      parking: "חניונים בעיר העתיקה ובסביבת בזיליקת הבשורה.",
+      notes: [
+        "בוויז: בזיליקת הבשורה נצרת.",
+        "העיר העתיקה נגישה ברגל - חלק מהרחובות צרים.",
+        "מומלץ לבדוק שעות פתיחה של מוזיאונים לפני יציאה.",
+        "ניתן לשלב עם נוף הגליל, יבניאל או כפר כמא.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם בזיליקת הבשורה מתאימה לילדים?",
+        answer:
+          "כן. הכנסייה פתוחה למבקרים, והאדריכלות מרשימה גם לילדים.",
+      },
+      {
+        question: "האם הכניסה לבזיליקה בתשלום?",
+        answer: "לא. הכניסה לבזיליקת הבשורה ללא תשלום.",
+      },
+      {
+        question: "כמה זמן מומלץ?",
+        answer: "יום שלם, עם ביקור בבזיליקה, שוק ואתרים נוספים.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "חלקית. חלק מהסמטאות צרות ותלולות.",
+      },
+    ],
+    tips: [
+      "התחילו בבזיליקת הבשורה - האתר המרכזי בעיר.",
+      "שלבו ארוחה בשוק העיר העתיקה.",
+      "בקיץ מומלץ כובע, מים והגנה מהשמש.",
+      "בדקו שעות פתיחה של מוזיאונים מראש.",
+    ],
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["ybnyl-kpr-km", "kynrt", "klb-hvtl"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "rmt-gn-spry",
     title: "רמת גן - ספארי",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גן החיות הגדול בישראל עם שטח ספארי, חצרות חיות וחוויה משפחתית ליד הפארק הלאומי.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "רמת גן - ספארי - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 119,
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.0489,
+      lng: 34.8128,
+      label: "הספארי - רמת גן",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A1%D7%A4%D7%90%D7%A8%D7%99%20%D7%A8%D7%9E%D7%AA%20%D7%92%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.0489%2C34.8128",
+    },
+    seoTitle: "הספארי ברמת גן - גן חיות וספארי משפחתי | בשביל הלב",
+    metaDescription:
+      "הספארי ברמת גן הוא המרכז הזואולוגי הגדול בישראל, עם שטח ספארי, חצרות חיות ופעילויות לילדים. כל המידע לביקור משפחתי.",
     heroImageLabel: "תמונת רקע - רמת גן - ספארי",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A1%D7%A4%D7%90%D7%A8%D7%99%20%D7%A8%D7%9E%D7%AA%20%D7%92%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.0489%2C34.8128",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי חיות",
+      "יום כיף במרכז",
+      "חינוך לשימור",
+      "עצירה קרובה לגוש דן"
+    ],
+    about: [
+      "הספארי ברמת גן הוא המרכז הזואולוגי הגדול בישראל. לפי האתר הרשמי safari.co.il, המקום כולל שטח ספארי, חצרות ראווה, מסלולי הליכה ופעילויות נוספות לילדים.",
+      "הביקור במקום דורש הזמנה ושריון מקום מראש דרך האתר הרשמי. ניתן לרכוש כרטיסים מראש באינטרנט, ומומלץ לבדוק מראש את ימי ושעות הפעילות העדכניים.",
+      "לפי האתר הרשמי, הספארי משתתף בתוכניות שימור לאומיות ובינלאומיות, ומציע גם סיורים מודרכים ומפגשים עם בעלי חיים בתיאום.",
+      "המקום ממוקם ליד הפארק הלאומי ברמת גן, ומתאים ליום משפחתי שלם או לביקור של כמה שעות - בהתאם לגיל הילדים ולקצב המשפחה."
+    ],
+    personalStory: [
+      "הספארי ברמת גן הוא גדול.",
+      "חיות, שבילים ירוקים, ומרחב שמחזיק שעות.",
+      "אין לחץ להספיק הכול. בחרו אזור אחד, תנו לילדים לעצור ליד מה שמעניין אותם, וחזרו לשם שוב אם צריך.",
+      "ההזמנה מראש נותנת שקט - במיוחד בסופי שבוע ובחגים.",
+      "יש משהו מרגש בקרבה לחיות, בלי לרוץ בין תחנות.",
+      "שעתיים או יום שלם - לפי מצב הרוח. פשוט תנו למשפחה להוביל."
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "בתשלום"
+      },
+      {
+        "label": "הזמנה",
+        "value": "נדרש שריון מקום מראש באתר safari.co.il"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "בתשלום"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "הזמנה מראש",
+        "value": "כן, חובה"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "כמה שעות"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה במתחם הספארי, רחוב צבי 1 רמת גן.",
+      "notes": [
+        "כתובת רשמית: רחוב צבי 1, רמת גן. בוויז: ספארי.",
+        "לפי האתר הרשמי, יש להזמין ולשריין מקום לפני ההגעה.",
+        "שעות הפעילות משתנות לפי עונה וסוג היום - יש לבדוק ב-safari.co.il.",
+        "בימי שבת פועלים שירותי הסעה פנימיים בתיאום - פרטים באתר הרשמי.",
+        "הספארי הוא שטח פתוח; במקרה של אזעקה יש לפעול לפי הנחיות פיקוד העורף."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. הספארי מתוכנן כחוויה משפחתית עם חצרות חיות, שבילים ופעילויות לגילאים שונים."
+      },
+      {
+        "question": "האם חייבים להזמין מראש?",
+        "answer": "כן. לפי האתר הרשמי נדרש שריון מקום ורכישת כרטיסים לפני הביקור."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניה במתחם הספארי."
+      },
+      {
+        "question": "האם מתאים לעגלות?",
+        "answer": "חלקית. בשטחים הפתוחים והחצרות ניתן לנוע עם עגלת תינוק; מומלץ לבדוק מראש לגבי אזורים ספציפיים."
+      },
+      {
+        "question": "כמה זמן מומלץ להישאר?",
+        "answer": "רוב המשפחות מקדישות כמה שעות, בהתאם לגיל הילדים ולקצב."
+      },
+      {
+        "question": "מתי הכי כדאי להגיע?",
+        "answer": "מומלץ לבדוק באתר הרשמי את שעות הפתיחה. בקיץ נוח יותר להגיע בשעות הבוקר."
+      }
+    ],
+    tips: [
+      "לפני יציאה - הזמינו ושריינו מקום ב-safari.co.il.",
+      "בדקו באתר הרשמי את שעות הפתיחה והפעילויות הפתוחות באותו יום.",
+      "הביאו כובע, מים ונעליים נוחות - יש הליכה בין אזורים.",
+      "אל תנסו להספיק הכל; בחרו כמה אזורים ותנו לילדים ליהנות מהם באמת."
+    ],
+    closingNote:
+      "בואו נשמור על השקט של בעלי החיים ועל ניקיון השבילים.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "prk-ryl-shrvn",
+      "prk-brytnyh"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "prk-ryl-shrvn",
     title: "פארק אריאל שרון",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "פארק מטרופוליני ענק עם תל חירייה המשוקם, אגם אקולוגי ונוף על גוש דן.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פארק אריאל שרון - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.0269,
+      lng: 34.8241,
+      label: "פארק אריאל שרון - חניון גנות",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%90%D7%A8%D7%99%D7%90%D7%9C%20%D7%A9%D7%A8%D7%95%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.0269%2C34.8241",
+    },
+    seoTitle: "פארק אריאל שרון - פארק מטרופוליני עם אגם ותצפית | בשביל הלב",
+    metaDescription:
+      "פארק אריאל שרון הוא הריאה הירוקה של גוש דן, עם תל חירייה, אגם אקולוגי, שבילי הליכה וכניסה חופשית. כל המידע למשפחות.",
     heroImage: "/images/places/center/פארק אריאל שרון/hero.JPG",
     heroImageLabel: "תמונת רקע - פארק אריאל שרון",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/פארק אריאל שרון/hero.JPG")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%90%D7%A8%D7%99%D7%90%D7%9C%20%D7%A9%D7%A8%D7%95%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.0269%2C34.8241",
+    highlights: [
+      "משפחות עם ילדים",
+      "פיקניק",
+      "תצפית נוף",
+      "אוהבי טבע",
+      "כניסה חופשית"
+    ],
+    about: [
+      "פארק אריאל שרון הוא אחד הפארקים המטרופוליניים הגדולים בישראל, המשתרע על אלפי דונמים בין רמת גן, תל אביב, חולון וראשון לציון. לפי parksharon.co.il, הכניסה לשטחים הפתוחים ללא תשלום.",
+      "במרכז הפארק ניצב תל חירייה - אתר השיקום האקולוגי הגדול, שבפסגתו אגם אקולוגי, מרכז מבקרים ותצפית על מטרופולין גוש דן.",
+      "בפארק גם חוות שלם, שבילי אופניים, שבילי הליכה, אזורי פיקניק ופעילויות נוספות. לפי האתר הרשמי, שעות הביקור בשטחים הפתוחים הן בדרך כלל 09:00-15:30.",
+      "זה מקום מצוין ליום משפחתי קרוב לבית - עם שילוב של טבע, נוף עירוני והיסטוריה של שיקום סביבתי."
+    ],
+    personalStory: [
+      "פארק אריאל שרון הוא ירוק ענק באמצע גוש דן.",
+      "אלפי דונמים, אגם אקולוגי, ותל חירייה שמשקיף על כל המטרופולין.",
+      "יש ימים שפשוט רוצים להגיע, לפרוש מחצלת, ולתת לילדים לרוץ.",
+      "אפשר גם לעלות לתל - הנוף מהפסגה שווה את ההליכה, גם לקטנים.",
+      "אין לחץ. לא צריך להספיק. פיקניק, הליכה קצרה, ועצירה במרכז המבקרים - לפי מה שמרגיש נכון.",
+      "שווה לדעת: בסופי שבוע עמוס. בימי חול קל יותר למצוא פינה שקטה."
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם לשטחים הפתוחים"
+      },
+      {
+        "label": "חניה",
+        "value": "בחניוני הפארק"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית - לפי מסלול"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בחניון גנות (מחלף גנות) ובחניונים נוספים לאורך הפארק.",
+      "notes": [
+        "אתר רשמי: parksharon.co.il",
+        "לפי האתר הרשמי, הכניסה לשטחים הפתוחים ללא תשלום.",
+        "שעות ואירועים משתנים - מומלץ לבדוק בלוח האירועים באתר לפני יציאה.",
+        "יש מסלולים נגישים ומרכז מבקרים בתל חירייה - פרטים באתר."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. יש שבילים, מדשאות, תצפית ופעילויות מתאימות למשפחות."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן, לפי parksharon.co.il הכניסה לשטחים הפתוחים ללא תשלום."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניונים מסודרים בכניסות הפארק."
+      },
+      {
+        "question": "האם אפשר לעשות פיקניק?",
+        "answer": "כן. יש אזורי דשא ופיקניק לאורך הפארק."
+      },
+      {
+        "question": "כמה זמן מומלץ להישאר?",
+        "answer": "בין שעה לכמה שעות, בהתאם למסלול ולמרכז המבקרים."
+      },
+      {
+        "question": "מתי הכי כדאי להגיע?",
+        "answer": "לפי האתר הרשמי, שעות הביקור בשטחים הפתוחים מוגבלות - מומלץ לבדוק מראש."
+      }
+    ],
+    tips: [
+      "בדקו ב-parksharon.co.il את שעות הפתיחה ואירועי הסופ\"ש.",
+      "הגיעו מוקדם בימים עמוסים כדי למצוא חניה נוחה.",
+      "הביאו מים, כובע ומחצלת לפיקניק.",
+      "שלבו עלייה לתל חירייה עם הליכה קצרה באגם."
+    ],
+    closingNote:
+      "בואו נשמור על הפארק נקי. קחו איתכם את האשפה.",
     gallery: [
-      { src: "/images/places/center/פארק אריאל שרון/IMG_9185.JPG" },
-      { src: "/images/places/center/פארק אריאל שרון/IMG_9587.JPG" },
-      { src: "/images/places/center/פארק אריאל שרון/IMG_9625.JPG" },
+      {
+        "src": "/images/places/center/פארק אריאל שרון/IMG_9185.JPG"
+      },
+      {
+        "src": "/images/places/center/פארק אריאל שרון/IMG_9587.JPG"
+      },
+      {
+        "src": "/images/places/center/פארק אריאל שרון/IMG_9625.JPG"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "rmt-gn-spry",
+      "prk-brytnyh"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "prk-mym-shpyym",
     title: "פארק מים שפיים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "פארק מים עונתי על חוף הים, עם בריכות, מגלשות ויום כיף משפחתי ליד נתניה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פארק מים שפיים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "water",
+        "easy-trails"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 119,
+      weatherTraits: [
+        "water-friendly",
+        "heat-tolerant"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.2167,
+      lng: 34.8278,
+      label: "פארק המים שפיים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%94%D7%9E%D7%99%D7%9D%20%D7%A9%D7%A4%D7%99%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.2167%2C34.8278",
+    },
+    seoTitle: "פארק מים שפיים - יום כיף משפחתי על חוף הים | בשביל הלב",
+    metaDescription:
+      "פארק המים שפיים הוא פארק מים עונתי על חוף הים, עם בריכות, מגלשות ומתקנים לילדים. כל המידע לביקור משפחתי.",
     heroImageLabel: "תמונת רקע - פארק מים שפיים",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%94%D7%9E%D7%99%D7%9D%20%D7%A9%D7%A4%D7%99%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.2167%2C34.8278",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי מים",
+      "יום כיף בקיץ",
+      "חוף הים",
+      "פעילות עונתית"
+    ],
+    about: [
+      "פארק המים שפיים הוא פארק מים עונתי הממוקם על חוף הים, בין נתניה לתל אביב. לפי האתר הרשמי waterpark.co.il, המקום כולל בריכות, מגלשות, מתקני מים ואזורי ישיבה.",
+      "הפארק פועל בעיקר בעונת הקיץ, ושעות הפתיחה משתנות לפי עונה. מומלץ לבדוק באתר הרשמי לפני יציאה מה בדיוק פתוח באותו יום.",
+      "לפי האתר הרשמי, ניתן לרכוש כרטיסים מראש באינטרנט. הכניסה בתשלום.",
+      "המיקום על חוף הים מאפשר לשלב יום מים עם שעות קצרות על החוף - בהתאם לתנאי הים והמזג אוויר."
+    ],
+    personalStory: [
+      "בקיץ, כשהחום לוחץ - פארק מים זה תשובה.",
+      "שפיים יושב על חוף הים, בין נתניה לתל אביב. בריכות, מגלשות, ואוויר של יום כיף.",
+      "אם אתם מגיעים מוקדם - יש יותר מקום, פחות תורים, ויותר אנרגיה לילדים.",
+      "לא צריך לתכנן יום ארוך. כמה שעות במים, הפסקה בצל, ואפשר גם לקפוץ לחוף אחרי.",
+      "שווה לדעת: הפארק עונתי. לבדוק באתר לפני יציאה.",
+      "פשוט - בגדים להחלפה, מים, קרם הגנה. ותנו לילדים ליהנות בקצב שלהם."
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "בתשלום"
+      },
+      {
+        "label": "עונה",
+        "value": "בעיקר קיץ - לפי האתר הרשמי"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "בתשלום"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "עונה",
+        "value": "קיץ"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "כמה שעות"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה במתחם פארק המים שפיים.",
+      "notes": [
+        "אתר רשמי: waterpark.co.il",
+        "הפארק פועל בעונת הקיץ. שעות וימי פעילות משתנים - יש לבדוק באתר לפני יציאה.",
+        "מומלץ לרכוש כרטיסים מראש באתר הרשמי.",
+        "הביאו בגדים להחלפה, מגבות, קרם הגנה ומים."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. פארק המים מתוכנן כחוויה משפחתית עם מתקני מים לגילאים שונים."
+      },
+      {
+        "question": "מתי הפארק פתוח?",
+        "answer": "בעיקר בעונת הקיץ. יש לבדוק ב-waterpark.co.il את הימים והשעות העדכניים."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניה במתחם."
+      },
+      {
+        "question": "האם אפשר לקנות כרטיסים מראש?",
+        "answer": "כן. לפי האתר הרשמי ניתן לרכוש כרטיסים באינטרנט."
+      },
+      {
+        "question": "כמה זמן מומלץ להישאר?",
+        "answer": "רוב המשפחות מקדישות כמה שעות, בהתאם לגיל הילדים."
+      }
+    ],
+    tips: [
+      "בדקו ב-waterpark.co.il לפני יציאה - הפארק עונתי.",
+      "הגיעו מוקדם בימים עמוסים.",
+      "הביאו בגדים יבשים, מגבות וקרם הגנה.",
+      "שמרו על הילדים ליד המים - גם בבריכות רדודות."
+    ],
+    closingNote:
+      "בואו נשמור על ניקיון הפארק. קחו איתכם את האשפה.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "prk-ryl-shrvn"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "prk-rnnh",
     title: "פארק רעננה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "אגם, מדשאות ענק, מתקני משחק ואחד הפארקים המשפחתיים היפים באזור השרון.",
     region: "השרון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פארק רעננה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h",
+        "kfar-saba": "15m",
+        raanana: "10m",
+        "hod-hasharon": "15m",
+        herzliya: "15m",
+        netanya: "25m",
+        modiin: "35m",
+        ramla: "35m",
+        lod: "35m",
+      },
+    },
+    location: {
+      lat: 32.1872,
+      lng: 34.8489,
+      label: "פארק רעננה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%A8%D7%A2%D7%A0%D7%A0%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.1872%2C34.8489",
+    },
+    seoTitle:
+      "פארק רעננה - פארק משפחתי עם אגם ומתקני משחק | בשביל הלב",
+    metaDescription:
+      "פארק רעננה הוא אחד הפארקים היפים בשרון, עם אגם, מדשאות, מתקני משחק, שבילי הליכה ונגישות מלאה לעגלות. כל המידע והטיפים למשפחות.",
+    heroImage: "/images/places/hasharon/פארק רעננה/hero.JPG",
     heroImageLabel: "תמונת רקע - פארק רעננה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
-    gallery: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(3, 105, 161, 0.78) 0%, rgba(14, 165, 233, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/hasharon/פארק רעננה/hero.JPG")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%A8%D7%A2%D7%A0%D7%A0%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.1872%2C34.8489",
+    highlights: [
+      "משפחות עם ילדים",
+      "תינוקות",
+      "זוגות",
+      "פיקניק",
+      "אוהבי טבע",
+      "עצירה בדרך",
+    ],
+    about: [
+      "פארק רעננה הוא פארק מדהים, כזה שיש בו הכל, כזה שאפשר לבקר בו כמה שעות ולהנות ממגוון פעילויות שהפארק מציע. לא צריך לתכנן יום שלם או לצאת למסלול ארוך - מגיעים, פורשים מחצלת ונותנים ליום לזרום.",
+      "בלב הפארק תמצאו אגם יפהפה, מדשאות רחבות, עצים גדולים שמעניקים הרבה צל, מתקני משחק מושקעים ושבילי הליכה נעימים. הילדים יכולים לרוץ בחופשיות, לרכב על אופניים או קורקינט, ואתם יכולים פשוט לשבת, לשתות קפה וליהנות מהאווירה.",
+      "בפארק יש בתי קפה ומגרשי ספורט.",
+      "זה מקום שמתאים כמעט לכל גיל - מתינוקות בעגלה ועד ילדים גדולים שמחפשים מרחב לשחק ולהוציא אנרגיה. גם זוגות, חברים ומשפחות מגיעים לכאן כדי ליהנות מקצת ירוק באמצע העיר.",
+      "אני כל אוהבת ריאות ירוקות באמצע העיר, פארקים בסגנון הזה הם מהאהובים עליי - אין לחץ להספיק, אין יעד להגיע אליו. פשוט מטיילים, נחים, ״נזרקים״, עוצרים וממשיכים מתי שמתחשק ונותנים לילדים להוביל את ההרפתקה.",
+      "לפעמים אנחנו חושבים שכדי ליצור זיכרונות יפים צריך לנסוע רחוק, אבל המקומות הקרובים לבית מזכירים לנו שלא פעם, כל מה שצריך זה קצת טבע, הרבה ירוק וזמן איכות ביחד.",
+    ],
+    personalStory: [
+      "יש ימים שלא מחפשים בהם הרפתקה גדולה.",
+      "לא מסלול ארוך, לא נסיעה של שעות ולא יעד מיוחד.",
+      "רק מקום שאפשר להגיע אליו, לפרוש מחצלת, לתת לילדים לרוץ ופשוט להיות יחד.",
+      "פארק רעננה הוא בדיוק מקום כזה.",
+      "אני אוהבת לראות איך הילדים מוצאים לעצמם עניין בכל פעם מחדש. פעם זו הבריכה עם הברווזים, פעם מתקני המשחק, פעם לרוץ על המדשאות ופעם סתם לשכב על הדשא ולהסתכל על השמיים.",
+      "תוך כדי שהם משחקים, אני מזכירה לעצמי שגם אנחנו, המבוגרים, צריכים לפעמים לעצור.",
+      "לא כל יום חייב להיות מלא במשימות, יעדים ולוחות זמנים או פנים שדבוקות למסכים.",
+      "מספיק לשבת על ספסל, לשתות קפה, להסתכל על הילדים נהנים ולהבין שהרגע הזה - בדיוק כמו שהוא - שווה הרבה יותר ממה שנדמה לנו.",
+      "בסוף, אלה הרגעים הקטנים שבונים את הזיכרונות הכי גדולים.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "יש מספר חניונים מסודרים סביב הפארק." },
+      { label: "משך בילוי", value: "שעה עד שלוש שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן" },
+      { label: "זמן ביקור", value: "שעה עד שלוש שעות" },
+    ],
+    gettingThere: {
+      parking: "יש מספר חניונים מסודרים סביב הפארק.",
+      notes: [
+        "הכניסה לפארק ללא תשלום.",
+        "המקום מתאים מאוד לפיקניק משפחתי.",
+        "יש שירותים, מתקני משחק ופינות ישיבה.",
+        "השבילים רחבים ונוחים לעגלות ולאופניים.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. זהו אחד הפארקים המשפחתיים המוצלחים באזור, עם מתקני משחק, מדשאות ומרחבים פתוחים.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן. כל השבילים המרכזיים סלולים ונגישים לעגלות.",
+      },
+      {
+        question: "האם אפשר לעשות פיקניק?",
+        answer: "כן. יש הרבה מדשאות ופינות ישיבה שמתאימות לכך.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. קיימים מספר חניונים מסודרים סביב הפארק.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "בין שעה לשלוש שעות, בהתאם לקצב שלכם.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "אפשר להגיע לאורך כל השנה. בקיץ מומלץ להגיע בשעות הבוקר או אחר הצהריים.",
+      },
+    ],
+    tips: [
+      "הביאו מחצלת ונשנושים - זה מקום מושלם לפיקניק.",
+      "אם הילדים אוהבים לרכב, קחו אופניים או קורקינט, או כל דבר שיש לו גלגלים.",
+      "אל תמהרו לעבור בין המתקנים - תנו לילדים פשוט לשחק בקצב שלהם.",
+    ],
+    gallery: [
+      { src: "/images/places/hasharon/פארק רעננה/IMG_5033.JPG" },
+      { src: "/images/places/hasharon/פארק רעננה/IMG_5037 2.JPG" },
+      { src: "/images/places/hasharon/פארק רעננה/IMG_5055.jpg" },
+    ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "prk-kvlvgy-hvd-hshrvn",
+      "nchl-lksndr",
+      "prk-vtvpyh",
+      "mtzpvr-vykr",
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
@@ -439,22 +1614,119 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
   {
     slug: "lgt-bchyvt",
     title: "לגעת בחיות",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "פינת חי משפחתית בקיבוץ גבעת חיים איחוד - ליטוף, טרקטור, יצירה וחוויה חקלאית קרוב לבית.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "לגעת בחיות - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h",
+        "kfar-saba": "25m",
+        raanana: "30m",
+        "hod-hasharon": "25m",
+        herzliya: "30m",
+        netanya: "40m",
+        modiin: "45m",
+        ramla: "35m",
+        lod: "35m",
+      },
+    },
+    location: {
+      lat: 32.3991,
+      lng: 34.9367,
+      label: "לגעת בחיות - קיבוץ גבעת חיים איחוד",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9C%D7%92%D7%A2%D7%AA%20%D7%91%D7%97%D7%99%D7%95%D7%AA%20%D7%92%D7%91%D7%A2%D7%AA%20%D7%97%D7%99%D7%99%D7%9D%20%D7%90%D7%99%D7%97%D7%95%D7%93&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.3991%2C34.9367",
+    },
+    seoTitle: "לגעת בחיות - פינת חי משפחתית בגבעת חיים איחוד | בשביל הלב",
+    metaDescription:
+      "לגעת בחיות בקיבוץ גבעת חיים איחוד הוא פינת חי משפחתית עם ליטוף, סיור בטרקטור, יצירה ופעילויות חקלאיות. כל המידע לביקור עם ילדים.",
     heroImage: "/images/places/center/לגעת בחיות/hero.JPG",
     heroImageLabel: "תמונת רקע - לגעת בחיות",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/לגעת בחיות/hero.JPG")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9C%D7%92%D7%A2%D7%AA%20%D7%91%D7%97%D7%99%D7%95%D7%AA%20%D7%92%D7%91%D7%A2%D7%AA%20%D7%97%D7%99%D7%99%D7%9D%20%D7%90%D7%99%D7%97%D7%95%D7%93&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.3991%2C34.9367",
+    highlights: [
+      "משפחות עם ילדים",
+      "גיל הרך",
+      "אוהבי חיות",
+      "חוויה חקלאית",
+      "יום כיף קרוב לבית",
+    ],
+    about: [
+      "לגעת בחיות הוא פינת חי משפחתית בקיבוץ גבעת חיים איחוד, שמשלבת מפגש מקרוב עם בעלי חיים, פעילויות חקלאיות ויצירה. לפי האתר הרשמי, במקום מוצעים ספארי קטן, פינות ליטוף, סיור בטרקטור ברחבי הקיבוץ, עולם זוחלים ודגים, פינות יצירה, טאבון ועמדת חליבת עזים.",
+      "המתחם בנוי כך שאפשר לשלב כמה חוויות קצרות באותו ביקור: לטייל בין החיות, לעצור ליצירה, לשבת בפינות המוצלות ולהמשיך לפעילות הבאה. יש שולחנות פיקניק, מחצלות ואזורי ישיבה מוצלים.",
+      "המקום מתאים במיוחד למשפחות עם ילדים קטנים שמחפשות יום פעיל ולא מסובך, וגם לקבוצות חינוכיות. לפי האתר הרשמי, אין כניסה עם כלבים למתחם.",
+    ],
+    personalStory: [
+      "לגעת בחיות - השם אומר הכול.",
+      "פינת חי קטנה בקיבוץ, עם ליטוף, טרקטור, יצירה, וחיות שאפשר לראות מקרוב.",
+      "יש משהו בקצב האיטי של מקום כזה. לא גן חיות ענק - פשוט קרבה, שקט, וחוויה חקלאית.",
+      "אם אתם עם ילדים קטנים - זה מקום שמבין את זה. פינות מוצלות, שולחנות פיקניק, ופעילויות קצרות שאפשר לשלב.",
+      "לא צריך להספיק הכול. מספיק ליטוף, סיבוב בטרקטור, ויצירה אחת.",
+      "בלי לחץ. תנו לילדים לעצור ליד מה שמעניין אותם.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      { label: "חניה", value: "במתחם. מומלץ לבדוק מראש באתר הרשמי." },
+      { label: "משך בילוי", value: "כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן, במיוחד" },
+      { label: "נגיש לעגלות", value: "כן - ברוב המתחם" },
+      { label: "זמן בילוי", value: "כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה במתחם בקיבוץ גבעת חיים איחוד.",
+      notes: [
+        "הכתובת הרשמית: קיבוץ גבעת חיים איחוד.",
+        "שעות הפעילות, מחירי הכניסה והפעילויות הפתוחות משתנים - מומלץ לבדוק באתר lagaat-bahayot.com לפני יציאה.",
+        "לפי האתר הרשמי, אין כניסה עם כלבים למתחם.",
+        "חלק מהפעילויות, כמו סיור בטרקטור, בתשלום נוסף - כדאי לוודא מראש מה פתוח.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. לפי האתר הרשמי, זה מתחם משפחתי עם פינות ליטוף, חיות, יצירה ופעילויות חקלאיות המותאמות לילדים.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer:
+          "כן. המתחם נוח לעגלות ברוב האזורים הפתוחים והמוצלים.",
+      },
+      {
+        question: "האם אפשר להביא כלב?",
+        answer: "לא. לפי האתר הרשמי, אין כניסה עם כלבים למתחם.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה במתחם.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer:
+          "כמה שעות, לפי קצב המשפחה ומספר הפעילויות שנבחרו.",
+      },
+    ],
+    tips: [
+      "לפני שיוצאים - בדקו באתר lagaat-bahayot.com את שעות הפתיחה והפעילויות הפתוחות.",
+      "הגיעו עם כובע, מים ונעליים נוחות.",
+      "אפשר להביא אוכל מהבית ולנצל את שולחנות הפיקניק.",
+      "אין צורך להספיק הכל - בחרו כמה פעילויות ותנו לילדים ליהנות מהן.",
+    ],
     gallery: [
       { src: "/images/places/center/לגעת בחיות/IMG_8235.JPG" },
       { src: "/images/places/center/לגעת בחיות/IMG_8239.JPG" },
@@ -464,6 +1736,7 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       { src: "/images/places/center/לגעת בחיות/IMG_8317.JPG" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["prk-mym-shpyym", "prk-ryl-shrvn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
@@ -586,8 +1859,8 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       "אם כבר הגעתם עד לכאן - אל תמהרו לחזור הביתה. כל האזור מלא בפינות קסומות, ולפעמים דווקא העצירה שלא תכננתם היא זו שתהפוך לזיכרון הכי יפה של היום.",
     ],
     gallery: [
-      { src: "/images/places/hasharon/חוף עתלית/IMG_5854%202.JPG" },
-      { src: "/images/places/hasharon/חוף עתלית/%D7%94%D7%A6%D7%92%D7%AA%20%D7%94%D7%AA%D7%9E%D7%95%D7%A0%D7%95%D7%AA%20%D7%94%D7%90%D7%97%D7%A8%D7%95%D7%A0%D7%95%D7%AA%202.jpeg" },
+      { src: "/images/places/hasharon/חוף עתלית/IMG_5854 2.JPG" },
+      { src: "/images/places/hasharon/חוף עתלית/הצגת התמונות האחרונות 2.jpeg" },
     ],
     gallerySubtitle: "",
     nearbyTripSlugs: ["nchl-lksndr", "chvf-mgn-mykl", "chvf-vlgh"],
@@ -871,7 +2144,7 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       "לא כל ביקור בים חייב להיות יום שלם - גם עצירה קצרה ממלאת את הלב.",
     ],
     gallery: [
-      { src: "/images/places/hasharon/חוף מעגן מיכאל/IMG_2816%202.jpeg" },
+      { src: "/images/places/hasharon/חוף מעגן מיכאל/IMG_2816 2.jpeg" },
       { src: "/images/places/hasharon/חוף מעגן מיכאל/IMG_2824.jpeg" },
       { src: "/images/places/hasharon/חוף מעגן מיכאל/IMG_2825.jpeg" },
       { src: "/images/places/hasharon/חוף מעגן מיכאל/IMG_2826.jpeg" },
@@ -1041,9 +2314,9 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
     gallery: [
       { src: "/images/places/hasharon/מצפור ויקר/IMG_8172.JPG" },
       { src: "/images/places/hasharon/מצפור ויקר/IMG_8174.JPG" },
-      { src: "/images/places/hasharon/מצפור ויקר/IMG_8178%202.JPG" },
+      { src: "/images/places/hasharon/מצפור ויקר/IMG_8178 2.JPG" },
       { src: "/images/places/hasharon/מצפור ויקר/IMG_8186.JPG" },
-      { src: "/images/places/hasharon/מצפור ויקר/IMG_8199%202.JPG" },
+      { src: "/images/places/hasharon/מצפור ויקר/IMG_8199 2.JPG" },
       { src: "/images/places/hasharon/מצפור ויקר/IMG_8229.JPG" },
       { src: "/images/places/hasharon/מצפור ויקר/IMG_8230.JPG" },
     ],
@@ -1375,8 +2648,8 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       { src: "/images/places/hasharon/מעגן מיכאל פסל הלב/IMG_2794.jpeg" },
       { src: "/images/places/hasharon/מעגן מיכאל פסל הלב/IMG_2837.jpeg" },
       { src: "/images/places/hasharon/מעגן מיכאל פסל הלב/IMG_8373.jpeg" },
-      { src: "/images/places/hasharon/מעגן מיכאל פסל הלב/IMG_8382%202.jpeg" },
-      { src: "/images/places/hasharon/מעגן מיכאל פסל הלב/IMG_8388%202.jpeg" },
+      { src: "/images/places/hasharon/מעגן מיכאל פסל הלב/IMG_8382 2.jpeg" },
+      { src: "/images/places/hasharon/מעגן מיכאל פסל הלב/IMG_8388 2.jpeg" },
     ],
     gallerySubtitle: "",
     nearbyTripSlugs: ["chvf-mgn-mykl", "chvf-tlyt", "chvf-vlgh", "nchl-lksndr"],
@@ -1386,22 +2659,121 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
   {
     slug: "shmvrt-plmchym",
     title: "שמורת פלמחים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גן לאומי חוף פלמחים - חוף בתולי, סוללה כנענית, שבילי טיול ומוקד לצבי ים.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "שמורת פלמחים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic", "camping", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 35,
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h 15m",
+        "kfar-saba": "45m",
+        raanana: "50m",
+        "hod-hasharon": "45m",
+        herzliya: "45m",
+        netanya: "50m",
+        modiin: "40m",
+        ramla: "25m",
+        lod: "25m",
+      },
+    },
+    location: {
+      lat: 31.9342,
+      lng: 34.7075,
+      label: "גן לאומי חוף פלמחים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%97%D7%95%D7%A3%20%D7%A4%D7%9C%D7%9E%D7%97%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.9342%2C34.7075",
+    },
+    seoTitle: "שמורת פלמחים - גן לאומי חוף פלמחים למשפחות | בשביל הלב",
+    metaDescription:
+      "גן לאומי חוף פלמחים משלב חוף ים, שבילי טיול, סוללה כנענית וטבע חופי ייחודי. כל המידע, הטיפים והמידע הרשמי לביקור עם ילדים.",
     heroImage: "/images/places/center/שמורת פלמחים/hero.jpeg",
     heroImageLabel: "תמונת רקע - שמורת פלמחים",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(3, 105, 161, 0.78) 0%, rgba(14, 165, 233, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/שמורת פלמחים/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%97%D7%95%D7%A3%20%D7%A4%D7%9C%D7%9E%D7%97%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.9342%2C34.7075",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי ים",
+      "מטיילי טבע",
+      "קמפינג",
+      "ארכיאולוגיה",
+    ],
+    about: [
+      "גן לאומי חוף פלמחים, המוכר גם כשמורת פלמחים, שוכן במישור החוף הדרומי מדרום לראשון לציון. לפי רשות הטבע והגנים, הגן משתרע על כ-221 דונם וכולל רכס כורכר, חוף ים טבעי, שרידי עיר הנמל העתיקה יבנה-ים וסוללה כנענית מרשימה.",
+      "החוף הוא אחד מאחרוני החופים הטבעיים שנשמרו בישראל, ומשמש בית גידול לצמחיית חוף ולבעלי חיים, כולל צבי ים - מין בסכנת הכחדה בים התיכון. באתר מסומנים שבילי הליכה, תצפיות ומסלולים כמו משביל האטד לשביל הסוללה.",
+      "הגן מתאים גם ליום ים וגם לטיול קצר: אפשר לשלב רחצה בעונת הרחצה (בנוכחות מצילים), הליכה על הסוללה, פיקניק וגלישה. לפי האתר הרשמי, הרחצה ללא פיקוח מצילים אסורה ומסוכנת.",
+    ],
+    personalStory: [
+      "פלמחים הוא חוף וטבע ביחד.",
+      "חול לבן, סוללה כנענית עתיקה, ושבילים שמובילים לתצפיות על הים.",
+      "אפשר לבלות רק על החוף. אפשר לעלות לסוללה. אפשר לשלב את שניהם - בלי לחץ.",
+      "יש משהו בחוף טבעי, בלי בניינים, בלי רעש. פשוט ים, רוח, ומרחב.",
+      "שווה לדעת: בסופי שבוע עמוס. הגיעו מוקדם, ותנו לילדים לקחת את הקצב.",
+      "גם ביקור של כמה שעות מרגיש כמו בריחה מהעיר."
+    ],
+    cost: [
+      { label: "כניסה", value: "תשלום חניה לרכב" },
+      { label: "חניה", value: "בתשלום לפי מחירון רשות הטבע והגנים" },
+      { label: "משך בילוי", value: "חצי יום עד יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "תשלום חניה לרכב" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - עד קו החול" },
+      { label: "זמן ביקור", value: "חצי יום עד יום שלם" },
+    ],
+    gettingThere: {
+      parking: "חניה בתשלום בגן הלאומי. כניסת רכבים אחרונה לפי שעות האתר הרשמיות.",
+      notes: [
+        "בכביש 4 פונים למחלף גן רווה, ומשם למחלף עין הקורא. ממשיכים מערבה בכביש 4311 עד סופו.",
+        "לפי האתר הרשמי, כתבו בוויז: גן לאומי חוף פלמחים.",
+        "שעות פתיחה, מחירי חניה ושעות הצלה - מומלץ לבדוק באתר parks.org.il לפני יציאה.",
+        "הרחצה מותרת בעונת הרחצה ובנוכחות שירותי הצלה בלבד.",
+        "מותר להדליק מנגל בחלק הדרומי של החוף, בפחי ברזל בלבד.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. יש חוף, שבילי הליכה, סוללה לתצפית ומתקנים מוצלים. יש להשגיח על ילדים בים ובמצוק.",
+      },
+      {
+        question: "האם אפשר לרחוץ?",
+        answer:
+          "בעונת הרחצה, רק בנוכחות שירותי הצלה. הרחצה ללא פיקוח מצילים אסורה ומסוכנת.",
+      },
+      {
+        question: "האם יש קמפינג?",
+        answer:
+          "לפי האתר הרשמי, יש אפשרויות לינה וחניוני לילה באזור. מומלץ לבדוק מראש באתר parks.org.il.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. חניה בתשלום בגן הלאומי.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "בשעות הבוקר המוקדמות בעונת הרחצה, כשהחוף פחות עמוס. בדקו מראש שעות הצלה.",
+      },
+    ],
+    tips: [
+      "בדקו באתר parks.org.il את שעות הפתיחה, מחירי החניה ושעות שירותי ההצלה.",
+      "הגיעו עם כובע, מים, קרם הגנה ומגבות.",
+      "בסופי שבוע ובחגים החוף מתמלא - כדאי להגיע מוקדם.",
+      "אפשר לשלב טיול קצר על הסוללה גם בלי יום ים מלא.",
+    ],
     gallery: [
       { src: "/images/places/center/שמורת פלמחים/IMG_1839.jpeg" },
       { src: "/images/places/center/שמורת פלמחים/IMG_1869.jpeg" },
@@ -1410,28 +2782,128 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       { src: "/images/places/center/שמורת פלמחים/IMG_2020.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["chvf-hchshml", "tl-pk"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "tl-pk",
     title: "תל אפק",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מתחם תל אפק (אנטיפטריס) בגן לאומי ירקון - מבצר, אגם, בריכות שכשוך ושבילים ירוקים.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "תל אפק - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 31,
+      weatherTraits: ["water-friendly", "heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h 10m",
+        "kfar-saba": "20m",
+        raanana: "25m",
+        "hod-hasharon": "20m",
+        herzliya: "25m",
+        netanya: "35m",
+        modiin: "30m",
+        ramla: "25m",
+        lod: "20m",
+      },
+    },
+    location: {
+      lat: 32.1054,
+      lng: 34.928,
+      label: "גן לאומי ירקון - מתחם תל אפק (אנטיפטריס)",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%90%D7%A0%D7%98%D7%99%D7%A4%D7%98%D7%A8%D7%99%D7%A1%20-%20%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%99%D7%A8%D7%A7%D7%95%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.1054%2C34.928",
+    },
+    seoTitle: "תל אפק - גן לאומי ירקון, מבצר אנטיפטריס ואגם | בשביל הלב",
+    metaDescription:
+      "מתחם תל אפק בגן לאומי ירקון כולל מבצר אנטיפטריס, אגם, בריכות שכשוך ושבילים מוצלים. כל המידע הרשמי לביקור משפחתי.",
     heroImage: "/images/places/center/תל אפק/hero.jpeg",
     heroImageLabel: "תמונת רקע - תל אפק",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(3, 105, 161, 0.78) 0%, rgba(14, 165, 233, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/תל אפק/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%90%D7%A0%D7%98%D7%99%D7%A4%D7%98%D7%A8%D7%99%D7%A1%20-%20%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%99%D7%A8%D7%A7%D7%95%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.1054%2C34.928",
+    highlights: [
+      "משפחות עם ילדים",
+      "מים ושכשוך",
+      "ארכיאולוגיה",
+      "פיקניק",
+      "נגיש לעגלות",
+    ],
+    about: [
+      "מתחם תל אפק (אנטיפטריס) הוא חלק מגן לאומי ירקון, הריאה הירוקה של גוש דן. לפי רשות הטבע והגנים, במקום מצויים מבצר אנטיפטריס העות'מאני, אגם מלאכותי, בריכות שכשוך, מפעל מים בריטי, שביל החצבים וברכת חורף עם בעלי חיים ייחודיים.",
+      "הגן משלב היסטוריה, מים וטבע: אפשר לטייל סביב האגם, לשכשך בבריכות המיועדות לכך (באגם עצמו הרחצה אסורה), לעלות למבצר וליהנות מחורשת אקליפטוסים מוצלת.",
+      "לפי האתר הרשמי, חלק מהמתחם הונגש - כולל שבילים, חניות, בתי שימוש ופינות פיקניק. הכניסה לגן מחייבת תיאום מועד ביקור מראש במערכת רשות הטבע והגנים.",
+    ],
+    personalStory: [
+      "תל אפק הוא שילוב של הכול.",
+      "מבצר עות'מאני, אגם, בריכות שכשוך, וחורשת אקליפטוסים מוצלת.",
+      "אפשר להתחיל סביב האגם, לעצור לשכשוך, ולהמשיך למבצר - בקצב של המשפחה.",
+      "יש משהו בללכת בין היסטוריה למים. ילדים נהנים מהשכשוך, מבוגרים מהמבצר והנוף.",
+      "לא צריך להספיק. לא צריך לכסות את כל הגן.",
+      "שווה לדעת: צריך לתאם מועד ביקור מראש. ובימים חמים - הצל של האקליפטוסים מציל.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      { label: "חניה", value: "בגן הלאומי" },
+      { label: "משך בילוי", value: "כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן - בחלקים מהמתחם" },
+      { label: "זמן ביקור", value: "כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה בגן לאומי ירקון - מתחם תל אפק, בין צומת גנים לראש העין, כביש 483.",
+      notes: [
+        "לפי האתר הרשמי, כתבו בוויז: אנטיפטריס - גן לאומי ירקון.",
+        "הכניסה מחייבת תיאום מועד ביקור מראש באתר parks.org.il.",
+        "שעות פתיחה ומחירי כניסה - מומלץ לבדוק באתר הרשמי לפני יציאה.",
+        "שכשוך מותר רק בבריכות המיועדות. באגם הרחצה אסורה.",
+        "מותר להדליק מנגל, אסור להדליק מדורה.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. יש בריכות שכשוך, שבילים מוצלים, אגם ומבצר לחקירה. יש להשגיח על ילדים ליד המים.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer:
+          "כן, בחלקים מהמתחם. לפי האתר הרשמי, הונגשו שבילים, חניות ופינות פיקניק.",
+      },
+      {
+        question: "האם צריך להזמין מראש?",
+        answer:
+          "כן. לפי האתר הרשמי, יש לתאם מועד ביקור מראש במערכת רשות הטבע והגנים.",
+      },
+      {
+        question: "האם אפשר להיכנס למים?",
+        answer:
+          "שכשוך מותר בבריכות המיועדות. באגם עצמו הרחצה אסורה.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "כמה שעות, לפי קצב המשפחה ומספר המוקדים שבוחרים לבקר בהם.",
+      },
+    ],
+    tips: [
+      "הזמינו מועד ביקור מראש באתר parks.org.il.",
+      "הגיעו עם בגדי ים, מגבות ונעלי מים לבריכות השכשוך.",
+      "בסופי שבוע ובחגים המקום עמוס - כדאי לתאם מוקדם.",
+      "אפשר לשלב פיקניק בחורשת האקליפטוסים.",
+    ],
     gallery: [
       { src: "/images/places/center/תל אפק/IMG_1069.jpeg" },
       { src: "/images/places/center/תל אפק/IMG_7127.jpeg" },
@@ -1444,28 +2916,119 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       { src: "/images/places/center/תל אפק/IMG_7204.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["shmvrt-plmchym", "prk-ryl-shrvn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "ykb-krm-brk",
     title: "יקב כרם ברק",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "יקב בוטיק משפחתי במושב בקוע - כרמים, טעימות יין ומרכז מבקרים בלב מטה יהודה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "יקב כרם ברק - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 30,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h 30m",
+        "kfar-saba": "45m",
+        raanana: "50m",
+        "hod-hasharon": "45m",
+        herzliya: "50m",
+        netanya: "1h",
+        modiin: "25m",
+        ramla: "30m",
+        lod: "30m",
+      },
+    },
+    location: {
+      lat: 31.834,
+      lng: 34.9365,
+      label: "יקב כרם ברק - מושב בקוע",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%99%D7%A7%D7%91%20%D7%9B%D7%A8%D7%9D%20%D7%91%D7%A8%D7%A7%20%D7%91%D7%A7%D7%95%D7%A2&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.834%2C34.9365",
+    },
+    seoTitle: "יקב כרם ברק - יקב בוטיק משפחתי במושב בקוע | בשביל הלב",
+    metaDescription:
+      "יקב כרם ברק במושב בקוע הוא יקב בוטיק משפחתי עם כרמים, מרכז מבקרים וטעימות. כל המידע לביקור באזור מטה יהודה.",
     heroImage: "/images/places/center/יקב כרם ברק/IMG_8414.JPG",
     heroImageLabel: "תמונת רקע - יקב כרם ברק",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/יקב כרם ברק/IMG_8414.JPG")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%99%D7%A7%D7%91%20%D7%9B%D7%A8%D7%9D%20%D7%91%D7%A8%D7%A7%20%D7%91%D7%A7%D7%95%D7%A2&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.834%2C34.9365",
+    highlights: [
+      "זוגות",
+      "משפחות",
+      "אוהבי יין",
+      "טיול באזור מטה יהודה",
+      "עצירה בדרך",
+    ],
+    about: [
+      "יקב כרם ברק הוא יקב בוטיק חקלאי משפחתי במושב בקוע, שהוקם בשנת 2011 על ידי משפחת רוזנברג. לפי האתר הרשמי, היקב שוכן בלב אזור מטה יהודה, בין תל אביב לירושלים, ומייצר יינות מכרמים שנטעו בצמוד למשק.",
+      "חוות רוזנברג מאגדת יקב, מחלבה ומרכז מבקרים. לפי האתר הרשמי, מרכז המבקרים פתוח בימים א'-ה' ובימי ו' בשעות הבוקר והצהריים, והישיבה במקום בהזמנה מראש.",
+      "היקב נקרא על שם בנם ברק, ודמויות מהסיפורים שיצר מעטרות את תוויות היינות. המקום מתאים לעצירה שקטה באזור הכרמים, לטעימות ולארוחות במרכז המבקרים.",
+    ],
+    personalStory: [
+      "ביקור ביקב בוטיק כזה מתאים למי שמחפש עצירה רגועה באמצע יום טיול באזור מטה יהודה. הנוף, הכרמים והאווירה הכפרית יוצרים חוויה שונה מיעד עירוני.",
+      "מרכז המבקרים מאפשר לשלב טעימה, הסבר על תהליך ייצור היין וישיבה נעימה - בקצב של המשפחה או הזוג.",
+      "המיקום בין תל אביב לירושלים הופך את היקב ליעד טוב לשילוב עם טיולים נוספים באזור, בלי לתכנן יום שלם רק בשבילו.",
+      "גם מי שלא מכיר עולם היין יכול ליהנות מהנוף, מהשקט ומהאווירה הכפרית של המושב.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום - טעימות וארוחות" },
+      { label: "חניה", value: "במשק" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן - במרכז המבקרים" },
+      { label: "הזמנה", value: "מומלץ מראש" },
+      { label: "זמן ביקור", value: "שעה עד כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה במשק בקצה מושב בקוע, פונה אל הכרמים.",
+      notes: [
+        "לפי האתר הרשמי kerembarak.com, מרכז המבקרים פתוח בימים א'-ה' ובימי ו' - שעות וזמינות כדאי לבדוק באתר.",
+        "הישיבה במקום בהזמנה מראש.",
+        "ניתן לערוך אירועים פרטיים וקבוצות - בפנייה דרך האתר הרשמי.",
+        "המשק כולל גם מחלבה. מוצרי הגבינה והיין נמכרים בעיקר במקום.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן, במסגרת ביקור במרכז המבקרים. מומלץ לתאם מראש ולבדוק מה מתאים לגיל.",
+      },
+      {
+        question: "האם צריך להזמין מראש?",
+        answer:
+          "כן. לפי האתר הרשמי, הישיבה במקום בהזמנה מראש.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. חניה במשק.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "לפי האתר הרשמי, מרכז המבקרים פתוח בימים א'-ה' ובימי ו' בשעות הבוקר והצהריים. כדאי לבדוק באתר לפני יציאה.",
+      },
+    ],
+    tips: [
+      "הזמינו מראש דרך האתר kerembarak.com.",
+      "אפשר לשלב את הביקור עם טיול נוסף באזור מטה יהודה.",
+      "בדקו באתר הרשמי אם מתקיימים אירועים או סדנאות מיוחדות.",
+    ],
     gallery: [
       { src: "/images/places/center/יקב כרם ברק/IMG_8437.JPG" },
       { src: "/images/places/center/יקב כרם ברק/IMG_8441.JPG" },
@@ -1474,28 +3037,146 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       { src: "/images/places/center/יקב כרם ברק/IMG_8603.JPG" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["myynvt-gybtvn", "tl-gzr"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "gn-hchyvt-htnky",
     title: "גן החיות התנכי",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גן חיות ירושלמי עם חיות ארץ ישראליות, רכבת פנימית וחוויה משפחתית נוחה בלב פארק מנחת.",
     region: "ירושלים",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "גן החיות התנכי - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "15m",
+        modiin: "30m",
+        ramla: "40m",
+        lod: "40m",
+        "kfar-saba": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        haifa: "2h",
+      },
+    },
+    location: {
+      lat: 31.7494,
+      lng: 35.1769,
+      label: "גן החיות התנכי - דרך אהרון שולוב 1, ירושלים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%94%D7%97%D7%99%D7%95%D7%AA%20%D7%94%D7%AA%D7%A0%22%D7%9B%D7%99%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.7494%2C35.1769",
+    },
+    seoTitle:
+      "גן החיות התנכי - גן חיות משפחתי בירושלים | בשביל הלב",
+    metaDescription:
+      "גן החיות התנכי בירושלים הוא גן חיות עם חיות ארץ ישראליות, רכבת פנימית, מתחמי משחק ונגישות טובה לעגלות. כל המידע לביקור עם ילדים.",
     heroImage: "/images/places/jerusalem/גן החיות התנכי/hero.JPG",
     heroImageLabel: "תמונת רקע - גן החיות התנכי",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8a29e'/%3E%3Cstop offset='100%25' stop-color='%2344403c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/jerusalem/גן החיות התנכי/hero.JPG")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%94%D7%97%D7%99%D7%95%D7%AA%20%D7%94%D7%AA%D7%A0%22%D7%9B%D7%99%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.7494%2C35.1769",
+    highlights: [
+      "משפחות עם ילדים",
+      "גיל הרך",
+      "חובבי חיות",
+      "יום כיף בירושלים",
+      "עגלות ונגישות",
+      "שילוב עם אקווריום ישראל",
+    ],
+    about: [
+      "גן החיות התנכי על שם משפחת טיש הוא אחד האתרים המשפחתיים המוכרים בירושלים. הגן שוכן בפארק מנחת, על מדרונות נחל רפאים, ומציג אוסף של חיות ארץ ישראליות - חלקן מוזכרות בתנ\"ך.",
+      "הגן משתרע על שטח גדול עם שיפועים מדורגים, ולכן הרבה משפחות משלבות הליכה ברגל עם רכבת פנימית שעוברת בין חלקי הגן. לפי האתר הרשמי, הרכבת מקלה על ההתניידות ומתאימה במיוחד לימים חמים או לילדים קטנים.",
+      "בגן יש גם מתחמי משחק, אזורי ישיבה מוצלים, קפה וחנות. המקום פועל כבר עשרות שנים ומשלב חינוך, שימור והשבה לטבע של מינים ארץ ישראליים.",
+      "הגן מתאים ליום שלם, אבל גם לביקור קצר יותר - אפשר לבחור כמה מתחמים, לעצור לארוחה ולחזור לחיות שמעניינות את הילדים.",
+      "בסמוך לגן, באותו מתחם, נמצא גם אקווריום ישראל - ואפשר לשלב את שני האתרים באותו יום, לפי שעות הפתיחה והכרטיסים.",
+    ],
+    personalStory: [
+      "גן החיות התנכי יושב על גבעה ירושלמית, עם חיות ארץ ישראליות ורכבת פנימית.",
+      "הרכבת משנה הכול - במקום לעלות את כל הגבעה ברגל, אפשר לשלב קטעים נוחים.",
+      "אין לחץ לראות כל חיה. תנו לילדים לעצור ליד מה שמעניין אותם, לשחק במתחם, ולחזור.",
+      "יש משהו בגן שמציג חיות מקומיות - לא פילים וג'ירפות, אלא מה שגדל כאן, בארץ.",
+      "אפשר לשלב באותו יום גם את האקווריום הסמוך - אם יש כוח.",
+      "פשוט. בלי למהר. תנו לקצב של המשפחה להוביל.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      {
+        label: "חניה",
+        value: "חניה במתחם. מומלץ לבדוק מראש באתר הרשמי.",
+      },
+      {
+        label: "משך בילוי",
+        value: "כמה שעות - לפי קצב המשפחה",
+      },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן, במיוחד לכל הגילאים" },
+      { label: "נגיש לעגלות", value: "כן, ברוב המתחם" },
+      { label: "זמן בילוי", value: "כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה במתחם גן החיות התנכי, דרך אהרון שולוב 1, פארק מנחת, ירושלים.",
+      notes: [
+        "הכתובת הרשמית: דרך אהרון שולוב 1, פארק מנחת, ירושלים.",
+        "שעות הפתיחה, מחירי הכניסה והפעילויות משתנים - מומלץ לבדוק באתר jerusalemzoo.org.il לפני יציאה.",
+        "לפי האתר הרשמי, כניסה אחרונה לגן מתאפשרת עד שעה לפני שעת הסגירה.",
+        "הגעה בתחבורה ציבורית: קווי אוטובוס לפארק מנחת. פרטים עדכניים באתר הרשמי.",
+        "מומלץ להגיע עם כובע, מים ונעליים נוחות - חלק מהשטח מדורג.",
+        "ניתן לשלב ביקור באקווריום ישראל, שנמצא במרחק של כק\"מ אחד מהכניסה לגן.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. גן החיות התנכי הוא אחד היעדים המשפחתיים הפופולריים בירושלים, עם חיות, מתחמי משחק ורכבת פנימית.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "ברוב המתחם כן. יש מדרונות, ולכן כדאי לשלב את הרכבת הפנימית בימים עמוסים או עם עגלות.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה במתחם הגן.",
+      },
+      {
+        question: "האם אפשר לשלב עם אקווריום ישראל?",
+        answer:
+          "כן. אקווריום ישראל נמצא באותו מתחם, במרחק קצר מהגן. כדאי לבדוק שעות פתיחה וכרטיסים בנפרד.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "בימים חמים מומלץ להגיע מוקדם. שעות הפתיחה משתנות לפי יום בשבוע - יש לבדוק באתר הרשמי.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer:
+          "רוב המשפחות מבלות כמה שעות בגן. אפשר לקצר או להאריך לפי גיל הילדים וקצב הביקור.",
+      },
+    ],
+    tips: [
+      "לפני שיוצאים - בדקו באתר jerusalemzoo.org.il את שעות הפתיחה והמחירים העדכניים.",
+      "בימים חמים, כדאי לשלב את הרכבת הפנימית כדי לחסוך הליכה במדרון.",
+      "אפשר להביא אוכל מהבית, ובגן יש גם אפשרויות קנייה.",
+      "אל תנסו \"להספיק הכל\" - בחרו כמה מתחמים ותנו לילדים ליהנות מהם באמת.",
+      "אם מתכננים גם אקווריום ישראל, כדאי לבדוק מראש אם נדרשת הזמנת כרטיסים.",
+    ],
+    closingNote:
+      "בואו נשמור על הגן נקי ועל החיות בשקט. קחו איתכם את האשפה ותנו לילדים ליהנות בכבוד.",
     gallery: [
       { src: "/images/places/jerusalem/גן החיות התנכי/IMG_4923.JPG" },
       { src: "/images/places/jerusalem/גן החיות התנכי/IMG_4930.JPG" },
@@ -1505,103 +3186,549 @@ linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgb
       { src: "/images/places/jerusalem/גן החיות התנכי/IMG_4966.JPG" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["kvvryvm-yshrl", "yn-lbn", "yn-chmd"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "kvvryvm-yshrl",
     title: "אקווריום ישראל",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מסע תת-ימי בין ארבעת ימי ישראל, עם תצוגות מרהיבות, בית פרפרים וחוויה משפחתית ייחודית בירושלים.",
     region: "ירושלים",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "אקווריום ישראל - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 70,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "15m",
+        modiin: "30m",
+        ramla: "40m",
+        lod: "40m",
+        "kfar-saba": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        haifa: "2h",
+      },
+    },
+    location: {
+      lat: 31.7485,
+      lng: 35.1785,
+      label: "אקווריום ישראל - רחוב אהרון שולוב 1, ירושלים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%90%D7%A7%D7%95%D7%95%D7%A8%D7%99%D7%95%D7%9D%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.7485%2C35.1785",
+    },
+    seoTitle:
+      "אקווריום ישראל - חוויה תת-ימית משפחתית בירושלים | בשביל הלב",
+    metaDescription:
+      "אקווריום ישראל בירושלים מציע מסע בין ימי ישראל, תצוגות מגוון ביולוגי ובית פרפרים. כל המידע לביקור משפחתי, כולל הגעה וטיפים.",
     heroImageLabel: "תמונת רקע - אקווריום ישראל",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8a29e'/%3E%3Cstop offset='100%25' stop-color='%2344403c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%90%D7%A7%D7%95%D7%95%D7%A8%D7%99%D7%95%D7%9D%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.7485%2C35.1785",
+    highlights: [
+      "משפחות עם ילדים",
+      "חובבי ים וטבע",
+      "יום פנימי בירושלים",
+      "חוויה חינוכית",
+      "שילוב עם גן החיות התנכי",
+      "מתאים לימים חמים",
+    ],
+    about: [
+      "אקווריום ישראל של משפחת גוטסמן הוא אתר ייחודי בירושלים, שמציע מסע תת-ימי בין ארבעת ימי ישראל - הים התיכון, הכנרת, הים האדום והים המלח.",
+      "האקווריום שוכן במתחם גן החיות התנכי, במרחק של כק\"מ אחד מהכניסה לגן. לפי האתר הרשמי, מדובר באקווריום ציבורי ראשון מסוגו בישראל, עם תצוגות של דגים, אלמוגים, לווייתנים ויצורים ימיים נוספים.",
+      "במתחם יש גם תצוגת מגוון ביולוגי ובית פרפרים. לפי האתר הרשמי, חלק מהתצוגות עשויות להיות סגורות מעת לעת מסיבות תפעוליות - כדאי לבדוק לפני ההגעה.",
+      "הביקור מתאים במיוחד למשפחות שמחפשות חוויה ממוזגת, חינוכית ומרשימה - בלי לצאת מהעיר.",
+      "ניתן לשלב את הביקור עם גן החיות התנכי, שנמצא באותו אזור, ולהפוך את היום לשילוב של חיות יבשה וים.",
+    ],
+    personalStory: [
+      "אקווריום ישראל הוא מסע בין ארבעת הימים.",
+      "ים תיכון, כנרת, ים אדום, ים המלח - כל חדר עולם חדש.",
+      "יש משהו בשקט של מים, בדגים ששוחים, ובילדים שעומדים מול זכוכית ופשוט מסתכלים.",
+      "בית הפרפרים מוסיף רגע צבעוני - מקום טוב לעצור ולנשום בין התצוגות.",
+      "אין לחץ. לא צריך להספיק את כל החדרים.",
+      "שווה לדעת: בימים חמים זה מקום ממוזג ונוח. ואפשר לשלב עם גן החיות התנכי באותו אזור.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      {
+        label: "חניה",
+        value: "חניה בכניסה לאקווריום. מומלץ לבדוק מראש באתר הרשמי.",
+      },
+      {
+        label: "משך בילוי",
+        value: "כמה שעות - לפי קצב המשפחה",
+      },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן, ברוב המתחם" },
+      { label: "זמן בילוי", value: "כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה בכניסה לאקווריום ישראל, רחוב אהרון שולוב 1, ירושלים.",
+      notes: [
+        "לפי האתר הרשמי, מתחם האקווריום ממוקם במרחק של כק\"מ אחד מהכניסה לגן החיות התנכי.",
+        "הגעה בתחבורה ציבורית: קו 26א' מהר הרצל ובית וגן. פרטים באתר israel-aquarium.org.il.",
+        "שעות הפתיחה ומחירי הכניסה משתנים - מומלץ לבדוק באתר הרשמי לפני יציאה.",
+        "לפי האתר הרשמי, מומלץ להגיע 15 דקות לפני שעת הכניסה שרכשו כרטיס אליה.",
+        "לפי האתר הרשמי, אין להכניס גלגיליות, אופניים, בימבות וקורקינטים לאקווריום.",
+        "כרטיסים - מומלץ לרכוש מראש באתר הרשמי.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. האקווריום מציע חוויה חזותית ומרשימה שמתאימה לילדים בכל הגילאים.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "ברוב המתחם כן. השטח ממוזג ונגיש יחסית.",
+      },
+      {
+        question: "האם צריך להזמין כרטיסים מראש?",
+        answer:
+          "מומלץ לרכוש כרטיסים מראש באתר israel-aquarium.org.il. פרטים עדכניים באתר הרשמי.",
+      },
+      {
+        question: "האם אפשר לשלב עם גן החיות התנכי?",
+        answer:
+          "כן. שני האתרים נמצאים באותו מתחם. כדאי לבדוק שעות פתיחה וכרטיסים בנפרד.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה בכניסה לאקווריום.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "בימים עמוסים מומלץ להגיע מוקדם. שעות הפתיחה משתנות לפי יום בשבוע - יש לבדוק באתר הרשמי.",
+      },
+    ],
+    tips: [
+      "לפני שיוצאים - בדקו באתר israel-aquarium.org.il את שעות הפתיחה, מחירי הכניסה וזמינות התצוגות.",
+      "מומלץ לרכוש כרטיסים מראש, במיוחד בסופי שבוע וחגים.",
+      "אפשר לשלב ביקור בגן החיות התנכי באותו יום - כדאי לתכנן לפי שעות הפתיחה.",
+      "הגיעו 15 דקות לפני שעת הכניסה, לפי ההנחיות באתר הרשמי.",
+      "אל תנסו \"להספיק הכל\" - תנו לילדים לעצור ליד התצוגות שמעניינות אותם.",
+    ],
+    closingNote:
+      "בואו נשמור על האקווריום נקי ושקט. אל תדגימו על זכוכית האקווריום וקחו איתכם את האשפה.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["gn-hchyvt-htnky", "yn-lbn", "yn-chmd"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "prk-ytbth",
     title: "פארק יטבתה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "ספארי מדברי בדרך לאילת - ראמים, פראים, יענים וחוויית שימור בלב הערבה.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פארק יטבתה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 30,
+      weatherTraits: ["heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        eilat: "30m",
+        "beer-sheva": "2h",
+        arad: "1h-plus",
+        dimona: "1h-plus",
+        jerusalem: "2h",
+        "tel-aviv": "1h-plus",
+      },
+    },
+    location: {
+      lat: 29.8822,
+      lng: 35.0661,
+      label: "שמורת טבע חי-בר יוטבתה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%98%D7%91%D7%A2%20%D7%97%D7%99-%D7%91%D7%A8%20%D7%99%D7%95%D7%98%D7%91%D7%AA%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=29.8822%2C35.0661",
+    },
+    seoTitle: "חי-בר יוטבתה - ספארי מדברי לכל המשפחה | בשביל הלב",
+    metaDescription:
+      "שמורת טבע חי-בר יוטבתה מציעה ספארי מדברי, מרכז מבקרים וחניון לילה על כביש 90 בדרך לאילת. כל המידע לביקור משפחתי.",
     heroImageLabel: "תמונת רקע - פארק יטבתה",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A9%D7%9E%D7%95%D7%A8%D7%AA%20%D7%98%D7%91%D7%A2%20%D7%97%D7%99-%D7%91%D7%A8%20%D7%99%D7%95%D7%98%D7%91%D7%AA%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=29.8822%2C35.0661",
+    highlights: [
+      "משפחות עם ילדים",
+      "עצירה בדרך לאילת",
+      "אוהבי חיות",
+      "חינוך לשימור",
+      "מדבר וערבה",
+      "חניון לילה",
+    ],
+    about: [
+      "פארק יטבתה מזוהה בעיקר עם שמורת טבע חי-בר יוטבתה של רשות הטבע והגנים - אתר שימור ייחודי על כביש 90, כ-35 ק\"מ צפונית לאילת, בין הקיבוצים יטבתה וסמר.",
+      "השמורה הוקמה כדי לאקלם ולהחזיר לטבע בעלי חיים שנכחדו מנופי הארץ או נמצאים בסכנת הכחדה. בין המינים שניתן לראות במסלול: ראמים, צבאים, פראים, יענים ועוד.",
+      "הביקור כולל מרכז מבקרים עם סרט מבוא, ולאחריו מסלול ספארי מדברי ברכב פרטי - נסיעה בשטח הפתוח עם צפייה בבעלי החיים בסביבתם הטבעית, מבלי לצאת מהרכב.",
+      "לפי רשות הטבע והגנים, ניתן גם להזמין לינה בחניון הלילה של השמורה - חוויה מדברית לילית ליד האתר.",
+      "זו עצירה פופולרית למשפחות בדרך לאילת, שמשלבת חינוך, נוף מדברי וחוויה קצרה יחסית.",
+    ],
+    personalStory: [
+      "חי-בר יוטבתה הוא עצירה בדרך לאילת.",
+      "ספארי מדברי - נוסעים ברכב, רואים ראמים ופראים בשטח הפתוח, ולא צריכים לרדת.",
+      "יש משהו בנוף המדברי, בחום, בפתיחות - שונה מכל מה שמכירים.",
+      "מרכז המבקרים והסרט נותנים הקשר לפני הנסיעה. שווה לעצור שם לפני שיוצאים לשטח.",
+      "לא צריך יום שלם. שעה, שעתיים - וממשיכים בדרך.",
+      "אם אתם עם ילדים שאוהבים חיות - זו עצירה שהם יזכרו.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      { label: "חניה", value: "במסגרת הכניסה לשמורה" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - במרכז המבקרים" },
+      { label: "זמן ביקור", value: "שעה עד כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה במרכז המבקרים של חי-בר יוטבתה, על כביש 90.",
+      notes: [
+        "הגעה: על כביש 90 בין יטבתה לסמר. בוויז: שמורת טבע חי-בר יוטבתה.",
+        "לפי רשות הטבע והגנים, נדרש רישום מראש לביקור - מומלץ לתאם באתר parks.org.il.",
+        "שעות הפתיחה, מחירי הכניסה וחניון הלילה משתנים - יש לבדוק באתר הרשמי לפני יציאה.",
+        "הכניסה לשמורה נסגרת שעה לפני שעת הסגירה הרשומה.",
+        "כניסת כלבים אסורה בשמורה.",
+        "בחלק מימות השנה ניתן לצפות בבעלי חיים במסגרת סיור מודרך - בתיאום מראש.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. חי-בר יוטבתה מתוכנן כחוויה משפחתית, עם סרט מבוא ומסלול ספארי ברכב.",
+      },
+      {
+        question: "האם צריך לרדת מהרכב?",
+        answer:
+          "במסלול הספארי העיקרי הצפייה מתבצעת מהרכב. סיורים מודרכים למכלאות דורשים הליכה ותיאום.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. חניה במרכז המבקרים.",
+      },
+      {
+        question: "האם אפשר ללון במקום?",
+        answer:
+          "כן. לפי רשות הטבע והגנים יש חניון לילה מסודר - יש להזמין בנפרד באתר הרשמי.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "אפשר לבקר לאורך השנה. בקיץ מומלץ להגיע בשעות הבוקר המוקדמות.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer:
+          "רוב המשפחות מקדישות שעה עד כמה שעות, בהתאם לקצב ולתכנון הלינה.",
+      },
+    ],
+    tips: [
+      "לפני יציאה - בדקו באתר parks.org.il את שעות הפתיחה, המחירים והרישום המראשי.",
+      "הגיעו מוקדם בימים חמים - הספארי נעים יותר לפני שהחום מתגבר.",
+      "הביאו מים, כובע ומצלמה - הצילום מהרכב הוא חלק מהכיף.",
+      "אם מתכננים לינה, כדאי להזמין חניון לילה מראש באתר הרשמי.",
+      "אל תנסו להאכיל או להתקרב לחיות - יש לשמור מרחק בטיחותי.",
+    ],
+    closingNote:
+      "בואו נשמור על השקט בשמורה ועל בעלי החיים. קחו איתכם את האשפה.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["ym-hmlch-chvf-bynykny", "chn-yn-gdy", "kvmrn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "ym-hmlch-chvf-bynykny",
     title: "ים המלח - חוף ביאניקני",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "חוף ים המלח, מתחמי נופש ואווירה מדברית - חופשה משפחתית על הגדה הדרומית של הים.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "ים המלח - חוף ביאניקני - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "beer-sheva": "1h-plus",
+        arad: "1h",
+        jerusalem: "1h-plus",
+        "tel-aviv": "1h-plus",
+        dimona: "1h",
+      },
+    },
+    location: {
+      lat: 31.196,
+      lng: 35.365,
+      label: "כפר הנופש ביאנקיני - ים המלח",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%91%D7%99%D7%90%D7%A0%D7%A7%D7%99%D7%A0%D7%99%20%D7%99%D7%9D%20%D7%94%D7%9E%D7%9C%D7%97&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.196%2C35.365",
+    },
+    seoTitle: "חוף ביאניקני - ים המלח וכפר נופש משפחתי | בשביל הלב",
+    metaDescription:
+      "חוף ביאניקני בים המלח הוא חלק מכפר הנופש ביאנקיני, עם חוף ים, מתקנים ואווירה מדברית. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/ים המלח - חוף ביאניקני/hero.jpeg",
     heroImageLabel: "תמונת רקע - ים המלח - חוף ביאניקני",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/ים המלח - חוף ביאניקני/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%91%D7%99%D7%90%D7%A0%D7%A7%D7%99%D7%A0%D7%99%20%D7%99%D7%9D%20%D7%94%D7%9E%D7%9C%D7%97&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.196%2C35.365",
+    highlights: [
+      "משפחות עם ילדים",
+      "ים המלח",
+      "חופשה מדברית",
+      "רחצה ומרגוע",
+      "מתקני נופש",
+      "אזור עין בוקק",
+    ],
+    about: [
+      "חוף ביאניקני הוא חלק מכפר הנופש ביאנקיני על חוף ים המלח - מתחם תיירותי פרטי שהוקם בשנת 2002 ופרוס על שטח של כ-200 דונם.",
+      "לפי האתר הרשמי, הכפר כולל חדרי אירוח, חוף ים, מסעדה, מתקני נופש, אתר קמפינג ואולמות אירועים - הכול באווירה מרוקאית-מדברית.",
+      "ים המלח הוא הנקודה הנמוכה בעולם, והאזור ידוע בנוף המדברי, במי המלח ובאווירה השקטה לאורך כביש 90.",
+      "החוף מתאים למשפחות שמחפשות יום של רחצה, מנוחה ושילוב עם לינה או ארוחה במתחם - לא רק עצירה קצרה.",
+      "באזור הסמוך ניתן לשלב ביקורים נוספים - שמורות טבע, מעיינות ואתרי רשות הטבע והגנים לאורך ים המלח.",
+    ],
+    personalStory: [
+      "ים המלח הוא מקום של עולם אחר.",
+      "מים שמציפים, נוף מדברי, ואווירה שקטה לאורך כביש 90.",
+      "חוף ביאניקני יושב בתוך כפר נופש - אפשר לבוא ליום, ללון, או רק לרחצה וארוחה.",
+      "יש משהו בלהיכנס למים ולהרגיש את הגוף צף. גם ילדים מתרגשים מהתחושה הזו.",
+      "לא צריך לתכנן הרבה. בגדים, מגבות, מים מתוקים לשתייה - ופשוט ליהנות.",
+      "שווה לדעת: אחרי הרחצה כדאי לשטוף במי מים מתוקים. ולהיזהר ממי שמיים.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      { label: "חניה", value: "מומלץ לבדוק באתר הרשמי" },
+      { label: "משך בילוי", value: "כמה שעות עד יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן - ברוב המתחם" },
+      { label: "זמן בילוי", value: "כמה שעות עד יום שלם" },
+    ],
+    gettingThere: {
+      parking: "חניה בכפר הנופש ביאנקיני, באזור ים המלח.",
+      notes: [
+        "הגעה: על כביש 90 לאורך ים המלח, באזור עין בוקק.",
+        "שעות הפעילות, מחירי הכניסה והלינה משתנים - מומלץ לבדוק באתר biankini.co.il לפני יציאה.",
+        "מומלץ להגיע עם בגדי ים, מגבות, כובע, מים לשתייה וקרם הגנה.",
+        "יש להיזהר בעת כניסה למי ים המלח - מומלץ לקרוא הנחיות בטיחות באתר.",
+        "ניתן לשלב לינה, ארוחה במסעדת הכפר או ביקור יומי - לפי מה שמתאים למשפחה.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. חוף ביאניקני ומתחם הנופש מתאימים למשפחות, עם חוף ים ומתקנים במקום.",
+      },
+      {
+        question: "האם אפשר להיכנס לים?",
+        answer:
+          "כן. זה חוף ים המלח. יש להקפיד על הנחיות בטיחות ולהישמר ממי שמיים.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה במתחם - פרטים באתר הרשמי.",
+      },
+      {
+        question: "האם אפשר ללון?",
+        answer:
+          "כן. כפר הנופש מציע מגוון חדרי אירוח - מומלץ להזמין מראש באתר biankini.co.il.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "אפשר לבקר לאורך השנה. בקיץ מומלץ להגיע בשעות הבוקר או אחר הצהריים.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer:
+          "מספיקות כמה שעות לרחצה ומנוחה, אך אפשר גם להאריך ליום שלם או ללילה.",
+      },
+    ],
+    tips: [
+      "בדקו באתר biankini.co.il את שעות הפתיחה, המחירים והזמינות לפני יציאה.",
+      "הביאו מים מתוקים לשתייה - חשוב במיוחד באזור ים המלח.",
+      "אחרי הרחצה כדיף לשטוף במי מים מתוקים - מומלץ להיערך מראש.",
+      "בסופי שבוע ובחגים המקום עשוי להיות עמוס - כדאי להגיע מוקדם.",
+      "אפשר לשלב באותו יום גם אתרים נוספים לאורך ים המלח.",
+    ],
+    closingNote:
+      "בואו נשמור על החוף נקי. קחו איתכם את האשפה ואת כל הציוד.",
     gallery: [
       { src: "/images/places/south/ים המלח - חוף ביאניקני/IMG_3214.jpeg" },
       { src: "/images/places/south/ים המלח - חוף ביאניקני/IMG_3223.jpeg" },
       { src: "/images/places/south/ים המלח - חוף ביאניקני/IMG_3260.jpeg" },
-      { src: "/images/places/south/ים המלח - חוף ביאניקני/%D7%A2%D7%95%D7%AA%D7%A7%20%D7%A9%D7%9C%20IMG_3234%202.jpeg" },
+      { src: "/images/places/south/ים המלח - חוף ביאניקני/עותק של IMG_3234 2.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["prk-ytbth", "chn-yn-gdy", "kvmrn", "yn-pshchh-yynvt-tzvkym"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "mrynh-shklvn",
     title: "מרינה אשקלון",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "טיילת, ים, סירות ואווירה ימית - בילוי משפחתי על חוף אשקלון.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "מרינה אשקלון - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        ashkelon: "10m",
+        ashdod: "20m",
+        "beer-sheva": "45m",
+        "kiryat-gat": "30m",
+        rehovot: "45m",
+        "bat-yam": "45m",
+      },
+    },
+    location: {
+      lat: 31.6821,
+      lng: 34.556,
+      label: "מרינה אשקלון",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9E%D7%A8%D7%99%D7%A0%D7%94%20%D7%90%D7%A9%D7%A7%D7%9C%D7%95%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.6821%2C34.556",
+    },
+    seoTitle: "מרינה אשקלון - טיילת, ים ובילוי משפחתי | בשביל הלב",
+    metaDescription:
+      "מרינה אשקלון היא מרינה בינלאומית על חוף העיר, עם טיילת, נוף לים ואווירה ימית. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/מרינה אשקלון/hero.JPG",
     heroImageLabel: "תמונת רקע - מרינה אשקלון",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/מרינה אשקלון/hero.JPG")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9E%D7%A8%D7%99%D7%A0%D7%94%20%D7%90%D7%A9%D7%A7%D7%9C%D7%95%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.6821%2C34.556",
+    highlights: [
+      "משפחות עם ילדים",
+      "טיילת וים",
+      "עצירה בדרך",
+      "אווירה ימית",
+      "שקיעות",
+      "אשקלון",
+    ],
+    about: [
+      "מרינה אשקלון היא מרינה בינלאומית לספנות ותיירות, שנחנכה בשנת 1995 בין חופי בר כוכבא ודלילה. לפי החברה הכלכלית לאשקלון, היא כוללת מאות מקומות עגינה ומהווה שער כניסה ימי לישראל.",
+      "המרינה מנוהלת על ידי החברה הכלכלית לאשקלון, ומשמשת גם כיעד בילוי עם טיילת, נוף לים, מסעדות ועסקים בסביבה.",
+      "לפי עיריית אשקלון, המרינה מהווה אבן שואבת לבילוי ופנאי - לא רק לתושבי העיר, אלא גם למבקרים מהאזור.",
+      "המקום מתאים לטיול רגלי על הטיילת, לשבת מול הים, לצפות בסירות ולשלב ארוחה או קפה באזור.",
+      "ניתן לבקר לכמה שעות בלבד - עצירה קלה אחרי יום בים או בדרך ליעד אחר.",
+    ],
+    personalStory: [
+      "מרינה אשקלון היא טיילת, ים וסירות - בלי אטרקציה מורכבת.",
+      "אפשר ללכת על הטיילת, לעצור לנשנוש, לצפות בסירות ולשבת מול הים.",
+      "בלי לחץ. לא חייבים תוכנית.",
+      "השקיעה על הים הופכת את המקום ליפה גם בשעות הערב.",
+      "שווה לבדוק לפני יציאה אם יש עבודות שיפוץ - העירייה מפרסמת עדכונים.",
+      "אפשר לשלב עם פארק לכיש או חוף אשקלון באותו יום.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם - לטיילת והסביבה" },
+      { label: "חניה", value: "יש חניה באזור המרינה" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם - לטיילת" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן - בטיילת" },
+      { label: "זמן בילוי", value: "שעה עד כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה באזור מרינה אשקלון, ליד הטיילת.",
+      notes: [
+        "הגעה: מרינה אשקלון, חוף אשקלון - בין חופי בר כוכבא ודלילה.",
+        "לפי עיריית אשקלון, החל מ-2025 מתקיימים במקום עבודות שיפוץ - מומלץ לבדוק עדכונים לפני ההגעה.",
+        "הטיילת פתוחה להליכה ומתאימה לעגלות.",
+        "מומלץ להגיע עם כובע, מים ונעליים נוחות.",
+        "בסופי שבוע ובשעות שקיעה המקום עשוי להיות עמוס יותר.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. הטיילת והסביבה מתאימות למשפחות, עם נוף לים ומרחב להליכה.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן. הטיילת סלולה ונגישה לעגלות.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה באזור המרינה.",
+      },
+      {
+        question: "האם אפשר להיכנס לים?",
+        answer:
+          "כן. החופים הסמוכים לאשקלון מתאימים לרחצה - יש לבדוק דגלי בטיחות ביום הביקור.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "בכל שעות היום. לשקיעה מומלץ להגיע לפני השקיעה.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "בין שעה לכמה שעות, בהתאם לקצב המשפחה.",
+      },
+    ],
+    tips: [
+      "בדקו לפני ההגעה אם יש עבודות שיפוץ במתחם - העירייה מפרסמת עדכונים.",
+      "שילוב טיילת וארוחה באזור יוצר בילוי נעים לכל המשפחה.",
+      "בשעות חמות מומלץ להגיע בשעות הבוקר או אחר הצהריים.",
+      "הביאו מים וכובע - גם על הטיילת יש חשיפה לשמש.",
+      "אפשר לשלב ביקור בגן לאומי אשקלון או בחוף הסמוך.",
+    ],
+    closingNote:
+      "בואו נשמור על הטיילת והחוף נקיים. קחו איתכם את האשפה.",
     gallery: [
       { src: "/images/places/south/מרינה אשקלון/IMG_7299.jpg" },
       { src: "/images/places/south/מרינה אשקלון/IMG_7321.jpg" },
@@ -1609,81 +3736,373 @@ linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, 
       { src: "/images/places/south/מרינה אשקלון/IMG_7343.JPG" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["prk-lkysh"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "lvnd",
     title: "לונדע",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מוזיאון הילדים באר שבע - חוויה אינטראקטיבית לכל המשפחה.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "לונדע - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["indoor", "easy-trails"],
+      companions: ["kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant", "rain-friendly"],
+      weatherAvoid: [],
+      travelTimeFrom: {
+        "beer-sheva": "10m",
+        omer: "15m",
+        lehavim: "20m",
+        "kiryat-gat": "30m",
+        dimona: "35m",
+        arad: "45m",
+      },
+    },
+    location: {
+      lat: 31.244,
+      lng: 34.793,
+      label: "לונדע - מוזיאון הילדים, באר שבע",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9C%D7%95%D7%A0%D7%93%D7%A2%20%D7%91%D7%90%D7%A8%20%D7%A9%D7%91%D7%A2&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.244%2C34.793",
+    },
+    seoTitle: "לונדע - מוזיאון הילדים באר שבע | בשביל הלב",
+    metaDescription:
+      "לונדע הוא מוזיאון הילדים באר שבע, עם תערוכות אינטראקטיביות על שלוש קומות. כל המידע לביקור משפחתי.",
     heroImageLabel: "תמונת רקע - לונדע",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9C%D7%95%D7%A0%D7%93%D7%A2%20%D7%91%D7%90%D7%A8%20%D7%A9%D7%91%D7%A2&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.244%2C34.793",
+    highlights: [
+      "משפחות עם ילדים",
+      "מוזיאון אינטראקטивי",
+      "פעילות בפנים",
+      "גילאי 1-12",
+      "באר שבע",
+      "גם בקיץ",
+    ],
+    about: [
+      "לונדע הוא מוזיאון הילדים באר שבע, הממוקם ברחוב דוד הרופין 25. לפי האתר הרשמי, המוזיאון פועל משנת 2014 ומציע חוויה אינטראקטיבית לילדים ולמשפחות.",
+      "המוזיאון פרוס על שלוש קומות, עם תערוכות קבועות ומתחלפות שמעודדות למידה דרך משחק, ניסוי וחוויה.",
+      "לפי lunada.co.il, התערוכות מיועדות בעיקר לגילאי 1-12, אך מתאימות גם למבוגרים שרוצים להצטרף לחוויה.",
+      "המקום מתאים במיוחד לימים חמים או גשומים - כל הפעילות בפנים, במיזוג אוויר.",
+      "ניתן לשלב את הביקור עם סיור בבאר שבע או עם יום בילוי נוסף באזור הנגב.",
+    ],
+    personalStory: [
+      "לונדע הוא מוזיאון ילדים בפנים - כל הפעילות במיזוג.",
+      "שלוש קומות של תערוכות אינטראקטיביות, בעיקר לגילאי 1-12.",
+      "אפשר לגעת, לנסות, לחקור - בקצב שלכם, בלי לחץ.",
+      "ביום חם או גשום זה מקום שעובד מצוין.",
+      "בחופשות כדאי להזמין כרטיסים מראש.",
+      "אפשר לשלב ארוחה באזור - יש מסעדות ליד המוזיאון.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      { label: "חניה", value: "יש חניה בסביבה" },
+      { label: "משך בילוי", value: "2-3 שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן - גילאי 1-12" },
+      { label: "נגיש לעגלות", value: "כן" },
+      { label: "זמן בילוי", value: "2-3 שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה ברחוב דוד הרופין ובסביבה, באר שבע.",
+      notes: [
+        "הגעה: רחוב דוד הרופין 25, באר שבע.",
+        "שעות הפעילות ומחירי הכניסה משתנים - מומלץ לבדוק באתר lunada.co.il לפני יציאה.",
+        "מומלץ להזמין כרטיסים מראש, במיוחד בחופשות ובסופי שבוע.",
+        "המקום מתאים לימים חמים - כל הפעילות בפנים.",
+        "יש לבדוק באתר אם יש תערוכות מיוחדות או אירועים ביום הביקור.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. לונדע מיועד בעיקר לגילאי 1-12, עם תערוכות אינטראקטיביות.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן. המוזיאון נגיש לעגלות.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה בסביבה.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "בין שעתיים לשלוש שעות, בהתאם לגיל הילדים.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "בכל ימות השנה. בחופשות מומלץ להזמין מראש.",
+      },
+      {
+        question: "האם מתאים גם בקיץ?",
+        answer:
+          "כן. כל הפעילות בפנים, במיזוג אוויר.",
+      },
+    ],
+    tips: [
+      "בדקו באתר lunada.co.il את שעות הפתיחה והמחירים לפני יציאה.",
+      "הזמינו כרטיסים מראש בחופשות - המקום פופולרי.",
+      "הגיעו מוקדם כדי לנצל את כל שלוש הקומות בנוחות.",
+      "אפשר לשלב ארוחה באזור - יש מסעדות בסביבת המוזיאון.",
+      "בדקו באתר אם יש סדנאות או אירועים מיוחדים.",
+    ],
+    closingNote:
+      "בואו נשמור על המוזיאון נקי ונעים לכולם.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: [],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "ykb-rmt-hgvln",
     title: "יקב רמת הגולן",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "יקב מוביל ברמת הגולן עם מרכז מבקרים, טעימות יין ונוף כרמים בגובה רם.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "יקב רמת הגולן - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "viewpoint"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h30",
+        "kfar-saba": "2h",
+        raanana: "2h",
+        herzliya: "2h",
+        netanya: "2h",
+        modiin: "2h",
+        ramla: "2h",
+        lod: "2h",
+      },
+    },
+    location: {
+      lat: 32.989,
+      lng: 35.69,
+      label: "יקב רמת הגולן, קצרין",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%99%D7%A7%D7%91%20%D7%A8%D7%9E%D7%AA%20%D7%94%D7%92%D7%95%D7%9C%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.989%2C35.69",
+    },
+    seoTitle: "יקב רמת הגולן - מרכז מבקרים וטעימות | בשביל הלב",
+    metaDescription:
+      "יקב רמת הגולן הוא מהיקבים המובילים בישראל, עם מרכז מבקרים בקצרין, טעימות יין ונוף כרמים. כל המידע לביקור משפחתי בגולן.",
     heroImage: "/images/places/north/יקב רמת הגולן/hero.jpeg",
     heroImageLabel: "תמונת רקע - יקב רמת הגולן",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/יקב רמת הגולן/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%99%D7%A7%D7%91%20%D7%A8%D7%9E%D7%AA%20%D7%94%D7%92%D7%95%D7%9C%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.989%2C35.69",
+    highlights: [
+      "זוגות",
+      "משפחות",
+      "טעימות יין",
+      "נוף גולן",
+      "מרכז מבקרים",
+    ],
+    about: [
+      "יקב רמת הגולן הוקם בשנת 1983 ונחשב כיום בין היקבים המובילים בישראל. היקב מייצר יינות מענבי כרמים ברמת הגולן, בהם מגוון זני ענבים מקומיים.",
+      "מרכז המבקרים של היקב ממוקם באזור קצרין ומציע סיורים, הסברים על תהליך ייצור היין וטעימות. לפי האתר הרשמי golanwines.co.il, היקב מפעיל כרמים רבים ברחבי רמת הגולן.",
+      "הביקור מתאים לזוגות ולמשפחות עם ילדים גדולים יותר. הנוף מהכרמים והאזור מוסיף חוויה של גולן - אוויר צלול, שדות ירוקים ומרחק מהעיר.",
+      "ניתן לשלב את הביקור עם אתרים נוספים בגולן: בניאס, מפלי הגולן, תצפיות ומסלולי טבע.",
+    ],
+    personalStory: [
+      "ביקור ביקב מתאים למי שרוצה לשלב טעימה, למידה ונוף באותו יום.",
+      "מרכז מבקרים כזה מאפשר לעצור לשעה-שעתיים בלי מסלול הליכה ארוך.",
+      "הילדים הגדולים יכולים ללמוד על תהליך ייצור היין, והמבוגרים לטעום מבחר יינות.",
+      "הנוף מהכרמים מוסיף שכבה של שקט וירוק - שונה מחופי הים או מסלולי המים.",
+      "מומלץ לתאם מראש ולבדוק שעות פתיחה באתר golanwines.co.il.",
+    ],
+    cost: [
+      { label: "כניסה למרכז מבקרים", value: "לרוב חינם - טעימות בתשלום" },
+      { label: "טעימות", value: "בתשלום - לפי golanwines.co.il" },
+      { label: "משך בילוי", value: "שעה עד שעתיים" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם - כניסה; טעימות בתשלום" },
+      { label: "מתאים לילדים", value: "כן - בעיקר גיל בוגר יותר" },
+      { label: "נגיש לעגלות", value: "כן - במרכז המבקרים" },
+      { label: "אתר רשמי", value: "golanwines.co.il" },
+    ],
+    gettingThere: {
+      parking: "חניה במרכז המבקרים של יקב רמת הגולן, קצרין.",
+      notes: [
+        "שעות פתיחה, מחירי טעימות וסיורים - מומלץ לבדוק ב-golanwines.co.il.",
+        "סיורים וטעימות - מומלץ לתאם מראש דרך האתר הרשמי.",
+        "ניתן לשלב עם שמורת בניאס, מפלי הגולן ואתרים נוספים.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן, בעיקר לילדים גדולים יותר. מרכז המבקרים מציע חוויה חינוכית על ייצור יין.",
+      },
+      {
+        question: "האם צריך לתאם מראש?",
+        answer:
+          "מומלץ לבדוק באתר golanwines.co.il אם נדרשת הזמנה לסיורים וטעימות.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן, במרכז המבקרים.",
+      },
+      {
+        question: "מה כדאי לשלב באזור?",
+        answer: "שמורת בניאס, מפלי הגולן, תצפיות ומסלולי טבע נוספים.",
+      },
+    ],
+    tips: [
+      "בדקו שעות פתיחה וטעימות ב-golanwines.co.il.",
+      "שלבו עם אתר טבע אחד באותו יום - לא לנסות \"להספיק הכל\".",
+      "בקיץ האוויר בגולן נעים יותר מהמישור - אך עדיין כדאי כובע ומים.",
+    ],
     gallery: [
       { src: "/images/places/north/יקב רמת הגולן/IMG_8868.jpeg" },
       { src: "/images/places/north/יקב רמת הגולן/IMG_8870.jpeg" },
       { src: "/images/places/north/יקב רמת הגולן/IMG_8873.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["shmvrt-tb-bnys", "mpl-tnvr-gbvl-lbnvn", "msdt-dg-l-hdn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "myynvt-gybtvn",
     title: "מעיינות גיבתון",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "שמורת טבע עם ביצה, מגדל תצפית ותל מלוט - הפתעה ירוקה ליד מזכרת בתיה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "מעיינות גיבתון - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h 20m",
+        "kfar-saba": "30m",
+        raanana: "35m",
+        "hod-hasharon": "30m",
+        herzliya: "35m",
+        netanya: "45m",
+        modiin: "20m",
+        ramla: "20m",
+        lod: "20m",
+      },
+    },
+    location: {
+      lat: 31.853,
+      lng: 34.8475,
+      label: "שמורת טבע מעיינות גיבתון",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9E%D7%A2%D7%99%D7%99%D7%A0%D7%95%D7%AA%20%D7%92%D7%99%D7%91%D7%AA%D7%95%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.853%2C34.8475",
+    },
+    seoTitle: "מעיינות גיבתון - שמורת טבע עם ביצה ותצפית | בשביל הלב",
+    metaDescription:
+      "שמורת טבע מעיינות גיבתון ליד מזכרת בתיה כוללת ביצה, פלג זורם, מגדל תצפית ותל מלוט. כל המידע הרשמי לביקור.",
     heroImage: "/images/places/center/מעיינות גיבתון/hero.jpeg",
     heroImageLabel: "תמונת רקע - מעיינות גיבתון",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.78) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/מעיינות גיבתון/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9E%D7%A2%D7%99%D7%99%D7%A0%D7%95%D7%AA%20%D7%92%D7%99%D7%91%D7%AA%D7%95%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.853%2C34.8475",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי טבע",
+      "תצפיות",
+      "טיול קל",
+      "חינם",
+    ],
+    about: [
+      "שמורת טבע מעיינות גיבתון היא שמורה קטנה של כ-80 דונם, כקילומטר ממזרח למזכרת בתיה. לפי רשות הטבע והגנים, בין שדות, מסילות ברזל וכביש 6 מתגלים פתאום ביצה, פלג זורם, אגמון מים, חורשת אקליפטוס ותל מלוט - המזוהה עם גיבתון המקראית.",
+      "מוקדי העניין העיקריים כוללים מגדל תצפית על גשר מתכת באורך 250 מטר, תצפית מראש התל, ואגמון מים עם צמחיית גדות עשירה. השמורה עברה שיקום נרחב להחזרת משטר המים ושיקום בית הגידול המימי.",
+      "לפי האתר הרשמי, הכניסה ללא תשלום. חשוב לבדוק לפני יציאה את סטטוס השמורה - בעקבות שריפה באזור, השמורה נסגרה למטיילים עד להודעה חדשה.",
+    ],
+    personalStory: [
+      "שמורה קטנה כזו מתאימה למשפחות שמחפשות טיול קצר ומרתק, בלי יום שלם בדרכים. המגדל, הגשר והביצה יוצרים \"משימות\" קטנות שמתאימות לילדים.",
+      "הפתעה הירוקה בלב שדות חקלאיים מוסיפה תחושת גילוי, גם למי שמכיר את האזור. התצפית מראש התל נותנת פרופורציה נכונה לשטח הקטן.",
+      "החורשה המוצלת ליד הביצה מאפשרת לשלב הליכה קצרה עם עצירה לנוח. זה יעד טוב לבוקר או לצהריים, לא בהכרח ליום שלם.",
+      "לפני כל ביקור, כדאי לוודא שהשמורה פתוחה - סטטוס הסגירה משתנה לאחר אירועי שריפה באזור.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "בתחנת הרכבת מזכרת בתיה" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "לא - שבילי שדה" },
+      { label: "זמן ביקור", value: "שעה עד כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה בתחנת הרכבת מזכרת בתיה. הליכה לאורך השביל המסומן עד לשמורה.",
+      notes: [
+        "לפי האתר הרשמי, ההליכה על פסי הרכבת או בסמוך להם אסורה ומסוכנת.",
+        "אסור להיכנס עם כלבים, אופניים וכלים ממונעים.",
+        "בעקבות שריפה, השמורה נסגרה למטיילים - יש לבדוק באתר parks.org.il לפני יציאה.",
+        "האתר פתוח בדרך כלל כל הזמן, אך הביקור אסור בחשיכה.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. המגדל, הגשר והביצה מעניינים ילדים, אך יש להישאר על השבילים המסומנים.",
+      },
+      {
+        question: "האם השמורה פתוחה?",
+        answer:
+          "יש לבדוק באתר parks.org.il לפני יציאה. בעקבות שריפה, השמורה נסגרה עד להודעה חדשה.",
+      },
+      {
+        question: "האם יש כניסה בתשלום?",
+        answer: "לא. לפי האתר הרשמי, הכניסה ללא תשלום.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer:
+          "לא. השבילים בשדה ואין נגישות מלאה לעגלות.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "שעה עד כמה שעות, לפי קצב המשפחה.",
+      },
+    ],
+    tips: [
+      "בדקו באתר parks.org.il שהשמורה פתוחה לפני שיוצאים.",
+      "הגיעו עם כובע, מים ונעלי הליכה.",
+      "החניה בתחנת הרכבת - הליכה בשביל המסומן בלבד.",
+      "אין כלבים, אופניים או כלי רכב בשטח השמורה.",
+    ],
     gallery: [
-      { src: "/images/places/center/מעיינות גיבתון/IMG_9457%203.jpeg" },
+      { src: "/images/places/center/מעיינות גיבתון/IMG_9457 3.jpeg" },
       { src: "/images/places/center/מעיינות גיבתון/IMG_9462.jpeg" },
       { src: "/images/places/center/מעיינות גיבתון/IMG_9466.jpeg" },
       { src: "/images/places/center/מעיינות גיבתון/IMG_9471.jpeg" },
@@ -1693,28 +4112,142 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       { src: "/images/places/center/מעיינות גיבתון/IMG_9501.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["ykb-krm-brk", "tl-gzr"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "yr-tzrh",
     title: "יער צרעה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "יער הנשיא עם דרך הפסלים, חניוני פיקניק, תצפיות ושביל שמשון - טבע משפחתי בלב שפלת יהודה.",
     region: "ירושלים",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "יער צרעה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    vehicleAccess: "soft-suv",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "30m",
+        modiin: "25m",
+        ramla: "35m",
+        lod: "35m",
+        "kfar-saba": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        haifa: "1h30",
+      },
+    },
+    location: {
+      lat: 31.793,
+      lng: 34.956,
+      label: "יער צרעה (יער הנשיא) - כניסה צפונית, כביש 44",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%99%D7%A2%D7%A8%20%D7%A6%D7%A8%D7%A2%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.793%2C34.956",
+    },
+    seoTitle:
+      "יער צרעה - דרך הפסלים, פיקניק וטיול משפחתי בשפלת יהודה | בשביל הלב",
+    metaDescription:
+      "יער צרעה (יער הנשיא) מציע דרך הפסלים, שביל שמשון, חניוני פיקניק ותצפיות מרהיבות. כל המידע לטיול משפחתי באזור ירושלים.",
     heroImage: "/images/places/jerusalem/יער צרעה/hero.jpeg",
     heroImageLabel: "תמונת רקע - יער צרעה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8a29e'/%3E%3Cstop offset='100%25' stop-color='%2344403c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/jerusalem/יער צרעה/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%99%D7%A2%D7%A8%20%D7%A6%D7%A8%D7%A2%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.793%2C34.956",
+    highlights: [
+      "משפחות עם ילדים",
+      "פיקניק בטבע",
+      "אוהבי נוף",
+      "דרך הפסלים",
+      "שביל שמשון",
+      "פריחה בעונה",
+    ],
+    about: [
+      "יער צרעה, המוכר גם בשם יער הנשיא, הוא יער גדול בלב שפלת יהודה, מצפון לבית שמש. קק\"ל נטעה אותו החל משנות ה-50, והוא משתרע על כ-11,000 דונם.",
+      "אחת האטרקציות המרכזיות ביער היא דרך הפסלים - מסלול נסיעה באורך כ-9 ק\"מ, עביר לרכב פרטי, עם כ-35 פסלים סביבתיים לאורך הדרך. לפי קק\"ל, לאורך הדרך פזורים חניוני פיקניק, אתרי עבר ונקודות תצפית.",
+      "ביער יש גם שביל שמשון - מסלול מסומן בעקבות סיפורי שמשון הגיבור, עם שלטי הסבר ופינות ישיבה. המסלול כולל קטעים רגליים וקטעים ברכב.",
+      "בעונות האביב והחורף היער מתמלא בפריחה - נרקיסים, רקפות, כלניות ועוד. זה הופך אותו ליעד מיוחד גם למי שאוהב צילום וטבע.",
+      "היער מתאים ליום שלם - נסיעה בדרך הפסלים, עצירה בחניון, פיקניק וטיול קצר - או לביקור קצר יותר בחניון אחד עם נוף.",
+    ],
+    personalStory: [
+      "יער צרעה הוא יום בטבע בלי מסלול קשה.",
+      "דרך הפסלים - כ-9 ק\"מ של נסיעה עם עצירות. כל פסל הוא סיבה לעצור.",
+      "שביל שמשון מוסיף סיפור מלווה - שלטים לאורך הדרך.",
+      "חניוני פיקניק עם שולחנות וצל. פשוט לפרוס, לאכול, לתת לילדים לרוץ.",
+      "באביב ובחורף היער פורח - נרקיסים, רקפות, כלניות.",
+      "לא חייבים \"להספיק הכל\". בוחרים חניון אחד ונשארים שם.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "חניונים לאורך היער" },
+      { label: "משך בילוי", value: "כמה שעות - לפי קצב המשפחה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - בחניונים נגישים" },
+      { label: "גישה", value: "רכב פרטי. חלק מהדרכים לרכב שטח" },
+    ],
+    gettingThere: {
+      parking: "חניונים רבים לאורך יער צרעה, כולל בכניסה הצפונית מכביש 44.",
+      routeLength: "דרך הפסלים - כ-9 ק\"מ. שביל שמשון - מסלול מסומן ביער.",
+      notes: [
+        "כניסה צפונית מומלצת: בין מחלף שמשון לצומת נחשון, כביש 44 (סימון ירוק).",
+        "כניסה דרומית: מכביש 3835, בקצה הדרומי של דרך הפסלים.",
+        "לפי קק\"ל, מומלץ להתחיל בטיול בכניסה הצפונית.",
+        "חלק מהקטע הדרומי של דרך הפסלים מוגדר כמתאים לרכב שטח (4X4).",
+        "מצפה צרעה סגור למטיילים בשל בעיית בטיחות - לפי קק\"ל.",
+        "מומלץ לבדוק עדכונים באתר kkl.org.il לפני יציאה.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. יער צרעה מציע חניוני פיקניק, דרך הפסלים ושביל שמשון - חוויה משפחתית בטבע.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "חלקית. יש חניונים נגישים (חניון הקיפוד, חניון הסוהר ועוד), אך לא כל המסלולים.",
+      },
+      {
+        question: "האם צריך רכב שטח?",
+        answer:
+          "לא לכל היער. דרך הפסלים עבירה לרכב פרטי, אך חלק מהקטע הדרומי מיועד ל-4X4.",
+      },
+      {
+        question: "מתי הכי יפה?",
+        answer:
+          "באביב ובחורף, כשהיער פורח. ניתן לבקר בכל השנה.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. חניוני פיקניק רבים לאורך היער.",
+      },
+      {
+        question: "מה כדאי לעשות ביער?",
+        answer:
+          "נסיעה בדרך הפסלים, עצירה בפארק שוודיה, פיקניק בחניון, או שביל שמשון - לפי העדפות המשפחה.",
+      },
+    ],
+    tips: [
+      "התחילו בכניסה הצפונית מכביש 44 - לפי ההמלצה של קק\"ל.",
+      "דרך הפסלים מתאימה לנסיעה רגועה עם עצירות - לא לנסות \"לעבור הכל\" בלי לעצור.",
+      "בעונת הפריחה כדאי להגיע מוקדם - החניונים מתמלאים.",
+      "הביאו אוכל, מים, כובע ונעליים נוחות.",
+      "בדקו באתר kkl.org.il עדכונים על סגירות או מצפים.",
+    ],
+    closingNote:
+      "בואו נשמור על היער נקי. קחו איתכם את האשפה ואל תאספו פרחים מהשטח.",
     gallery: [
       { src: "/images/places/jerusalem/יער צרעה/IMG_0340.jpeg" },
       { src: "/images/places/jerusalem/יער צרעה/IMG_0345.jpeg" },
@@ -1726,28 +4259,123 @@ linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgb
       { src: "/images/places/jerusalem/יער צרעה/IMG_8778.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["mgr-byt-zyt", "yn-chmd", "prk-kndh"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "chvf-hchshml",
     title: "חוף החשמל",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "חוף פראי צפונית לאשדוד - ים פתוח, שקט ונוף, ללא שירותי חוף מוניציפליים.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "חוף החשמל - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h 10m",
+        "kfar-saba": "1h",
+        raanana: "1h",
+        "hod-hasharon": "1h",
+        herzliya: "55m",
+        netanya: "45m",
+        modiin: "45m",
+        ramla: "40m",
+        lod: "40m",
+      },
+    },
+    location: {
+      lat: 31.838,
+      lng: 34.655,
+      label: "חוף החשמל - צפונית לאשדוד",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%97%D7%95%D7%A3%20%D7%94%D7%97%D7%A9%D7%9E%D7%9C%20%D7%90%D7%A9%D7%93%D7%95%D7%93&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.838%2C34.655",
+    },
+    seoTitle: "חוף החשמל - חוף פראי צפונית לאשדוד | בשביל הלב",
+    metaDescription:
+      "חוף החשמל צפונית לאשדוד הוא חוף פתוח ללא שירותי חוף מוניציפליים. כל מה שצריך לדעת לפני ביקור - בטיחות, גישה וטיפים.",
     heroImage: "/images/places/center/חוף החשמל/hero.jpeg",
     heroImageLabel: "תמונת רקע - חוף החשמל",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(3, 105, 161, 0.78) 0%, rgba(14, 165, 233, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/חוף החשמל/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%97%D7%95%D7%A3%20%D7%94%D7%97%D7%A9%D7%9E%D7%9C%20%D7%90%D7%A9%D7%93%D7%95%D7%93&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.838%2C34.655",
+    highlights: [
+      "זוגות",
+      "משפחות",
+      "אוהבי ים",
+      "שקט ונוף",
+      "עצירה בדרך",
+    ],
+    about: [
+      "חוף החשמל, הידוע גם כחוף חברת החשמל, נמצא צפונית לאשדוד, ליד תחנת הכוח. זהו חוף פופולרי בקרב מטיילים, אך הוא אינו חוף רחצה מוכרז ואינו נמצא בשטחה של רשות מונicipalית.",
+      "לפי דיווחים ציבוריים, חלק מהשטח מוגדר כגלילי וחלק בבעלות חברת נמלי ישראל, ולכן אין שירותי הצלה, ניקיון ותחזוקה עירוניים קבועים כמו בחופים מוכרזים. הרחצה במקום עלולה להיות מסוכנת.",
+      "החוף מתאים בעיקר לטיול, פיקניק, צילום ושקיעות - לא בהכרח לרחצה. מומלץ להגיע עם ציוד בסיסי, לשמור על ניקיון המקום ולהיזהר מהים ללא פיקוח מצילים.",
+    ],
+    personalStory: [
+      "חוף כזה מתאים למי שמחפש עצירה שקטה ליד הים, בלי מתקני חוף וללא עומס של אתר מסודר. הנוף הפתוח והחול הרחב יוצרים אווירה אחרת.",
+      "ביקור כאן דורש היערכות: אין לסמוך על שירותי הצלה, חניה מסודרת או דלתות שירותים כמו בחוף עירוני. מי שמגיע מוכן - מים, כובע, שקיות לפסולת - יכול ליהנות מהשקט.",
+      "שקיעה על החוף היא אחת החוויות העיקריות כאן. גם ביקור קצר של שעה יכול להרגיש מיוחד.",
+      "שמירה על ניקיון המקום חשוב במיוחד בחופים ללא תחזוקה קבועה. כל משפחה יכולה לעזור בשמירה על המקום.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "בדרכים סמוכות - ללא חניון רשמי" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "בפיקוח - לא לרחצה" },
+      { label: "שירותי הצלה", value: "אין" },
+      { label: "זמן ביקור", value: "שעה עד כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה בדרכים סמוכות לחוף. אין חניון רשמי מסודר.",
+      notes: [
+        "החוף אינו חוף רחצה מוכרז. הרחצה ללא פיקוח מצילים מסוכנת.",
+        "אין שירותי הצלה, ניקיון ותחזוקה עירוניים קבועים.",
+        "הגיעו עם מים, כובע, קרם הגנה ושקיות לאיסוף פסולת.",
+        "בחלק מהימים המקום עמוס - כדאי להגיע מוקדם.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם אפשר לרחוץ בחוף?",
+        answer:
+          "החוף אינו מוכרז לרחצה ואין שירותי הצלה. הרחצה ללא פיקוח מצילים מסוכנת.",
+      },
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "בפיקוח הדוק, לטיול ופיקניק. לא מומלץ לרחצה ילדים ללא שירותי הצלה.",
+      },
+      {
+        question: "האם יש שירותים?",
+        answer: "לא. אין שירותי חוף מסודרים כמו בחוף עירוני.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "חניה בדרכים סמוכות. אין חניון רשמי.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer: "לשקיעה או בשעות הבוקר המוקדמות, כשפחות עמוס.",
+      },
+    ],
+    tips: [
+      "אל תסמכו על שירותי הצלה - הימנעו מרחצה.",
+      "קחו שקיות ואספו את הפסולת שלכם.",
+      "הגיעו עם מים, כובע וציוד הגנה מהשמש.",
+      "בדקו תנאי גלים ורוח לפני שמתקרבים למים.",
+    ],
     gallery: [
       { src: "/images/places/center/חוף החשמל/IMG_0022.jpeg" },
       { src: "/images/places/center/חוף החשמל/IMG_0041.jpeg" },
@@ -1755,74 +4383,397 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       { src: "/images/places/center/חוף החשמל/IMG_3944.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["shmvrt-plmchym"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "tl-gzr",
     title: "תל גזר",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גן לאומי עם לוח גזר, מפעל מים עתיק, תצפיות ושביל הליכה מסודר - כניסה חינם.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "תל גזר - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h 15m",
+        "kfar-saba": "35m",
+        raanana: "40m",
+        "hod-hasharon": "35m",
+        herzliya: "40m",
+        netanya: "50m",
+        modiin: "20m",
+        ramla: "25m",
+        lod: "25m",
+      },
+    },
+    location: {
+      lat: 31.8567,
+      lng: 34.9217,
+      label: "גן לאומי תל גזר",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%AA%D7%9C%20%D7%92%D7%96%D7%A8&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.8567%2C34.9217",
+    },
+    seoTitle: "תל גזר - גן לאומי עם לוח גזר ותצפיות | בשביל הלב",
+    metaDescription:
+      "גן לאומי תל גזר כולל לוח גזר, מפעל מים כנעני, שער שלמה ותצפיות על עמק איילון. כניסה חינם - כל המידע לביקור.",
     heroImageLabel: "תמונת רקע - תל גזר",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%AA%D7%9C%20%D7%92%D7%96%D7%A8&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.8567%2C34.9217",
+    highlights: [
+      "משפחות עם ילדים",
+      "ארכיאולוגיה",
+      "תצפיות",
+      "טיול קל",
+      "חינם",
+    ],
+    about: [
+      "גן לאומי תל גזר שוכן ליד כביש 44, באזור כרמי יוסף. לפי רשות הטבע והגנים, זהו אתר ארכיאולוגי עם שביל הליכה מסודר, דגם מוגדל של לוח גזר, מפעל מים כנעני, שער שלמה, מקדש מצבות ותצפיות על עמק איילון.",
+      "הכניסה ללא תשלום. האתר פתוח ללא שעות פתיחה קבועות, אך אסור לשהות בלילה. לפי האתר הרשמי, אין בית שימוש בתל - יש להיערך מראש.",
+      "המסלול מעגלי ונוח לטיול משפחתי. מפעל המים כולל כ-175 מדרגות ואזורים חשוכים - מומלץ פנס ונעליים מתאימות. כניסה עם כלבים מותרת ברצועה, אך אסורה במפעל המים.",
+    ],
+    personalStory: [
+      "תל גזר הוא היסטוריה, נוף והליכה קלה - וחינם.",
+      "הלוח המפורסם והמפעל המים העתיק מעניינים גם ילדים.",
+      "התצפית על עמק איילון נותנת תחושת גובה בלי מסלול ארוך.",
+      "אין בית שימוש בתל - שווה להיערך מראש.",
+      "במפעל המים יש מדרגות ואזורים חשוכים. מומלץ פנס.",
+      "בשבתות שער כרמי יוסף עלול להיות סגור - כדאי לבדוק מסלול הגעה.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "בחניית הגן" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן - בשביל הראשי" },
+      { label: "זמן ביקור", value: "שעה עד כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה בגן הלאומי. מכביש 44, פנייה לדרך חקלאית (סמ\"ש ירוק-לבן).",
+      notes: [
+        "לבאים מדרום על כביש 44: אחרי כניסת כרמי יוסף, כ-300 מטר, פנייה ימינה.",
+        "לבאים מצפון: פנייה לכרמי יוסף, פרסה, יציאה ימינה ואז ימינה לדרך חקלאית.",
+        "לפי האתר הרשמי, בשבתות שער כרמי יוסף עלול להיות סגור - יש להגיע בדרך חלופית.",
+        "אין בית שימוש בתל. מומלץ פנס למפעל המים.",
+        "אסור לשהות בלילה.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. השביל מסודר והלוח המפורסם מעניין ילדים. במפעל המים יש מדרגות רבות - יש להיזהר.",
+      },
+      {
+        question: "האם הכניסה בתשלום?",
+        answer: "לא. לפי האתר הרשמי, הכניסה ללא תשלום.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן, בשביל ההליכה הראשי. מפעל המים וחלקים תלולים פחות מתאימים.",
+      },
+      {
+        question: "האם אפשר להביא כלב?",
+        answer:
+          "כן, ברצועה ומחסום. כניסה למפעל המים עם כלבים אסורה.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "שעה עד כמה שעות, לפי קצב המשפחה.",
+      },
+    ],
+    tips: [
+      "הגיעו עם פנס אם מתכננים לרדת למפעל המים.",
+      "אין בית שימוש - תכננו בהתאם.",
+      "בשבתות בדקו מסלול הגעה בגלל סגירת שער כרמי יוסף.",
+      "הגיעו עם מים, כובע ונעלי הליכה.",
+    ],
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["myynvt-gybtvn", "ykb-krm-brk"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "prk-kndh",
     title: "פארק קנדה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
-    region: "מרכז",
+    subtitle:
+      "פארק איילון-קנדה של קק\"ל - יער, מעיינות, אתרים ארכיאולוגיים ופיקניק בדרך בין ירושלים לתל אביב.",
+    region: "ירושלים",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פארק קנדה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    vehicleAccess: "soft-suv",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "20m",
+        modiin: "15m",
+        ramla: "20m",
+        lod: "20m",
+        "kfar-saba": "45m",
+        herzliya: "45m",
+        netanya: "50m",
+        haifa: "1h30",
+      },
+    },
+    location: {
+      lat: 31.835,
+      lng: 34.978,
+      label: "פארק איילון-קנדה - כניסה ראשית, מחלף לטרון",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%A7%D7%A0%D7%93%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.835%2C34.978",
+    },
+    seoTitle:
+      "פארק קנדה - פארק איילון-קנדה, טיול משפחתי בדרך לירושלים | בשביל הלב",
+    metaDescription:
+      "פארק קנדה (פארק איילון-קנדה) הוא פארק של קק\"ל עם יער, מעיינות, אתרים ארכיאולוגיים וחניוני פיקניק. כל המידע לביקור משפחתי.",
     heroImageLabel: "תמונת רקע - פארק קנדה",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%A7%D7%A0%D7%93%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.835%2C34.978",
+    highlights: [
+      "משפחות עם ילדים",
+      "עצירה בדרך",
+      "פיקניק בטבע",
+      "אוהבי היסטוריה",
+      "מעיינות ונוף",
+      "כניסה חינם",
+    ],
+    about: [
+      "פארק קנדה, הידוע גם בשם פארק איילון-קנדה, הוא פארק של קק\"ל המשתרע על כ-12,000 דונם ממזרח לעמק איילון, בין מחלף לטרון למחלף שער הגיא.",
+      "הפארק פותח בשנת 1973 בזכות תרומת יהודי קנדה, והוא כולל יער מטופח, בוסתנים, מעיינות, אגם, חניוני נופש, שבילי הליכה ואתרים ארכיאולוגיים - ביניהם תל איילון, מבצר צלבני ומעיין התמרים.",
+      "הפארק מתאים לעצירה בדרך בין ירושלים לתל אביב, או ליום שלם של טיול, פיקניק והליכה. הכניסה חינם.",
+      "באפריל 2025 הפארק נפגע קשות משריפות, אך קק\"ל מדווחת על תהליכי שיקום והתאוששות טבעית. מומלץ לבדוק עדכונים לפני הגעה.",
+      "בפארק יש חניונים נגישים, שולחנות פיקניק, שירותים ושבילים מסומנים - מתאים למשפחות שרוצות טבע בלי מסלול קשה.",
+    ],
+    personalStory: [
+      "פארק קנדה הוא עצירה טובה בדרך בין ירושלים לתל אביב.",
+      "יער, מעיינות ושרידים עתיקים - כל אחד מוצא משהו.",
+      "עמק המעיינות הוא אזור פופולרי לעצירה והליכה קצרה.",
+      "הפארק גדול. כדאי לבחור מראש אזור אחד - בלי לחץ להספיק הכל.",
+      "אחרי השריפות ב-2025 כדאי לבדוק עדכונים באתר קק\"ל לפני יציאה.",
+      "עצירה של שעה-שעתיים מספיקה. אפשר גם יום שלם.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "חניונים לאורך הפארק" },
+      { label: "משך בילוי", value: "כמה שעות - לפי קצב המשפחה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - בחניונים נגישים" },
+      { label: "גישה", value: "רכב פרטי" },
+    ],
+    gettingThere: {
+      parking: "כניסה ראשית: ממחלף לטרון בכביש 1, כ-700 מ' מזרחה, פנייה ימינה.",
+      notes: [
+        "מכביש 1 (ירושלים-תל אביב) פונים במחלף לטרון לכיוון מודיעין (כביש 3).",
+        "לאחר כ-700 מ' מגיעים לכניסה הראשית של הפארק.",
+        "ניתן להגיע גם מכיוון רחובות, אשדוד ומודיעין דרך כביש 3.",
+        "לפי קק\"ל, חלק מהפארק נפגע בשריפות 2025 - מומלץ לבדוק עדכונים באתר kkl.org.il.",
+        "יש חניונים נגישים, ביניהם חניון הזיתים המערבי.",
+        "מומלץ להגיע עם מים, כובע ונעליים נוחות.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. הפארק מציע חניונים, שבילים, מעיינות ומתחמי פיקניק - חוויה משפחתית בטבע.",
+      },
+      {
+        question: "האם הכניסה בתשלום?",
+        answer: "לא. הכניסה לפארק חינם.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "חלקית. יש חניונים ושבילים נגישים, אך לא כל השטח.",
+      },
+      {
+        question: "האם הפארק פתוח אחרי השריפות?",
+        answer:
+          "קק\"ל מדווחת על תהליכי שיקום. מומלץ לבדוק עדכונים באתר הרשמי לפני הגעה.",
+      },
+      {
+        question: "מה כדאי לראות בפארק?",
+        answer:
+          "עמק המעיינות, מעיין התמרים, תל איילון, מצפור איילון ושבילי הליכה מסומנים - לפי זמן ועניין.",
+      },
+      {
+        question: "האם מתאים לעצירה בדרך?",
+        answer:
+          "כן. הפארק נמצא על כביש 1 ומתאים לעצירה בין ירושלים לתל אביב.",
+      },
+    ],
+    tips: [
+      "בדקו באתר kkl.org.il עדכונים על סגירות או שבילים לאחר השריפות.",
+      "הפארק גדול - כדאי לבחור מראש אזור אחד (עמק המעיינות, חניון הזיתים וכו').",
+      "מתאים לעצירה בדרך - אין חובה \"להספיק הכל\".",
+      "הביאו אוכל, מים וכובע - במיוחד בימים חמים.",
+      "בסופי שבוע החניונים מתמלאים - כדאי להגיע מוקדם.",
+    ],
+    closingNote:
+      "בואו נשמור על הפארק נקי. קחו איתכם את האשפה ואל תאספו צמחים מהשטח.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["yn-chmd", "yr-tzrh", "mgr-byt-zyt"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "yn-pshchh-yynvt-tzvkym",
     title: "עין פאשחה עיינות צוקים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "שמורת הטבע הנמוכה בעולם - בריכות מים, צמחייה מדברית ונוף ים המלח.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "עין פאשחה עיינות צוקים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "45m",
+        arad: "30m",
+        "beer-sheva": "1h",
+        "tel-aviv": "1h-plus",
+        dimona: "45m",
+      },
+    },
+    location: {
+      lat: 31.769,
+      lng: 35.515,
+      label: "שמורת עיינות צוקים (עין פשחה)",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A2%D7%99%D7%99%D7%A0%D7%95%D7%AA%20%D7%A6%D7%95%D7%A7%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.769%2C35.515",
+    },
+    seoTitle: "עיינות צוקים - שמורת הטבע הנמוכה בעולם | בשביל הלב",
+    metaDescription:
+      "שמורת עיינות צוקים (עין פשחה) היא השמורה הנמוכה בעולם, עם בריכות מים וצמחייה מדברית. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/עין פאשחה עיינות צוקים/hero.jpeg",
     heroImageLabel: "תמונת רקע - עין פאשחה עיינות צוקים",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/עין פאשחה עיינות צוקים/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A2%D7%99%D7%99%D7%A0%D7%95%D7%AA%20%D7%A6%D7%95%D7%A7%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.769%2C35.515",
+    highlights: [
+      "משפחות עם ילדים",
+      "בריכות מים",
+      "שמורת טבע",
+      "נוף ים המלח",
+      "צמחייה מדברית",
+      "מרכז מבקרים",
+    ],
+    about: [
+      "שמורת עיינות צוקים (עין פשחה) היא שמורת טבע של רשות הטבע והגנים, על שפת ים המלח. לפי parks.org.il, זו השמורה הנמוכה בעולם - כ-420 מטר מתחת לפני הים.",
+      "בשמורה נובעים מעיינות מלוחים שיוצרים בריכות טבעיות, ובהן צמחייה ייחודית שמותאמת לתנאי המדבר והמליחות.",
+      "לפי רשות הטבע והגנים, במרכז המבקרים ניתן ללמוד על האקולוגיה המיוחדת של האזור, ויש מסלול מסומן בשטח הפתוח.",
+      "קיים גם אזור \"שמורה נסתרת\" - חלק מהשמורה שבו ניתן להיכנס רק בליווי מדריך, בתיאום מראש.",
+      "השמורה מתאימה לשילוב עם אתרים נוספים לאורך ים המלח - קומראן, עין גדי וחופי ים המלח.",
+    ],
+    personalStory: [
+      "שמורת עיינות צוקים היא השמורה הנמוכה בעולם - כ-420 מטר מתחת לפני הים.",
+      "בריכות מלוחות וצמחייה מדברית שלא רואים בכל מקום.",
+      "מרכז המבקרים מסביר את האקולוגיה המיוחדת - כדאי לשלב לפני או אחרי ההליכה.",
+      "אין להיכנס לבריכות. שומרים על הצמחייה והמים.",
+      "בקיץ כדאי להגיע בשעות הבוקר. מים מתוקים לשתייה חשובים במיוחד כאן.",
+      "אפשר לשלב עם קומראן או עין גדי באותו יום.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום - לפי רשות הטבע והגנים" },
+      { label: "חניה", value: "יש חניה במרכז המבקרים" },
+      { label: "משך בילוי", value: "2-3 שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - במרכז המבקרים" },
+      { label: "זמן בילוי", value: "2-3 שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה במרכז המבקרים של שמורת עיינות צוקים, על כביש 90.",
+      notes: [
+        "הגעה: על כביש 90, צפונית לקיבוץ עין גדי.",
+        "שעות הפעילות ומחירי הכניסה משתנים - מומלץ לבדוק באתר parks.org.il לפני יציאה.",
+        "לכניסה לשמורה הנסתרת נדרש ליווי מדריך - יש להזמין מראש.",
+        "מומלץ להגיע עם כובע, מים לשתייה, נעליים סגורות וקרם הגנה.",
+        "אין לרחוץ בבריכות המלוחות - יש לשמור על הנחיות השמורה.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. יש מסלול מסומן ומרכז מבקרים. חשוב ללוות ולשמור על הנחיות השמורה.",
+      },
+      {
+        question: "האם אפשר לרחוץ?",
+        answer:
+          "לא. אין להיכנס לבריכות המלוחות - יש לשמור על הנחיות רשות הטבע והגנים.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה במרכז המבקרים.",
+      },
+      {
+        question: "מה זה השמורה הנסתרת?",
+        answer:
+          "חלק מהשמורה שבו ניתן להיכנס רק בליווי מדריך, בתיאום מראש.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "בכל העונות. בקיץ מומלץ להגיע בשעות הבוקר.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "בין שעתיים לשלוש שעות, כולל מרכז המבקרים והמסלול.",
+      },
+    ],
+    tips: [
+      "בדקו באתר parks.org.il את שעות הפתיחה והמחירים לפני יציאה.",
+      "הביאו מים מתוקים לשתייה - חשוב במיוחד באזור ים המלח.",
+      "אל תיכנסו לבריכות - שמרו על הצמחייה והאקולוגיה.",
+      "אפשר לשלב ביקור עם קומראן או עין גדי באותו יום.",
+      "לשמורה הנסתרת - הזמינו מדריך מראש.",
+    ],
+    closingNote:
+      "בואו נשמור על השמורה. קחו איתכם את האשפה ואל תיגעו בבריכות.",
     gallery: [
       { src: "/images/places/south/עין פאשחה עיינות צוקים/IMG_0887.jpeg" },
       { src: "/images/places/south/עין פאשחה עיינות צוקים/IMG_0888.jpeg" },
@@ -1831,28 +4782,141 @@ linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, 
       { src: "/images/places/south/עין פאשחה עיינות צוקים/IMG_0935.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["kvmrn", "chn-yn-gdy", "ym-hmlch-chvf-bynykny"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "yn-lbn",
     title: "עין לבן",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מעיין מושלם בהרי ירושלים עם בריכות מטופחות, בוסתן עתיק ונוף על נחל רפאים - ליד גן החיות התנכי.",
     region: "ירושלים",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "עין לבן - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "15m",
+        modiin: "30m",
+        ramla: "40m",
+        lod: "40m",
+        "kfar-saba": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        haifa: "2h",
+      },
+    },
+    location: {
+      lat: 31.7485,
+      lng: 35.1785,
+      label: "עין לבן - דרך נדב, ליד גן החיות התנכי",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A2%D7%99%D7%9F%20%D7%9C%D7%91%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.7485%2C35.1785",
+    },
+    seoTitle:
+      "עין לבן - מעיין משפחתי בהרי ירושלים | בשביל הלב",
+    metaDescription:
+      "עין לבן הוא מעיין מטופח בהרי ירושלים, עם בריכות, בוסתן עתיק ונוף על נחל רפאים. כל המידע לביקור משפחתי, כולל הגעה וטיפים.",
     heroImage: "/images/places/jerusalem/עין לבן/hero.jpeg",
     heroImageLabel: "תמונת רקע - עין לבן",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8a29e'/%3E%3Cstop offset='100%25' stop-color='%2344403c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/jerusalem/עין לבן/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A2%D7%99%D7%9F%20%D7%9C%D7%91%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.7485%2C35.1785",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי מים",
+      "פיקניק בטבע",
+      "שילוב עם גן החיות",
+      "בוסתן עתיק",
+      "כניסה חינם",
+    ],
+    about: [
+      "עין לבן הוא מעיין שכבה בהרי ירושלים, על שם לובן סלעי הקירטון של הרכס. המעיין נמצא בסמיכות לגן החיות התנכי, בתחום פארק ירושלים.",
+      "מי המעיין נובעים מניקבה קטנה ומתנקזים לבריכות אגירה עתיקות. לאורך השנים בוצעו עבודות שיקום, והמקום מתוחזק על ידי רשות הטבע והגנים.",
+      "במתחם יש שתי בריכות - אחת גדולה ועמוקה יותר, ושנייה רדודה שמתאימה לקטנטנים. סביב המעיין צומחים עצי בוסתן: תאנה, זית, אגוז מלך ושקד.",
+      "המעיין צופה על נחל רפאים ועל הנוף הירושלמי. זה מקום פופולרי במיוחד בקיץ, אך מתאים לביקור בכל העונות.",
+      "ניתן לשלב את הביקור עם גן החיות התנכי - שני האתרים קרובים זה לזה.",
+    ],
+    personalStory: [
+      "עין לבן הוא מעיין עם בריכות מטופחות בהרי ירושלים.",
+      "בריכה רדודה לקטנטנים, וגדולה יותר לשאר המשפחה - בפיקוח, כמובן.",
+      "בוסתן עתיק מסביב - תאנים, זיתים, שקדים. תחושה של \"ארץ בראשית\".",
+      "הדרך עוברת ב\"דרך נדב\" - שביל עפר. נסיעה בזהירות או הליכה.",
+      "קרוב מאוד לגן החיות התנכי. אפשר לבנות יום שלם באזור.",
+      "בסופי שבוע ובקיץ המקום עמוס. כדאי להגיע מוקדם.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "בחניון גן החיות התנכי או בדרך נדב" },
+      { label: "משך בילוי", value: "כמה שעות - לפי קצב המשפחה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "לא - דרך עפר" },
+      { label: "מים", value: "בריכות מטופחות" },
+    ],
+    gettingThere: {
+      parking: "חניה בחניון גן החיות התנכי, או בדרך נדב (שביל עפר מסומן בכחול).",
+      notes: [
+        "הגעה: לכיוון גן החיות התנכי, ומשם לקצה מגרש החנייה.",
+        "מכאן יוצאת \"דרך נדב\" - שביל עפר מסומן בכחול, על שם נדב אלעד.",
+        "ניתן לנסוע בדרך נדב ברכב או לצעוד - עד רחבת החנייה ליד המעיין.",
+        "מהחנייה, מדרגות קצרות מובילות אל בריכות המעיין.",
+        "בסופי שבוע ובקיץ המקום עמוס - מומלץ להגיע מוקדם.",
+        "המעיין נמצא בתחום הגן הלאומי נחל רפאים - יש לשמור על ניקיון המקום.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. יש בריכה רדודה לקטנטנים ובריכה גדולה יותר. חשוב פיקוח הורים.",
+      },
+      {
+        question: "האם אפשר לרחוץ?",
+        answer:
+          "המעיין פופולרי לשכשוך במים. יש לבדוק הנחיות עדכניות ברשות הטבע והגנים.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "לא. ההגעה עוברת בדרך עפר (דרך נדב).",
+      },
+      {
+        question: "האם אפשר לשלב עם גן החיות?",
+        answer:
+          "כן. שני האתרים קרובים מאוד. אפשר לשלב באותו יום.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "בקיץ המקום עמוס. מומלץ להגיע מוקדם, במיוחד בסופי שבוע.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer:
+          "כן. בחניון גן החיות התנכי או בדרך נדב, ליד המעיין.",
+      },
+    ],
+    tips: [
+      "הגיעו מוקדם בסופי שבוע ובקיץ - המקום פופולרי.",
+      "אפשר לשלב ביקור בגן החיות התנכי באותו יום.",
+      "הביאו מים, כובע, נעליים סגורות ומגבות.",
+      "דרך נדב היא שביל עפר - מתאימה לרכב רגיל, אך נסיעה בזהירות.",
+      "קחו איתכם את האשפה ושמרו על ניקיון המעיין.",
+    ],
+    closingNote:
+      "בואו נשמור על עין לבן נקי. קחו איתכם את האשפה ואל תאכלו מפרי הבוסתן.",
     gallery: [
       { src: "/images/places/jerusalem/עין לבן/IMG_1292.jpeg" },
       { src: "/images/places/jerusalem/עין לבן/IMG_1294.jpeg" },
@@ -1860,6 +4924,7 @@ linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgb
       { src: "/images/places/jerusalem/עין לבן/IMG_4288.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["gn-hchyvt-htnky", "mgr-byt-zyt", "kvvryvm-yshrl"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
@@ -2016,111 +5081,637 @@ linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgb
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "hmpl-hnstr",
     title: "המפל הנסתר",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מפל קטן על נחל הירקון במסלול מהגשר התורכי - טבע, מים והליכה קצרה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "המפל הנסתר - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "water",
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "water-friendly",
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.095,
+      lng: 34.885,
+      label: "המפל הנסתר - נחל הירקון",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%94%D7%9E%D7%A4%D7%9C%20%D7%94%D7%A0%D7%A1%D7%AA%D7%A8%20%D7%99%D7%A8%D7%A7%D7%95%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.095%2C34.885",
+    },
+    seoTitle: "המפל הנסתר - טיול משפחתי על נחל הירקון | בשביל הלב",
+    metaDescription:
+      "המפל הנסתר על נחל הירקון הוא עצירה יפה במסלול מהגשר התורכי. כל המידע לביקור משפחתי חינמי.",
     heroImage: "/images/places/center/המפל הנסתר/hero.jpeg",
     heroImageLabel: "תמונת רקע - המפל הנסתר",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/המפל הנסתר/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%94%D7%9E%D7%A4%D7%9C%20%D7%94%D7%A0%D7%A1%D7%AA%D7%A8%20%D7%99%D7%A8%D7%A7%D7%95%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.095%2C34.885",
+    highlights: [
+      "משפחות עם ילדים",
+      "מפל",
+      "נחל הירקון",
+      "כניסה חופשית",
+      "מסלול קצר"
+    ],
+    about: [
+      "המפל הנסתר הוא מפל קטן על נחל הירקון, באזור פתח תקווה. לפי petah-tikva.muni.il, ניתן להגיע אליו במסלול חינמי מהגשר התורכי, לאורך הנחל, דרך חאן פארוחיה.",
+      "המפל הוא נקודת עניין לאורך שביל ההליכה, ומתאים לעצירה קצרה, צילום והמשך לכיוון תחנת אבו רבאח.",
+      "הכניסה חינם. המסלול ליד המים מתאים להליכה משפחתית.",
+      "מומלץ נעלי הליכה. חשוב לשמור על בטיחות ליד המים, במיוחד עם ילדים."
+    ],
+    personalStory: [
+      "המפל הנסתר הוא מפל קטן על נחל הירקון - גילוי נעים בלי מסלול ארוך.",
+      "מגיעים מהגשר התורכי, הולכים לאורך הנחל.",
+      "המים הזורמים מרגשים גם כשהמפל קטן.",
+      "אפשר לעצור, לצלם, ולהמשיך לכיוון תחנת אבו רבאח או בית לאה.",
+      "בלי לחץ. בוחרים כמה רחוק ללכת.",
+      "נעלי הליכה ושמירה על בטיחות ליד המים - במיוחד עם ילדים.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "ליד הגשר התורכי"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן - עם פיקוח"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "עצירה במסלול"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה ליד הגשר התורכי, ממערב לכביש 40.",
+      "notes": [
+        "מידע: petah-tikva.muni.il/events/tourism/yarkon-river",
+        "בוויז: הגשר התורכי או המפל הנסתר.",
+        "הליכה לאורך הנחל מהגשר התורכי.",
+        "שמרו על בטיחות ליד המים."
+      ]
+    },
+    faq: [
+      {
+        "question": "איך מגיעים למפל?",
+        "answer": "במסלול הליכה מהגשר התורכי לאורך נחל הירקון."
+      },
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן, עם פיקוח ליד המים."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. המסלול ללא תשלום."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "תחנת אבו רבאח, בית לאה."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "שעה עד שעתיים, כולל המסלול."
+      }
+    ],
+    tips: [
+      "התחילו מהגשר התורכי.",
+      "הביאו נעלי הליכה.",
+      "שמרו על בטיחות ליד המים.",
+      "שלבו עם תחנת אבו רבאח."
+    ],
+    closingNote:
+      "בואו נשמור על הנחל והמפל נקיים.",
     gallery: [
-      { src: "/images/places/center/המפל הנסתר/IMG_1368.jpeg" },
-      { src: "/images/places/center/המפל הנסתר/IMG_1372.jpeg" },
-      { src: "/images/places/center/המפל הנסתר/IMG_1376.jpeg" },
-      { src: "/images/places/center/המפל הנסתר/IMG_1378.jpeg" },
-      { src: "/images/places/center/המפל הנסתר/IMG_1391.jpeg" },
-      { src: "/images/places/center/המפל הנסתר/IMG_1534.jpeg" },
+      {
+        "src": "/images/places/center/המפל הנסתר/IMG_1368.jpeg"
+      },
+      {
+        "src": "/images/places/center/המפל הנסתר/IMG_1372.jpeg"
+      },
+      {
+        "src": "/images/places/center/המפל הנסתר/IMG_1376.jpeg"
+      },
+      {
+        "src": "/images/places/center/המפל הנסתר/IMG_1378.jpeg"
+      },
+      {
+        "src": "/images/places/center/המפל הנסתר/IMG_1391.jpeg"
+      },
+      {
+        "src": "/images/places/center/המפל הנסתר/IMG_1534.jpeg"
+      }
     ],
     gallerySubtitle: "",
-    nearbyPlaces: [],
-    nearbySubtitle: "",
-  },
-  {
-    slug: "byt-lh",
-    title: "בית לאה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
-    region: "מרכז",
-    category: "טיול משפחתי",
-    status: "needs-content",
-    visitedByMilana: true,
-    metaDescription: "בית לאה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
-    heroImage: "/images/places/center/בית לאה/hero.jpeg",
-    heroImageLabel: "תמונת רקע - בית לאה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
-    gallery: [
-      { src: "/images/places/center/בית לאה/IMG_1412.jpeg" },
-      { src: "/images/places/center/בית לאה/IMG_1413.jpeg" },
-      { src: "/images/places/center/בית לאה/IMG_1414.jpeg" },
-      { src: "/images/places/center/בית לאה/IMG_1415.jpeg" },
-      { src: "/images/places/center/בית לאה/IMG_2934.jpeg" },
-      { src: "/images/places/center/בית לאה/IMG_2939.jpeg" },
-      { src: "/images/places/center/בית לאה/IMG_2948.jpeg" },
+    nearbyTripSlugs: [
+      "byt-lh",
+      "tchnt-bv-rbch",
+      "brbtb"
     ],
-    gallerySubtitle: "",
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "tchnt-bv-rbch",
     title: "תחנת אבו רבאח",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "טחנת קמח עתיקה משוקמת על נחל הירקון - היסטוריה, פיקניק ושביל מים.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "תחנת אבו רבאח - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "water",
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "water-friendly",
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.088,
+      lng: 34.878,
+      label: "תחנת אבו רבאח - טחנת הקמח",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%AA%D7%97%D7%A0%D7%AA%20%D7%90%D7%91%D7%95%20%D7%A8%D7%91%D7%90%D7%97&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.088%2C34.878",
+    },
+    seoTitle: "תחנת אבו רבאח - טחנת קמח על נחל הירקון | בשביל הלב",
+    metaDescription:
+      "תחנת אבו רבאח היא טחנת קמח עתיקה משוקמת על נחל הירקון, עם שביל, פיקניק והיסטוריה. כל המידע לביקור משפחתי.",
     heroImageLabel: "תמונת רקע - תחנת אבו רבאח",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%AA%D7%97%D7%A0%D7%AA%20%D7%90%D7%91%D7%95%20%D7%A8%D7%91%D7%90%D7%97&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.088%2C34.878",
+    highlights: [
+      "משפחות עם ילדים",
+      "נחל הירקון",
+      "היסטוריה",
+      "פיקניק",
+      "כניסה חופשית"
+    ],
+    about: [
+      "תחנת אבו רבאח (טחנת אבו רבאח) היא טחנת קמח עתיקה משוקמת על נחל הירקון, באזור פתח תקווה. לפי tapuach-ds.org.il, המבנה היסטורי שוקם ומשמש נקודת עניין לאורך שבילי הירקון.",
+      "לפי עיריית פתח תקווה (petah-tikva.muni.il), ניתן להגיע במסלול חינמי מהגשר התורכי, דרך המפל הנסתר, עד טחנת אבו רבאח.",
+      "הכניסה חינם. המקום מתאים לפיקניק, הליכה ליד המים וביקור באתר ההיסטורי.",
+      "אפשר לשלב את הביקור עם בית לאה, המפל הנסתר או מסלול כפר הבפטיסטים."
+    ],
+    personalStory: [
+      "תחנת אבו רבאח היא טחנת קמח עתיקה משוקמת על נחל הירקון.",
+      "טבע, מים וסיפור - בשילוב אחד.",
+      "המבנה העתיק מעורר שאלות על העבר. עצירה טובה לפני שממשיכים בשביל.",
+      "פינות פיקניק ליד המים.",
+      "המסלול מהגשר התורכי או מכפר הבפטיסטים - בקצב שלכם.",
+      "אפשר לשלב עם המפל הנסתר, בית לאה או ברבטבע באותו יום.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "ליד הגשר התורכי או כפר הבפטיסטים"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית - לפי מסלול"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה ליד הגשר התורכי או בכפר הבפטיסטים, והליכה לאורך הנחל.",
+      "notes": [
+        "מידע: tapuach-ds.org.il, petah-tikva.muni.il",
+        "בוויז: תחנת אבו רבאח או טחנת אבו רבאח.",
+        "הכניסה חינם.",
+        "שמרו על המבנה ההיסטורי ועל ניקיון הנחל."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. שביל ליד המים ואתר היסטורי."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. המסלול והאתר ללא תשלום."
+      },
+      {
+        "question": "איך מגיעים?",
+        "answer": "במסלול מהגשר התורכי או מכפר הבפטיסטים לאורך הירקון."
+      },
+      {
+        "question": "האם אפשר פיקניק?",
+        "answer": "כן. פינות ישיבה ליד הנחל."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "המפל הנסתר, בית לאה, ברבטבע."
+      }
+    ],
+    tips: [
+      "שלבו עם מסלול יום שלם על הירקון.",
+      "הביאו מחצלת ומים.",
+      "שמרו על המבנה - אל תפגעו בשרידים.",
+      "אל תיכנסו למים במקומות לא מיועדים."
+    ],
+    closingNote:
+      "בואו נשמור על הנחל והאתר ההיסטורי.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "hmpl-hnstr",
+      "byt-lh",
+      "brbtb"
+    ],
+    nearbyPlaces: [],
+    nearbySubtitle: "",
+  },
+  {
+    slug: "byt-lh",
+    title: "בית לאה",
+    subtitle:
+      "בית משאבות היסטורי על נחל הירקון - שביל קצר, מים ופיקניק.",
+    region: "מרכז",
+    category: "טיול משפחתי",
+    visitedByMilana: true,
+    matcher: {
+      activities: [
+        "water",
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "water-friendly",
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.106,
+      lng: 34.928,
+      label: "בית לאה - נחל הירקון",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%91%D7%99%D7%AA%20%D7%9C%D7%90%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.106%2C34.928",
+    },
+    seoTitle: "בית לאה - טיול משפחתי על נחל הירקון | בשביל הלב",
+    metaDescription:
+      "בית לאה הוא בית משאבות היסטורי על נחל הירקון, עם שביל קצר, מים ופיקניק. כל המידע לביקור משפחתי חינמי.",
+    heroImage: "/images/places/center/בית לאה/hero.jpeg",
+    heroImageLabel: "תמונת רקע - בית לאה",
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/בית לאה/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%91%D7%99%D7%AA%20%D7%9C%D7%90%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.106%2C34.928",
+    highlights: [
+      "משפחות עם ילדים",
+      "נחל הירקון",
+      "היסטוריה",
+      "פיקניק",
+      "כניסה חופשית"
+    ],
+    about: [
+      "בית לאה הוא בית משאבות היסטורי על נחל הירקון, באזור בין פתח תקווה לראש העין. לפי petah-tikva.muni.il, האזור הוא חלק ממסלולי הירקון החינמיים, עם שבילי הליכה ליד המים.",
+      "המבנה שימש בעבר להעלאת מים מהירקון, וכיום הוא נקודת עניין לאורך השביל. הכניסה חינם.",
+      "המקום מתאים לטיול קצר, פיקניק והליכה ליד הנחל - במיוחד למשפחות.",
+      "אפשר לשלב את הביקור עם המפל הנסתר, תחנת אבו רבאח או מסלול כפר הבפטיסטים."
+    ],
+    personalStory: [
+      "בית לאה הוא בית משאבות היסטורי על נחל הירקון.",
+      "שביל קצר ליד המים. קצב איטי - לעצור, להסתכל, להמשיך.",
+      "פיקניק קטן ליד הנחל הופך את העצירה ליום נעים.",
+      "שעה-שעתיים מספיקות. לא צריך מסלול ארוך.",
+      "אפשר לשלב עם המפל הנסתר, תחנת אבו רבאח או ברבטבע.",
+      "הכניסה חינם. פשוט לצאת, ללכת, לנוח.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "ליד השביל לבית לאה"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה ליד השביל לבית לאה, על נחל הירקון.",
+      "notes": [
+        "מידע: petah-tikva.muni.il/events/tourism/yarkon-river",
+        "בוויז: בית לאה.",
+        "הכניסה חינם.",
+        "שמרו על המבנה ההיסטורי."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. שביל קצר ליד המים."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. ללא תשלום."
+      },
+      {
+        "question": "האם אפשר פיקניק?",
+        "answer": "כן. פינות ליד הנחל."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "המפל הנסתר, אבו רבאח, ברבטבע."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "שעה עד שעתיים."
+      }
+    ],
+    tips: [
+      "שלבו עם מסלול יום על הירקון.",
+      "הביאו מחצלת ומים.",
+      "שמרו על המבנה ההיסטורי.",
+      "אל תיכנסו למים במקומות לא מיועדים."
+    ],
+    closingNote:
+      "בואו נשמור על הנחל והאתר נקיים.",
+    gallery: [
+      {
+        "src": "/images/places/center/בית לאה/IMG_1412.jpeg"
+      },
+      {
+        "src": "/images/places/center/בית לאה/IMG_1413.jpeg"
+      },
+      {
+        "src": "/images/places/center/בית לאה/IMG_1414.jpeg"
+      },
+      {
+        "src": "/images/places/center/בית לאה/IMG_1415.jpeg"
+      },
+      {
+        "src": "/images/places/center/בית לאה/IMG_2934.jpeg"
+      },
+      {
+        "src": "/images/places/center/בית לאה/IMG_2939.jpeg"
+      },
+      {
+        "src": "/images/places/center/בית לאה/IMG_2948.jpeg"
+      }
+    ],
+    gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "hmpl-hnstr",
+      "tchnt-bv-rbch",
+      "brbtb"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "prk-lkysh",
     title: "פארק לכיש",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "פארק נחל לכיש באשדוד - שטח ירוק, שבילים וטיילת ליד הים.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פארק לכיש - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic", "water", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich", "water-friendly"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        ashdod: "10m",
+        ashkelon: "20m",
+        rehovot: "30m",
+        "bat-yam": "30m",
+        "beer-sheva": "45m",
+        "kiryat-gat": "30m",
+      },
+    },
+    location: {
+      lat: 31.817,
+      lng: 34.650,
+      label: "פארק נחל לכיש, אשדוד",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%A0%D7%97%D7%9C%20%D7%9C%D7%9B%D7%99%D7%A9%20%D7%90%D7%A9%D7%93%D7%95%D7%93&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.817%2C34.650",
+    },
+    seoTitle: "פארק נחל לכיש באשדוד - טיול משפחתי | בשביל הלב",
+    metaDescription:
+      "פארק נחל לכיש באשדוד הוא פארק עירוני גדול עם שבילים, דשא וטיילת ליד הים. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/פארק נחל לכיש/hero.jpeg",
     heroImageLabel: "תמונת רקע - פארק לכיש",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/פארק נחל לכיש/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%A0%D7%97%D7%9C%20%D7%9C%D7%9B%D7%99%D7%A9%20%D7%90%D7%A9%D7%93%D7%95%D7%93&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.817%2C34.650",
+    highlights: [
+      "משפחות עם ילדים",
+      "כניסה חינם",
+      "פיקניק",
+      "שבילים ודשא",
+      "קרוב לים",
+      "אשדוד",
+    ],
+    about: [
+      "פארק נחל לכיש באשדוד הוא פארק עירוני גדול, שפרוס על כ-650 דונם לאורך נחל לכיש. לפי עיריית אשדוד, זה אחד הפארקים הגדולים והמרכזיים בעיר.",
+      "הפארק כולל שבילי הליכה, מדשאים, גינות ונקודות ישיבה - מתאים לפיקניק, ריצה, הליכה ופעילות משפחתית.",
+      "לפי visit.ashdod.muni.il, בפארק נמצאת גם טיילת חי-לכיש, ויש בקרבתו את Challenge Park - מתחם אתגרים חיצוני.",
+      "הפארק ממוקם במרחק קצר מחוף הים של אשדוד, וניתן לשלב ביקור בים עם בילוי בפארק.",
+      "הכניסה לפארק חינמית, והוא פתוח לקהל לאורך כל השנה.",
+    ],
+    personalStory: [
+      "פארק נחל לכיש הוא דשא, שבילים ופיקניק - בלי כניסה בתשלום.",
+      "650 דונם של ירוק באשדוד, קרוב לים.",
+      "אפשר לרוץ, לשחק על הדשא, לרכוב על אופניים.",
+      "קרוב לחוף אשדוד. אפשר לשלב בילוי בפארק עם קפיצה לים.",
+      "בלי לחץ. שעה או יום שלם - לפי הקצב.",
+      "בימים חמים יש צל ומרחב פתוח. כדאי להביא מים וכובע.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "יש חניה בכניסות לפארק" },
+      { label: "משך בילוי", value: "שעה עד יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן - בשבילים העיקריים" },
+      { label: "זמן בילוי", value: "שעה עד יום שלם" },
+    ],
+    gettingThere: {
+      parking: "חניה בכניסות לפארק נחל לכיש, אשדוד.",
+      notes: [
+        "הגעה: פארק נחל לכיש, אשדוד - ליד טיילת חי-לכיש.",
+        "הפארק פתוח לקהל - אין צורך בהזמנה מראש.",
+        "מומלץ להגיע עם כובע, מים, שמיכה לפיקניק ונעליים נוחות.",
+        "בסופי שבוע ובחגים המקום עשוי להיות עמוס - כדאי להגיע מוקדם.",
+        "Challenge Park הסמוך הוא מתחם נפרד בתשלום - לבדוק באתר העירייה.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. יש דשא, שבילים ומרחב פתוח - מתאים מאוד למשפחות.",
+      },
+      {
+        question: "האם הכניסה חינמית?",
+        answer: "כן. הכניסה לפארק נחל לכיש חינמית.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה בכניסות לפארק.",
+      },
+      {
+        question: "האם אפשר לעשות פיקניק?",
+        answer: "כן. יש מדשאים ואזורי ישיבה.",
+      },
+      {
+        question: "האם קרוב לים?",
+        answer:
+          "כן. הפארק במרחק קצר מחוף אשדוד - אפשר לשלב.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "בין שעה ליום שלם, בהתאם לתוכנית.",
+      },
+    ],
+    tips: [
+      "הביאו שמיכה, מים וכובע - במיוחד בימים חמים.",
+      "אפשר לשלב ביקור בחוף אשדוד באותו יום.",
+      "Challenge Park הסמוך מתאים לילדים גדולים יותר - בתשלום.",
+      "בסופי שבוע כדאי להגיע מוקדם לחניה נוחה.",
+      "שמרו על ניקיון הפארק - קחו איתכם את האשפה.",
+    ],
+    closingNote:
+      "בואו נשמור על הפארק נקי. קחו איתכם את האשפה.",
     gallery: [
       { src: "/images/places/south/פארק נחל לכיש/IMG_1551.jpeg" },
       { src: "/images/places/south/פארק נחל לכיש/IMG_1552.jpeg" },
@@ -2130,54 +5721,280 @@ linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, 
       { src: "/images/places/south/פארק נחל לכיש/IMG_2311.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["mrynh-shklvn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "yr-hmgynym",
     title: "יער המגינים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "יער גדול בשפלה עם אתרי הנצחה, תצפיות ושבילי הליכה - כניסה חופשית.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "יער המגינים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.871,
+      lng: 34.923,
+      label: "יער המגינים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%99%D7%A2%D7%A8%20%D7%94%D7%9E%D7%92%D7%99%D7%A0%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.871%2C34.923",
+    },
+    seoTitle: "יער המגינים - יער וטיול משפחתי בשפלה | בשביל הלב",
+    metaDescription:
+      "יער המגינים הוא יער גדול בשפלת יהודה, עם אתרי הנצחה, תצפיות ושבילי הליכה. כל המידע לביקור משפחתי חינמי.",
     heroImage: "/images/places/center/יער המגינים/hero.jpeg",
     heroImageLabel: "תמונת רקע - יער המגינים",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/יער המגינים/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%99%D7%A2%D7%A8%20%D7%94%D7%9E%D7%92%D7%99%D7%A0%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.871%2C34.923",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי טבע",
+      "אתרי הנצחה",
+      "תצפית",
+      "כניסה חופשית"
+    ],
+    about: [
+      "יער המגינים הוא אחד היערות הגדולים בישראל, בשפלת יהודה. לפי kkl.org.il/travel/trips/231/, היער משתרע על אלפי דונמים וכולל אתרי הנצחה, שבילי הליכה, חניונים ונקודות תצפית - ביניהן נוף איילון.",
+      "היער ניטע על ידי קק\"ל ומשמש גם כאתר זיכרון. יש בו מסלולים מסומנים, שבילי אופניים ואזורי פיקניק.",
+      "הכניסה חינם. המקום מתאים לטיולי משפחה, הליכה קצרה או ארוכה ופיקניק.",
+      "ניתן לשלב ביקור ביער עם מסלול סובב משמר דוד או תצפית בקעה."
+    ],
+    personalStory: [
+      "יער המגינים הוא ירוק רחב בשפלה - וחינם.",
+      "יער גדול עם שבילים, חניונים ונקודות תצפית.",
+      "אפשר לבחור מסלול קצר, לעצור בתצפית ולחזור.",
+      "אתרי ההנצחה מוסיפים משמעות - מתאים גם לילדים גדולים יותר.",
+      "בימי חול שקט יותר. בסופי שבוע יש יותר מבקרים.",
+      "לא חייבים יום ארוך. כמה שעות מספיקות.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "בחניוני היער"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית - לפי מסלול"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניונים מסודרים בכניסות ליער המגינים.",
+      "notes": [
+        "מידע: kkl.org.il/travel/trips/231/",
+        "בוויז: יער המגינים.",
+        "הכניסה חינם.",
+        "הביאו מים, כובע ומחצלת."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. שבילים, צל וחניונים."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. הכניסה ללא תשלום."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניונים ביער."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "נוף איילון, משמר דוד, פארק בריטניה."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "בין שעה לכמה שעות."
+      }
+    ],
+    tips: [
+      "בחרו מסלול מתאים לגיל הילדים.",
+      "שלבו תצפית בנוף איילון.",
+      "שמרו על ניקיון - קחו איתכם את האשפה.",
+      "בקיץ הגיעו מוקדם."
+    ],
+    closingNote:
+      "בואו נשמור על היער נקי.",
     gallery: [
-      { src: "/images/places/center/יער המגינים/IMG_5156.jpeg" },
+      {
+        "src": "/images/places/center/יער המגינים/IMG_5156.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "nvf-yylvn",
+      "mshmr-dvd",
+      "prk-brytnyh"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "kynrt",
     title: "כינרת",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "הים הכי נמוך בעולם, עם חופי רחצה מוכרזים, נוף הרים ויום שלם של מים, צל ופיקניק.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "כינרת - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "picnic", "easy-trails", "camping"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "45m",
+        "kfar-saba": "1h30",
+        raanana: "1h30",
+        herzliya: "1h30",
+        netanya: "1h30",
+        modiin: "1h45",
+        ramla: "1h45",
+        lod: "1h45",
+      },
+    },
+    location: {
+      lat: 32.833,
+      lng: 35.583,
+      label: "חופי הכינרת, צפון ישראל",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%97%D7%95%D7%A4%D7%99%20%D7%94%D7%9B%D7%99%D7%A0%D7%A8%D7%AA&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.833%2C35.583",
+    },
+    seoTitle: "כינרת - חופים, טיפים ומידע לביקור | בשביל הלב",
+    metaDescription:
+      "הכינרת היא הים הכי נמוך בעולם, עם חופי רחצה מוכרזים ונוף הרים. מדריך לביקור משפחתי בחופי איגוד ערים כינרת.",
     heroImage: "/images/places/north/כינרת/hero.jpeg",
     heroImageLabel: "תמונת רקע - כינרת",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/כינרת/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%97%D7%95%D7%A4%D7%99%20%D7%94%D7%9B%D7%99%D7%A0%D7%A8%D7%AA&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.833%2C35.583",
+    highlights: [
+      "משפחות",
+      "חופי ים",
+      "פיקניק",
+      "נוף הרים",
+      "חופים שקטים",
+    ],
+    about: [
+      "הכינרת היא הים הכי נמוך בעולם, והמאגר המים המתוקים הגדול בישראל. לפי איגוד ערים כינרת (ikinneret.org.il), האיגוד מפעיל חופי רחצה מוכרזים לאורך מעגלות הכנרת.",
+      "חופי איגוד ערים כינרת מוגדרים כחופים שקטים: לפי האתר הרשמי, אסורה השמעת מוזיקה במערכות הגברה וברמקולים. הכניסה לחופים היא על בסיס מקום פנוי, ולא ניתן להזמין מקום מראש.",
+      "בחופים מותקנות מצלמות לביטחון האישי. לפי ikinneret.org.il, ניתן לבדוק את איכות מי הרחצה באתר משרד הבריאות ולעקוב אחר מפלס הכנרת באתר האיגוד.",
+      "בחופשות הקיץ איגוד ערים כינרת מפעיל שירותי הסעות חינם בשם קו סובב כינרת. באתר מופיעים גם שביל סובב כינרת, מדריך חופים ושירות כוכבית כינרת (*55477) לדיווח על מפגעים.",
+    ],
+    personalStory: [
+      "הכינרת - הים הכי נמוך בעולם.",
+      "חופי איגוד ערים כינרת מוגדרים כחופים שקטים. בלי מוזיקה ברמקולים.",
+      "כדאי לבחור חוף מראש לפי מדריך החופים באתר ikinneret.org.il.",
+      "בקיץ - להגיע מוקדם. החניה והחוף מתמלאים מהר.",
+      "מחצלת, מים, כובע וקרם הגנה. פשוט.",
+      "אפשר לשלב עם סכר אלומות או קיבוץ אפיקים.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם - בחופי איגוד ערים כינרת" },
+      { label: "חניה", value: "בחניוני החופים, לפי ikinneret.org.il" },
+      { label: "משך בילוי", value: "יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם בחופי האיגוד" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - לפי חוף" },
+      { label: "אתר רשמי", value: "ikinneret.org.il" },
+    ],
+    gettingThere: {
+      parking: "חניונים בחופי איגוד ערים כינרת. הכניסה על בסיס מקום פנוי.",
+      notes: [
+        "מדריך חופים מלא: ikinneret.org.il",
+        "בדקו איכות מי רחצה באתר משרד הבריאות לפני יציאה.",
+        "בקיץ: קו סובב כינרת - הסעות חינם (לפי ikinneret.org.il).",
+        "דיווח על מפגעים: כוכבית כינרת *55477.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. חופי הכינרת מתאימים למשפחות, עם שירותים ומצילים בחופים המוכרזים.",
+      },
+      {
+        question: "האם הכניסה חופשית?",
+        answer:
+          "כניסה לחופי איגוד ערים כינרת היא על בסיס מקום פנוי. יש לבדוק באתר ikinneret.org.il.",
+      },
+      {
+        question: "האם החופים שקטים?",
+        answer:
+          "כן. לפי ikinneret.org.il, חופי האיגוד מוגדרים כחופים שקטים ללא מוזיקה ברמקולים.",
+      },
+      {
+        question: "מה כדאי לשלב?",
+        answer: "סכר אלומות, קיבוץ אפיקים, נחל הקיבוצים.",
+      },
+    ],
+    tips: [
+      "בדקו מדריך החופים ב-ikinneret.org.il לפני יציאה.",
+      "הגיעו מוקדם בסופי שבוע ובחופשות.",
+      "בדקו איכות מי רחצה באתר משרד הבריאות.",
+      "הביאו כובע, מים, קרם הגנה ומחצלת.",
+    ],
     gallery: [
       { src: "/images/places/north/כינרת/IMG_0420.jpeg" },
       { src: "/images/places/north/כינרת/IMG_1911.jpeg" },
@@ -2190,105 +6007,503 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
       { src: "/images/places/north/כינרת/yuy.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["skr-lvmvt", "kybvtz-pykym", "nchl-hkybvtzym"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "skr-lvmvt",
     title: "סכר אלומות",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "סכר היסטורי על הירדון הדרומי, עם בריכות שכשוך, נוף מים ושילוב מושלם ליום בכנרת.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "סכר אלומות - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly", "heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "45m",
+        "kfar-saba": "1h30",
+        raanana: "1h30",
+        herzliya: "1h30",
+        netanya: "1h30",
+        modiin: "1h45",
+        ramla: "1h45",
+        lod: "1h45",
+      },
+    },
+    location: {
+      lat: 32.684,
+      lng: 35.577,
+      label: "סכר אלומות, עמק הירדן",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A1%D7%9B%D7%A8%20%D7%90%D7%9C%D7%95%D7%9E%D7%95%D7%AA&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.684%2C35.577",
+    },
+    seoTitle: "סכר אלומות - בריכות ונוף על הירדן | בשביל הלב",
+    metaDescription:
+      "סכר אלומות על נהר הירדן הדרומי, עם בריכות שכשוך ונוף מים. מידע לביקור משפחתי ושילוב עם חופי הכנרת.",
     heroImage: "/images/places/north/סכר אלומות/hero.jpeg",
     heroImageLabel: "תמונת רקע - סכר אלומות",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/סכר אלומות/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A1%D7%9B%D7%A8%20%D7%90%D7%9C%D7%95%D7%9E%D7%95%D7%AA&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.684%2C35.577",
+    highlights: [
+      "משפחות",
+      "מים",
+      "היסטוריה",
+      "שילוב עם הכנרת",
+    ],
+    about: [
+      "סכר אלומות הוא סכר על נהר הירדן הדרומי, כ-2 קילומטרים מדרום לסכר דגניה, בין דגניה לקבוצת כנרת. הסכר המקורי נבנה בשנות ה-40.",
+      "לפי רשות ניקוז ונחלים כינרת, הסכר משמש לניהול מי הירדן, שמירה על מפלס הכנרת, שאיבה חקלאית ומניעת נזקי שיטפונות. סכר חדש הוקם בעלות של כ-11 מיליון שקלים.",
+      "לפי makom.hamoreshet.org.il, באזור הסכר יש בריכות קטנות המאפשרות שכשוך נעים. המקום פופולרי למשפחות שמשלבות מים עם ביקור באזור הכנרת.",
+      "הפרויקט בוצע באחריות רשות המים, חברת מקורות ורשות ניקוז ונחלים כינרת, כחלק משיקום מורד הירדן.",
+    ],
+    personalStory: [
+      "סכר אלומות הוא עצירה עם מים קרים ונוף - ליד הכינרת.",
+      "בריכות קטנות ליד הסכר. שכשוך קצר ונעים, במיוחד בימים חמים.",
+      "הסכר מספר גם סיפור הנדסי על ניהול המים בישראל.",
+      "אפשר לשלב את העצירה עם יום בחופי הכינרת.",
+      "שעה-שעתיים מספיקות. בלי לחץ.",
+      "כובע, מים ומחצלת - במיוחד בקיץ.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "באזור הסכר" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית" },
+      { label: "אזור", value: "עמק הירדן" },
+    ],
+    gettingThere: {
+      parking: "חניה באזור הסכר, ליד כביש 90.",
+      notes: [
+        "ממוקם בין דגניה לקבוצת כנרת, כ-2 קילומטרים מדרום לסכר דגניה.",
+        "ניתן לשלב עם חופי הכנרת וקיבוץ אפיקים.",
+        "שמרו על המבנה ההיסטורי ועל נקיון האזור.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer: "כן. יש בריכות קטנות לשכשוך, עם השגחה של ההורים.",
+      },
+      {
+        question: "האם הכניסה חופשית?",
+        answer: "כן. הכניסה ללא תשלום.",
+      },
+      {
+        question: "האם אפשר לשחות?",
+        answer:
+          "באזור הסכר יש בריכות קטנות לשכשוך. יש להישמע להוראות הבטיחות ולשמור על הילדים.",
+      },
+      {
+        question: "מה כדאי לשלב?",
+        answer: "חופי הכנרת, קיבוץ אפיקים, נחל הקיבוצים.",
+      },
+    ],
+    tips: [
+      "שלבו עם יום בחופי הכנרת.",
+      "הביאו מחצלת, מים וכובע.",
+      "בקיץ כדאי להגיע מוקדם.",
+      "שמרו על המבנה ההיסטורי ועל נקיון האזור.",
+    ],
     gallery: [
       { src: "/images/places/north/סכר אלומות/IMG_2092.jpeg" },
       { src: "/images/places/north/סכר אלומות/IMG_2095.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["kynrt", "kybvtz-pykym", "nchl-hkybvtzym"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "kv",
     title: "עכו",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "עיר עתיקה על הים עם חומות, מנהרות, שוק, נמל ואתרים היסטוריים לכל המשפחה.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "עכו - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 55,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "30m",
+        "kfar-saba": "1h",
+        raanana: "1h",
+        herzliya: "1h",
+        netanya: "45m",
+        modiin: "1h15",
+        ramla: "1h",
+        lod: "1h",
+      },
+    },
+    location: {
+      lat: 32.926,
+      lng: 35.082,
+      label: "עכו העתיקה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A2%D7%9B%D7%95%20%D7%94%D7%A2%D7%AA%D7%99%D7%A7%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.926%2C35.082",
+    },
+    seoTitle: "עכו העתיקה - חומות, שוק ואתרים | בשביל הלב",
+    metaDescription:
+      "עכו העתיקה היא אתר מורשת עולמית עם חומות, מנהרת הטמפלרים, אולמות האבירים, שוק ונמל. מדריך לביקור משפחתי לפי akko.org.il.",
     heroImageLabel: "תמונת רקע - עכו",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A2%D7%9B%D7%95%20%D7%94%D7%A2%D7%AA%D7%99%D7%A7%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.926%2C35.082",
+    highlights: [
+      "משפחות",
+      "עיר עתיקה",
+      "חומות",
+      "שוק",
+      "נמל",
+    ],
+    about: [
+      "עכו העתיקה היא עיר נמל עתיקה על חוף הים התיכון, שהוכרזה כאתר מורשת עולמית. לפי akko.org.il, בעיר אתרים היסטוריים מתקופות הצלבנים, הממלוכים והעות׳מאנים.",
+      "בין האתרים המרכזיים: אולמות האבירים (מנהרות מתחת לעיר), מנהרת הטמפלרים, החמאם הטורקי, בית כנסת ומרכז המבקרים רמח״ל, והנמל התיירותי.",
+      "לפי akko.org.il, כרטיס משולב לכל האתרים בעכו העתיקה עולה 55 ₪ לאדם. יש גם מסלולים מיוחדים: קלאסי, חומות, ימי ויהודי.",
+      "השוק העירוני, החומות, הנמל והמסעדות הופכים את עכו ליעד שלם ליום - שילוב של היסטוריה, אוכל ונוף ים.",
+    ],
+    personalStory: [
+      "עכו העתיקה - חומות, מנהרות, שוק וים במקום אחד.",
+      "המנהרות והאולמות מרגישים כמו \"עיר מתחת לעיר\".",
+      "השוק והנמל נותנים הפסקות אוכל בין האתרים.",
+      "כרטיס משולב חוסך ומאפשר לבקר בכמה אתרים.",
+      "בקיץ כדאי להגיע מוקדם.",
+      "יום שלם. לא חייבים להספיק הכל - בוחרים מה שמעניין.",
+    ],
+    cost: [
+      { label: "כרטיס משולב", value: "55 ₪ לאדם - לפי akko.org.il" },
+      { label: "נמל ושוק", value: "חינם" },
+      { label: "משך בילוי", value: "יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "55 ₪ כרטיס משולב" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - לפי אתר" },
+      { label: "אתר רשמי", value: "akko.org.il" },
+    ],
+    gettingThere: {
+      parking: "חניונים ליד העיר העתיקה וליד הנמל.",
+      notes: [
+        "בוויז: עכו העתיקה.",
+        "כרטיס משולב לכל האתרים - 55 ₪, לפי akko.org.il.",
+        "שעות פתיחה משתנות - מומלץ לבדוק באתר הרשמי.",
+        "ניתן לשלב עם ראש הנקרה (כרטיס משולב 90 ₪).",
+        "חלק מהאתרים עוברים הנגשה - לבדוק נגישות לפני הגעה.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם עכו מתאימה לילדים?",
+        answer:
+          "כן. יש מדריך קולי לילדים באולמות האבירים ומסלולים מיועדים למשפחות.",
+      },
+      {
+        question: "כמה עולה הכניסה?",
+        answer: "כרטיס משולב לכל האתרים: 55 ₪ לאדם, לפי akko.org.il.",
+      },
+      {
+        question: "כמה זמן מומלץ?",
+        answer: "יום שלם, עם ביקור בכמה אתרים, שוק ונמל.",
+      },
+      {
+        question: "האם הנמל בתשלום?",
+        answer: "לא. הכניסה לנמל התיירותי ולשוק חינמית.",
+      },
+    ],
+    tips: [
+      "רכשו כרטיס משולב באתר akko.org.il או בכניסה.",
+      "התחילו באולמות האבירים או במנהרת הטמפלרים.",
+      "שלבו ארוחה בשוק או בנמל.",
+      "בדקו שעות פתיחה ונגישות באתר הרשמי.",
+    ],
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["rsh-hnkrh", "yn-chrdlyt", "chvf-tlyt"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "kvmrn",
     title: "קומראן",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גן לאומי קומראן - אתר מגילות ים המלח ועדות לחיים בעמק הירדן.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "קומראן - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "45m",
+        arad: "30m",
+        "beer-sheva": "1h",
+        "tel-aviv": "1h-plus",
+        dimona: "45m",
+      },
+    },
+    location: {
+      lat: 31.741,
+      lng: 35.463,
+      label: "גן לאומי קומראן",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A7%D7%95%D7%9E%D7%A8%D7%90%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.741%2C35.463",
+    },
+    seoTitle: "גן לאומי קומראן - מגילות ים המלח | בשביל הלב",
+    metaDescription:
+      "גן לאומי קומראן הוא אתר ארכיאולוגי על שפת ים המלח, שבו התגלו מגילות ים המלח. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/קומראן/hero.jpeg",
     heroImageLabel: "תמונת רקע - קומראן",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/קומראן/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A7%D7%95%D7%9E%D7%A8%D7%90%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.741%2C35.463",
+    highlights: [
+      "משפחות עם ילדים",
+      "היסטוריה",
+      "מגילות ים המלח",
+      "שמורת טבע",
+      "נוף ים המלח",
+      "מרכז מבקרים",
+    ],
+    about: [
+      "גן לאומי קומראן הוא אתר ארכיאולוגי של רשות הטבע והגנים, על שפת צפון ים המלח. לפי parks.org.il, כאן התגלו בשנת 1947 מגילות ים המלח - אחת התגליות הארכיאולוגיות החשובות ביותר.",
+      "באתר נמצאו שרידי יישוב מהתקופה ההלניסטית והרומית, כולל מבנים, מקוואות ומערות שבהן נמצאו המגילות.",
+      "לפי רשות הטבע והגנים, במרכז המבקרים מוצגת תערוכה על ההיסטוריה של המקום, ויש מסלול מסומן בשטח.",
+      "הגן לאומי ממוקם על כביש 90, בין ירושלים לים המלח, ומתאים לשילוב עם אתרים נוספים באזור.",
+      "יש להזמין כניסה מראש - לפי הנחיות רשות הטבע והגנים.",
+    ],
+    personalStory: [
+      "יש משהו מרגש בלעמוד במקום שבו נמצאו המגילות.",
+      "המדבר סביב, ים המלח ברקע, ושרידים עתיקים שמספרים סיפור של אלפי שנים.",
+      "מרכז המבקרים עוזר להבין מה רואים בשטח. כדאי להיכנס לפני ההליכה, או אחריה.",
+      "המסלול קצר יחסית. מספיק ללכת בקצב נוח, לעצור, להסתכל.",
+      "השמש כאן חזקה. כובע ומים הם לא רק המלצה.",
+      "אפשר לשלב עם עיינות צוקים או חוף ים המלח באותו יום.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום - לפי רשות הטבע והגנים" },
+      { label: "חניה", value: "יש חניה במרכז המבקרים" },
+      { label: "משך בילוי", value: "1.5-2 שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן - מגיל בית ספר" },
+      { label: "נגיש לעגלות", value: "חלקית - במרכז המבקרים" },
+      { label: "זמן בילוי", value: "1.5-2 שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה במרכז המבקרים של גן לאומי קומראן, על כביש 90.",
+      notes: [
+        "הגעה: על כביש 90, צפונית לים המלח.",
+        "יש להזמין כניסה מראש - מומלץ לבדוק באתר parks.org.il.",
+        "שעות הפעילות ומחירי הכניסה משתנים - יש לבדוק לפני יציאה.",
+        "מומלץ להגיע עם כובע, מים לשתייה ונעליים נוחות.",
+        "ניתן לשלב עם עיינות צוקים, עין גדי או חופי ים המלח.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן, בעיקר לילדים בגיל בית ספר. יש מסלול קצר ומרכז מבקרים.",
+      },
+      {
+        question: "האם צריך להזמין מראש?",
+        answer:
+          "כן. לפי רשות הטבע והגנים, יש להזמין כניסה מראש.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה במרכז המבקרים.",
+      },
+      {
+        question: "מה רואים באתר?",
+        answer:
+          "שרידי יישוב עתיק, מערות, מקוואות ותערוכה על מגילות ים המלח.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "בין שעה וחצי לשעתיים, כולל מרכז המבקרים.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "בכל העונות. בקיץ מומלץ להגיע בשעות הבוקר.",
+      },
+    ],
+    tips: [
+      "הזמינו כרטיסים מראש באתר parks.org.il.",
+      "הביאו מים מתוקים - חשוב באזור ים המלח.",
+      "אפשר לשלב עם עיינות צוקים או עין גדי באותו יום.",
+      "בדקו באתר אם יש סיורים מודרכים מיוחדים.",
+      "הגיעו מוקדם בקיץ - השמש חזקה.",
+    ],
+    closingNote:
+      "בואו נשמור על האתר. אל תיגעו בשרידים וקחו איתכם את האשפה.",
     gallery: [
       { src: "/images/places/south/קומראן/IMG_3571.jpeg" },
-      { src: "/images/places/south/קומראן/IMG_3576%202.jpeg" },
+      { src: "/images/places/south/קומראן/IMG_3576 2.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["yn-pshchh-yynvt-tzvkym", "chn-yn-gdy", "ym-hmlch-chvf-bynykny"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "chn-yn-gdy",
     title: "חאן עין גדי",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "Ein Gedi Camplodge - לינה ואירוח במדבר, ליד שמורת עין גדי.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "חאן עין גדי - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        arad: "20m",
+        "beer-sheva": "1h",
+        jerusalem: "1h",
+        dimona: "45m",
+        "tel-aviv": "1h-plus",
+      },
+    },
+    location: {
+      lat: 31.455,
+      lng: 35.388,
+      label: "Ein Gedi Camplodge - חאן עין גדי",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%97%D7%90%D7%9F%20%D7%A2%D7%99%D7%9F%20%D7%92%D7%93%D7%99&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.455%2C35.388",
+    },
+    seoTitle: "חאן עין גדי - לינה ואירוח במדבר | בשביל הלב",
+    metaDescription:
+      "חאן עין גדי (Ein Gedi Camplodge) הוא מתחם אירוח פרטי ליד שמורת עין גדי, עם אווירה מדברית. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/חאן עין גדי/hero.jpeg",
     heroImageLabel: "תמונת רקע - חאן עין גדי",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/חאן עין גדי/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%97%D7%90%D7%9F%20%D7%A2%D7%99%D7%9F%20%D7%92%D7%93%D7%99&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.455%2C35.388",
+    highlights: [
+      "משפחות עם ילדים",
+      "לינה במדבר",
+      "קרוב לעין גדי",
+      "אווירה מדברית",
+      "שמורת טבע",
+      "ים המלח",
+    ],
+    about: [
+      "חאן עין גדי (Ein Gedi Camplodge) הוא מתחם אירוח פרטי, הממוקם ליד שמורת עין גדי ועל שפת ים המלח. לפי האתר הרשמי eingedicamp.co.il, המקום מציע לינה ואירוח באווירה מדברית.",
+      "החאן אינו חלק משמורת עין גדי של רשות הטבע והגנים - זהו מתחם פרטי, נפרד מהשמורה.",
+      "לפי האתר, המקום מתאים למשפחות שרוצות ללון באזור עין גדי ולשלב טיולים בשמורה, בים המלח ובאתרים הסמוכים.",
+      "המיקום מאפשר גישה נוחה לשמורת עין גדי, לעיינות צוקים, לקומראן ולחופי ים המלח.",
+      "ניתן לשלב לינה בחאן עם ימי טיול באזור - או לבקר לכמה שעות אם מתארחים במקום.",
+    ],
+    personalStory: [
+      "לינה במדבר זה דבר אחר לגמרי.",
+      "השקט בלילה, הכוכבים, והרגשה שהעולם נעצר לרגע.",
+      "החאן שוכן ליד שמורת עין גדי. אפשר לצאת מוקדם בבוקר, לפני שהשמורה מתמלאת.",
+      "האווירה כאן פשוטה ומדברית. לא מלון גדול, לא עיר.",
+      "יום אחד באזור ים המלח יכול להתחיל כאן ולהמשיך לנחל דוד, לקומראן, או לחוף.",
+      "שווה לבדוק מראש מה פתוח בעונה, ולהזמין לינה מוקדם.",
+    ],
+    cost: [
+      { label: "לינה", value: "בתשלום - לפי האתר הרשמי" },
+      { label: "חניה", value: "יש חניה במתחם" },
+      { label: "משך בילוי", value: "לילה או יותר" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום - לינה" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "סוג", value: "מתחם אירוח פרטי" },
+      { label: "זמן בילוי", value: "לילה או יותר" },
+    ],
+    gettingThere: {
+      parking: "חניה במתחם Ein Gedi Camplodge, על כביש 90.",
+      notes: [
+        "הגעה: על כביש 90, באזור עין גדי.",
+        "מחירי הלינה והזמינות משתנים - מומלץ לבדוק באתר eingedicamp.co.il.",
+        "החאן הוא מתחם פרטי, נפרד משמורת עין גדי של רשות הטבע והגנים.",
+        "מומלץ להזמין לינה מראש, במיוחד בעונות עמוסות.",
+        "ניתן לשלב עם ביקור בשמורת עין גדי, עיינות צוקים וקומראן.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם זה שמורת עין גדי?",
+        answer:
+          "לא. חאן עין גדי הוא מתחם אירוח פרטי. שמורת עין גדי היא אתר נפרד של רשות הטבע והגנים.",
+      },
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. המתחם מתאים למשפחות, עם אווירה מדברית.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה במתחם.",
+      },
+      {
+        question: "האם צריך להזמין מראש?",
+        answer:
+          "כן. מומלץ להזמין לינה מראש באתר eingedicamp.co.il.",
+      },
+      {
+        question: "מה אפשר לעשות באזור?",
+        answer:
+          "לשלב טיולים בשמורת עין גדי, בים המלח, בעיינות צוקים ובקומראן.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "לילה אחד לפחות, כדי לחוות את האזור.",
+      },
+    ],
+    tips: [
+      "הזמינו לינה מראש באתר eingedicamp.co.il.",
+      "שלבו ביקור בשמורת עין גדי - הזמינו כניסה מראש ב-parks.org.il.",
+      "הביאו מים, כובע וקרם הגנה - האזור חם ויבש.",
+      "אפשר לשלב חוף ים המלח באותו יום.",
+      "בדקו שעות פתיחה של אתרים סמוכים לפני יציאה.",
+    ],
+    closingNote:
+      "בואו נשמור על המדבר נקי. קחו איתכם את האשפה.",
     gallery: [
       { src: "/images/places/south/חאן עין גדי/IMG_2687.jpeg" },
       { src: "/images/places/south/חאן עין גדי/IMG_2693.jpeg" },
@@ -2298,80 +6513,406 @@ linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, 
       { src: "/images/places/south/חאן עין גדי/IMG_7022.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["yn-pshchh-yynvt-tzvkym", "kvmrn", "ym-hmlch-chvf-bynykny", "prk-ytbth"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "mtzyh",
     title: "אמציה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מושב שיתופי בחבל לכיש עם אווירה קהילתית, שדות חקלאיים ונקודות מוצא לטיולים באזור.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "אמציה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "1h",
+        modiin: "45m",
+        ramla: "50m",
+        lod: "50m",
+        "kfar-saba": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        haifa: "1h30",
+      },
+    },
+    location: {
+      lat: 31.5317,
+      lng: 34.9067,
+      label: "מושב אמציה, חבל לכיש",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9E%D7%95%D7%A9%D7%91%20%D7%90%D7%9E%D7%A6%D7%99%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.5317%2C34.9067",
+    },
+    seoTitle: "אמציה - מושב בחבל לכיש לטיול משפחתי בשפלת יהודה | בשביל הלב",
+    metaDescription:
+      "מושב אמציה בחבל לכיש הוא יישוב חקלאי שקט בדרום, עם שדות, נוף פתוח וקרבה לאתרי טבע ועתיקות באזור. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/אמציה/hero.jpeg",
     heroImageLabel: "תמונת רקע - אמציה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/אמציה/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9E%D7%95%D7%A9%D7%91%20%D7%90%D7%9E%D7%A6%D7%99%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.5317%2C34.9067",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי טבע",
+      "חקלאות ושדות",
+      "עצירה בדרך",
+      "חבל לכיש",
+      "כניסה חינם",
+    ],
+    about: [
+      "מושב אמציה שוכן בצד המזרחי של חבל לכיש, באזור שפלת יהודה הדרומית. לפי מועצה אזורית לכיש, היישוב הוקם בשנת 1955 כהיאחזות נח\"ל ולאחר מכן התפתח למושב שיתופי חקלאי.",
+      "המושב נקרא על שמו של המלך אמציה בן יואש, ולפי המקרא נרצח באזור לכיש. היום זה יישוב קטן וקהילתי, עם ענפים חקלאיים משותפים כמו כרם, פלחה ובקר.",
+      "באזור סביב המושב יש שטחים פתוחים, כרמים ונקודות עניין היסטוריות. לפי אתר המועצה האזורית, בקרבת אמציה נמצאים אתרים ארכיאולוגיים - חלקם סגורים כיום למבקרים.",
+      "המקום מתאים למשפחות שמחפשות עצירה שקטה בדרום, סיבוב קצר בין השדות, או נקודת מוצא לטיולים גדולים יותר - כמו גן לאומי בית גוברין או יער המלאכים.",
+      "אין כאן מתחם תיירותי מסודר, אלא חוויה של יישוב חקלאי אמיתי בשפלת יהודה - עם נוף פתוח, אווירה רגועה וקצב איטי.",
+    ],
+    personalStory: [
+      "אין כאן כרטיס כניסה ואין מתחם מסודר.",
+      "רק מושב שקט, שדות פתוחים, ונוף של חבל לכיש.",
+      "הקצב כאן איטי. אפשר לעצור לכמה דקות, לצלם, לנשום.",
+      "ילדים אוהבים לראות טרקטורים מרחוק, כרמים ושטחים ירוקים.",
+      "שילוב עם יער המלאכים או בית גוברין הופך את העצירה לחלק מיום שלם.",
+      "לפעמים בדיוק העצירות הקטנות האלה נשארות בזיכרון.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "ברחבי המושב" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן, ברחבי המושב" },
+      { label: "זמן בילוי", value: "שעה עד כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה ברחבי מושב אמציה, באזור חבל לכיש.",
+      notes: [
+        "המושב שוכן בחבל לכיש, מזרחית לקריית גת.",
+        "לפי מועצה אזורית לכיש, באזור יש גם אתרים ארכיאולוגיים - חלקם סגורים כיום למבקרים. מומלץ לבדוק עדכונים באתר lachish.org.il.",
+        "מומלץ להגיע עם מים, כובע ונעליים נוחות.",
+        "אפשר לשלב את הביקור עם יער המלאכים, בית גוברין או פארק נחל לכיש.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. המושב והשטחים הפתוחים סביבו מתאימים לסיבוב משפחתי רגוע.",
+      },
+      {
+        question: "האם יש כניסה בתשלום?",
+        answer: "לא. מדובר ביישוב פתוח, ללא מתחם תיירותי מסודר.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer: "כן. רחבי המושב סלולים ונוחים לעגלות.",
+      },
+      {
+        question: "מה כדאי לשלב באזור?",
+        answer:
+          "יער המלאכים, גן לאומי בית גוברין, גן לאומי תל לכיש ופארק נחל לכיש - לפי זמן ועניין.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer: "בין שעה לכמה שעות, בהתאם לקצב ולתוכנית באזור.",
+      },
+    ],
+    tips: [
+      "שלבו את הביקור עם יעד נוסף בחבל לכיש - כך היום הופך מעניין יותר.",
+      "בדקו באתר lachish.org.il מה פתוח באזור לפני שיוצאים.",
+      "הגיעו עם אוכל ומים - זו עצירה טובה לפיקניק קצר.",
+      "בימים חמים מומלץ להגיע מוקדם בבוקר או לקראת שקיעה.",
+    ],
+    closingNote:
+      "בואו נשמור על השדות והיישוב נקיים. קחו איתכם את האשפה ותנו לילדים ליהנות מהמרחב בכבוד.",
     gallery: [
       { src: "/images/places/south/אמציה/IMG_4262.jpeg" },
       { src: "/images/places/south/אמציה/IMG_4276.jpeg" },
       { src: "/images/places/south/אמציה/IMG_4277.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["yr-hmlkym", "byt-gvbryn", "prk-lkysh"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "yr-hmlkym",
     title: "יער המלאכים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "יער נטוע ענק מזרחית לקריית גת, עם מגדל תצפית, חניוני פיקניק ושבילי הליכה.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "יער המלאכים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "1h",
+        modiin: "45m",
+        ramla: "50m",
+        lod: "50m",
+        "kfar-saba": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        haifa: "1h30",
+      },
+    },
+    location: {
+      lat: 31.62,
+      lng: 34.82,
+      label: "יער המלאכים-שחריה, מזרחית לקריית גת",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%99%D7%A2%D7%A8%20%D7%94%D7%9E%D7%9C%D7%90%D7%9B%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.62%2C34.82",
+    },
+    seoTitle: "יער המלאכים - פיקניק, תצפית וטיול משפחתי ליד קריית גת | בשביל הלב",
+    metaDescription:
+      "יער המלאכים-שחריה מזרחית לקריית גת הוא יער של קק\"ל עם מגדל תצפית, חניונים, שבילי הליכה ופריחה עונתית. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/יער המלאכים/hero.jpeg",
     heroImageLabel: "תמונת רקע - יער המלאכים",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/יער המלאכים/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%99%D7%A2%D7%A8%20%D7%94%D7%9E%D7%9C%D7%90%D7%9B%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.62%2C34.82",
+    highlights: [
+      "משפחות עם ילדים",
+      "פיקניק בטבע",
+      "מגדל תצפית",
+      "פריחה בעונה",
+      "שבילי אופניים",
+      "כניסה חינם",
+    ],
+    about: [
+      "יער המלאכים, הידוע גם כיער שחריה, הוא יער נטוע גדול בשפלת יהודה, כארבעה ק\"מ ממזרח לקריית גת. לפי קק\"ל ותיירות שפלת יהודה, היער משתרע על כ-7,000 דונם.",
+      "היער ניטע החל משנת 1954, בשם נוסף לזכר מעברת שחריה ששכנה בסמוך, וגם על שם תרומת קהילת יהודי לוס אנג'לס (Angels) לנטיעת חלקו הצפוני.",
+      "במרכז היער נמצא מגדל תצפית המתנשא לגובה של כ-235 מטרים מעל פני הים. מכאן נשקפים נופי שפלת יהודה, הרי חברון ומישור החוף הדרומי.",
+      "לאורך היער פזורים חניוני פיקניק, שולחנות, ברזי מים, שבילי הליכה ומסלולי אופניים בדרגות קושי שונות. בעונות האביב והחורף היער מתמלא בפריחה.",
+      "הכניסה ליער חופשית. זה יעד מצוין ליום משפחתי של פיקניק, הליכה קצרה ותצפית - בלי מסלול קשה.",
+    ],
+    personalStory: [
+      "יער ענק, ירוק, ופתוח לכולם בחינם.",
+      "אפשר לחנות בחניון, לפרוס שולחן, ולתת ליום לזרום.",
+      "מגדל התצפית שווה את העלייה. הנוף על שפלת יהודה רחב ויפה.",
+      "ילדים רואים את זה כמשימה קטנה. עלייה, תצפית, ורגע של \"וואו\".",
+      "באביב ובחורף היער מלא פריחה. גם בקיץ יש הרבה צל בין העצים.",
+      "לא חייבים מסלול ארוך. מספיק פיקניק, הליכה קצרה, ושקט.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "חניונים לאורך היער" },
+      { label: "משך בילוי", value: "כמה שעות - לפי קצב המשפחה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - בחניונים נגישים" },
+      { label: "גישה", value: "רכב פרטי" },
+    ],
+    gettingThere: {
+      parking: "חניונים רבים לאורך יער המלאכים, כולל ליד מגדל התצפית.",
+      notes: [
+        "הכניסה ליער מכביש 35, כארבעה ק\"מ ממזרח לקריית גת (בין סימני ק\"מ 23-24).",
+        "מגיעים מצומת פלוגות: פונים מזרחה בכביש 35.",
+        "מגיעים מבית שמש: דרך כביש 38 לבית גוברין, ואז מערבה לכיוון קריית גת.",
+        "לפי קק\"ל, היער כולל גם מסלולי אופניים - מומלץ לבדוק עדכונים באתר kkl.org.il.",
+        "מומלץ להגיע עם מים, כובע ונעליים נוחות.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. יש חניונים, שבילים קלים, מגדל תצפית ומתקני משחק בחלק מהחניונים.",
+      },
+      {
+        question: "האם הכניסה בתשלום?",
+        answer: "לא. הכניסה ליער חופשית.",
+      },
+      {
+        question: "מתי הכי יפה?",
+        answer:
+          "באביב ובחורף, בעונת הפריחה. ניתן לבקר בכל השנה.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "חלקית. יש חניונים נגישים, אך לא כל השבילים.",
+      },
+      {
+        question: "מה כדאי לעשות ביער?",
+        answer:
+          "פיקניק, עלייה למגדל התצפית, הליכה בשבילים מסומנים או רכיבה - לפי העדפות המשפחה.",
+      },
+    ],
+    tips: [
+      "בעונת הפריחה כדאי להגיע מוקדם - החניונים מתמלאים.",
+      "שלבו עלייה למגדל התצפית - הנוף שווה את העצירה.",
+      "בדקו באתר kkl.org.il עדכונים על סגירות או אירועים.",
+      "הביאו אוכל, מים וכובע - במיוחד בימים חמים.",
+    ],
+    closingNote:
+      "בואו נשמור על היער נקי. קחו איתכם את האשפה ואל תאספו פרחים מהשטח.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["mtzyh", "byt-gvbryn", "prk-lkysh"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "klchym-vmbvkym",
     title: "קלחים ומבוכים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
-    region: "מרכז",
+    subtitle:
+      "חוויה חקלאית משפחתית עם מבוכי תירס וחמניות, קטיף עצמי ומשחקי טבע בלב השרון.",
+    region: "השרון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "קלחים ומבוכים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 30,
+      weatherTraits: ["heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "1h",
+        "kfar-saba": "20m",
+        raanana: "20m",
+        "hod-hasharon": "15m",
+        herzliya: "25m",
+        netanya: "35m",
+        modiin: "40m",
+        ramla: "40m",
+        lod: "40m",
+      },
+    },
+    location: {
+      lat: 32.1498,
+      lng: 34.9045,
+      label: "קלחים ומבוכים - יפה נוף, גני עם",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A7%D7%9C%D7%97%D7%99%D7%9D%20%D7%95%D7%9E%D7%91%D7%95%D7%9B%D7%99%D7%9D%20%D7%99%D7%A4%D7%94%20%D7%A0%D7%95%D7%A3%20%D7%92%D7%A0%D7%99%20%D7%A2%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.1498%2C34.9045",
+    },
+    seoTitle: "קלחים ומבוכים - מבוכי תירס, חמניות וקטיף משפחתי בשרון | בשביל הלב",
+    metaDescription:
+      "קלחים ומבוכים בהוד השרון הוא מתחם חקלאי משפחתי עם מבוכי תירס וחמניות, קטיף עצמי, משחקי טבע ופינות ישיבה. כל המידע לביקור עם ילדים.",
     heroImage: "/images/places/hasharon/קלחים ומבוכים/IMG_5140.jpeg",
     heroImageLabel: "תמונת רקע - קלחים ומבוכים",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/hasharon/קלחים ומבוכים/IMG_5140.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A7%D7%9C%D7%97%D7%99%D7%9D%20%D7%95%D7%9E%D7%91%D7%95%D7%9B%D7%99%D7%9D%20%D7%99%D7%A4%D7%94%20%D7%A0%D7%95%D7%A3%20%D7%92%D7%A0%D7%99%20%D7%A2%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.1498%2C34.9045",
+    highlights: [
+      "משפחות עם ילדים",
+      "גיל הרך",
+      "אוהבי חוויות חקלאיות",
+      "חובבי צילום",
+      "יום כיף בסופ\"ש",
+      "קטיף עונתי",
+    ],
+    about: [
+      "קלחים ומבוכים הוא מתחם חקלאי פתוח בשדות שליד גני עם, באזור הוד השרון. המקום משלב חוויה חקלאית עם הרבה פעילות לילדים: מבוכים בשדות, קטיף עונתי, משחקי טבע ופינות ישיבה מוצלות.",
+      "בעונה המתאימה אפשר להיכנס למבוך תירס או למבוך חמניות, ללכת בין שורות גבוהות, לגלות שלטי הסבר לאורך הדרך וליהנות מהתחושה של הרפתקה קטנה בלב השדה. לפי האתר הרשמי, מבוך הכותנה והמבוך האתגרי יותר מציעים מסלולים שונים, ויש גם מבוכים נוספים כמו מבוך המתזים, מבוך התעלות ומבוך הג'ונגל.",
+      "אחד הדברים שמייחדים את המקום הוא הקטיף העצמי. בעונת התירס מוזמנים המבקרים לקטוף ולטעום ישירות מהשדה, ובתקופות אחרות מתווספות פעילויות עונתיות נוספות. חשוב לבדוק מראש מה פתוח ביום הביקור, כי הפעילות משתנה לפי העונה.",
+      "מעבר למבוכים יש במתחם משחקי טבע כמו חממת כדורים, שביל חושי, מתחם חפירות, עמדת זריעה, מסלול בימבות לקטנטנים ועמדות צילום. יש גם מתחם ישיבה עם ברזי מים, שירותים ואזורים מוצלים לארוחה.",
+      "זה מקום שמתאים במיוחד למשפחות עם ילדים קטנים שרוצות יום פעיל, חווייתי ולא מסובך מדי. לא חייבים \"להספיק הכל\" - אפשר לבחור כמה מבוכים, לעצור לאכול, ולתת לילדים לחקור בקצב שלהם.",
+    ],
+    personalStory: [
+      "שדות תירס גבוהים, מבוכים, וריח של חקלאות בלב השרון.",
+      "קלחים ומבוכים זה המקום שבו ילדים נכנסים למבוך ולא רוצים לצאת.",
+      "מבוך התירס והחמניות מרגיש כמו הרפתקה קטנה. גובה הצמחים, שלטים לאורך הדרך, וחיפוש אחר היציאה.",
+      "בעונת התירס אפשר לקטוף ולטעום ישר מהשדה. זה חלק מהקסם.",
+      "אחרי המבוך יש לאן לעצור. אזורי ישיבה מוצלים, מים, ואפשר לאכול מה שהבאתם.",
+      "לא חייבים להספיק הכל. מבוך אחד, קטיף, ושעה של צחוק בשדה.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      {
+        label: "חניה",
+        value: "חניה במתחם. מומלץ לבדוק מראש באתר הרשמי.",
+      },
+      {
+        label: "משך בילוי",
+        value: "כמה שעות - לפי קצב המשפחה",
+      },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן, במיוחד לגילאי 2-8" },
+      { label: "נגיש לעגלות", value: "חלקית - רוב השטח בשדות" },
+      { label: "זמן בילוי", value: "כמה שעות" },
+    ],
+    gettingThere: {
+      parking: "חניה במתחם, ברחוב יפה נוף בגני עם (הוד השרון).",
+      notes: [
+        "הכתובת הרשמית: רחוב יפה נוף, גני עם (הוד השרון).",
+        "שעות הפעילות, מחירי הכניסה והפעילויות הפתוחות משתנים לפי עונה - מומלץ לבדוק באתר cornmaze.co.il לפני יציאה.",
+        "לפי האתר הרשמי, המקום אינו פעיל כרגע וצפוי להיפתח מחדש בספטמבר 2026.",
+        "הפעילות במקום תלויה בעונה: מבוכי תירס, חמניות וקטיף עשויים להיות זמינים בתקופות שונות.",
+        "מומלץ להגיע עם כובע, מים, נעליים סגורות ולבוש נוח לשדה.",
+        "למבוך המתזים כדאי להביא בגדים להחלפה - מומלץ לוודא מראש שהמבוך פעיל.",
+        "ניתן להביא אוכל מהבית. יש במתחם אזורי ישיבה מוצלים.",
+        "לפי האתר הרשמי, נגישות בכיסא גלגלים מוגבלת בעיקר למתחם הישיבה, ולא לשטחי המבוכים והקטיף.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. לפי האתר הרשמי, הפעילות מתאימה במיוחד לילדים בגילאי 2-8, עם מבוכים, משחקי טבע ומתחם לפעוטות.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "חלקית. רוב המבוכים והקטיף עוברים בשבילי שדה וצמחייה, ולכן עגלת תינוק תתאים בעיקר למתחם הישיבה ולא לכל המסלולים.",
+      },
+      {
+        question: "האם אפשר לקטוף ולטעום במקום?",
+        answer:
+          "בעונת התירס מתקיים קטיף עצמי. מה בדיוק כלול בכניסה ומה נפתח בכל תקופה - כדאי לבדוק באתר הרשמי לפני ההגעה.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. יש חניה במתחם.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer:
+          "לפי האתר הרשמי, זמן הבילוי הממוצע הוא שלוש עד ארבע שעות, אך אפשר לקצר או להאריך לפי גיל הילדים וקצב המשפחה.",
+      },
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "המקום פועל בעונות שונות ולא בכל ימות השבוע. מומלץ לבדוק באתר הרשמי את ימי ושעות הפתיחה העדכניים לפני שיוצאים.",
+      },
+    ],
+    tips: [
+      "לפני שיוצאים - בדקו באתר cornmaze.co.il מה פתוח באותה עונה ובאותו יום.",
+      "הגיעו עם נעליים סגורות ונוחות. השבילים בשדות ולא תמיד מסודרים.",
+      "אם מתכננים את מבוך המתזים, קחו בגדים יבשים להחלפה.",
+      "אפשר להביא אוכל מהבית ולנצל את אזורי הישיבה המוצלים.",
+      "אל תנסו \"להספיק הכל\". בחרו כמה מבוכים ותנו לילדים ליהנות מהם באמת.",
+      "במבוכי התירס והחמניות יש שלטי הסבר - שווה לעצור ולקרוא יחד עם הילדים.",
+    ],
+    closingNote:
+      "בואו נשמור על השדות והמבוכים נקיים. קחו איתכם את האשפה ותנו לילדים ליהנות מהטבע בכבוד.",
     gallery: [
       { src: "/images/places/hasharon/קלחים ומבוכים/IMG_5079.jpeg" },
       { src: "/images/places/hasharon/קלחים ומבוכים/IMG_5092.jpeg" },
@@ -2381,149 +6922,814 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       { src: "/images/places/hasharon/קלחים ומבוכים/IMG_5149.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "prk-kvlvgy-hvd-hshrvn",
+      "nchl-lksndr",
+      "prk-vtvpyh",
+      "mtzpvr-vykr",
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "gn-lvmy-mgdl-tzdk",
     title: "גן לאומי מגדל צדק",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גן לאומי עם מבצר, שבילי הליכה ונוף על השפלה - חוויה משפחתית עם היסטוריה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "גן לאומי מגדל צדק - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.051,
+      lng: 34.931,
+      label: "גן לאומי מגדל צדק",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%9E%D7%92%D7%93%D7%9C%20%D7%A6%D7%93%D7%A7&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.051%2C34.931",
+    },
+    seoTitle: "גן לאומי מגדל צדק - מבצר וטיול משפחתי | בשביל הלב",
+    metaDescription:
+      "גן לאומי מגדל צדק הוא אתר עם מבצר, שבילי הליכה ונוף על השפלה. כל המידע לביקור משפחתי - כולל הזמנה מראש.",
     heroImage: "/images/places/center/גן לאומי מגדל צדק/hero.jpeg",
     heroImageLabel: "תמונת רקע - גן לאומי מגדל צדק",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/גן לאומי מגדל צדק/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%9E%D7%92%D7%93%D7%9C%20%D7%A6%D7%93%D7%A7&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.051%2C34.931",
+    highlights: [
+      "משפחות עם ילדים",
+      "היסטוריה",
+      "מבצר",
+      "שפלה",
+      "כניסה בתשלום"
+    ],
+    about: [
+      "גן לאומי מגדל צדק הוא אתר ארכיאולוגי והיסטורי ליד רош העין, עם מבצר, שרידים ושבילי הליכה. לפי parks.org.il/reserve-park/migdal-tzedek/, הגן משתרע על אלפי דונמים וכולל מסלולים מסומנים.",
+      "לפי רשות הטבע והגנים, הכניסה בתשלום ויש להזמין כרטיסים מראש באתר parks.org.il.",
+      "המקום משלב היסטוריה, נוף על השפלה וטבע - מתאים ליום משפחתי של כמה שעות.",
+      "יש חניון, שבילים ואזורים פתוחים. חלק מהמסלולים דורשים נעלי הליכה."
+    ],
+    personalStory: [
+      "מבצר עתיק על גבעה, עם נוף רחב על השפלה.",
+      "ילדים אוהבים לחקור חדרים, חומות ושרידים. זה מרגיש כמו הרפתקה.",
+      "יש כאן גם היסטוריה וגם טבע. שבילים מסומנים, אוויר פתוח, ושקט.",
+      "כדאי להזמין כרטיסים מראש. בסופי שבוע המקום מתמלא.",
+      "לא חייבים לעשות את כל המסלול. קטע קצר, עצירה במבצר, וחזרה.",
+      "נעלי הליכה ומים. השטח פתוח, והשמש חזקה בימים חמים.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "בתשלום - parks.org.il"
+      },
+      {
+        "label": "הזמנה",
+        "value": "מומלץ להזמין מראש"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "בתשלום"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "הזמנה",
+        "value": "מומלץ מראש"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "כמה שעות"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בחניון הגן הלאומי.",
+      "notes": [
+        "אתר רשמי: parks.org.il/reserve-park/migdal-tzedek/",
+        "יש להזמין כרטיסים מראש ב-parks.org.il.",
+        "הביאו נעלי הליכה, מים וכובע.",
+        "שמרו על האתר - אל תיגעו בשרידים."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. יש מסלולים ומבצר שמעניינים ילדים."
+      },
+      {
+        "question": "האם צריך להזמין מראש?",
+        "answer": "כן. לפי parks.org.il מומלץ להזמין כרטיסים מראש."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניון בגן."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "בין כמה שעות לחצי יום, לפי המסלול."
+      },
+      {
+        "question": "מה לקחת?",
+        "answer": "נעלי הליכה, מים, כובע."
+      }
+    ],
+    tips: [
+      "הזמינו כרטיסים ב-parks.org.il לפני יציאה.",
+      "בחרו מסלול מתאים לגיל הילדים.",
+      "הגיעו עם נעלי הליכה.",
+      "שמרו על האתר הארכיאולוגי."
+    ],
+    closingNote:
+      "בואו נשמור על הגן והשרידים.",
     gallery: [
-      { src: "/images/places/center/גן לאומי מגדל צדק/IMG_5160.jpeg" },
-      { src: "/images/places/center/גן לאומי מגדל צדק/IMG_5163.jpeg" },
-      { src: "/images/places/center/גן לאומי מגדל צדק/IMG_5166.jpeg" },
-      { src: "/images/places/center/גן לאומי מגדל צדק/IMG_5175.jpeg" },
-      { src: "/images/places/center/גן לאומי מגדל צדק/IMG_5182.jpeg" },
+      {
+        "src": "/images/places/center/גן לאומי מגדל צדק/IMG_5160.jpeg"
+      },
+      {
+        "src": "/images/places/center/גן לאומי מגדל צדק/IMG_5163.jpeg"
+      },
+      {
+        "src": "/images/places/center/גן לאומי מגדל צדק/IMG_5166.jpeg"
+      },
+      {
+        "src": "/images/places/center/גן לאומי מגדל צדק/IMG_5175.jpeg"
+      },
+      {
+        "src": "/images/places/center/גן לאומי מגדל צדק/IMG_5182.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "tl-chdyd",
+      "prk-brytnyh"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "tl-shchr",
     title: "טל שחר",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מושב כפרי עם שדות, שבילים ונוף שקט - עצירה נעימה ליד גבעת הרקפות.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "טל שחר - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.756,
+      lng: 34.889,
+      label: "מושב טל שחר",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%98%D7%9C%20%D7%A9%D7%97%D7%A8&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.756%2C34.889",
+    },
+    seoTitle: "טל שחר - מושב וטיול משפחתי בשפלה | בשביל הלב",
+    metaDescription:
+      "מושב טל שחר הוא יישוב כפרי עם שדות, שבילים ונוף שקט. כל המידע לביקור משפחתי ושילוב עם גבעת הרקפות.",
     heroImage: "/images/places/center/טל שחר/hero.jpeg",
     heroImageLabel: "תמונת רקע - טל שחר",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/טל שחר/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%98%D7%9C%20%D7%A9%D7%97%D7%A8&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.756%2C34.889",
+    highlights: [
+      "משפחות עם ילדים",
+      "כפר ושדות",
+      "עצירה קצרה",
+      "כניסה חופשית",
+      "ליד גבעת הרקפות"
+    ],
+    about: [
+      "מושב טל שחר הוא יישוב כפרי על כביש 3, באזור השפלה. האזור מציע נוף שקט של שדות, כרמים ושבילי הליכה בין היישובים.",
+      "המושב משמש נקודת מוצא נוחה לטיולים באזור - בין היתר לגבעת הרקפות, ל\"עיזה פזיזה\" ולשבילים מסומנים.",
+      "הכניסה חינם. אין כניסה מסודרת \"למושב\" כאטרקציה - אלא עצירה באזור, הליכה בשבילים ושילוב עם אתרים סמוכים.",
+      "זה מתאים לעצירה קצרה, פיקניק בשולי השדות (במקומות מותרים) וטיול רגלי קל."
+    ],
+    personalStory: [
+      "כפר שקט, שדות ירוקים, וקצב איטי.",
+      "אין כאן כרטיס כניסה ואין מתחם תיירותי. רק יישוב עם נוף פתוח.",
+      "עצירה קצרה בדרך, הליכה בין השבילים, ורוח בשדות.",
+      "בעונת הפריחה האזור מלא צבע. רקפות, כרמים, וירוק בכל מקום.",
+      "שילוב עם גבעת הרקפות או עיזה פזיזה הופך את העצירה ליום שלם.",
+      "לפעמים מספיק לעצור, לנשום, ולהמשיך בלי לחץ.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "בשולי הדרך ליד המושב"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "עצירה קצרה"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "עצירה קצרה"
+      },
+      {
+        "label": "שילוב",
+        "value": "גבעת הרקפות, עיזה פזיזה"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בשולי הדרכים ליד מושב טל שחר, על כביש 3.",
+      "notes": [
+        "בוויז: טל שחר.",
+        "שלבו עם גבעת הרקפות או עיזה פזיזה.",
+        "שמרו על השדות - הליכה בשבילים בלבד.",
+        "הביאו מים וכובע."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם יש אטרקציה מסודרת?",
+        "answer": "לא. זו עצירה באזור הכפרי, עם שילוב לאתרים סמוכים."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "גבעת הרקפות, עיזה פזיזה."
+      },
+      {
+        "question": "האם מתאים לילדים?",
+        "answer": "כן. הליכה קלה ונוף פתוח."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. בשולי הדרך."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "עצירה של כמה דקות עד שעה."
+      }
+    ],
+    tips: [
+      "שלבו עם גבעת הרקפות בעונת הפריחה.",
+      "עצרו ב\"עיזה פזיזה\" לטעימות.",
+      "שמרו על השדות.",
+      "הביאו מים."
+    ],
+    closingNote:
+      "בואו נשמור על האזור הכפרי נקי.",
     gallery: [
-      { src: "/images/places/center/טל שחר/IMG_7870.jpeg" },
-      { src: "/images/places/center/טל שחר/IMG_9474.jpeg" },
-      { src: "/images/places/center/טל שחר/IMG_9475.jpeg" },
-      { src: "/images/places/center/טל שחר/IMG_9476.jpeg" },
+      {
+        "src": "/images/places/center/טל שחר/IMG_7870.jpeg"
+      },
+      {
+        "src": "/images/places/center/טל שחר/IMG_9474.jpeg"
+      },
+      {
+        "src": "/images/places/center/טל שחר/IMG_9475.jpeg"
+      },
+      {
+        "src": "/images/places/center/טל שחר/IMG_9476.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "gbt-hrkpvt",
+      "yzh-pzyzh"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "yzh-pzyzh",
     title: "עיזה פזיזה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "משק עיזים עם מרכז מבקרים, גבינות ביתיות וחוויה חקלאית ליד טל שחר.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "עיזה פזיזה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "picnic"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 30,
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.758,
+      lng: 34.891,
+      label: "עיזה פזיזה - טל שחר",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A2%D7%99%D7%96%D7%94%20%D7%A4%D7%96%D7%99%D7%96%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.758%2C34.891",
+    },
+    seoTitle: "עיזה פזיזה - משק עיזים וחוויה משפחתית | בשביל הלב",
+    metaDescription:
+      "עיזה פזיזה הוא משק עיזים עם מרכז מבקרים, גבינות ומוצרים חקלאיים ליד טל שחר. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/center/עיזה פזיזה/IMG_6046.jpeg",
     heroImageLabel: "תמונת רקע - עיזה פזיזה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/עיזה פזיזה/IMG_6046.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A2%D7%99%D7%96%D7%94%20%D7%A4%D7%96%D7%99%D7%96%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.758%2C34.891",
+    highlights: [
+      "משפחות עם ילדים",
+      "חקלאות",
+      "גבינות",
+      "חוויה מקומית",
+      "ליד טל שחר"
+    ],
+    about: [
+      "עיזה פזיזה הוא משק עיזים עם מרכז מבקרים ליד מושב טל שחר. לפי האתר הרשמי izapzizadairy.com, במקום מוצעים מוצרי חלב מעיזים, גבינות ביתיות וחוויה חקלאית.",
+      "הביקור במשק מאפשר להכיר את העיזים, לטעום מוצרים ולרכוש גבינות ומוצרים מקומיים.",
+      "שעות הפעילות וסוגי הביקורים משתנים - מומלץ לבדוק באתר הרשמי לפני יציאה.",
+      "אפשר לשלב את העצירה עם טיול קצר בגבעת הרקפות או במושב טל שחר."
+    ],
+    personalStory: [
+      "משק עיזים קטן, עם ריח של גבינות טריות.",
+      "ילדים מתרגשים לראות את העיזים מקרוב. זה פשוט ומחבר.",
+      "טעימה של גבינה ביתית הופכת את העצירה למיוחדת.",
+      "הביקור קצר. כשעה בערך, ואפשר להמשיך לגבעת הרקפות.",
+      "שווה לבדוק מראש שעות פתיחה ומה מוצע ביום הביקור.",
+      "עצירה מקומית, טעימה, ורגע של חקלאות אמיתית בשפלה.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "לפי האתר הרשמי - מומלץ לבדוק מראש"
+      },
+      {
+        "label": "רכישות",
+        "value": "גבינות ומוצרים במשק"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "כשעה"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "לפי ביקור ורכישות"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "אתר רשמי",
+        "value": "izapzizadairy.com"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "כשעה"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה במשק עיזה פזיזה, ליד טל שחר.",
+      "notes": [
+        "אתר רשמי: izapzizadairy.com",
+        "בדקו באתר הרשמי את שעות הפעילות לפני יציאה.",
+        "בוויז: עיזה פזיזה.",
+        "שלבו עם גבעת הרקפות או טל שחר."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. מפגש עם עיזים ומוצרי חלב."
+      },
+      {
+        "question": "האם צריך לתאם מראש?",
+        "answer": "מומלץ לבדוק ב-izapzizadairy.com את שעות הפתיחה."
+      },
+      {
+        "question": "האם אפשר לקנות מוצרים?",
+        "answer": "כן. גבינות ומוצרים מהמשק."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניה במשק."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "כשעה, כולל טעימות ורכישות."
+      }
+    ],
+    tips: [
+      "בדקו ב-izapzizadairy.com לפני יציאה.",
+      "שלבו עם גבעת הרקפות בעונת הפריחה.",
+      "קחו קירור אם קונים גבינות.",
+      "הגיעו עם תיאום אם מתוכנן ביקור מודרך."
+    ],
+    closingNote:
+      "בואו נשמור על המשק נקי ומכבד.",
     gallery: [
-      { src: "/images/places/center/עיזה פזיזה/IMG_6027.jpeg" },
-      { src: "/images/places/center/עיזה פזיזה/IMG_6029.jpeg" },
-      { src: "/images/places/center/עיזה פזיזה/IMG_6032.jpeg" },
-      { src: "/images/places/center/עיזה פזיזה/IMG_6035.jpeg" },
+      {
+        "src": "/images/places/center/עיזה פזיזה/IMG_6027.jpeg"
+      },
+      {
+        "src": "/images/places/center/עיזה פזיזה/IMG_6029.jpeg"
+      },
+      {
+        "src": "/images/places/center/עיזה פזיזה/IMG_6032.jpeg"
+      },
+      {
+        "src": "/images/places/center/עיזה פזיזה/IMG_6035.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "gbt-hrkpvt",
+      "tl-shchr"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "mshmr-dvd",
     title: "משמר דוד",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "שביל מעגלי ביער חולדה ובית הרצל - היסטוריה, נוף וטבע בשפלה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "משמר דוד - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.834,
+      lng: 34.889,
+      label: "שביל סובב משמר דוד - יער חולדה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%99%D7%A2%D7%A8%20%D7%97%D7%95%D7%9C%D7%93%D7%94%20%D7%91%D7%99%D7%AA%20%D7%94%D7%A8%D7%A6%D7%9C&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.834%2C34.889",
+    },
+    seoTitle: "משמר דוד - שביל ביער חולדה ובית הרצל | בשביל הלב",
+    metaDescription:
+      "שביל סובב משמר דוד עובר ביער חולדה, ליד בית הרצל, עם נוף על השפלה. כל המידע לטיול משפחתי.",
     heroImage: "/images/places/center/משמר דוד/hero.jpeg",
     heroImageLabel: "תמונת רקע - משמר דוד",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/משמר דוד/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%99%D7%A2%D7%A8%20%D7%97%D7%95%D7%9C%D7%93%D7%94%20%D7%91%D7%99%D7%AA%20%D7%94%D7%A8%D7%A6%D7%9C&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.834%2C34.889",
+    highlights: [
+      "משפחות עם ילדים",
+      "יער חולדה",
+      "בית הרצל",
+      "היסטוריה",
+      "כניסה חופשית"
+    ],
+    about: [
+      "שביל סובב משמר דוד הוא מסלול מעגלי באזור יער חולדה, ליד בית הרצל. לפי kkl.org.il ו-touryoav.org.il, יער חולדה הוא היער הנטוע הראשון של קק\"ל, עם בית הרצל, אנדרטאות ושבילי הליכה.",
+      "השביל עובר בין יער חולדה, שדות חקלאיים ונקודות תצפית על השפלה. אורך המסלול כ-5.5-7 ק\"מ, וניתן לקצר.",
+      "הכניסה ליער חינם. בית הרצל פתוח לביקור לפי שעות - ללא תשלום לפי motke.co.il (מקור קק\"ל).",
+      "המסלול מתאים להליכה, ריצה ורכיבה על אופניים - לפי הקטע."
+    ],
+    personalStory: [
+      "יער חולדה הוא היער הראשון שנטעו כאן. יש בו היסטוריה, צל, ושבילים נעימים.",
+      "המסלול עובר בין עצים, שדות, ונקודות תצפית על השפלה.",
+      "עצירה בבית הרצל מוסיפה שכבה של למידה. חדר קטן, סיפור גדול.",
+      "אפשר לבחור קטע קצר מהשביל. לא חייבים את כל המעגל.",
+      "היער מצל גם בימים חמים. נעים ללכת, לעצור, לנשום.",
+      "מים, כובע, ונעלי הליכה. זה כל מה שצריך.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם ליער ולשביל"
+      },
+      {
+        "label": "בית הרצל",
+        "value": "ללא תשלום - לפי motke.co.il"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן - לפי אורך מסלול"
+      },
+      {
+        "label": "אורך",
+        "value": "5.5-7 ק\"מ - ניתן לקצר"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בחניון יער חולדה, ליד בית הרצל.",
+      "notes": [
+        "בוויז: יער חולדה או בית הרצל.",
+        "מידע: touryoav.org.il - יער חולדה",
+        "בית הרצל: שעות פעילות משתנות - לבדוק לפני ביקור.",
+        "הביאו מים, כובע ונעלי הליכה."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. ניתן לקצר את המסלול ולעצור בבית הרצל."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. היער והשביל ללא תשלום."
+      },
+      {
+        "question": "כמה ארוך המסלול?",
+        "answer": "כ-5.5-7 ק\"מ. ניתן לבחור קטע קצר."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניון יער חולדה."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "בית הרצל, יער המגינים."
+      }
+    ],
+    tips: [
+      "התחילו מחניון בית הרצל.",
+      "בחרו קטע קצר אם מגיעים עם ילדים קטנים.",
+      "בדקו שעות בית הרצל לפני ביקור.",
+      "הביאו מים וכובע."
+    ],
+    closingNote:
+      "בואו נשמור על היער והשבילים נקיים.",
     gallery: [
-      { src: "/images/places/center/משמר דוד/IMG_0033.jpeg" },
-      { src: "/images/places/center/משמר דוד/IMG_7820.jpeg" },
-      { src: "/images/places/center/משמר דוד/IMG_7821.jpeg" },
-      { src: "/images/places/center/משמר דוד/IMG_7823.jpeg" },
-      { src: "/images/places/center/משמר דוד/IMG_7827.jpeg" },
-      { src: "/images/places/center/משמר דוד/IMG_7832.jpeg" },
-      { src: "/images/places/center/משמר דוד/IMG_7848.jpeg" },
-      { src: "/images/places/center/משמר דוד/IMG_7861.jpeg" },
+      {
+        "src": "/images/places/center/משמר דוד/IMG_0033.jpeg"
+      },
+      {
+        "src": "/images/places/center/משמר דוד/IMG_7820.jpeg"
+      },
+      {
+        "src": "/images/places/center/משמר דוד/IMG_7821.jpeg"
+      },
+      {
+        "src": "/images/places/center/משמר דוד/IMG_7823.jpeg"
+      },
+      {
+        "src": "/images/places/center/משמר דוד/IMG_7827.jpeg"
+      },
+      {
+        "src": "/images/places/center/משמר דוד/IMG_7832.jpeg"
+      },
+      {
+        "src": "/images/places/center/משמר דוד/IMG_7848.jpeg"
+      },
+      {
+        "src": "/images/places/center/משמר דוד/IMG_7861.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "yr-hmgynym",
+      "nvf-yylvn"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "byt-gvbryn",
     title: "בית גוברין",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גן לאומי עם מערות, אמפיתיאטרון עתיק ואתרי UNESCO - חוויה ארכיאולוגית משפחתית בשפלת יהודה.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "בית גוברין - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    vehicleAccess: "soft-suv",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "45m",
+        modiin: "40m",
+        ramla: "45m",
+        lod: "45m",
+        "kfar-saba": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        haifa: "1h30",
+      },
+    },
+    location: {
+      lat: 31.607,
+      lng: 34.896,
+      label: "גן לאומי בית גוברין, שפלת יהודה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%91%D7%99%D7%AA%20%D7%92%D7%95%D7%91%D7%A8%D7%99%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.607%2C34.896",
+    },
+    seoTitle: "בית גוברין - גן לאומי, מערות וטיול משפחתי בשפלת יהודה | בשביל הלב",
+    metaDescription:
+      "גן לאומי בית גוברין הוא אתר UNESCO עם מערות, אמפיתיאטרון עתיק ומסלולי הליכה. כל המידע לביקור משפחתי - כולל הזמנת כניסה מראש.",
     heroImage: "/images/places/south/בית גוברין/hero.jpeg",
     heroImageLabel: "תמונת רקע - בית גוברין",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/בית גוברין/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%91%D7%99%D7%AA%20%D7%92%D7%95%D7%91%D7%A8%D7%99%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.607%2C34.896",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי היסטוריה",
+      "מערות וארכיאולוגיה",
+      "אתר UNESCO",
+      "שפלת יהודה",
+      "כניסה בתשלום",
+    ],
+    about: [
+      "גן לאומי בית גוברין-מרשה הוא אחד האתרים הארכיאולוגיים המרשימים בישראל. לפי רשות הטבע והגנים, הגן כולל מערות חצובות בגיר, אמפיתיאטרון עתיק, בורות שמן ומסלולי הליכה בשפלת יהודה.",
+      "האתר הוכרז כאתר מורשת עולם של UNESCO - \"מערות אחוזות יהודה: מרשה ובית גוברין\". זה אחד מיעדי התיירות המובילים בדרום.",
+      "הגן מחולק לשני אזורים עיקריים, משני צדי כביש 35. לפי parks.org.il, כל אזור מציע חוויה שונה - מערות, חפירות ונופים פתוחים.",
+      "הביקור כולל כניסה למערות מוארות, הליכה בשבילים מסומנים ולעיתים גם סיורים מודרכים. חלק מהמסלולים דורשים נעלי הליכה וזהירות.",
+      "לפי רשות הטבע והגנים, יש להזמין כרטיסים מראש באתר parks.org.il. שעות הפתיחה ומחירי הכניסה משתנים - מומלץ לבדוק לפני יציאה.",
+    ],
+    personalStory: [
+      "מערות, אמפיתיאטרון עתיק, וחפירות שמספרות סיפור של אלפי שנים.",
+      "ילדים נכנסים למערות ומרגישים שהם גילו משהו. זה מרגש.",
+      "האתר גדול. לא חייבים לראות הכל ביום אחד.",
+      "המעבר בין המערות יוצר חוויה אינטראקטיבית. לא רק הליכה בחוץ.",
+      "בקיץ כדאי להגיע מוקדם. המערות מצלות, אבל השטח הפתוח חשוף.",
+      "כרטיסים מראש, נעלי הליכה, ומים. שלושה דברים שלא כדאי לשכוח.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום - יש להזמין מראש באתר parks.org.il" },
+      { label: "חניה", value: "חניונים בשני אזורי הגן" },
+      { label: "משך בילוי", value: "כמה שעות - לפי אזורים וקצב" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - לא בכל המסלולים" },
+      { label: "הזמנה", value: "מומלץ להזמין מראש" },
+    ],
+    gettingThere: {
+      parking: "חניונים בשני אזורי גן לאומי בית גוברין, לאורך כביש 35.",
+      notes: [
+        "הגן מחולק לשני אזורים משני צדי כביש 35, בין בית שמש לקריית גת.",
+        "לפי parks.org.il, יש להזמין כרטיסים מראש. שעות הפתיחה ומחירי הכניסה משתנים.",
+        "חלק מהמסלולים כוללים כניסה למערות - מומלץ נעלי הליכה.",
+        "אפשר לשלב את הביקור עם יער המלאכים, אמציה או תל לכיש.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. המערות והחפירות מעניינות ילדים, אך חלק מהמסלולים דורשים זהירות ונעלי הליכה.",
+      },
+      {
+        question: "האם צריך להזמין כרטיסים מראש?",
+        answer:
+          "כן. לפי parks.org.il, מומלץ להזמין כרטיסים מראש באתר הרשמי.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "חלקית. לא כל המסלולים והמערות נגישים לעגלות.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer:
+          "בין כמה שעות ליום שלם, בהתאם לאזורים שבוחרים לבקר.",
+      },
+      {
+        question: "מה כדאי לשלב באזור?",
+        answer:
+          "יער המלאכים, אמציה, גן לאומי תל לכיש או פארק נחל לכיש.",
+      },
+    ],
+    tips: [
+      "הזמינו כרטיסים מראש ב-parks.org.il - במיוחד בסופי שבוע.",
+      "הגיעו עם נעלי הליכה, מים וכובע.",
+      "בחרו מראש איזה אזור לבקר - הגן גדול.",
+      "בימים חמים התחילו מוקדם בבוקר.",
+    ],
+    closingNote:
+      "בואו נשמור על האתר. אל תיגעו בחפירות, אל תאספו ממצאים וקחו איתכם את האשפה.",
     gallery: [
       { src: "/images/places/south/בית גוברין/IMG_6778.jpeg" },
       { src: "/images/places/south/בית גוברין/IMG_6794.jpeg" },
@@ -2532,28 +7738,132 @@ linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, 
       { src: "/images/places/south/בית גוברין/IMG_6879.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["yr-hmlkym", "mtzyh", "prk-lkysh"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "nchl-dvd",
     title: "נחל דוד",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מסלול מים קצר בעין גדי, עם מפלים, בריכות טבעיות ונוף מדברי - בתוך שמורת הטבע.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "נחל דוד - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "1h30",
+        modiin: "1h30",
+        ramla: "1h30",
+        lod: "1h30",
+        "kfar-saba": "2h",
+        herzliya: "2h",
+        netanya: "2h",
+        haifa: "2h30",
+      },
+    },
+    location: {
+      lat: 31.455,
+      lng: 35.388,
+      label: "נחל דוד, שמורת עין גדי",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A0%D7%97%D7%9C%20%D7%93%D7%95%D7%93%20%D7%A2%D7%99%D7%9F%20%D7%92%D7%93%D7%99&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.455%2C35.388",
+    },
+    seoTitle: "נחל דוד - מסלול מים בעין גדי, טיול משפחתי במדבר | בשביל הלב",
+    metaDescription:
+      "נחל דוד בשמורת עין גדי הוא מסלול מים קצר עם מפלים ובריכות טבעיות. כל המידע לביקור משפחתי - כולל עדכונים על מצב השמורה.",
     heroImage: "/images/places/south/נחל דוד/hero.jpeg",
     heroImageLabel: "תמונת רקע - נחל דוד",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/נחל דוד/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A0%D7%97%D7%9C%20%D7%93%D7%95%D7%93%20%D7%A2%D7%99%D7%9F%20%D7%92%D7%93%D7%99&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.455%2C35.388",
+    highlights: [
+      "משפחות עם ילדים",
+      "מסלול מים",
+      "מפלים ובריכות",
+      "שמורת עין גדי",
+      "נוף מדברי",
+      "כניסה בתשלום",
+    ],
+    about: [
+      "נחל דוד הוא אחד משני מסלולי המים בשמורת הטבע עין גדי, לצד נחל ערוגות. לפי רשות הטבע והגנים, המסלול עובר לאורך נחל עם מפלים, בריכות טבעיות וצמחייה ירוקה בלב המדבר.",
+      "המסלול הקצר בנחל דוד אורכו כ-600 מטרים, ומתאים במיוחד למשפחות עם ילדים.",
+      "לאחר אירועי שיטפונות ב-2025, חלק מהשמורה פועלת בהגבלות. לפי parks.org.il, מצב המסלולים, רמת המים ושעות הפתיחה משתנים - מומלץ לבדוק עדכונים באתר הרשמי לפני ביקור.",
+      "הכניסה לשמורה בתשלום, ולעיתים נדרשת הזמנה מראש. יש גם מסלול נגיש חלקית.",
+      "השמורה שוכנת על שפת ים המלח, באקלים מדברי חם. מומלץ להגיע עם מים, כובע ונעלי הליכה מתאימות.",
+    ],
+    personalStory: [
+      "מים זורמים בלב המדבר. זה תמיד מרגיש כמו קסם.",
+      "נחל דוד קצר יחסית. מפלים, בריכות טבעיות, וצמחייה ירוקה בין הסלעים.",
+      "המסלול מתאים גם לילדים קטנים. אין צורך ביום ארוך.",
+      "הליכה בנחל דורשת נעלי הליכה וזהירות. המים משנים את התנאים.",
+      "לפני שיוצאים, כדאי לבדוק באתר parks.org.il את מצב השמורה.",
+      "שעה-שעתיים של מים, צילום, ושקט. ואז אפשר להמשיך לים המלח.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום - יש לבדוק ב-parks.org.il" },
+      { label: "חניה", value: "חניון בשמורת עין גדי" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - יש מסלול נגיש" },
+      { label: "מים", value: "כן - מסלול מים" },
+    ],
+    gettingThere: {
+      parking: "חניון בשמורת עין גדי, ליד כניסת נחל דוד.",
+      notes: [
+        "השמורה נמצאת על כביש 90, בין עין גדי לים המלח.",
+        "לפי parks.org.il, לאחר שיטפונות ב-2025 חלק מהשמורה פועלת בהגבלות. בדקו עדכונים לפני יציאה.",
+        "מומלץ להזמין כרטיסים מראש באתר parks.org.il.",
+        "הגיעו עם נעלי הליכה, מים וכובע.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. המסלול הקצר בנחל דוד מתאים למשפחות, אך דורש זהירות ונעלי הליכה.",
+      },
+      {
+        question: "האם המסלול פתוח?",
+        answer:
+          "מצב השמורה משתנה. לאחר שיטפונות ב-2025 יש הגבלות - יש לבדוק עדכונים ב-parks.org.il.",
+      },
+      {
+        question: "האם צריך להזמין מראש?",
+        answer:
+          "לעיתים כן. מומלץ לבדוק באתר parks.org.il לפני הביקור.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "חלקית. יש מסלול נגיש, אך מסלול המים עצמו אינו מתאים לעגלות.",
+      },
+      {
+        question: "מה לקחת?",
+        answer:
+          "נעלי הליכה, מים, כובע ובגדים להחלפה - לפי עונה ומצב המים.",
+      },
+    ],
+    tips: [
+      "בדקו ב-parks.org.il את מצב השמורה לפני יציאה - במיוחד לאחר שיטפונות.",
+      "הזמינו כרטיסים מראש אם נדרש.",
+      "הגיעו עם נעלי הליכה ומים - חובה במסלול מים.",
+      "בימים חמים התחילו מוקדם בבוקר.",
+    ],
+    closingNote:
+      "בואו נשמור על השמורה. אל תשחו באזורים אסורים, קחו איתכם את האשפה ואל תאספו צמחים.",
     gallery: [
       { src: "/images/places/south/נחל דוד/IMG_6964.jpeg" },
       { src: "/images/places/south/נחל דוד/IMG_6980.jpeg" },
@@ -2561,59 +7871,315 @@ linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, 
       { src: "/images/places/south/נחל דוד/IMG_6997.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["mdbryvm"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "mvzyvn-hyldym-chvlvn",
     title: "מוזיאון הילדים חולון",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מוזיאון אינטראקטיבי עם חוויות מודרכות לילדים - סיפורים, משחקים ולמידה דרך חוויה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "מוזיאון הילדים חולון - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.0192,
+      lng: 34.7794,
+      label: "מוזיאון הילדים חולון",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9E%D7%95%D7%96%D7%99%D7%90%D7%95%D7%9F%20%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D%20%D7%97%D7%95%D7%9C%D7%95%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.0192%2C34.7794",
+    },
+    seoTitle: "מוזיאון הילדים חולון - חוויה משפחתית מודרכת | בשביל הלב",
+    metaDescription:
+      "מוזיאון הילדים בחולון מציע חוויות מודרכות ואינטראקטיביות לילדים. כל המידע לביקור משפחתי - כולל הזמנה מראש.",
     heroImage: "/images/places/center/מוזיאון הילדים חולון/hero.jpeg",
     heroImageLabel: "תמונת רקע - מוזיאון הילדים חולון",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/מוזיאון הילדים חולון/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9E%D7%95%D7%96%D7%99%D7%90%D7%95%D7%9F%20%D7%94%D7%99%D7%9C%D7%93%D7%99%D7%9D%20%D7%97%D7%95%D7%9C%D7%95%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.0192%2C34.7794",
+    highlights: [
+      "משפחות עם ילדים",
+      "גיל הרך",
+      "חוויה מודרכת",
+      "למידה דרך משחק",
+      "יום כיף בחולון"
+    ],
+    about: [
+      "מוזיאון הילדים בחולון הוא מוזיאון אינטראקטיבי שבו הילדים חווים תערוכות מודרכות. לפי האתר הרשמי childrensmuseum.org.il, הביקור מתקיים בסיורים מודרכים בלבד, בתיאום מראש.",
+      "המוזיאון מציע מספר חוויות שונות לגילאים שונים, כל אחת עם סיפור, משחק ולמידה. יש לבחור מראש את החוויה המתאימה לגיל הילד.",
+      "לפי האתר הרשמי, יש להזמין מקום מראש. הכניסה בתשלום.",
+      "חשוב לבדוק באתר הרשמי את מצב הפתיחה העדכני, שעות הפעילות והחוויות הזמינות לפני יציאה."
+    ],
+    personalStory: [
+      "מוזיאון שבו ילדים לא עומדים מול תצוגה. הם נכנסים לתוך הסיפור.",
+      "הסיור מודרך. יש מסגרת ברורה: סיפור, פעילות, ושאלות.",
+      "כל חוויה מיועדת לגיל אחר. כדאי לבחור מראש מה מתאים.",
+      "ההזמנה מראש חובה. אין כניסה בלי תיאום.",
+      "זה מקום טוב לימים גשומים או חמים. רוב החוויה בפנים.",
+      "שעה-שעתיים של משחק, סיפור, ולמידה. ואז אפשר לשלב עם פארק אריאל שרון.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "בתשלום"
+      },
+      {
+        "label": "הזמנה",
+        "value": "חובה - childrensmuseum.org.il"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "כשעה עד כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "בתשלום"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן, לפי גיל החוויה"
+      },
+      {
+        "label": "הזמנה מראש",
+        "value": "כן, חובה"
+      },
+      {
+        "label": "סיור מודרך",
+        "value": "כן"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בסמוך למוזיאון, חולון.",
+      "notes": [
+        "אתר רשמי: childrensmuseum.org.il",
+        "הביקור בסיורים מודרכים בלבד - יש להזמין מראש.",
+        "יש לבחור מראש חוויה מתאימה לגיל הילד.",
+        "מומלץ להגיע כמה דקות לפני תחילת הסיור."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. המוזיאון מתוכנן לילדים, עם חוויות שונות לגילאים שונים."
+      },
+      {
+        "question": "האם חייבים להזמין מראש?",
+        "answer": "כן. לפי האתר הרשמי הביקור בתיאום ובהזמנה מראש בלבד."
+      },
+      {
+        "question": "האם אפשר לבקר בלי סיור?",
+        "answer": "לא. לפי האתר הרשמי הביקור מתקיים בסיורים מודרכים."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניה בסמוך למוזיאון."
+      },
+      {
+        "question": "כמה זמן מומלץ להישאר?",
+        "answer": "רוב החוויות נמשכות כשעה עד כמה שעות, לפי הסיור שנבחר."
+      }
+    ],
+    tips: [
+      "הזמינו מראש ב-childrensmuseum.org.il ובחרו חוויה לפי גיל.",
+      "הגיעו לפני תחילת הסיור - אין כניסה לאחר תחילתו.",
+      "בדקו באתר הרשמי את מצב הפתיחה לפני יציאה.",
+      "שלבו עם פארק אריאל שרון אם רוצים להאריך את היום."
+    ],
+    closingNote:
+      "בואו נשמור על השקט במוזיאון ונכבד את הוראות הצוות.",
     gallery: [
-      { src: "/images/places/center/מוזיאון הילדים חולון/IMG_7220.jpeg" },
-      { src: "/images/places/center/מוזיאון הילדים חולון/IMG_7223.jpeg" },
-      { src: "/images/places/center/מוזיאון הילדים חולון/IMG_7227.jpeg" },
-      { src: "/images/places/center/מוזיאון הילדים חולון/IMG_7237.jpeg" },
-      { src: "/images/places/center/מוזיאון הילדים חולון/IMG_7257.jpeg" },
-      { src: "/images/places/center/מוזיאון הילדים חולון/IMG_7260.jpeg" },
+      {
+        "src": "/images/places/center/מוזיאון הילדים חולון/IMG_7220.jpeg"
+      },
+      {
+        "src": "/images/places/center/מוזיאון הילדים חולון/IMG_7223.jpeg"
+      },
+      {
+        "src": "/images/places/center/מוזיאון הילדים חולון/IMG_7227.jpeg"
+      },
+      {
+        "src": "/images/places/center/מוזיאון הילדים חולון/IMG_7237.jpeg"
+      },
+      {
+        "src": "/images/places/center/מוזיאון הילדים חולון/IMG_7257.jpeg"
+      },
+      {
+        "src": "/images/places/center/מוזיאון הילדים חולון/IMG_7260.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "prk-ryl-shrvn"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "yn-chmd",
     title: "עין חמד",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גן לאומי עם מבצר צלבני, נחל כסלון, מדשאות ופיקניק - עצירה מושלמת בדרך לירושלים.",
     region: "ירושלים",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "עין חמד - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 30,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "10m",
+        modiin: "25m",
+        ramla: "30m",
+        lod: "30m",
+        "kfar-saba": "45m",
+        herzliya: "45m",
+        netanya: "50m",
+        haifa: "1h30",
+      },
+    },
+    location: {
+      lat: 31.7942,
+      lng: 35.0889,
+      label: "גן לאומי עין חמד",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%A2%D7%99%D7%9F%20%D7%97%D7%9E%D7%93&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.7942%2C35.0889",
+    },
+    seoTitle:
+      "עין חמד - גן לאומי עם פיקניק ומסלול משפחתי בדרך לירושלים | בשביל הלב",
+    metaDescription:
+      "גן לאומי עין חמד הוא פינת טבע עם מבצר צלבני, נחל כסלון, מדשאות ומתחם פיקניק. כל המידע לביקור משפחתי בדרך לירושלים.",
     heroImage: "/images/places/jerusalem/עין חמד/hero.jpeg",
     heroImageLabel: "תמונת רקע - עין חמד",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8a29e'/%3E%3Cstop offset='100%25' stop-color='%2344403c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/jerusalem/עין חמד/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%A2%D7%99%D7%9F%20%D7%97%D7%9E%D7%93&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.7942%2C35.0889",
+    highlights: [
+      "משפחות עם ילדים",
+      "עצירה בדרך",
+      "פיקניק בטבע",
+      "היסטוריה וטבע",
+      "שלכת בסתיו",
+      "נגישות חלקית",
+    ],
+    about: [
+      "גן לאומי עין חמד הוא פינת טבע ירוקה בהרי ירושלים, בצד הדרומי של כביש 1. המקום נקרא \"אקווה בלה\" - \"המים היפים\" - על שם המעיינות שזרמו כאן.",
+      "בגן יש מבצר צלבני עתיק (בית חווה מבוצר), שרידי חווה חקלאית, מערכת מים עם פלגי נחל כסלון, מדשאות רחבות ומתחם פיקניק גדול.",
+      "לפי רשות הטבע והגנים, המסלול המומלץ הוא מעגלי וקצר, מתאים למשפחות. יש גם שבילים נגישים לעגלות ולכיסאות גלגלים בחלק מהמתחם.",
+      "בסתיו, העצים בגן מציגים שלכת מרשימה בגווני אדום וכתום - חוויה מיוחדת שלא תמיד מצפים לה בארץ.",
+      "הגן מתאים לעצירה לפני או אחרי ירושלים - פיקניק, הליכה קצרה וקצת היסטוריה, בלי לצאת מהדרך.",
+    ],
+    personalStory: [
+      "עצירה מושלמת בדרך לירושלים. ירוק, שקט, ומרחק של כמה דקות מהכביש.",
+      "מבצר צלבני עתיק, פלגי נחל כסלון, ומדשאות רחבות.",
+      "ילדים אוהבים לחקור חדרים, חצרות ושרידים. זה מרגיש כמו הרפתקה.",
+      "אפשר לפרוס שולחן, לטייל במסלול קצר, ולחזור לנסיעה.",
+      "בסתיו העצים כאן מדהימים. שלכת באדום וכתום, אוויר נעים.",
+      "גם שעה בין נסיעות מספיקה. לא חייבים יום שלם.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      {
+        label: "חניה",
+        value: "חניון יום בגן. מומלץ לבדוק מראש באתר parks.org.il.",
+      },
+      { label: "משך בילוי", value: "כמה שעות - לפי קצב המשפחה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - בשבילים מסוימים" },
+      { label: "מסלול", value: "מעגלי וקצר" },
+    ],
+    gettingThere: {
+      parking: "חניון יום בגן לאומי עין חמד.",
+      routeLength: "מסלול מעגלי של כ-1.5 ק\"מ, לפי רשות הטבע והגנים.",
+      notes: [
+        "יוצאים מירושלים לכביש 1 מערבה, עולים על מחלף עין חמד ופונים דרומה.",
+        "לאחר כמה דקות נסיעה מגיעים לגן.",
+        "שעות פתיחה, מחירים והזמנת כניסה - מומלץ לבדוק באתר parks.org.il.",
+        "בגן יש מתחם פיקניק עם שולחנות, שירותים וברזיות.",
+        "בחלק העליון של הגן מותרת הדלקת אש למנגל - לפי ההנחיות באתר.",
+        "יש מתקני משחק לילדים, חלקם נגישים.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. הגן מציע מסלול קצר, מדשאות, מים ומתקני משחק.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "חלקית. יש שבילים נגישים, אך לא כל המסלול.",
+      },
+      {
+        question: "האם צריך להזמין כניסה מראש?",
+        answer:
+          "מומלץ לבדוק באתר parks.org.il אם נדרשת הזמנה מראש.",
+      },
+      {
+        question: "האם מתאים לעצירה בדרך?",
+        answer:
+          "כן. הגן נמצא על כביש 1 ומתאים לעצירה לפני או אחרי ירושלים.",
+      },
+      {
+        question: "מתי הכי יפה?",
+        answer:
+          "בכל השנה. בסתיו יש שלכת מרשימה.",
+      },
+      {
+        question: "האם אפשר לעשות פיקניק?",
+        answer:
+          "כן. יש מתחם פיקניק גדול עם שולחנות מוצלים.",
+      },
+    ],
+    tips: [
+      "בדקו באתר parks.org.il שעות פתיחה, מחירים והזמנת כניסה.",
+      "מתאים לעצירה בדרך - אין חובה \"להספיק הכל\".",
+      "בסתיו כדאי להגיע לשלכת - העצים בגן מרהיבים.",
+      "הביאו אוכל מהבית - יש שולחנות פיקניק.",
+      "בימים חמים, המים והצל הופכים את המקום לנעים במיוחד.",
+    ],
+    closingNote:
+      "בואו נשמור על הגן נקי. קחו איתכם את האשפה ואל תאספו פרחים מהשטח.",
     gallery: [
       { src: "/images/places/jerusalem/עין חמד/IMG_7558.jpeg" },
       { src: "/images/places/jerusalem/עין חמד/IMG_7562.jpeg" },
@@ -2626,74 +8192,437 @@ linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgb
       { src: "/images/places/jerusalem/עין חמד/IMG_7605.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["prk-kndh", "mgr-byt-zyt", "yr-tzrh"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "nvf-yylvn",
     title: "נוף איילון",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "תצפית ביער המגינים עם נוף פתוח על השפלה - עצירה קצרה ונעימה לכל המשפחה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "נוף איילון - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.871,
+      lng: 34.923,
+      label: "נוף איילון - יער המגינים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A0%D7%95%D7%A3%20%D7%90%D7%99%D7%99%D7%9C%D7%95%D7%9F%20%D7%99%D7%A2%D7%A8%20%D7%94%D7%9E%D7%92%D7%99%D7%A0%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.871%2C34.923",
+    },
+    seoTitle: "נוף איילון - תצפית ביער המגינים | בשביל הלב",
+    metaDescription:
+      "נוף איילון הוא נקודת תצפית ביער המגינים, עם נוף על השפלה ושבילי הליכה קצרים. כל המידע לביקור משפחתי חינמי.",
     heroImageLabel: "תמונת רקע - נוף איילון",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A0%D7%95%D7%A3%20%D7%90%D7%99%D7%99%D7%9C%D7%95%D7%9F%20%D7%99%D7%A2%D7%A8%20%D7%94%D7%9E%D7%92%D7%99%D7%A0%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.871%2C34.923",
+    highlights: [
+      "משפחות עם ילדים",
+      "תצפית נוף",
+      "אוהבי טבע",
+      "כניסה חופשית",
+      "עצירה קצרה"
+    ],
+    about: [
+      "נוף איילון הוא נקודת תצפית ביער המגינים, אחד היערות הגדולים בישראל. לפי kkl.org.il, יער המגינים משתרע על אלפי דונמים בשפלת יהודה וכולל אתרי הנצחה, שבילי הליכה ונקודות תצפית.",
+      "התצפית מציעה נוף פתוח על השפלה, השדות והיישובים סביב. זו עצירה קצרה ונעימה במסגרת טיול ביער.",
+      "הכניסה חינם. ניתן לשלב את העצירה עם הליכה קצרה בשבילים המסומנים של קק\"ל באזור.",
+      "המקום מתאים לעצירה של כמה דקות עד שעה, בהתאם לקצב המשפחה ולמסלול שנבחר."
+    ],
+    personalStory: [
+      "עצירה קצרה, נוף פתוח, ורגע של שקט.",
+      "התצפית ביער המגינים מסתכלת על שפלת יהודה הרחבה.",
+      "ילדים אוהבים לזהות שדות, כבישים רחוקים, ויער מסביב.",
+      "אפשר לעצור לכמה דקות, או לשלב עם הליכה קצרה בשבילים.",
+      "בימים בהירים הנוף מיוחד במיוחד. בקיץ כדאי בבוקר או לפני שקיעה.",
+      "עצירה קטנה בדרך ליעד אחר. בלי להאריך את היום.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "בחניוני יער המגינים"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "כמה דקות עד שעה"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית - לפי מסלול"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "עצירה קצרה"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בחניוני יער המגינים, ליד נקודות התצפית.",
+      "notes": [
+        "מידע על היער: kkl.org.il/travel/trips/231/",
+        "ניתן לנווט בוויז ל\"יער המגינים\" או \"נוף איילון\".",
+        "הכניסה חינם. יש לשמור על ניקיון השטח.",
+        "אפשר לשלב עם מסלולים נוספים ביער המגינים."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. התצפית והשבילים הקצרים מתאימים למשפחות."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. הכניסה ליער המגינים ללא תשלום."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניונים מסודרים ביער."
+      },
+      {
+        "question": "כמה זמן מומלץ להישאר?",
+        "answer": "בין כמה דקות לשעה, בהתאם למסלול."
+      },
+      {
+        "question": "מה כדאי לשלב באזור?",
+        "answer": "יער המגינים, תצפית בקעה או מסלול סובב משמר דוד."
+      }
+    ],
+    tips: [
+      "שלבו את העצירה עם הליכה קצרה ביער המגינים.",
+      "הגיעו בשעות הבוקר המוקדמות בקיץ.",
+      "הביאו מים וכובע - חלק מהשטח חשוף לשמש.",
+      "שמרו על ניקיון - קחו איתכם את האשפה."
+    ],
+    closingNote:
+      "בואו נשמור על היער והתצפית נקיים.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "yr-hmgynym",
+      "mshmr-dvd"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "prk-brytnyh",
     title: "פארק בריטניה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "יער עצום בשפלת יהודה עם שבילי הליכה, פיקניק ונוף ירוק - כניסה חופשית.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "פארק בריטניה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.7167,
+      lng: 34.7833,
+      label: "פארק בריטניה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%91%D7%A8%D7%99%D7%98%D7%A0%D7%99%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.7167%2C34.7833",
+    },
+    seoTitle: "פארק בריטניה - יער וטיול משפחתי בשפלה | בשביל הלב",
+    metaDescription:
+      "פארק בריטניה הוא יער גדול בשפלת יהודה, עם שבילי הליכה, פיקניק וכניסה חופשית. כל המידע לביקור משפחתי.",
     heroImageLabel: "תמונת רקע - פארק בריטניה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A4%D7%90%D7%A8%D7%A7%20%D7%91%D7%A8%D7%99%D7%98%D7%A0%D7%99%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.7167%2C34.7833",
+    highlights: [
+      "משפחות עם ילדים",
+      "פיקניק",
+      "אוהבי טבע",
+      "כניסה חופשית",
+      "שפלת יהודה"
+    ],
+    about: [
+      "פארק בריטניה הוא יער גדול בשפלת יהודה, שניטע על ידי קק\"ל. לפי kkl-jnf.org, היער משתרע על אלפי דונמים וכולל שבילי הליכה, חניונים ואזורי פיקניק.",
+      "היער נקרא על שם הציונות הבריטית, והוא חלק ממערך היערות בשפלה. יש בו מסלולים מסומנים, שבילי אופניים ונקודות תצפית.",
+      "הכניסה חינם. המקום מתאים לטיולי משפחה, פיקניק והליכה קצרה או ארוכה יותר - לפי הקצב.",
+      "באביב ובסתיו היער מלא צבע וירוק, ובקיץ יש הרבה צל בין העצים."
+    ],
+    personalStory: [
+      "יער עצום, ירוק, ופתוח בחינם.",
+      "אפשר לבחור מסלול קצר, לפרוס מחצלת, ולתת לילדים לרוץ בין העצים.",
+      "החניונים מסודרים. עצירה נוחה, גם עם עגלת תינוק.",
+      "בסופי שבוע יש יותר אנשים. בימי חול השקט קל יותר למצוא.",
+      "באביב ובסתיו היער מלא צבע. בקיץ יש הרבה צל.",
+      "שעה-שעתיים של ירוק, הליכה, ופיקניק. בלי כרטיס, בלי לחץ.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "בחניוני היער"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית - לפי מסלול"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניונים מסודרים בכניסות לפארק בריטניה.",
+      "notes": [
+        "מידע: kkl-jnf.org - פארק בריטניה",
+        "הכניסה חינם. יש לשמור על ניקיון היער.",
+        "מומלץ לבדוק מפת שבילים לפני בחירת מסלול.",
+        "הביאו מים, כובע ומחצלת לפיקניק."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. יש שבילים, צל ואזורי פיקניק."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. הכניסה לפארק בריטניה ללא תשלום."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניונים בכניסות היער."
+      },
+      {
+        "question": "האם אפשר לעשות פיקניק?",
+        "answer": "כן. יש אזורי פיקניק ושולחנות בחלק מהחניונים."
+      },
+      {
+        "question": "כמה זמן מומלץ להישאר?",
+        "answer": "בין שעה לכמה שעות, בהתאם למסלול."
+      }
+    ],
+    tips: [
+      "בחרו מסלול מתאים לגיל הילדים.",
+      "הביאו מחצלת, מים וכובע.",
+      "שמרו על ניקיון - קחו איתכם את האשפה.",
+      "בסתיו ובאביב היער במיטבו."
+    ],
+    closingNote:
+      "בואו נשמור על היער נקי. קחו איתכם את האשפה.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "yr-hmgynym",
+      "gn-lvmy-mgdl-tzdk"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "btrvnvt-rvchmh",
     title: "בתרונות רוחמה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "נוף בתרונות מרהיב מעל רוחמה - תצפית, פריחה עונתית ושבילי הליכה מסביב לשמורה.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "בתרונות רוחמה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    vehicleAccess: "soft-suv",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "1h",
+        modiin: "50m",
+        ramla: "55m",
+        lod: "55m",
+        "kfar-saba": "1h",
+        herzliya: "1h",
+        netanya: "1h",
+        haifa: "1h30",
+      },
+    },
+    location: {
+      lat: 31.508,
+      lng: 34.691,
+      label: "בתרונות רוחמה, מערב הנגב",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%91%D7%AA%D7%A8%D7%95%D7%A0%D7%95%D7%AA%20%D7%A8%D7%95%D7%97%D7%9E%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.508%2C34.691",
+    },
+    seoTitle: "בתרונות רוחמה - תצפית, פריחה וטיול משפחתי במערב הנגב | בשביל הלב",
+    metaDescription:
+      "בתרונות רוחמה הם נוף בתרונות מרהיב מעל קיבוץ רוחמה. תצפית, פריחה בחורף-אביב ושבילי הליכה מסביב. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/בתרונות רוחמה/hero.jpeg",
     heroImageLabel: "תמונת רקע - בתרונות רוחמה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/בתרונות רוחמה/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%91%D7%AA%D7%A8%D7%95%D7%A0%D7%95%D7%AA%20%D7%A8%D7%95%D7%97%D7%9E%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.508%2C34.691",
+    highlights: [
+      "משפחות עם ילדים",
+      "תצפית ונוף",
+      "פריחה בעונה",
+      "מערב הנגב",
+      "שבילי הליכה",
+      "כניסה חינם",
+    ],
+    about: [
+      "בתרונות רוחמה הוא אזור בתרונות (Badlands) מרהיב מעל קיבוץ רוחמה, במערב הנגב. לפי רשות הטבע והגנים, השטח מוגדר כשמורת טבע.",
+      "לפי parks.org.il, השמורה עצמה סגורה למבקרים ומגודרת. ניתן לצפות בנוף הבתרונות מנקודות תצפית ושבילים מסביב, אך לא להיכנס לתוך השטח המגודר.",
+      "בחורף ובאביב (בין ינואר לאפריל) האזור מתמלא בפריחה - חלמוניות, כלניות וצמחי מדבר. זו העונה הפופולרית ביותר לביקור.",
+      "הנוף ייחודי - גבעות חול וחרסית בצבעים שונים, עם קווי מתאר דרמטיים. מתאים לצילום, הליכה קצרה ותצפית.",
+      "הכניסה חופשית. חשוב להישאר בשבילים המסומנים ולא לעבור את הגדרות השמורה.",
+    ],
+    personalStory: [
+      "יש מקומות שאתה עוצר, מסתכל, ולא צריך ללכת הרבה.",
+      "בתרונות רוחמה זה בדיוק כך.",
+      "גבעות חול וחרסית בצבעים שלא רואים בכל יום - קווי מתאר חדים מעל השפלה.",
+      "בחורף ובאביב, כשהפריחה מגיעה, השדות מקבלים צבעים שלא תואמים את הנוף המדברי.",
+      "חשוב לזכור: השמורה עצמה סגורה ומגודרת.",
+      "הביקור הוא מהשבילים והתצפיות מבחוץ - לא בכניסה לשטח.",
+      "עצירה קצרה, כמה תמונות, קצת הליכה - וממשיכים.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "בשטחים פתוחים סביב השמורה" },
+      { label: "משך בילוי", value: "שעה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "לא" },
+      { label: "עונה מומלצת", value: "ינואר-אפריל (פריחה)" },
+    ],
+    gettingThere: {
+      parking: "חניה בשטחים פתוחים סביב שמורת בתרונות רוחמה, ליד קיבוץ רוחמה.",
+      notes: [
+        "השמורה נמצאת מערבית לקיבוץ רוחמה, בין שדרות לנתיבות.",
+        "לפי parks.org.il, השמורה עצמה סגורה ומגודרת. יש לצפות מהשבילים והתצפיות מסביב.",
+        "בעונת הפריחה (ינואר-אפריל) המקום עמוס - מומלץ להגיע מוקדם.",
+        "הגיעו עם מים, כובע ונעליים נוחות.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם אפשר להיכנס לשמורה?",
+        answer:
+          "לא. לפי parks.org.il, השמורה סגורה ומגודרת. ניתן לצפות בנוף מנקודות תצפית ושבילים מסביב.",
+      },
+      {
+        question: "מתי הכי יפה?",
+        answer:
+          "בין ינואר לאפריל, בעונת הפריחה. ניתן לבקר גם בשאר השנה.",
+      },
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן, לטיול קצר ותצפית. חשוב להישאר בשבילים ולא לעבור את הגדרות.",
+      },
+      {
+        question: "האם הכניסה בתשלום?",
+        answer: "לא. הכניסה חופשית.",
+      },
+      {
+        question: "האם צריך רכב שטח?",
+        answer:
+          "לא בהכרח, אך חלק מהדרכים סביב השמורה מומלצות לרכב גבוה.",
+      },
+    ],
+    tips: [
+      "בדקו ב-parks.org.il עדכונים לפני יציאה.",
+      "בעונת הפריחה הגיעו מוקדם - החניה מתמלאת.",
+      "אל תעברו את הגדרות השמורה - השטח מוגן.",
+      "הביאו מים וכובע - אין צל בשטח הפתוח.",
+    ],
+    closingNote:
+      "בואו נשמור על השמורה. אל תעברו את הגדרות, אל תאספו פרחים וקחו איתכם את האשפה.",
     gallery: [
       { src: "/images/places/south/בתרונות רוחמה/IMG_8215.jpeg" },
       { src: "/images/places/south/בתרונות רוחמה/IMG_8254.jpeg" },
@@ -2703,134 +8632,777 @@ linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, 
       { src: "/images/places/south/בתרונות רוחמה/IMG_8317.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["mdbryvm"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "brbtb",
     title: "ברבטבע",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "פינת טבע ליד נחל הירקון - שביל, מים ושקט ליד כפר הבפטיסטים.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "ברבטבע - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "water",
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "water-friendly",
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.088,
+      lng: 34.892,
+      label: "נחל הירקון - אזור כפר הבפטיסטים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9B%D7%A4%D7%A8%20%D7%94%D7%91%D7%A4%D7%98%D7%99%D7%A1%D7%98%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.088%2C34.892",
+    },
+    seoTitle: "ברבטבע - טיול משפחתי ליד נחל הירקון | בשביל הלב",
+    metaDescription:
+      "ברבטבע הוא פינת טבע ליד נחל הירקון, עם שבילי הליכה, קנים ומים. כל המידע לביקור משפחתי חינמי באזור פתח תקווה.",
     heroImage: "/images/places/center/ברבטבע/hero.jpeg",
     heroImageLabel: "תמונת רקע - ברבטבע",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/ברבטבע/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9B%D7%A4%D7%A8%20%D7%94%D7%91%D7%A4%D7%98%D7%99%D7%A1%D7%98%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.088%2C34.892",
+    highlights: [
+      "משפחות עם ילדים",
+      "נחל הירקון",
+      "פיקניק",
+      "כניסה חופשית",
+      "נגיש לעגלות"
+    ],
+    about: [
+      "ברבטבע הוא שם מקומי לפינת טבע ליד נחל הירקון, באזור כפר הבפטיסטים שליד פתח תקווה. לפי עיריית פתח תקווה (petah-tikva.muni.il), באזור זה עוברים שבילי הליכה חינמיים לאורך הנחל, בין קנים, סוף ומים.",
+      "ניתן לחנות ליד כפר הבפטיסטים, לעלות על השביל הצמוד לנחל ולטייל בקצב נוח. המסלול מתאים להליכה, רכיבה על אופניים ופיקניק.",
+      "הכניסה חינם. לפי האתר העירוני, זה אחד ממסלולי הירקון החינמיים באזור פתח תקווה.",
+      "אפשר לשלב את הביקור עם המשך לאורך הנחל - לכיוון בית לאה, המפל הנסתר או תחנת אבו רבאח."
+    ],
+    personalStory: [
+      "לפעמים לא צריך לנסוע רחוק כדי להרגיש שיצאנו מהעיר.",
+      "ברבטבע הוא פינת טבע ליד נחל הירקון - קנים, מים ושקט.",
+      "השביל ליד הנחל מאפשר קצב איטי.",
+      "עוצרים, מסתכלים על המים, יושבים על ספסל וממשיכים כשמתחשק.",
+      "אפשר לפרוש מחצלת בצל, בלי לחץ להספיק מסלול ארוך.",
+      "גם בשעות אחר הצהריים, כשיש צל ליד המים, זה עדיין נעים.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "ליד כפר הבפטיסטים"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "כן - ברוב השביל"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה ליד כפר הבפטיסטים, ממזרח לכביש 40.",
+      "notes": [
+        "מידע: petah-tikva.muni.il/events/tourism/yarkon-river",
+        "בוויז: כפר הבפטיסטים.",
+        "הכניסה חינם. יש לשמור על ניקיון הנחל.",
+        "אין להיכנס למים במקומות שאינם מיועדים לכך."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. השביל ליד הנחל מתאים למשפחות."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. המסלול באזור כפר הבפטיסטים ללא תשלום."
+      },
+      {
+        "question": "האם מתאים לעגלות?",
+        "answer": "כן. השביל המסודר ליד הנחל נוח לעגלות."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניה ליד כפר הבפטיסטים."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "בית לאה, המפל הנסתר או תחנת אבו רבאח לאורך הירקון."
+      }
+    ],
+    tips: [
+      "הגיעו עם מחצלת ומים - יש פינות ישיבה ליד הנחל.",
+      "שמרו על ניקיון - קחו איתכם את האשפה.",
+      "אל תיכנסו למים במקומות לא מיועדים.",
+      "שלבו עם מסלול נוסף לאורך הירקון אם רוצים להאריך."
+    ],
+    closingNote:
+      "בואו נשמור על הנחל והשבילים נקיים.",
     gallery: [
-      { src: "/images/places/center/ברבטבע/IMG_6972.JPG" },
-      { src: "/images/places/center/ברבטבע/IMG_8720.jpeg" },
-      { src: "/images/places/center/ברבטבע/IMG_8722.jpeg" },
-      { src: "/images/places/center/ברבטבע/IMG_8723.jpeg" },
-      { src: "/images/places/center/ברבטבע/IMG_8845.jpeg" },
-      { src: "/images/places/center/ברבטבע/IMG_8853.jpeg" },
-      { src: "/images/places/center/ברבטבע/IMG_9576.jpeg" },
+      {
+        "src": "/images/places/center/ברבטבע/IMG_6972.JPG"
+      },
+      {
+        "src": "/images/places/center/ברבטבע/IMG_8720.jpeg"
+      },
+      {
+        "src": "/images/places/center/ברבטבע/IMG_8722.jpeg"
+      },
+      {
+        "src": "/images/places/center/ברבטבע/IMG_8723.jpeg"
+      },
+      {
+        "src": "/images/places/center/ברבטבע/IMG_8845.jpeg"
+      },
+      {
+        "src": "/images/places/center/ברבטבע/IMG_8853.jpeg"
+      },
+      {
+        "src": "/images/places/center/ברבטבע/IMG_9576.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "byt-lh",
+      "hmpl-hnstr",
+      "tchnt-bv-rbch"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "rbdym",
     title: "רבדים",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "טיול ליד קיבוץ רבדים עם נחל תמנה, תל מקנה ושבילי הליכה בשפלה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "רבדים - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    vehicleAccess: "soft-suv",
+    matcher: {
+      activities: [
+        "water",
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "water-friendly",
+        "heat-tolerant"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.775,
+      lng: 34.821,
+      label: "קיבוץ רבדים - נחל תמנה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A7%D7%99%D7%91%D7%95%D7%A5%20%D7%A8%D7%91%D7%93%D7%99%D7%9D&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.775%2C34.821",
+    },
+    seoTitle: "רבדים - טיול משפחתי ליד נחל תמנה ותל מקנה | בשביל הלב",
+    metaDescription:
+      "אזור רבדים מציע שבילי הליכה ליד נחל תמנה, תל מקנה העתיק ונוף שפלה. כל המידע לביקור משפחתי חינמי.",
     heroImage: "/images/places/center/רבדים/hero.jpeg",
     heroImageLabel: "תמונת רקע - רבדים",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/רבדים/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A7%D7%99%D7%91%D7%95%D7%A5%20%D7%A8%D7%91%D7%93%D7%99%D7%9D&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.775%2C34.821",
+    highlights: [
+      "משפחות עם ילדים",
+      "נחל ומים",
+      "ארכיאולוגיה",
+      "כניסה חופשית",
+      "שפלה"
+    ],
+    about: [
+      "אזור רבדים, ליד קיבוץ רבדים במועצה האזורית יואב, משלב נוף שפלה, נחל תמנה ותל מקנה (עקרון) - אתר ארכיאולוגי גדול. לפי מידע על שמורת תל מקנה ונחל תמנה, האזור כולל פלג מים, שבילי הליכה ונקודת שכשוך בשם עין יובל.",
+      "הגישה לחלק מהשבילים עוברת בדרכי עפר. מומלץ רכב גבוה או נסיעה בזהירות, ובנעלי הליכה.",
+      "הכניסה חינם. ניתן לשלב הליכה קצרה ליד הנחל עם ביקור בתל מקנה - בהתאם לגיל הילדים ולמצב השבילים.",
+      "באזור הקיבוץ פועל גם מרכז \"עידן אופן\" להשכרת אופניים, עם מסלולים מסומנים ליד נחל תמנה."
+    ],
+    personalStory: [
+      "בשפלה יש פינות שמשלבות מים, שקט ושכבה של היסטוריה.",
+      "אזור רבדים הוא אחת מהן.",
+      "הליכה ליד נחל תמנה שונה מהפארק העירוני - קנים, מים פתוחים ומרחב.",
+      "תל מקנה מוסיף סקרנות: גבעה גדולה עם עבר ארכיאולוגי שמעניין גם ילדים.",
+      "חלק מהדרכים עפר - כדאי נעלי הליכה, מים וכובע.",
+      "מסלול קצר, בלי לנסות להספיק הכל.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "ליד קיבוץ רבדים או בשולי השביל"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן - לפי מסלול"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "לא - דרכי עפר"
+      },
+      {
+        "label": "רכב",
+        "value": "מומלץ רכב גבוה לחלק מהשבילים"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה ליד קיבוץ רבדים או בשולי דרכי הגישה לנחל תמנה.",
+      "notes": [
+        "בוויז: קיבוץ רבדים.",
+        "חלק מהשבילים בדרכי עפר - נסיעה והליכה בזהירות.",
+        "הכניסה חינם. יש לשמור על ניקיון השטח.",
+        "אין להיכנס למים ללא בדיקת בטיחות."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן, במסלולים קצרים ומתאימים. חשוב פיקוח ליד המים."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. הכניסה לאזור ללא תשלום."
+      },
+      {
+        "question": "האם מתאים לעגלות?",
+        "answer": "לא. חלק מהשבילים בדרכי עפר."
+      },
+      {
+        "question": "האם צריך רכב מיוחד?",
+        "answer": "מומלץ רכב גבוה לחלק מדרכי הגישה."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "בין שעה לכמה שעות, לפי המסלול."
+      }
+    ],
+    tips: [
+      "הגיעו עם נעלי הליכה ומים.",
+      "בחרו מסלול קצר אם מגיעים עם ילדים קטנים.",
+      "שמרו על ניקיון - קחו איתכם את האשפה.",
+      "בדקו מראש מצב השבילים אחרי גשמים."
+    ],
+    closingNote:
+      "בואו נשמור על הנחל והשטח נקיים.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "prk-brytnyh",
+      "gn-lvmy-mgdl-tzdk"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "gbt-hrkpvt",
     title: "גבעת הרקפות",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "גבעה מלאת רקפות ליד טל שחר - פריחה עונתית וטיול קצר בין השדות.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "גבעת הרקפות - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.756,
+      lng: 34.889,
+      label: "גבעת הרקפות - טל שחר",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%92%D7%91%D7%A2%D7%AA%20%D7%94%D7%A8%D7%A7%D7%A4%D7%95%D7%AA&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.756%2C34.889",
+    },
+    seoTitle: "גבעת הרקפות - פריחת רקפים ליד טל שחר | בשביל הלב",
+    metaDescription:
+      "גבעת הרקפות ליד טל שחר היא גבעה עם פריחת רקפים עונתית, שבילי הליכה ונוף פתוח. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/center/גבעת הרקפות/hero.jpeg",
     heroImageLabel: "תמונת רקע - גבעת הרקפות",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/גבעת הרקפות/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%92%D7%91%D7%A2%D7%AA%20%D7%94%D7%A8%D7%A7%D7%A4%D7%95%D7%AA&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.756%2C34.889",
+    highlights: [
+      "משפחות עם ילדים",
+      "פריחה עונתית",
+      "צילום",
+      "כניסה חופשית",
+      "טל שחר"
+    ],
+    about: [
+      "גבעת הרקפות היא גבעה ליד מושב טל שחר, המפורסמת בפריחת הרקפים בחורף ובאביב. לפי midrasha-m-b.org.il, הגבעה מציעה שבילי הליכה קצרים ונוף על השדות והיישובים סביב.",
+      "הפריחה העונתית (בדרך כלל בינואר-מרץ) הופכת את המקום ליעד פופולרי לצילום וטיולים קצרים.",
+      "הכניסה חינם. המקום מתאים להליכה קצרה, צילום ועצירה בקצב נוח.",
+      "אפשר לשלב את הביקור עם עצירה במושב טל שחר או ביקור ב\"עיזה פזיזה\" הסמוכה."
+    ],
+    personalStory: [
+      "בעונת הפריחה, כשהרקפים פורחים, הגבעה משנה צבע.",
+      "זו עצירה קצרה ליד טל שחר - לא יום שלם, לא מסלול ארוך.",
+      "ילדים אוהבים לרוץ בין הפרחים ולצלם.",
+      "מחוץ לעונה, הגבעה עדיין נעימה להליכה קצרה ולנוף על השדות.",
+      "השבילים קצרים.",
+      "שעה טובה, כמה תמונות, ואפשר להמשיך ליום.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "בשולי הדרך ליד הגבעה"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "כמה דקות עד שעה"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "עונה",
+        "value": "חורף-אביב לפריחה"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "עצירה קצרה"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בשולי הדרך ליד גבעת הרקפות, ליד כביש 3.",
+      "notes": [
+        "בוויז: גבעת הרקפות או טל שחר.",
+        "הפריחה עונתית - בדרך כלל בחורף ובאביב.",
+        "הכניסה חינם. אל תקטפו פרחים.",
+        "שמרו על השבילים ועל השדות."
+      ]
+    },
+    faq: [
+      {
+        "question": "מתי הכי כדאי להגיע?",
+        "answer": "בעונת פריחת הרקפים, בדרך כלל בינואר-מרץ."
+      },
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. שבילים קצרים ונוף פתוח."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. הכניסה ללא תשלום."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניה בשולי הדרך."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "טל שחר, עיזה פזיזה או מסלול באזור."
+      }
+    ],
+    tips: [
+      "תזמנו את הביקור לעונת הפריחה.",
+      "אל תקטפו רקפים - צלמו ותנו לאחרים ליהנות.",
+      "הביאו מים וכובע.",
+      "שמרו על השדות - הליכה בשבילים בלבד."
+    ],
+    closingNote:
+      "בואו נשמור על הפריחה. אל תקטפו פרחים.",
     gallery: [
-      { src: "/images/places/center/גבעת הרקפות/IMG_9477.jpeg" },
+      {
+        "src": "/images/places/center/גבעת הרקפות/IMG_9477.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "tl-shchr",
+      "yzh-pzyzh"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "mk-hlh",
     title: "עמק האלה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "עמק תנ\"כי עם שדות, שבילים ונוף - טיול קצר ליד בית שמש.",
     region: "ירושלים",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "עמק האלה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.695,
+      lng: 34.948,
+      label: "עמק האלה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A2%D7%9E%D7%A7%20%D7%94%D7%90%D7%9C%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.695%2C34.948",
+    },
+    seoTitle: "עמק האלה - טיול משפחתי בעמק התנ\"כי | בשביל הלב",
+    metaDescription:
+      "עמק האלה הוא עמק תנ\"כי עם שדות, שבילים ונוף, ליד בית שמש. כל המידע לביקור משפחתי חינמי.",
     heroImage: "/images/places/jerusalem/עמק האלה/hero.jpg",
     heroImageLabel: "תמונת רקע - עמק האלה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8a29e'/%3E%3Cstop offset='100%25' stop-color='%2344403c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/jerusalem/עמק האלה/hero.jpg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A2%D7%9E%D7%A7%20%D7%94%D7%90%D7%9C%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.695%2C34.948",
+    highlights: [
+      "משפחות עם ילדים",
+      "תנ\"ך והיסטוריה",
+      "נוף פתוח",
+      "כניסה חופשית",
+      "ליד בית שמש"
+    ],
+    about: [
+      "עמק האלה הוא עמק תנ\"כי בין בית שמש למודיעין, המזוהה עם סיפור דוד וגולית. לפי רשות העתיקות, באזור נמצאים אתרים ארכיאולוגיים הקשורים לעמק. האזור מציע שדות, שבילים ונקודות תצפית על השפלה.",
+      "הכניסה חינם. המקום מתאים לטיולים קצרים והליכה בשבילים מסומנים.",
+      "ניתן לשלב את הביקור עם מסלולים באזור בית שמש, מודיעין או יערות סמוכים.",
+      "חשוב להישאר בשבילים המסומנים ולשמור על השדות החקלאיים."
+    ],
+    personalStory: [
+      "עמק האלה מחבר בין נוף פתוח לסיפור שכולם מכירים.",
+      "שדות רחבים, שבילים מסומנים ומרחב שמרגיש גדול.",
+      "ילדים יכולים לרוץ, לעצור לתצפית ולהמשיך בקצב שלהם.",
+      "אין צורך ביום ארוך - עצירה לצילום, הליכה קצרה, ושילוב עם אתרים באזור בית שמש.",
+      "גם בשעות אחר הצהריים, כשהשמש יורדת, הנוף מקבל צבע אחר.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "בשולי הדרכים ליד השבילים"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "לא - שבילי שדה"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד כמה שעות"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בשולי הדרכים ליד נקודות הכניסה לשבילים בעמק.",
+      "notes": [
+        "בוויז: עמק האלה.",
+        "הכניסה חינם.",
+        "הישארו בשבילים המסומנים.",
+        "הביאו מים וכובע."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. שבילים קצרים ונוף פתוח."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. הכניסה ללא תשלום."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. בשולי הדרכים."
+      },
+      {
+        "question": "מה כדאי לשלב?",
+        "answer": "בית שמש, מודיעין או יערות סמוכים."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "בין שעה לכמה שעות."
+      }
+    ],
+    tips: [
+      "הישארו בשבילים - אל תעברו בשדות חקלאיים.",
+      "הביאו מים וכובע.",
+      "שמרו על ניקיון.",
+      "בדקו מזג אוויר - חשוף לשמש."
+    ],
+    closingNote:
+      "בואו נשמור על העמק והשבילים נקיים.",
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "gn-lvmy-mgdl-tzdk",
+      "tl-chdyd"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "mgr-byt-zyt",
     title: "מאגר בית זית",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "אגם עונתי מרהיב בהרי ירושלים - סכר, מפלים אחרי גשמים ושבילי הליכה סביב המים.",
     region: "ירושלים",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "מאגר בית זית - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    vehicleAccess: "soft-suv",
+    matcher: {
+      activities: ["water", "easy-trails", "picnic", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["water-friendly"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "15m",
+        modiin: "30m",
+        ramla: "35m",
+        lod: "35m",
+        "kfar-saba": "50m",
+        herzliya: "50m",
+        netanya: "55m",
+        haifa: "1h30",
+      },
+    },
+    location: {
+      lat: 31.7819,
+      lng: 35.1542,
+      label: "מאגר בית זית - סכר בית זית",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9E%D7%90%D7%92%D7%A8%20%D7%91%D7%99%D7%AA%20%D7%96%D7%99%D7%AA&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.7819%2C35.1542",
+    },
+    seoTitle:
+      "מאגר בית זית - אגם עונתי וטיול משפחתי בהרי ירושלים | בשביל הלב",
+    metaDescription:
+      "מאגר בית זית הוא אגם עונתי מלאכותי בהרי ירושלים, עם סכר, מפלים אחרי גשמים ושבילי הליכה. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/jerusalem/מאגר בית זית/hero.jpeg",
     heroImageLabel: "תמונת רקע - מאגר בית זית",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8a29e'/%3E%3Cstop offset='100%25' stop-color='%2344403c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/jerusalem/מאגר בית זית/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9E%D7%90%D7%92%D7%A8%20%D7%91%D7%99%D7%AA%20%D7%96%D7%99%D7%AA&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.7819%2C35.1542",
+    highlights: [
+      "משפחות עם ילדים",
+      "אוהבי מים",
+      "אחרי גשמים",
+      "נוף מרהיב",
+      "כניסה חינם",
+      "שבילי הליכה",
+    ],
+    about: [
+      "מאגר בית זית הוא אגם עונתי מלאכותי בערוץ נחל שורק, סמוך למושב בית זית בהרי ירושלים. הסכר נבנה בשנות ה-50, ובחורף, אחרי גשמים, האגם מתמלא מים ויוצר נוף מרהיב.",
+      "בשנים גשומות במיוחד, המים עולים מעל הסכר ויוצרים מפלים שגולשים אל נחל שורק - מראה מרשים שמושך מבקרים רבים.",
+      "סביב האגם יש שבילי הליכה, חלקם סלולים ונגישים לעגלות. הכניסה חינם.",
+      "חשוב לדעת: האגם מתייבש לרוב בתחילת הקיץ, ולכן העיקר באטרקטיביות שלו הוא בחורף ובאביב, אחרי גשמים. הרחצה במי האגם אסורה.",
+      "המקום מתאים לטיול קצר, צילום, פיקניק ושילוב עם אטרקציות נוספות באזור הרי ירושלים.",
+    ],
+    personalStory: [
+      "מאגר בית זית הוא מקום שצריך לתזמן.",
+      "אחרי גשמים - אגם מלא, מים מעל הסכר, נוף של הרי ירושלים.",
+      "בקיץ, לרוב, הוא יבש.",
+      "כשיש מים, המפלים מעל הסכר הם הרגע שהילדים זוכרים.",
+      "השביל סביב האגם מאפשר סיבוב קצר - לא חייבים מסלול ארוך.",
+      "כדאי לבדוק מראש אם ירדו גשמים לפני שיוצאים.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "חניה ליד הסכר ולאורך השביל" },
+      { label: "משך בילוי", value: "כמה שעות - לפי קצב המשפחה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "חלקית - בשביל הסלול" },
+      { label: "עונה", value: "חורף ואביב - אחרי גשמים" },
+    ],
+    gettingThere: {
+      parking: "חניה ליד הסכר, דרך כביש עפר ממושב בית זית.",
+      notes: [
+        "נוסעים לכיוון מושב בית זית, ומיד לאחר היציאה מהיישוב פונים ימינה בכביש עפר.",
+        "לאחר כ-800 מ' מגיעים לשביל אופניים/הליכה, ומשם שביל קצר עד הסכר.",
+        "ניתן לנווט בוויז: \"מאגר בית זית\" או \"סכר בית זית\".",
+        "האגם מתמלא רק אחרי גשמים - מומלץ לבדוק מצב המים לפני יציאה.",
+        "אסור לרחוץ במי האגם.",
+        "בימים גשומים הכביש העפר עלול להיות בוצי - נסיעה בזהירות.",
+      ],
+    },
+    faq: [
+      {
+        question: "מתי הכי כדאי להגיע?",
+        answer:
+          "אחרי גשמים, בחורף ובאביב. בקיץ האגם לרוב מתייבש.",
+      },
+      {
+        question: "האם אפשר לרחוץ?",
+        answer: "לא. הרחצה במי האגם אסורה.",
+      },
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן, כשיש מים. חשוב פיקוח ליד הסכר והמפלים.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer:
+          "חלקית. השביל הסלול ליד הסכר נגיש, אך לא כל השטח.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. חניה ליד הסכר.",
+      },
+      {
+        question: "האם הכניסה בתשלום?",
+        answer: "לא. הכניסה חינם.",
+      },
+    ],
+    tips: [
+      "בדקו מראש אם ירדו גשמים - האגם עונתי ומתייבש בקיץ.",
+      "אחרי גשמים חזקים, המפלים מעל הסכר מרשימים במיוחד.",
+      "הביאו מצלמה - הנוף שווה צילום.",
+      "אין לרחוץ במים. שמרו על בטיחות ליד הסכר.",
+      "בכביש העפר - נסיעה בזהירות, במיוחד אחרי גשם.",
+    ],
+    closingNote:
+      "בואו נשמור על האגם והסביבה נקיים. קחו איתכם את האשפה ואל תיכנסו למים.",
     gallery: [
       { src: "/images/places/jerusalem/מאגר בית זית/IMG_7606.jpeg" },
       { src: "/images/places/jerusalem/מאגר בית זית/IMG_7612.jpeg" },
@@ -2839,123 +9411,597 @@ linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgb
       { src: "/images/places/jerusalem/מאגר בית זית/IMG_7636.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["yn-lbn", "yn-chmd", "yr-tzrh"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "tl-chdyd",
     title: "תל חדיד",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "תל ארכיאולוגי ביער בן שמן עם שבילי הליכה, חורשת עצים ופיקניק.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "תל חדיד - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "picnic",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant",
+        "shade-rich"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 31.987,
+      lng: 34.943,
+      label: "תל חדיד - יער בן שמן",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%AA%D7%9C%20%D7%97%D7%93%D7%99%D7%93&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.987%2C34.943",
+    },
+    seoTitle: "תל חדיד - טיול משפחתי ביער בן שמן | בשביל הלב",
+    metaDescription:
+      "תל חדיד ביער בן שמן הוא אתר ארכיאולוגי עם שבילי הליכה, חורשת חרובים ופיקניק. כל המידע לביקור משפחתי חינמי.",
     heroImage: "/images/places/center/תל חדיד/hero.jpeg",
     heroImageLabel: "תמונת רקע - תל חדיד",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/תל חדיד/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%AA%D7%9C%20%D7%97%D7%93%D7%99%D7%93&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.987%2C34.943",
+    highlights: [
+      "משפחות עם ילדים",
+      "ארכיאולוגיה",
+      "פיקניק",
+      "יער בן שמן",
+      "כניסה חופשית"
+    ],
+    about: [
+      "תל חדיד הוא אתר ארכיאולוגי ביער בן שמן, ליד מודיעין. לפי kkl.org.il/travel/trips/181/, האזור כולל תל עם שרידים היסטוריים, חורשת חרובים ושבילי הליכה מסומנים.",
+      "החניון ליד חורשת החרובים הוא נקודת מוצא נוחה למסלול קצר. הכניסה חינם.",
+      "המקום מתאים לטיול משפחתי קצר, פיקניק והליכה בין העצים - עם נגיעה של היסטוריה.",
+      "יער בן שמן הוא אחד היערות הגדולים במרכז, ותל חדיד הוא אחד מהאתרים המעניינים בו."
+    ],
+    personalStory: [
+      "תל חדיד משלב שני דברים שאני אוהבת: יער וסיפור.",
+      "חורשת החרובים ביער בן שמן היא נקודת מוצא נוחה.",
+      "עלייה קצרה לתל, נוף מהגבעה, ושאלות על העבר.",
+      "אחר כך פיקניק בצל - שעה, שעתיים, בלי לחץ.",
+      "גם בימי חול, כשיש פחות עומס, זה נעים.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "בחניון חורשת החרובים"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית - בחניון"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "שעה עד שעתיים"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בחניון חורשת החרובים, יער בן שמן.",
+      "notes": [
+        "מידע: kkl.org.il/travel/trips/181/",
+        "בוויז: תל חדיד או חורשת החרובים.",
+        "הכניסה חינם.",
+        "הביאו מים, כובע ומחצלת לפיקניק."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. מסלול קצר, תל וחורשה מוצלת."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. הכניסה ללא תשלום."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניון חורשת החרובים."
+      },
+      {
+        "question": "האם אפשר לעשות פיקניק?",
+        "answer": "כן. יש אזורי פיקניק בחניון."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "בין שעה לשעתיים."
+      }
+    ],
+    tips: [
+      "התחילו מהחניון בחורשת החרובים.",
+      "שלבו עלייה קצרה לתל עם פיקניק.",
+      "שמרו על האתר - אל תיגעו בשרידים.",
+      "הביאו מים וכובע."
+    ],
+    closingNote:
+      "בואו נשמור על היער והאתר נקיים.",
     gallery: [
-      { src: "/images/places/center/תל חדיד/IMG_0054.jpeg" },
-      { src: "/images/places/center/תל חדיד/IMG_0069.jpeg" },
-      { src: "/images/places/center/תל חדיד/IMG_1560.jpeg" },
-      { src: "/images/places/center/תל חדיד/IMG_9450.jpeg" },
+      {
+        "src": "/images/places/center/תל חדיד/IMG_0054.jpeg"
+      },
+      {
+        "src": "/images/places/center/תל חדיד/IMG_0069.jpeg"
+      },
+      {
+        "src": "/images/places/center/תל חדיד/IMG_1560.jpeg"
+      },
+      {
+        "src": "/images/places/center/תל חדיד/IMG_9450.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "gn-lvmy-mgdl-tzdk"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "mtzph-ntn",
     title: "מצפה נתן",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "תצפית ואתר מפגש על גבעת החרובים ברחובות - נוף, שקט והנצחה.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "מצפה נתן - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: [
+        "easy-trails",
+        "nature-shade"
+      ],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: [
+        "heat-tolerant"
+      ],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        "haifa": "1h-plus",
+        "kfar-saba": "45m",
+        "raanana": "45m",
+        "hod-hasharon": "45m",
+        "herzliya": "40m",
+        "netanya": "50m",
+        "modiin": "30m",
+        "ramla": "30m",
+        "lod": "30m"
+      },
+    },
+    location: {
+      lat: 32.076,
+      lng: 34.775,
+      label: "מצפה אלון - גבעת החרובים, רחובות",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9E%D7%A6%D7%A4%D7%94%20%D7%90%D7%9C%D7%95%D7%9F%20%D7%A8%D7%97%D7%95%D7%91%D7%95%D7%AA&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.076%2C34.775",
+    },
+    seoTitle: "מצפה אלון - תצפית והנצחה ברחובות | בשביל הלב",
+    metaDescription:
+      "מצפה אלון על גבעת החרובים ברחובות הוא נקודת תצפית, מפגש והנצחה עם נוף על השדות. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/center/מצפה אלון/hero.jpeg",
     heroImageLabel: "תמונת רקע - מצפה נתן",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.78) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/מצפה אלון/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9E%D7%A6%D7%A4%D7%94%20%D7%90%D7%9C%D7%95%D7%9F%20%D7%A8%D7%97%D7%95%D7%91%D7%95%D7%AA&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.076%2C34.775",
+    highlights: [
+      "משפחות עם ילדים",
+      "תצפית נוף",
+      "אתר הנצחה",
+      "כניסה חופשית",
+      "רחובות"
+    ],
+    about: [
+      "מצפה אלון הוא נקודת תצפית על גבעת החרובים, בין רחובות לנס ציונה. לפי moreshetalon.org.il, המצפה הוקם לזכרו של רס\"ל אלון קליינמן ז\"ל, ומשמש מקום מפגש, תצפית והנצחה.",
+      "המקום מציע נוף על שדות חקלאיים, פינות ישיבה ושביל כורכר קצר. לפי izkor.gov.il, המצפה נמצא במקום שבו אלון ואחיו נהגו להתאמן לקראת שירותם הצבאי.",
+      "הכניסה חינם. ניתן להגיע ברכב, לחנות בשולי השביל ולעלות לתצפית.",
+      "זו עצירה קצרה ומרגשת - שילוב של טבע, נוף ומשמעות."
+    ],
+    personalStory: [
+      "מצפה אלון הוא עצירה קצרה עם משמעות.",
+      "עלייה קצרה על גבעת החרובים, בין רחובות לנס ציונה.",
+      "מלמעלה נראים שדות חקלאיים רחבים - נוף פתוח ושקט.",
+      "זה גם אתר הנצחה - מקום שכדאי לשמור על שקט בו.",
+      "כמה דקות, שעה - לפי הקצב.",
+      "אפשר לשלב עם שבילי הכורכר באזור.",
+    ],
+    cost: [
+      {
+        "label": "כניסה",
+        "value": "חינם"
+      },
+      {
+        "label": "חניה",
+        "value": "בשולי השביל ליד המצפה"
+      },
+      {
+        "label": "משך בילוי",
+        "value": "כמה דקות עד שעה"
+      }
+    ],
+    quickFacts: [
+      {
+        "label": "עלות",
+        "value": "חינם"
+      },
+      {
+        "label": "מתאים לילדים",
+        "value": "כן"
+      },
+      {
+        "label": "נגיש לעגלות",
+        "value": "חלקית - שביל כורכר"
+      },
+      {
+        "label": "זמן ביקור",
+        "value": "עצירה קצרה"
+      }
+    ],
+    gettingThere: {
+      "parking": "חניה בשולי שביל הכורכר, ליד תחנת הדלק \"מיקה\" ברחוב אלי הורוביץ.",
+      "notes": [
+        "בוויז: מצפה אלון, רחובות.",
+        "מידע: moreshetalon.org.il/prvyyqtym/מצפה-אלון",
+        "הכניסה חינם.",
+        "שמרו על השקט והניקיון באתר ההנצחה."
+      ]
+    },
+    faq: [
+      {
+        "question": "האם המקום מתאים לילדים?",
+        "answer": "כן. עלייה קצרה ונוף פתוח."
+      },
+      {
+        "question": "האם הכניסה חופשית?",
+        "answer": "כן. הכניסה ללא תשלום."
+      },
+      {
+        "question": "האם יש חניה?",
+        "answer": "כן. חניה בשולי השביל."
+      },
+      {
+        "question": "כמה זמן מומלץ?",
+        "answer": "בין כמה דקות לשעה."
+      },
+      {
+        "question": "מהו הקשר לשם המצפה?",
+        "answer": "המצפה קרוי על שם אלון קליינמן ז\"ל, לפי moreshetalon.org.il."
+      }
+    ],
+    tips: [
+      "הגיעו בשעות הבוקר או לפני השקיעה לנוף יפה.",
+      "שמרו על שקט - זה אתר הנצחה.",
+      "הביאו מים וכובע.",
+      "שמרו על ניקיון - קחו איתכם את האשפה."
+    ],
+    closingNote:
+      "בואו נשמור על המצפה נקי ומכובד.",
     gallery: [
-      { src: "/images/places/center/מצפה אלון/IMG_2093.jpeg" },
-      { src: "/images/places/center/מצפה אלון/IMG_2094.jpeg" },
-      { src: "/images/places/center/מצפה אלון/IMG_2097.jpeg" },
-      { src: "/images/places/center/מצפה אלון/IMG_2103.jpeg" },
+      {
+        "src": "/images/places/center/מצפה אלון/IMG_2093.jpeg"
+      },
+      {
+        "src": "/images/places/center/מצפה אלון/IMG_2094.jpeg"
+      },
+      {
+        "src": "/images/places/center/מצפה אלון/IMG_2097.jpeg"
+      },
+      {
+        "src": "/images/places/center/מצפה אלון/IMG_2103.jpeg"
+      }
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [
+      "tl-chdyd"
+    ],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "mdbryvm",
     title: "מדבריום",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "פארק חיות מדברי בבאר שבע - כ-100 מינים, ארבעה ביומים, חאן וחוויה משפחתית ממוזגת.",
     region: "דרום",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "מדבריום - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "1h30",
+        modiin: "1h15",
+        ramla: "1h15",
+        lod: "1h15",
+        "kfar-saba": "1h30",
+        herzliya: "1h30",
+        netanya: "1h30",
+        haifa: "2h",
+      },
+    },
+    location: {
+      lat: 31.2447,
+      lng: 34.7817,
+      label: "מדבריום - מורטון מנדל 1, באר שבע",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9E%D7%93%D7%91%D7%A8%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%A8%20%D7%A9%D7%91%D7%A2&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.2447%2C34.7817",
+    },
+    seoTitle: "מדבריום - פארק חיות מדברי בבאר שבע, טיול משפחתי | בשביל הלב",
+    metaDescription:
+      "מדבריום בבאר שבע הוא פארק חיות מדברי עם כ-100 מינים, ארבעה ביומים, חאן ונגישות לעגלות. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/south/מדבריום/hero.jpeg",
     heroImageLabel: "תמונת רקע - מדבריום",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%237c2d12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/מדבריום/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9E%D7%93%D7%91%D7%A8%D7%99%D7%95%D7%9D%20%D7%91%D7%90%D7%A8%20%D7%A9%D7%91%D7%A2&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.2447%2C34.7817",
+    highlights: [
+      "משפחות עם ילדים",
+      "חובבי חיות",
+      "ביומים מדבריים",
+      "נגיש לעגלות",
+      "ממוזג",
+      "כניסה בתשלום",
+    ],
+    about: [
+      "מדבריום הוא פארק חיות מדברי בבאר שבע, על שם משפחת מורטון מנדל. לפי האתר הרשמי midbarium.co.il, בפארק מוצגים כ-100 מינים של בעלי חיים המאפיינים את המדבר.",
+      "הפארק מחולק לארבעה ביומים: מדבר יהודה, מדבר ירדן, מדבר סיני ומדבר נגב. כל ביום מציג מינים וצמחייה מהאזור.",
+      "במרכז הפארק נמצא חאן מדברי עם מסעדה, חנות ומתחמים ממוזגים. לפי האתר הרשמי, הפארק נגיש לעגלות.",
+      "הכניסה בתשלום, ויש לרכוש כרטיסים באתר midbarium.co.il בלבד. החניה חינים לפי האתר הרשמי.",
+      "הפארק מתאים ליום משפחתי, במיוחד בימים חמים - חלק מהמתחמים ממוזגים.",
+    ],
+    personalStory: [
+      "מדבריום הוא מקום אחר מטיול שטח - חיות מדבר, ארבעה ביומים, חאן ממוזג.",
+      "גמלים, שועלים, ציפורים - כ-100 מינים שמאפיינים את המדבר.",
+      "כל ביום מספר סיפור אחר: יהודה, ירדן, סיני, נגב.",
+      "הנגישות לעגלות והמתחמים הממוזגים מקלים על ביקור גם בימים חמים.",
+      "אפשר לבלות יום שלם, וגם כמה שעות - לפי הקצב.",
+      "כרטיסים באתר midbarium.co.il בלבד.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום - רכישה באתר midbarium.co.il בלבד" },
+      { label: "חניה", value: "חינים" },
+      { label: "משך בילוי", value: "כמה שעות - לפי קצב המשפחה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן" },
+      { label: "כרטיסים", value: "רכישה באתר בלבד" },
+    ],
+    gettingThere: {
+      parking: "חניה חינים במתחם מדבריום, מורטון מנדל 1, באר שבע.",
+      notes: [
+        "הכתובת: מורטון מנדל 1, באר שבע.",
+        "לפי midbarium.co.il, יש לרכוש כרטיסים באתר בלבד. שעות הפתיחה ומחירי הכניסה משתנים.",
+        "הפארק נגיש לעגלות.",
+        "מומלץ להגיע עם מים - חלק מהמתחמים בחוץ.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. מדבריום הוא פארק חיות מדברי המיועד למשפחות, עם בעלי חיים, ביומים ומתחמים ממוזגים.",
+      },
+      {
+        question: "איך קונים כרטיסים?",
+        answer:
+          "לפי midbarium.co.il, יש לרכוש כרטיסים באתר הרשמי בלבד.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer: "כן. לפי האתר הרשמי, הפארק נגיש לעגלות.",
+      },
+      {
+        question: "האם יש חניה?",
+        answer: "כן. החניה חינים לפי האתר הרשמי.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer:
+          "בין כמה שעות ליום שלם, בהתאם לקצב ולעניין.",
+      },
+    ],
+    tips: [
+      "רכשו כרטיסים מראש ב-midbarium.co.il.",
+      "בדקו שעות פתיחה באתר לפני יציאה.",
+      "בימים חמים נצלו את המתחמים הממוזגים.",
+      "הפארק מתאים לשילוב עם בתרונות רוחמה או יעדים נוספים בדרום.",
+    ],
+    closingNote:
+      "בואו נשמור על הפארק. אל תאכילו את החיות, קחו איתכם את האשפה ותנו לילדים ללמוד בכבוד.",
     gallery: [
       { src: "/images/places/south/מדבריום/IMG_2254.jpeg" },
       { src: "/images/places/south/מדבריום/IMG_2285.jpeg" },
       { src: "/images/places/south/מדבריום/IMG_2287.jpeg" },
       { src: "/images/places/south/מדבריום/IMG_2298.jpeg" },
-      { src: "/images/places/south/מדבריום/IMG_2312%202.jpeg" },
+      { src: "/images/places/south/מדבריום/IMG_2312 2.jpeg" },
       { src: "/images/places/south/מדבריום/IMG_2319.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["btrvnvt-rvchmh", "nchl-dvd"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
   {
     slug: "mshk-bgbh-gdrh",
     title: "משק בגבעה גדרה",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "משק חקלאי בגדרה - קטיף עונתי, סיור טרקטור, חוות חיות וחוויה משפחתית בטבע.",
     region: "מרכז",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "משק בגבעה גדרה - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["easy-trails", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        jerusalem: "45m",
+        modiin: "25m",
+        ramla: "15m",
+        lod: "15m",
+        "kfar-saba": "35m",
+        herzliya: "35m",
+        netanya: "40m",
+        haifa: "1h15",
+      },
+    },
+    location: {
+      lat: 31.814,
+      lng: 34.775,
+      label: "משק בגבעה, גדרה",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%9E%D7%A9%D7%A7%20%D7%91%D7%92%D7%91%D7%A2%D7%94%20%D7%92%D7%93%D7%A8%D7%94&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.814%2C34.775",
+    },
+    seoTitle: "משק בגבעה גדרה - קטיף, חוות חיות וטיול משפחתי | בשביל הלב",
+    metaDescription:
+      "משק בגבעה בגדרה הוא משק חקלאי עם קטיף עונתי, סיור טרקטור, חוות חיות ופעילויות לילדים. כל המידע לביקור משפחתי.",
     heroImage: "/images/places/center/משק בגבעה/hero.jpeg",
     heroImageLabel: "תמונת רקע - משק בגבעה גדרה",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/center/משק בגבעה/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%9E%D7%A9%D7%A7%20%D7%91%D7%92%D7%91%D7%A2%D7%94%20%D7%92%D7%93%D7%A8%D7%94&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.814%2C34.775",
+    highlights: [
+      "משפחות עם ילדים",
+      "קטיף עונתי",
+      "חוות חיות",
+      "סיור טרקטור",
+      "גיל הרך",
+      "כניסה בתשלום",
+    ],
+    about: [
+      "משק בגבעה הוא משק חקלאי בגדרה, שמציע חוויה משפחתית של חקלאות וטבע. לפי האתר הרשמי meshekbagiva.co.il, במשק מתקיימות פעילויות עונתיות.",
+      "בין הפעילויות: קטיף עצמי (תותים, דובדבנים, תפוחים ועוד - לפי עונה), סיור טרקטור בשדות, חוות חיות עם חיות מחמד ופינות ישיבה.",
+      "הפעילויות משתנות לפי עונה. לפי האתר הרשמי, מומלץ לבדוק מה פתוח לפני הביקור.",
+      "המשק מתאים במיוחד לילדים - קטיף, חיות, טרקטור וחוויה ידנית.",
+      "הכניסה בתשלום. שעות הפתיחה והמחירים משתנים לפי עונה - יש לבדוק ב-meshekbagiva.co.il.",
+    ],
+    personalStory: [
+      "משק בגבעה בגדרה הוא חוויה ידנית - קטיף, חיות, טרקטור.",
+      "ילדים בוחרים פירות, שמים בסל ומרגישים חלק מהתהליך.",
+      "סיור הטרקטור מוסיף הרפתקה קטנה, במיוחד לגיל הרך.",
+      "חשוב לבדוק מראש מה בעונה - לא כל הפירות זמינים בכל זמן.",
+      "כדאי להגיע מוקדם בעונת הקטיף.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום - משתנה לפי פעילות ועונה" },
+      { label: "חניה", value: "במשק" },
+      { label: "משך בילוי", value: "כמה שעות - לפי קצב המשפחה" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן, במיוחד" },
+      { label: "נגיש לעגלות", value: "כן" },
+      { label: "עונתיות", value: "הפעילויות משתנות לפי עונה" },
+    ],
+    gettingThere: {
+      parking: "חניה במשק בגבעה, גדרה.",
+      notes: [
+        "המשק נמצא בגדרה, באזור השפלה.",
+        "לפי meshekbagiva.co.il, הפעילויות והשעות משתנות לפי עונה. בדקו לפני יציאה.",
+        "מומלץ להגיע עם כובע, מים ונעליים נוחות.",
+        "בעונת הקטיף מומלץ להגיע מוקדם.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. משק בגבעה מתמקד בפעילויות לילדים - קטיף, חוות חיות וסיור טרקטור.",
+      },
+      {
+        question: "מה אפשר לקטוף?",
+        answer:
+          "תלוי בעונה - תותים, דובדבנים, תפוחים ועוד. יש לבדוק ב-meshekbagiva.co.il מה פתוח.",
+      },
+      {
+        question: "האם המקום מתאים לעגלות?",
+        answer: "כן. המשק נגיש לעגלות.",
+      },
+      {
+        question: "האם צריך להזמין מראש?",
+        answer:
+          "לפי העונה והפעילות. מומלץ לבדוק באתר הרשמי לפני הביקור.",
+      },
+      {
+        question: "כמה זמן מומלץ להישאר?",
+        answer:
+          "בין כמה שעות לחצי יום, בהתאם לפעילויות.",
+      },
+    ],
+    tips: [
+      "בדקו ב-meshekbagiva.co.il מה פתוח בעונה הנוכחית.",
+      "בעונת קטיף הגיעו מוקדם - הפירות נגמרים.",
+      "הביאו כובע, מים ושקיות לקטיף.",
+      "התאימו את הביקור לגיל הילדים - יש פעילויות לכל הגילאים.",
+    ],
+    closingNote:
+      "בואו נשמור על המשק. קטפו רק מה שמותר, קחו איתכם את האשפה ותנו לילדים ליהנות בכבוד.",
     gallery: [
       { src: "/images/places/center/משק בגבעה/IMG_1505.jpeg" },
       { src: "/images/places/center/משק בגבעה/IMG_1521.jpeg" },
       { src: "/images/places/center/משק בגבעה/IMG_1528.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: [],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
@@ -3105,25 +10151,117 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "blgn-bygvr",
     title: "בלאגן ביגור",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "פארק שעשועים גדול בקיבוץ יגור, עם עשרות מתקנים, פינת חי ויום כיף לכל המשפחה.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "בלאגן ביגור - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["water", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: 50,
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "20m",
+        "kfar-saba": "45m",
+        raanana: "45m",
+        herzliya: "45m",
+        netanya: "50m",
+        modiin: "1h",
+        ramla: "1h",
+        lod: "1h",
+      },
+    },
+    location: {
+      lat: 32.742,
+      lng: 35.078,
+      label: "פארק באלגן, קיבוץ יגור",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%91%D7%90%D7%9C%D7%92%D7%9F%20%D7%99%D7%92%D7%95%D7%A8&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.742%2C35.078",
+    },
+    seoTitle: "בלאגן ביגור - פארק שעשועים ביגור | בשביל הלב",
+    metaDescription:
+      "פארק באלגן בקיבוץ יגור הוא מהגדולים בצפון, עם 32 מתקנים, פינת חי, משחקייה ממוזגת ויום כיף לכל המשפחה.",
     heroImage: "/images/places/north/בלאגן ביגור/hero.jpeg",
     heroImageLabel: "תמונת רקע - בלאגן ביגור",
-    heroBackgroundImage: `
-linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
-    `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/בלאגן ביגור/hero.jpeg")`,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%91%D7%90%D7%9C%D7%92%D7%9F%20%D7%99%D7%92%D7%95%D7%A8&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.742%2C35.078",
+    highlights: [
+      "משפחות",
+      "ילדים",
+      "32 מתקנים",
+      "פינת חי",
+      "מוצל",
+    ],
+    about: [
+      "פארק \"באלגן\" שוכן בכניסה לקיבוץ יגור, למרגלות הכרמל. לפי האתר הרשמי ba-lagan.co.il, זהו אחד מפארקי השעשועים הגדולים והמגוונים בישראל, והגדול מסוגו בצפון.",
+      "הפארק כולל כ-32 מתקנים: רכבת הרפתקאות, מתנפחים, זירת תותחי ספוג, אופנועים חשמליים, סירות מתנגשות, משחקייה ממוזגת לפעוטות ופינת חי.",
+      "לפי האתר, רוב המתקנים מותאמים לילדים מגיל 3 ועד 15. יש מזנון, פינות ישיבה מוצלות לצפייה על הילדים, ואזורי פיקניק.",
+      "הפארק פתוח בימים מסוימים במהלך השנה, ובחופשים וחגים - מידי יום. שעות הפתיחה משתנות - יש לבדוק ב-ba-lagan.co.il.",
+    ],
+    personalStory: [
+      "בלאגן ביגור הוא פארק שעשועים גדול בקיבוץ יגור.",
+      "32 מתקנים - מרכבת הרפתקאות, מתנפחים, סירות, אופנועים חשמליים.",
+      "לכל ילד יש משהו שמתאים לגיל ולרמת האנרגיה שלו.",
+      "יש פינות צל, מזנון ומשחקייה ממוזגת לפעוטות.",
+      "כדאי לבדוק שעות פתיחה ב-ba-lagan.co.il לפני יציאה.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום - לפי ba-lagan.co.il" },
+      { label: "חניה", value: "במתחם הפארק" },
+      { label: "משך בילוי", value: "יום שלם" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "בתשלום" },
+      { label: "מתאים לילדים", value: "כן, גילאי 3-15" },
+      { label: "נגיש לעגלות", value: "כן" },
+      { label: "אתר רשמי", value: "ba-lagan.co.il" },
+    ],
+    gettingThere: {
+      parking: "חניה בכניסה לקיבוץ יגור, במתחם הפארק.",
+      notes: [
+        "שעות פתיחה ותיאום ביקור - מומלץ לבדוק ב-ba-lagan.co.il.",
+        "בימי חול (כשהמסגרות פעילות): ראשון, שלישי, שישי ושבת.",
+        "בחופשים וחגים: פתוח מידי יום.",
+        "פינת החי פועלת לפי שיקול דעת המפעיל - יש לתאם.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. הפארק מיועד לילדים מגיל 3 ועד 15, עם מתקנים לכל הגילאים.",
+      },
+      {
+        question: "האם יש צל?",
+        answer:
+          "כן. לפי האתר, כל חלקי הפארק מוצלים, כולל אזור ממוזג.",
+      },
+      {
+        question: "מתי הפארק פתוח?",
+        answer:
+          "שעות הפתיחה משתנות. יש לבדוק ב-ba-lagan.co.il לפני יציאה.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן, במתחם הפארק.",
+      },
+    ],
+    tips: [
+      "בדקו שעות פתיחה ב-ba-lagan.co.il - הן משתנות לפי עונה.",
+      "ביום שבת הפארק עמוס במיוחד - כדאי להגיע מוקדם.",
+      "הביאו כובע, מים וקרם הגנה.",
+      "אפשר לשלב עם טיול בכרמל או במשתלות יגור.",
+    ],
     gallery: [
       { src: "/images/places/north/בלאגן ביגור/IMG_9761.jpeg" },
       { src: "/images/places/north/בלאגן ביגור/IMG_9771.jpeg" },
@@ -3133,29 +10271,124 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
       { src: "/images/places/north/בלאגן ביגור/IMG_9788.jpeg" },
     ],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["chvrsht-gdvnh", "nchl-lksndr"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
-  {
+    {
     slug: "beit-jan",
     title: "בית ג׳ן",
-    subtitle: "מילאנה והילדים טיילו כאן - כתבה מלאה בקרוב",
+    subtitle:
+      "מועצה מקומית דרוזית בגליל העליון, עם נוף הרים, אוויר צלול ומסלולים לתצפיות.",
     region: "צפון",
     category: "טיול משפחתי",
-    status: "needs-content",
     visitedByMilana: true,
-    metaDescription: "בית ג׳ן - מילאנה והילדים טיילו כאן. כתבה מלאה, תמונות וטיפים יעלו בהמשך.",
+    matcher: {
+      activities: ["viewpoint", "easy-trails"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["heat-tolerant", "shade-rich"],
+      weatherAvoid: ["rainy"],
+      travelTimeFrom: {
+        haifa: "45m",
+        "kfar-saba": "1h30",
+        raanana: "1h30",
+        herzliya: "1h30",
+        netanya: "1h30",
+        modiin: "1h45",
+        ramla: "1h45",
+        lod: "1h45",
+      },
+    },
+    location: {
+      lat: 32.967,
+      lng: 35.381,
+      label: "בית ג׳ן, גליל עליון",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%91%D7%99%D7%AA%20%D7%92%27%D7%9F&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.967%2C35.381",
+    },
+    seoTitle: "בית ג׳ן - כפר בהרי הגליל | בשביל הלב",
+    metaDescription:
+      "בית ג׳ן היא מועצה מקומית דרוזית בגליל העליון, עם נוף הרים, אוויר צלול ומסלולים לתצפיות. מידע לביקור משפחתי.",
     heroImageLabel: "תמונת רקע - בית ג׳ן",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23134e4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")
     `,
-    about: [],
-    personalStory: [],
-    cost: [],
-    tips: [],
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%91%D7%99%D7%AA%20%D7%92%27%D7%9F&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.967%2C35.381",
+    highlights: [
+      "נוף הרים",
+      "גליל עליון",
+      "תצפיות",
+      "אוויר צלול",
+      "שילוב עם הר מירון",
+    ],
+    about: [
+      "בית ג׳ן היא מועצה מקומית דרוזית בגליל העליון, בלב שמורת הרי מירון. לפי ויקיפדיה, היישוב ממוקם כ-5 ק\"מ דרומית-מערבית להר מירון, בגובה ממוצע של כ-900 מטר.",
+      "היישוב משתרע על מספר רכסים. ברכסים הגבוהים, כמו הר הארי (ג'abal Haydar), הגובה מגיע ליותר מ-1,000 מטר. בקיץ האוויר נעים, ובחורף יורד שלג לפעמים.",
+      "בית ג׳ן מתאימה כנקודת מוצא או עצירה למסלולים בגליל העליון: הר מירון, שביל ישראל, תצפיות וכפרים דרוזיים בסביבה.",
+      "בכפר יש מסעדות, חנויות ואירוח מקומי. ניתן לשלב ביקור עם מסלולי טבע ונוף באזור.",
+    ],
+    personalStory: [
+      "בית ג׳ן שוכנת בלב שמורת הרי מירון - גובה, אוויר צלול, נוף הרים.",
+      "הכבשים המתפתלים כבר מוסיפים חוויה - גליל בכל פנייה.",
+      "אפשר לעצור לקפה, לטייל בין הרחובות ולהמשיך למסלול בהר מירון או בתצפיות הסמוכות.",
+      "בימים בהירים, כשיש ראות, הנוף מגיע רחוק.",
+      "בחורף - בגדים חמים. האזור גבוה.",
+    ],
+    cost: [
+      { label: "כניסה", value: "חינם" },
+      { label: "חניה", value: "ברחובות היישוב" },
+      { label: "משך בילוי", value: "עצירה קצרה עד כמה שעות" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "חינם" },
+      { label: "מתאים לילדים", value: "כן" },
+      { label: "נגיש לעגלות", value: "כן - ברחובות המרכזיים" },
+      { label: "גובה", value: "כ-900 מטר" },
+    ],
+    gettingThere: {
+      parking: "חניה ברחובות בית ג׳ן ובאזורי התצפית.",
+      notes: [
+        "היישוב נמצא בגליל העליון, סמוך להר מירון.",
+        "בחורף ייתכן שלג - מומלץ לבדוק תחזית.",
+        "ניתן לשלב עם מסלול הר מירון ושביל ישראל.",
+      ],
+    },
+    faq: [
+      {
+        question: "האם המקום מתאים לילדים?",
+        answer:
+          "כן. היישוב מתאים לעצירה משפחתית, במיוחד כחלק מיום בגליל.",
+      },
+      {
+        question: "מה כדאי לעשות בבית ג׳ן?",
+        answer:
+          "לטייל בכפר, לעצור לקפה, ולשלב עם מסלולי טבע ותצפיות בסביבה.",
+      },
+      {
+        question: "האם מתאים לעגלות?",
+        answer: "כן, ברחובות המרכזיים.",
+      },
+      {
+        question: "מתי הכי יפה?",
+        answer:
+          "באביב ובקיץ האוויר נעים. בחורף ייתכן שלג.",
+      },
+    ],
+    tips: [
+      "שלבו עם מסלול הר מירון או תצפית הר הארי.",
+      "בחורף הביאו בגדים חמים.",
+      "בדקו תחזית - בגובה הזה מזג האוויר שונה מהמישור.",
+    ],
     gallery: [],
     gallerySubtitle: "",
+    nearbyTripSlugs: ["har-hari-viewpoint", "mpl-tnvr-gbvl-lbnvn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
