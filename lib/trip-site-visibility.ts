@@ -11,6 +11,11 @@ export const hiddenFromPublicSlugs = [
   "blgn-bygvr",
   "prk-ytbth",
   "lvnd",
+  // Temporarily unpublished. Content and files stay so the page can return.
+  "nvf-yylvn",
+  // Removed from the public site. Content stays in data, not on public pages.
+  "rmt-gn-spry",
+  "prk-mym-shpyym",
 ] as const;
 
 export type HiddenFromPublicSlug = (typeof hiddenFromPublicSlugs)[number];

@@ -1170,7 +1170,6 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
     ],
     gallerySubtitle: "",
     nearbyTripSlugs: [
-      "rmt-gn-spry",
       "prk-brytnyh"
     ],
     nearbyPlaces: [],
@@ -1736,7 +1735,7 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
       { src: "/images/places/center/לגעת בחיות/IMG_8317.JPG" },
     ],
     gallerySubtitle: "",
-    nearbyTripSlugs: ["prk-mym-shpyym", "prk-ryl-shrvn"],
+    nearbyTripSlugs: ["prk-ryl-shrvn"],
     nearbyPlaces: [],
     nearbySubtitle: "",
   },
@@ -3228,6 +3227,7 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
       "אקווריום ישראל - חוויה תת-ימית משפחתית בירושלים | בשביל הלב",
     metaDescription:
       "אקווריום ישראל בירושלים מציע מסע בין ימי ישראל, תצוגות מגוון ביולוגי ובית פרפרים. כל המידע לביקור משפחתי, כולל הגעה וטיפים.",
+    heroImage: "/images/places/jerusalem/אקווריום ישראל/hero.jpeg",
     heroImageLabel: "תמונת רקע - אקווריום ישראל",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgba(28, 25, 23, 0.7) 100%),
@@ -3328,7 +3328,10 @@ linear-gradient(160deg, rgba(87, 83, 78, 0.8) 0%, rgba(180, 83, 9, 0.5) 50%, rgb
     ],
     closingNote:
       "בואו נשמור על האקווריום נקי ושקט. אל תדגימו על זכוכית האקווריום וקחו איתכם את האשפה.",
-    gallery: [],
+    gallery: [
+      { src: "/images/places/jerusalem/אקווריום ישראל/IMG_7303.jpeg" },
+      { src: "/images/places/jerusalem/אקווריום ישראל/IMG_8742.jpg" },
+    ],
     gallerySubtitle: "",
     nearbyTripSlugs: ["gn-hchyvt-htnky", "yn-lbn", "yn-chmd"],
     nearbyPlaces: [],
@@ -4408,6 +4411,7 @@ linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, 
     seoTitle: "תל גזר - גן לאומי עם לוח גזר ותצפיות | בשביל הלב",
     metaDescription:
       "גן לאומי תל גזר כולל לוח גזר, מפעל מים כנעני, שער שלמה ותצפיות על עמק איילון. כניסה חינם - כל המידע לביקור.",
+    heroImage: "/images/places/center/תל גזר/hero.jpeg",
     heroImageLabel: "תמונת רקע - תל גזר",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
@@ -4488,7 +4492,13 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       "בשבתות בדקו מסלול הגעה בגלל סגירת שער כרמי יוסף.",
       "הגיעו עם מים, כובע ונעלי הליכה.",
     ],
-    gallery: [],
+    gallery: [
+      { src: "/images/places/center/תל גזר/IMG_4416.jpeg" },
+      { src: "/images/places/center/תל גזר/IMG_4423.jpeg" },
+      { src: "/images/places/center/תל גזר/IMG_7767.jpeg" },
+      { src: "/images/places/center/תל גזר/IMG_9616.jpeg" },
+      { src: "/images/places/center/תל גזר/IMG_9976.jpeg" },
+    ],
     gallerySubtitle: "",
     nearbyTripSlugs: ["myynvt-gybtvn", "ykb-krm-brk"],
     nearbyPlaces: [],
@@ -4533,6 +4543,7 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       "פארק קנדה - פארק איילון-קנדה, טיול משפחתי בדרך לירושלים | בשביל הלב",
     metaDescription:
       "פארק קנדה (פארק איילון-קנדה) הוא פארק של קק\"ל עם יער, מעיינות, אתרים ארכיאולוגיים וחניוני פיקניק. כל המידע לביקור משפחתי.",
+    heroImage: "/images/places/center/פארק קנדה/hero.jpeg",
     heroImageLabel: "תמונת רקע - פארק קנדה",
     heroBackgroundImage: `
 linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
@@ -4627,7 +4638,11 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
     ],
     closingNote:
       "בואו נשמור על הפארק נקי. קחו איתכם את האשפה ואל תאספו צמחים מהשטח.",
-    gallery: [],
+    gallery: [
+      { src: "/images/places/center/פארק קנדה/IMG_0277.jpeg" },
+      { src: "/images/places/center/פארק קנדה/IMG_0287.jpeg" },
+      { src: "/images/places/center/פארק קנדה/IMG_0290.jpeg" },
+    ],
     gallerySubtitle: "",
     nearbyTripSlugs: ["yn-chmd", "yr-tzrh", "mgr-byt-zyt"],
     nearbyPlaces: [],
@@ -5280,6 +5295,7 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
     seoTitle: "תחנת אבו רבאח - טחנת קמח על נחל הירקון | בשביל הלב",
     metaDescription:
       "תחנת אבו רבאח היא טחנת קמח עתיקה משוקמת על נחל הירקון, עם שביל, פיקניק והיסטוריה. כל המידע לביקור משפחתי.",
+    heroImage: "/images/places/center/תחנת אבו רבאח/hero.jpeg",
     heroImageLabel: "תמונת רקע - תחנת אבו רבאח",
     heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")`,
     wazeUrl:
@@ -5378,7 +5394,10 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
     ],
     closingNote:
       "בואו נשמור על הנחל והאתר ההיסטורי.",
-    gallery: [],
+    gallery: [
+      { src: "/images/places/center/תחנת אבו רבאח/IMG_2835.jpeg" },
+      { src: "/images/places/center/תחנת אבו רבאח/IMG_2838.jpeg" },
+    ],
     gallerySubtitle: "",
     nearbyTripSlugs: [
       "hmpl-hnstr",
@@ -5753,7 +5772,7 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       "כניסה חופשית"
     ],
     about: [
-      "יער המגינים הוא אחד היערות הגדולים בישראל, בשפלת יהודה. לפי kkl.org.il/travel/trips/231/, היער משתרע על אלפי דונמים וכולל אתרי הנצחה, שבילי הליכה, חניונים ונקודות תצפית - ביניהן נוף איילון.",
+      "יער המגינים הוא אחד היערות הגדולים בישראל, בשפלת יהודה. לפי kkl.org.il/travel/trips/231/, היער משתרע על אלפי דונמים וכולל אתרי הנצחה, שבילי הליכה, חניונים ונקודות תצפית.",
       "היער ניטע על ידי קק\"ל ומשמש גם כאתר זיכרון. יש בו מסלולים מסומנים, שבילי אופניים ואזורי פיקניק.",
       "הכניסה חינם. המקום מתאים לטיולי משפחה, הליכה קצרה או ארוכה ופיקניק.",
       "ניתן לשלב ביקור ביער עם מסלול סובב משמר דוד או תצפית בקעה."
@@ -5822,7 +5841,7 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
       },
       {
         "question": "מה כדאי לשלב?",
-        "answer": "נוף איילון, משמר דוד, פארק בריטניה."
+        "answer": "משמר דוד ופארק בריטניה."
       },
       {
         "question": "כמה זמן מומלץ?",
@@ -5831,7 +5850,7 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
     ],
     tips: [
       "בחרו מסלול מתאים לגיל הילדים.",
-      "שלבו תצפית בנוף איילון.",
+      "אפשר לעצור באחת מנקודות התצפית ביער.",
       "שמרו על ניקיון - קחו איתכם את האשפה.",
       "בקיץ הגיעו מוקדם."
     ],
@@ -5844,7 +5863,6 @@ linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, 
     ],
     gallerySubtitle: "",
     nearbyTripSlugs: [
-      "nvf-yylvn",
       "mshmr-dvd",
       "prk-brytnyh"
     ],
@@ -7544,8 +7562,7 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
     ],
     gallerySubtitle: "",
     nearbyTripSlugs: [
-      "yr-hmgynym",
-      "nvf-yylvn"
+      "yr-hmgynym"
     ],
     nearbyPlaces: [],
     nearbySubtitle: "",
@@ -8335,6 +8352,7 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
     seoTitle: "פארק בריטניה - יער וטיול משפחתי בשפלה | בשביל הלב",
     metaDescription:
       "פארק בריטניה הוא יער גדול בשפלת יהודה, עם שבילי הליכה, פיקניק וכניסה חופשית. כל המידע לביקור משפחתי.",
+    heroImage: "/images/places/center/פארק בריטניה/hero.jpeg",
     heroImageLabel: "תמונת רקע - פארק בריטניה",
     heroBackgroundImage: `linear-gradient(160deg, rgba(180, 83, 9, 0.75) 0%, rgba(217, 119, 6, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%),
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='480' viewBox='0 0 1920 480'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g)' width='1920' height='480'/%3E%3C/svg%3E")`,
@@ -8434,7 +8452,12 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
     ],
     closingNote:
       "בואו נשמור על היער נקי. קחו איתכם את האשפה.",
-    gallery: [],
+    gallery: [
+      { src: "/images/places/center/פארק בריטניה/IMG_7917.jpeg" },
+      { src: "/images/places/center/פארק בריטניה/IMG_7926.jpeg" },
+      { src: "/images/places/center/פארק בריטניה/IMG_7937.jpeg" },
+      { src: "/images/places/center/פארק בריטניה/IMG_7987.jpeg" },
+    ],
     gallerySubtitle: "",
     nearbyTripSlugs: [
       "yr-hmgynym",
@@ -8568,7 +8591,6 @@ linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.55) 50%, 
       "בואו נשמור על השמורה. אל תעברו את הגדרות, אל תאספו פרחים וקחו איתכם את האשפה.",
     gallery: [
       { src: "/images/places/south/בתרונות רוחמה/IMG_8215.jpeg" },
-      { src: "/images/places/south/בתרונות רוחמה/IMG_8254.jpeg" },
       { src: "/images/places/south/בתרונות רוחמה/IMG_8279.jpeg" },
       { src: "/images/places/south/בתרונות רוחמה/IMG_8285.jpeg" },
       { src: "/images/places/south/בתרונות רוחמה/IMG_8298.jpeg" },

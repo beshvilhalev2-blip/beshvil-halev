@@ -68,7 +68,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "nchl-nkrvt-yknm": { region: "צפון", regionSlug: "north", excelName: "פארק נחל נקרות יקנעם", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "myynvt-gybtvn": { region: "מרכז", regionSlug: "center", excelName: "מעיינות גיבתון", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: false, free: true } },
   "nahal-hashofet": { region: "צפון", regionSlug: "north", excelName: "נחל השופט", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
-  "nahal-sorek-estuary": { region: "מרכז", regionSlug: "center", excelName: "שמורת טבע נחל שורק", tags: { water: false, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
+  "nahal-sorek-estuary": { region: "מרכז", regionSlug: "center", excelName: "שפך נחל שורק", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
   "nchl-dn": { region: "צפון", regionSlug: "north", excelName: "שמורת תל דן", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: false } },
   "nchl-dvd": { region: "דרום", regionSlug: "south", excelName: "נחל דוד", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: false } },
   "nchl-hkybvtzym": { region: "צפון", regionSlug: "north", excelName: "נחל הקיבוצים", tags: { water: true, viewpoint: false, camping: true, offroad: false, strollerAccessible: "partial", free: true } },
