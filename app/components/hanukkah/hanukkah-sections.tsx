@@ -20,7 +20,6 @@ import {
 import HanukkahRegionTabs, {
   type ResolvedGoOutRegion,
 } from "./hanukkah-region-tabs";
-import { findPlaceHeroImage } from "@/lib/hanukkah-2026/place-image";
 import HanukkahMaccabeesMap from "./hanukkah-maccabees-map";
 
 import {
@@ -398,7 +397,7 @@ function resolveCard(card: RecommendationCard) {
   const href = card.href ?? (trip ? `/trips/${trip.slug}` : undefined);
   return {
     ...card,
-    image: trip?.heroImage ?? findPlaceHeroImage(card.imageFolder),
+    image: trip?.heroImage ?? card.image,
     imagePosition: trip?.heroImagePosition,
     href,
     external: href ? /^https?:\/\//.test(href) : false,
@@ -576,7 +575,7 @@ function resolveGoOutRegions(): ResolvedGoOutRegion[] {
       return {
         place: place.place,
         description: place.description,
-        image: trip?.heroImage ?? findPlaceHeroImage(place.imageFolder),
+        image: trip?.heroImage ?? place.image,
         imagePosition: trip?.heroImagePosition,
         tripHref: trip ? `/trips/${trip.slug}` : undefined,
         wazeUrl,

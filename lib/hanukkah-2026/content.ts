@@ -375,17 +375,18 @@ export const OFFROAD_ROUTES: OffroadRow[] = [
 /* 7. המלצות לפי מה שבא לכם לעשות */
 
 /**
- * תיקיות התמונות למקומות שאין להם עמוד טיול באתר.
- * מספיק להעלות קובץ בשם hero (jpeg / jpg / png / webp) לתיקייה,
- * והתמונה תופיע אוטומטית בכל מקום שבו המקום מופיע במדריך.
+ * תמונות למקומות שאין להם עמוד טיול באתר.
+ * אחרי שמעלים קובץ, כותבים כאן את הנתיב שלו (למשל
+ * "/images/places/hasharon/יער האילנות/hero.jpeg") והתמונה תופיע בכל מקום במדריך.
+ * בלי בדיקת קבצים בזמן ריצה: גישה דינמית לתיקיית public מנפחת את פונקציית Vercel.
  */
-export const HANUKKAH_PLACE_IMAGES = {
-  ilanot: "/images/places/hasharon/יער האילנות",
-} as const;
+export const HANUKKAH_PLACE_IMAGES: Record<"ilanot", string | undefined> = {
+  ilanot: undefined,
+};
 export type RecommendationCard = {
   name: string;
-  /** תיקיית תמונה, למקומות בלי עמוד טיול */
-  imageFolder?: string;
+  /** תמונה ישירה, למקומות בלי עמוד טיול */
+  image?: string;
   area: string;
   why: string;
   /** slug של עמוד טיול קיים - מקור התמונה, ויעד הקישור כשאין href */
@@ -655,8 +656,8 @@ export type GoOutPlace = {
   wazeQuery?: string;
   /** שם החניון או השער שמוצג ליד כפתור הניווט */
   wazeLabel?: string;
-  /** תיקיית תמונה, למקומות בלי עמוד טיול */
-  imageFolder?: string;
+  /** תמונה ישירה, למקומות בלי עמוד טיול */
+  image?: string;
 };
 
 export type GoOutRegion = {
@@ -690,7 +691,7 @@ export const GO_OUT_REGIONS: GoOutRegion[] = [
         place: "יער האילנות",
         description: "גן בוטני עם מסלול מעגלי נגיש ועצים מכל העולם.",
         wazeQuery: "הגן הבוטני אילנות",
-        imageFolder: HANUKKAH_PLACE_IMAGES.ilanot,
+        image: HANUKKAH_PLACE_IMAGES.ilanot,
       },
       {
         place: "תל גזר",
