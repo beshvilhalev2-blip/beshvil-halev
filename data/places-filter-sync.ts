@@ -16,6 +16,7 @@ export type PlacesFilterSyncEntry = {
 export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "beit-jan": { region: "צפון", regionSlug: "north", excelName: "בית ג׳ן", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "ben-shemen-forest": { region: "מרכז", regionSlug: "center", excelName: "יער בן שמן", tags: { water: false, viewpoint: true, camping: true, offroad: true, strollerAccessible: "partial", free: true } },
+  "bishvil-hanefesh": { region: "צפון", regionSlug: "north", excelName: "בשביל הנפש ברמת הנדיב", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: false, free: true } },
   "blgn-bygvr": { region: "צפון", regionSlug: "north", excelName: "בלאגן ביגור", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "brbtb": { region: "מרכז", regionSlug: "center", excelName: "ברבטבע", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "brykt-rm-msdh": { region: "צפון", regionSlug: "north", excelName: "בריכת רם", tags: { water: true, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
@@ -96,6 +97,7 @@ export const placesFilterSyncBySlug: Record<string, PlacesFilterSyncEntry> = {
   "shmvrt-tb-gml": { region: "צפון", regionSlug: "north", excelName: "שמורת טבע גמלא", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: false } },
   "skr-lvmvt": { region: "צפון", regionSlug: "north", excelName: "סכר אלומות", tags: { water: true, viewpoint: false, camping: false, offroad: false, strollerAccessible: "partial", free: true } },
   "tchnt-bv-rbch": { region: "מרכז", regionSlug: "center", excelName: "תחנת אבו רבאח", tags: { water: true, viewpoint: false, camping: false, offroad: true, strollerAccessible: false, free: true } },
+  "tel-lachish": { region: "דרום", regionSlug: "south", excelName: "גן לאומי תל לכיש", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: "partial", free: false } },
   "tl-chdyd": { region: "מרכז", regionSlug: "center", excelName: "תל חדיד", tags: { water: false, viewpoint: true, camping: false, offroad: true, strollerAccessible: false, free: true } },
   "tl-gzr": { region: "מרכז", regionSlug: "center", excelName: "תל גזר", tags: { water: false, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: true } },
   "tl-pk": { region: "מרכז", regionSlug: "center", excelName: "תל אפק", tags: { water: true, viewpoint: true, camping: false, offroad: false, strollerAccessible: true, free: false } },

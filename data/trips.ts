@@ -83,6 +83,8 @@ export type Trip = {
   heroImage?: string;
   heroImagePosition?: string;
   heroImageLabel: string;
+  /** When true, the gallery does not repeat the hero photo (it is shown once, at the top). */
+  hideHeroInGallery?: boolean;
   heroBackgroundImage: string;
   heroNote?: string;
   heroNoteLabel?: string;
@@ -4930,6 +4932,216 @@ const rawTrips: Trip[] = [
       },
     ],
     nearbySubtitle: "המשיכו לגלות את המרכז",
+  },
+  {
+    slug: "tel-lachish",
+    title: "גן לאומי תל לכיש",
+    subtitle:
+      "טיול משפחתי בין שרידי עיר מבוצרת בשפלת יהודה, עם שער עתיק, כיסאות מלכי יהודה ותצפית פתוחה מראש התל.",
+    region: "דרום",
+    category: "טיול משפחתי",
+    visitedByMilana: true,
+    matcher: {
+      activities: ["viewpoint", "picnic"],
+      companions: ["solo", "friends", "kids", "family"],
+      weatherTraits: ["winter-ideal", "heat-sensitive"],
+      travelTimeFrom: {
+        "kiryat-gat": "30m",
+        ashkelon: "30m",
+        ashdod: "30m",
+        "beit-shemesh": "1h",
+        "beer-sheva": "1h",
+        rehovot: "1h",
+        yavne: "1h",
+        jerusalem: "1h-plus",
+        "tel-aviv": "1h-plus",
+      },
+    },
+    location: {
+      lat: 31.5647,
+      lng: 34.8491,
+      label: "גן לאומי תל לכיש - מרכז המבקרים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%AA%D7%9C%20%D7%9C%D7%9B%D7%99%D7%A9&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=31.5647%2C34.8491",
+    },
+    seoTitle: "גן לאומי תל לכיש - שער עתיק, כיסאות המלכים ותצפית | בשביל הלב",
+    metaDescription:
+      "גן לאומי תל לכיש בשפלת יהודה: שער העיר העתיקה, 20 כיסאות מלכי יהודה, בסיס הארמון ותצפית פתוחה מראש התל. כל מה שצריך לדעת לפני ביקור משפחתי.",
+    heroImage: "/images/places/south/תל לכיש/hero.jpeg",
+    heroImagePosition: "50% 60%",
+    heroImageLabel: "תמונת רקע - כיסאות מלכי יהודה בתל לכיש",
+    heroBackgroundImage: `linear-gradient(160deg, rgba(154, 52, 18, 0.8) 0%, rgba(194, 65, 12, 0.55) 50%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/south/תל לכיש/hero.jpeg")`,
+    hideHeroInGallery: true,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%92%D7%9F%20%D7%9C%D7%90%D7%95%D7%9E%D7%99%20%D7%AA%D7%9C%20%D7%9C%D7%9B%D7%99%D7%A9&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=31.5647%2C34.8491",
+    highlights: [
+      "משפחות עם ילדים",
+      "שער העיר העתיקה",
+      "כיסאות מלכי יהודה",
+      "תצפית פתוחה מראש התל",
+      "פינת פיקניק מוצלת",
+    ],
+    about: [
+      "ממרכז המבקרים עולים דרך שער העיר העתיקה אל ראש התל.",
+      "בחצר הארמון מוצבת שורה של 20 כיסאות שמייצגים את מלכי יהודה, מרחבעם ועד צדקיהו. גובה המשענת מסמל את משך המלוכה של כל אחד.",
+      "בהמשך אפשר לראות את בסיס הארמון ולסיים בעצירה מול הנוף.",
+    ],
+    personalStory: [
+      "הגענו לתל לכיש ממש במקרה. עוד מהכביש למטה ראיתי את הספסלים בקצה התל, וישר ידעתי ששם אני רוצה לשבת.",
+      "נכנסנו והתחלנו ללכת. דוד ורפאל נהנו מאוד מהמסלול, וכל פעם היה עוד משהו להסתכל עליו. עברנו בשער העיר העתיקה, ראינו את הבסיס של הארמון ועצרנו ליד שורת הכיסאות שמייצגים את מלכי יהודה. אהבתי את הפרט הזה: ככל שמלך שלט יותר שנים, כך המשענת של הכיסא שלו גבוהה יותר. אם אתם מגיעים עם ילדים קטנים, קחו בחשבון שבדרך לראש התל יש עליות ומדרגות, אז את החלק הזה כדאי לתכנן בלי עגלה.",
+      "כשהגענו למעלה, סוף סוף התיישבתי על אחד הספסלים שראיתי מהכביש. מולנו נפרשו השדות והיישובים הישראליים, ומעבר להם ראינו יישובים פלסטיניים. כשמסתכלים מלמעלה קל להבין למה המיקום של לכיש היה כל כך חשוב. מה שהכי ריגש אותי היה לשבת שם, ליד שרידי העיר העתיקה, ולראות את החיים של היום ממשיכים סביבם. ההיסטוריה של עם ישראל וההווה, שניהם מול העיניים.",
+    ],
+    cost: [
+      { label: "כניסה", value: "בתשלום" },
+      { label: "מיצג", value: "בהזמנה מראש" },
+      { label: "חניה", value: "במרכז המבקרים" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "כניסה בתשלום" },
+      { label: "מתאים לילדים", value: "כן, עם עליות ומדרגות" },
+      { label: "נגיש לעגלות", value: "לא לראש התל" },
+      { label: "זמן ביקור", value: "כשעה וחצי עד שלוש שעות" },
+      { label: "אורך", value: "כ־2 ק״מ" },
+    ],
+    gettingThere: {
+      parking: "חניה במרכז המבקרים של גן לאומי תל לכיש, ממזרח לקריית גת.",
+      walking:
+        "ממרכז המבקרים עולים דרך שער העיר אל ראש התל. אורך המסלול המתואר באתר רט״ג כ־2 ק״מ, עם עליות ומדרגות.",
+      routeLength: "כ־2 ק״מ",
+      notes: [
+        "ב־Waze חפשו „גן לאומי תל לכיש”.",
+        "במרכז המבקרים יש חניה, שירותים ופינת פיקניק מוצלת.",
+        "הכניסה בתשלום. למיצג יש להזמין מקום מראש.",
+        "כדאי להקדיש כשעה וחצי עד שלוש שעות, לפי המסלול והזמן במרכז המבקרים.",
+      ],
+    },
+    tips: [
+      "את העלייה לראש התל תכננו בלי עגלה. יש בדרך עליות ומדרגות.",
+      "חפשו את שורת הכיסאות בחצר הארמון. ככל שהמשענת גבוהה יותר, המלך שלט יותר שנים.",
+      "שמרו זמן לשבת על הספסלים בקצה התל מול הנוף.",
+      "אם אתם רוצים לראות את המיצג, הזמינו מקום מראש.",
+    ],
+    gallery: [
+      { src: "/images/places/south/תל לכיש/IMG_6894.jpeg" },
+      { src: "/images/places/south/תל לכיש/IMG_6907.jpeg" },
+      { src: "/images/places/south/תל לכיש/IMG_6909.jpeg" },
+    ],
+    gallerySubtitle: "",
+    nearbyTripSlugs: ["byt-gvbryn", "yr-hmlkym", "mtzyh"],
+    nearbyPlaces: [],
+    nearbySubtitle: "המשיכו לגלות את השפלה",
+  },
+  {
+    slug: "bishvil-hanefesh",
+    title: "בשביל הנפש ברמת הנדיב",
+    subtitle:
+      "מסלול מעגלי ברמת הנדיב בעקבות פרפר סגול, עם תחנות ומשימות קטנות שמזמינות את כל המשפחה לעצור ולהסתכל סביב.",
+    region: "צפון",
+    category: "טיול משפחתי",
+    visitedByMilana: true,
+    matcher: {
+      activities: ["viewpoint", "nature-shade"],
+      companions: ["solo", "friends", "kids", "family"],
+      estimatedCostNis: "free",
+      weatherTraits: ["winter-ideal", "heat-sensitive"],
+      travelTimeFrom: {
+        hadera: "30m",
+        haifa: "30m",
+        netanya: "1h",
+        afula: "1h",
+        "kfar-saba": "1h",
+        raanana: "1h",
+        herzliya: "1h",
+        "tel-aviv": "1h-plus",
+      },
+    },
+    location: {
+      lat: 32.555,
+      lng: 34.9455,
+      label: "רמת הנדיב - כיכר ראשית השבילים",
+      wazeUrl:
+        "https://waze.com/ul?q=%D7%A8%D7%9E%D7%AA%20%D7%94%D7%A0%D7%93%D7%99%D7%91&navigate=yes",
+      googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=32.555%2C34.9455",
+    },
+    seoTitle: "בשביל הנפש ברמת הנדיב - מסלול הפרפר הסגול | בשביל הלב",
+    metaDescription:
+      "בשביל הנפש ברמת הנדיב: מסלול מעגלי של כ־3 ק״מ בעקבות הפרפר הסגול, עם תחנות ומשימות לכל המשפחה. אורך, גיל מומלץ, עונות ונקודת התחלה.",
+    heroImage: "/images/places/north/רמת הנדיב בשביל הנפש/hero.jpeg",
+    heroImagePosition: "45% 55%",
+    heroImageLabel: "תמונת רקע - תצפית מבשביל הנפש ברמת הנדיב",
+    heroBackgroundImage: `linear-gradient(160deg, rgba(6, 78, 59, 0.75) 0%, rgba(28, 25, 23, 0.7) 100%), url("/images/places/north/רמת הנדיב בשביל הנפש/hero.jpeg")`,
+    hideHeroInGallery: true,
+    wazeUrl:
+      "https://waze.com/ul?q=%D7%A8%D7%9E%D7%AA%20%D7%94%D7%A0%D7%93%D7%99%D7%91&navigate=yes",
+    googleMapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=32.555%2C34.9455",
+    highlights: [
+      "משפחות עם ילדים מגיל 8",
+      "מסלול מעגלי",
+      "תחנות ומשימות בדרך",
+      "תצפית לים",
+      "סתיו, חורף ואביב",
+    ],
+    about: [
+      "מכיכר „ראשית השבילים” מחפשים את סימון הפרפר הסגול ויוצאים לדרך.",
+      "לאורך השביל יש תחנות שסובבות סביב שאלה אחת: מה בטבע עושה לי טוב? אפשר לתת לילדים להוביל, לחפש את הסימון הבא ולעצור יחד בתחנות שמתחשק לכם להתעכב בהן.",
+      "בסוף חוזרים לכיכר שממנה יצאתם.",
+    ],
+    personalStory: [
+      "וואו, זה אחד המסלולים שהכי נהנינו מהם. יש בו הליכה, וזה כן קצת מאתגר, אבל בדיוק במידה שעשתה לנו טוב. בסוף הרגשנו שעשינו דרך, והיה שווה כל צעד.",
+      "הלכנו בעקבות הפרפר הסגול. בדרך היו תחנות עם משימות, סיפורים מעניינים על המקום, והמון רגעים שבהם פשוט עצרנו להסתכל מסביב. באחת העצירות נשקף מולנו הים. זה היה אחד הרגעים האלה שאין בהם שום דחיפות להגיע לתחנה הבאה.",
+      "מה שהכי אהבתי בשביל הנפש זה כמה פשוט הוא גרם לנו לשים לב למה שעושה לנו טוב בחוץ. לילדים היה כיף לחפש את הסימון ולגלות מה מחכה בדרך, ולנו המבוגרים היה רגע להאט וליהנות איתם. מסלול שהוא גם כיפי, גם מאתגר וגם נעים. ממליצה עליו מכל הלב.",
+    ],
+    cost: [
+      { label: "כניסה לפארק הטבע", value: "ללא עלות" },
+      { label: "חניה", value: "בתשלום יומי" },
+      { label: "משך הליכה", value: "כשעתיים עד שלוש" },
+    ],
+    quickFacts: [
+      { label: "עלות", value: "כניסה חינם, חניה בתשלום" },
+      { label: "מתאים לילדים", value: "מגיל 8 ומעלה" },
+      { label: "נגיש לעגלות", value: "לא" },
+      { label: "זמן ביקור", value: "כשעתיים עד שלוש" },
+      { label: "אורך", value: "כ־3 ק״מ, מעגלי" },
+    ],
+    gettingThere: {
+      parking: "חניון רמת הנדיב, ליד זכרון יעקב. החניה בתשלום יומי.",
+      walking:
+        "מסלול מעגלי של כ־3 ק״מ בדרגת קושי בינונית. מתחילים ומסיימים בכיכר „ראשית השבילים”.",
+      routeLength: "כ־3 ק״מ, מעגלי",
+      notes: [
+        "ב־Waze חפשו „רמת הנדיב”. המסלול מתחיל בכיכר „ראשית השבילים”.",
+        "לפי רמת הנדיב, המסלול מומלץ מגיל 8 ומעלה ואינו נגיש לעגלות.",
+        "העונות המומלצות הן סתיו, חורף ואביב.",
+        "הכניסה לגנים ולפארק הטבע ללא עלות, והחניון בתשלום יומי.",
+      ],
+    },
+    tips: [
+      "עקבו אחרי סימון הפרפר הסגול, ותנו לילדים להוביל ולחפש את הסימון הבא.",
+      "תכננו כשעתיים עד שלוש, עם זמן לעצור בתחנות.",
+      "הגיעו בלי עגלה. השביל אינו נגיש לעגלות.",
+      "עדיף לצאת בסתיו, בחורף או באביב.",
+    ],
+    gallery: [
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6655.jpeg" },
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6662.jpeg" },
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6680.jpeg" },
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6699.jpeg" },
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6712.jpeg" },
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6728.jpeg" },
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6749.jpeg" },
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6788.jpeg" },
+      { src: "/images/places/north/רמת הנדיב בשביל הנפש/IMG_6796.jpeg" },
+    ],
+    gallerySubtitle: "",
+    nearbyTripSlugs: ["nchl-tnynym", "chvf-mgn-mykl", "mgn-mykl-psl-hlb"],
+    nearbyPlaces: [],
+    nearbySubtitle: "המשיכו לגלות את הצפון",
   },
 ];
 

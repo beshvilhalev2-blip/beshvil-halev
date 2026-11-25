@@ -14,6 +14,7 @@ import { buildAdventureCategoryData } from "@/lib/hero-adventure-selector";
 import { fetchParksFieldUpdates } from "@/lib/field-updates";
 
 import HomeHeroSearch from "./components/home-hero-search";
+import HomeHanukkahBanner from "./components/home-hanukkah-banner";
 
 function HeroMainContent({
   adventureCategories,
@@ -50,6 +51,8 @@ function HeroMainContent({
           גלו טיולים
         </Link>
       </div>
+
+      <HomeHanukkahBanner />
 
       <div className="mx-auto flex w-full max-w-[min(85vw,82rem)] flex-col items-stretch">
         <HeroAdventureSelector categories={adventureCategories} />

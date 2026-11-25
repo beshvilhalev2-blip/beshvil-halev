@@ -236,19 +236,89 @@ export function searchTripSuggestions(
     .slice(0, limit);
 }
 
-function getTripSearchFields(trip: Trip): string[] {
+type WeightedSearchField = {
+  text: string;
+  weight: number;
+};
+
+/** Field weights: names count most, descriptions least. */
+const NAME_WEIGHT = 10;
+const SUMMARY_WEIGHT = 4;
+const BODY_WEIGHT = 1;
+
+/** The place's own name and page title. */
+function getTripPrimaryNames(trip: Trip): string[] {
+  return [getTripPlaceName(trip), trip.title].map(normalizeSearchText).filter(Boolean);
+}
+
+/** Primary names plus alternate names (Excel name, location label). */
+function getTripNameFields(trip: Trip): string[] {
   return [
-    trip.title,
+    ...getTripPrimaryNames(trip),
+    ...[placesFilterSyncBySlug[trip.slug]?.excelName ?? "", trip.location?.label ?? ""].map(
+      normalizeSearchText,
+    ),
+  ].filter(Boolean);
+}
+
+function getTripWeightedSearchFields(trip: Trip): WeightedSearchField[] {
+  const nameFields = getTripNameFields(trip).map((text) => ({ text, weight: NAME_WEIGHT }));
+  const summaryFields = [
     trip.subtitle,
-    trip.metaDescription,
     trip.region,
     trip.category,
-    trip.about[0] ?? "",
     ...(trip.tags ?? []),
+    ...getFilterTagLabels(trip),
     ...(trip.highlights ?? []),
-    placesFilterSyncBySlug[trip.slug]?.excelName ?? "",
-    trip.location?.label ?? "",
-  ];
+  ].map((text) => ({ text: normalizeSearchText(text), weight: SUMMARY_WEIGHT }));
+  const bodyFields = [trip.metaDescription, trip.about[0] ?? ""].map((text) => ({
+    text: normalizeSearchText(text),
+    weight: BODY_WEIGHT,
+  }));
+
+  return [...nameFields, ...summaryFields, ...bodyFields].filter((field) => field.text);
+}
+
+/**
+ * Every word must appear as written (not as scattered letters) in some field.
+ * Returns 0 when the trip does not match.
+ */
+function scoreTripForQuery(trip: Trip, normalizedQuery: string, terms: string[]): number {
+  const fields = getTripWeightedSearchFields(trip);
+  let score = 0;
+
+  for (const term of terms) {
+    const best = fields.reduce(
+      (max, field) => (field.text.includes(term) ? Math.max(max, field.weight) : max),
+      0,
+    );
+    if (best === 0) {
+      return 0;
+    }
+    score += best;
+  }
+
+  const primaryNames = getTripPrimaryNames(trip);
+  const nameFields = getTripNameFields(trip);
+  if (primaryNames.some((name) => name === normalizedQuery)) {
+    score += 120;
+  } else if (nameFields.some((name) => name === normalizedQuery)) {
+    score += 100;
+  } else if (primaryNames.some((name) => name.startsWith(normalizedQuery))) {
+    score += 70;
+  } else if (primaryNames.some((name) => name.includes(normalizedQuery))) {
+    score += 50;
+  } else if (nameFields.some((name) => name.includes(normalizedQuery))) {
+    score += 30;
+  } else if (fields.some((field) => field.text.includes(normalizedQuery))) {
+    score += 10;
+  }
+
+  return score;
+}
+
+function compareByTitle(a: Trip, b: Trip): number {
+  return getTripPlaceName(a).localeCompare(getTripPlaceName(b), "he");
 }
 
 export function searchTrips(query: string, allTrips: Trip[]): Trip[] {
@@ -260,10 +330,22 @@ export function searchTrips(query: string, allTrips: Trip[]): Trip[] {
 
   const terms = normalizedQuery.split(" ").filter(Boolean);
 
-  return allTrips.filter((trip) => {
-    const haystack = normalizeSearchText(getTripSearchFields(trip).join(" "));
-    return terms.every((term) => matchesPartial(haystack, term));
-  });
+  const ranked = allTrips
+    .map((trip) => ({ trip, score: scoreTripForQuery(trip, normalizedQuery, terms) }))
+    .filter((result) => result.score > 0)
+    .sort((a, b) => b.score - a.score || compareByTitle(a.trip, b.trip))
+    .map((result) => result.trip);
+
+  if (ranked.length > 0) {
+    return ranked;
+  }
+
+  // Typo tolerance: loose letter matching, but only against the place's own name.
+  return allTrips
+    .filter((trip) =>
+      getTripPrimaryNames(trip).some((name) => matchesPartial(name, normalizedQuery)),
+    )
+    .sort(compareByTitle);
 }
 
 export function findHighlightRange(

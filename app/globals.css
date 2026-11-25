@@ -264,3 +264,39 @@ html {
     animation: none !important;
   }
 }
+
+/* Hanukkah 2026 guide — Maccabees map pins */
+.hanukkah-map-pin {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: #1f3b2d;
+  border: 3px solid #fcd34d;
+  box-shadow: 0 6px 14px -4px rgba(31, 59, 45, 0.55);
+}
+
+.hanukkah-map-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-heebo), Arial, sans-serif;
+  text-align: right;
+}
+
+.hanukkah-map-popup strong {
+  color: #1f3b2d;
+  font-size: 15px;
+}
+
+.hanukkah-map-popup span {
+  color: #78716c;
+  font-size: 12px;
+}
+
+.hanukkah-map-popup a {
+  margin-top: 4px;
+  font-weight: 600;
+  color: #0b5a78;
+}

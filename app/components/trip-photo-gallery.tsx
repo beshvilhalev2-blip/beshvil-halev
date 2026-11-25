@@ -27,6 +27,10 @@ export function getTripPhotoGalleryItems(trip: Trip) {
     return galleryItems;
   }
 
+  if (trip.hideHeroInGallery) {
+    return galleryItems.filter((item) => item.src !== trip.heroImage);
+  }
+
   if (galleryItems.some((item) => item.src === trip.heroImage)) {
     return galleryItems;
   }

@@ -65,6 +65,8 @@ export const tripOfficialUrlsBySlug: Record<string, string> = {
   "lgt-bchyvt": "https://www.lagaat-bahayot.com/",
   "nitzanim-lake": "https://agam-nitzanim.co.il/",
   "klchym-vmbvkym": "https://cornmaze.co.il/",
+  "tel-lachish": "https://www.parks.org.il/reserve-park/lachish/",
+  "bishvil-hanefesh": "https://www.ramat-hanadiv.org.il/routs/bishvilhanefesh/",
 };
 
 /**
