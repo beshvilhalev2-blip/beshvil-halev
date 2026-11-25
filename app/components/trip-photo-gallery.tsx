@@ -48,12 +48,10 @@ type GalleryImage = {
 function GalleryImageTile({
   item,
   onOpen,
-  priority = false,
   className = "",
 }: {
   item: GalleryImage;
   onOpen: () => void;
-  priority?: boolean;
   className?: string;
 }) {
   const caption = item.label?.trim() ?? "";
@@ -71,6 +69,7 @@ function GalleryImageTile({
           <img
             src={item.src}
             alt={caption}
+            loading="lazy"
             className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
         ) : (
@@ -78,8 +77,7 @@ function GalleryImageTile({
             src={item.src}
             alt={caption}
             fill
-            priority={priority}
-            loading={priority ? undefined : "lazy"}
+            loading="lazy"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
@@ -162,7 +160,6 @@ export default function TripPhotoGallery({ trip }: { trip: Trip }) {
           <GalleryImageTile
             key={item.src}
             item={{ src: item.src!, label: item.label }}
-            priority={index < 2}
             onOpen={() => setLightboxIndex(index)}
           />
         ))}

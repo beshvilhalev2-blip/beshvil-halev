@@ -40,17 +40,20 @@ export default function HomeHeroSection({ children }: HomeHeroSectionProps) {
   }, []);
 
   useEffect(() => {
-    const reducedMotion = readPrefersReducedMotion();
-    if (reducedMotion) {
-      setIntroDone(true);
-      setMorphStarted(true);
-      setReady(true);
-      return;
-    }
+    const frame = window.requestAnimationFrame(() => {
+      const smallScreen = window.matchMedia("(width < 640px)").matches;
+      let playIntro = false;
 
-    try {
-      const seen = sessionStorage.getItem(HOME_INTRO_SESSION_KEY);
-      if (seen === "1") {
+      if (!smallScreen && !readPrefersReducedMotion()) {
+        try {
+          playIntro = sessionStorage.getItem(HOME_INTRO_SESSION_KEY) !== "1";
+        } catch {
+          // The page remains usable when session storage is unavailable.
+        }
+      }
+
+      setShowIntro(playIntro);
+      if (!playIntro) {
         setIntroDone(true);
         setMorphStarted(true);
         setHandoff({
@@ -59,20 +62,11 @@ export default function HomeHeroSection({ children }: HomeHeroSectionProps) {
           contentReveal: 1,
           overlayOpacity: 0,
         });
-      } else {
-        setShowIntro(true);
       }
-    } catch {
-      setIntroDone(true);
-      setMorphStarted(true);
-      setHandoff({
-        morphProgress: 1,
-        heroReveal: 1,
-        contentReveal: 1,
-        overlayOpacity: 0,
-      });
-    }
-    setReady(true);
+      setReady(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const handleMorphStart = useCallback(() => {
@@ -117,10 +111,10 @@ export default function HomeHeroSection({ children }: HomeHeroSectionProps) {
 
   if (!ready) {
     return (
-      <section className="relative flex justify-center overflow-hidden pb-5 pt-[4rem] sm:pb-6 sm:pt-[4.5rem] lg:pb-7 lg:pt-[4.75rem]">
+      <section className="relative flex justify-center overflow-hidden bg-stone-700 pb-5 pt-[4rem] sm:pb-6 sm:pt-[4.5rem] lg:pb-7 lg:pt-[4.75rem]">
         <HeroAnimatedBackground activeCategory={null} introPaused handoffSync={false} />
         <HeroCategoryProvider setActiveCategory={handleSetActiveCategory}>
-          <div className="relative z-10 mx-auto w-full px-4 py-6 text-center opacity-0 sm:px-6 sm:py-7 lg:px-10 lg:py-8">
+          <div className="relative z-10 mx-auto w-full px-4 py-6 text-center sm:px-6 sm:opacity-0 sm:py-7 lg:px-10 lg:py-8">
             {children}
           </div>
         </HeroCategoryProvider>

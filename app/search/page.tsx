@@ -10,6 +10,7 @@ type SearchPageProps = {
 };
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "חיפוש מסלולים | בשביל הלב",
   description: "חפשו מסלולים, אזורים וחוויות טבע בכל רחבי הארץ",
 };

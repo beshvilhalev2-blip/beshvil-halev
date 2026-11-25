@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { Trip } from "@/data/trips";
 
-const SITE_URL = "https://beshvil-halev.vercel.app";
+import { SITE_URL } from "@/lib/site-url";
 
 function absoluteAssetUrl(path: string): string {
   if (path.startsWith("http://") || path.startsWith("https://")) {
@@ -29,6 +29,7 @@ export function buildTripPageMetadata(trip: Trip): Metadata {
   return {
     title,
     description,
+    ...(trip.status === "needs-content" ? { robots: { index: false, follow: true } } : {}),
     alternates: {
       canonical: canonicalUrl,
     },

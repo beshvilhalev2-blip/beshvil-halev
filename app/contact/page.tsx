@@ -5,6 +5,7 @@ import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "צור קשר | בשביל הלב",
   description:
     "צרו קשר עם מילאנה — שאלות, המלצות על מקומות, שיתופי פעולה וחוויות מהשטח. בואו נדבר.",

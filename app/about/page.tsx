@@ -8,6 +8,7 @@ import SiteHeader from "@/app/components/site-header";
 import SiteFooter from "@/app/components/site-footer";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "אודות | בשביל הלב",
   description:
     "הסיפור מאחורי בשביל הלב - מדריך טיולים למשפחות על אהבה לטבע, ילדים ומסלולים בישראל",

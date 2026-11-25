@@ -4,6 +4,7 @@ import SiteHeader from "@/app/components/site-header";
 import FindMyTripWizard from "@/app/find-my-trip/find-my-trip-wizard";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/find-my-trip" },
   title: "מצאו לי טיול | בשביל הלב",
   description:
     "ענו על כמה שאלות קצרות ונמצא עבורכם את הטיול המושלם - לפי חוויה, מרחק, תקציב, מזג ורכב.",

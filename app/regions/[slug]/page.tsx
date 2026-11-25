@@ -4,6 +4,7 @@ import RegionPage from "@/app/components/region-page";
 import {
   getAllRegionSlugs,
   getRegionBySlug,
+  getPublishedTripsByRegionSlug,
   getTripsByRegionSlug,
 } from "@/data/trips";
 
@@ -24,7 +25,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${region.title} | בשביל הלב`,
+    title: `טיולים עם ילדים | ${region.title} | בשביל הלב`,
+    alternates: { canonical: `/regions/${slug}` },
+    ...(getPublishedTripsByRegionSlug(slug).length === 0
+      ? { robots: { index: false, follow: true } }
+      : {}),
     description: `${region.description} - מסלולים, טיולים והמלצות מאזור ${region.title}`,
   };
 }

@@ -4,6 +4,7 @@ import RecommendationsDiscovery from "@/app/components/recommendations-discovery
 import { getSiteVisibleTrips } from "@/data/trips";
 
 export const metadata = {
+  alternates: { canonical: "/recommendations" },
   title: "המלצות לטיולים | בשביל הלב",
   description:
     "כל המסלולים, המעיינים והטיולים המומלצים שלנו - סננו לפי סוג חוויה ואזור, עם מדריכים מלאים וטיפים מהשטח",
