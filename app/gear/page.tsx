@@ -5,6 +5,7 @@ import SiteFooter from "@/app/components/site-footer";
 import GearHubView from "@/app/components/gear-hub-view";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/gear" },
   title: "מרכז הציוד | בשביל הלב",
   description:
     "רשימות ציוד חכמות לטיולים, קמפינג, שטח ובישול בטבע - בשביל הלב",

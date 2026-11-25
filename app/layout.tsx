@@ -3,6 +3,7 @@ import { Heebo } from "next/font/google";
 import AiAssistantLazy from "@/app/components/ai-assistant/ai-assistant-lazy";
 import SiteAtmosphereGate from "@/app/components/site-atmosphere-gate";
 import { HOME_ATMOSPHERE_BASE } from "@/app/components/home-page-atmosphere";
+import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -12,6 +13,7 @@ const heebo = Heebo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "בשביל הלב | מדריך טיולים למשפחות",
   description:
     "להיות בתנועה זאת התרופה - מדריך טיולים למשפחות. מקומות, ציוד ותכנון שיעזרו לכם לצאת לטבע בקצב שלכם.",

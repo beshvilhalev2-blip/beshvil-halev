@@ -15,6 +15,7 @@ import { getSiteVisibleTrips } from "@/data/trips";
 import { getOffroadRouteGroups } from "@/lib/offroad/trip-selection";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/offroad" },
   title: "שטח 4x4 למתחילים | בשביל הלב",
   description:
     "מסלולי שטח קלים למשפחות ו-SUV, שבילי נוף, טיפים למתחילים, בישול בשטח ורשימת ציוד לטיול השטח הראשון.",

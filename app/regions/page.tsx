@@ -4,6 +4,7 @@ import SiteFooter from "@/app/components/site-footer";
 import RegionsOverview from "@/app/components/regions-overview";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/regions" },
   title: "אזורים בארץ | בשביל הלב",
   description:
     "בחרו אזור בארץ וגלו את הטיולים, המעיינות, התצפיות והמסלולים המומלצים - צפון, השרון, מרכז, ירושלים והסביבה ודרום.",

@@ -15,6 +15,10 @@ import { fetchParksFieldUpdates } from "@/lib/field-updates";
 
 import HomeHeroSearch from "./components/home-hero-search";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 function HeroMainContent({
   adventureCategories,
 }: {

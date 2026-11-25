@@ -5,6 +5,7 @@ import WantToTravelView from "@/app/components/want-to-travel-view";
 import { WANT_TO_TRAVEL_PAGE_METADATA_TITLE } from "@/lib/want-to-travel/labels";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: WANT_TO_TRAVEL_PAGE_METADATA_TITLE,
   description:
     "הטיולים ששמרת לרגע שבו תרצו לצאת לדרך - הרשימה האישית שלך בבשביל הלב",
