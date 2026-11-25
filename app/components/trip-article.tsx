@@ -97,7 +97,7 @@ export default function TripArticle({ trip }: { trip: Trip }) {
         </div>
       </section>
 
-      <TripQuickFacts facts={quickFacts} />
+      <TripQuickFacts facts={quickFacts} note={trip.visitNote} />
 
       <article className="relative">
         <div className={`mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-8 ${tripSectionStackClass}`}>

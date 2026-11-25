@@ -3,6 +3,10 @@ import { applyPlacesFilterSync } from "@/lib/apply-places-filter-sync";
 import { isHiddenFromPublic } from "@/lib/trip-site-visibility";
 import { normalizeTripVehicleAccess } from "@/lib/trip-vehicle-access";
 import { placesFilterSyncBySlug } from "./places-filter-sync";
+import {
+  tripOfficialGuideSlugs,
+  tripOfficialUrlsBySlug,
+} from "./trip-official-urls";
 import { visitedByMilanaMatchedSlugs } from "./visited-place-matches";
 import { visitedPlaceTrips } from "./visited-place-trips";
 
@@ -85,8 +89,14 @@ export type Trip = {
   location?: TripLocation;
   wazeUrl?: string;
   googleMapsUrl?: string;
+  /** Verified link to the place's page on the official managing body's site. */
+  officialUrl?: string;
+  /** "guide" when officialUrl is a broader official guide that covers this place or route. */
+  officialLinkKind?: "site" | "guide";
   highlights?: string[];
   quickFacts?: TripQuickFact[];
+  /** Short notice shown under the "במבט מהיר" visit details, e.g. a seasonal closure. */
+  visitNote?: string;
   gettingThere?: TripGettingThere;
   closingNote?: string;
   faq?: TripFaqItem[];
@@ -3708,6 +3718,7 @@ const rawTrips: Trip[] = [
   {
     slug: "hchvf-shl-mvsh-kzyb",
     title: "החוף של מוש אכזיב",
+    visitNote: "החוף של מוש סגור מ־1 בנובמבר ועד תחילת הקיץ.",
     subtitle:
       "חוף קסום בגליל המערבי עם אווירת שאנטי, שקיעות מרהיבות, ים כחול ואחד המקומות הכי מיוחדים לעצור בהם, ליהנות מהחיים ולהודות עליהם.",
     region: "צפון",
@@ -4936,6 +4947,20 @@ function applyVisitedPlaceFlags(trip: Trip): Trip {
   return { ...trip, visitedByMilana: true };
 }
 
+function applyOfficialUrl(trip: Trip): Trip {
+  if (trip.officialUrl) {
+    return trip;
+  }
+
+  const officialUrl = tripOfficialUrlsBySlug[trip.slug];
+  if (!officialUrl) {
+    return trip;
+  }
+
+  const officialLinkKind = tripOfficialGuideSlugs.has(trip.slug) ? "guide" : "site";
+  return { ...trip, officialUrl, officialLinkKind };
+}
+
 function sortTripsForRegion(a: Trip, b: Trip): number {
   const aNeeds = a.status === "needs-content" ? 1 : 0;
   const bNeeds = b.status === "needs-content" ? 1 : 0;
@@ -4967,7 +4992,8 @@ export const trips: Trip[] = [
   ...(visitedPlaceTrips as unknown as Trip[]),
 ]
   .map(applyVisitedPlaceFlags)
-  .map(applyPlacesFilterSync);
+  .map(applyPlacesFilterSync)
+  .map(applyOfficialUrl);
 
 export function getTripBySlug(slug: string): Trip | undefined {
   return trips.find((trip) => trip.slug === slug);
