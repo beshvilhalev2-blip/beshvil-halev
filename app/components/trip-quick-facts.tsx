@@ -3,6 +3,7 @@ import { Fragment } from "react";
 
 type TripQuickFactsProps = {
   facts: TripQuickFact[];
+  note?: string;
 };
 
 type QuickFactTone = "neutral" | "positive" | "water";
@@ -142,8 +143,10 @@ function QuickFactSeparator() {
   );
 }
 
-export default function TripQuickFacts({ facts }: TripQuickFactsProps) {
-  if (facts.length === 0) {
+export default function TripQuickFacts({ facts, note }: TripQuickFactsProps) {
+  const visitNote = note?.trim();
+
+  if (facts.length === 0 && !visitNote) {
     return null;
   }
 
@@ -174,6 +177,28 @@ export default function TripQuickFacts({ facts }: TripQuickFactsProps) {
             </Fragment>
           ))}
         </dl>
+
+        {visitNote ? (
+          <p
+            role="note"
+            className="mx-auto mt-3 flex w-fit max-w-2xl items-start gap-2 rounded-xl border border-amber-200/80 bg-amber-50/80 px-3.5 py-2 text-sm font-semibold leading-snug text-amber-900 dark:border-amber-800/60 dark:bg-amber-950/30 dark:text-amber-100 sm:mt-4"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="mt-0.5 size-4 shrink-0"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 8v5M12 16h.01" />
+            </svg>
+            <span>{visitNote}</span>
+          </p>
+        ) : null}
       </div>
     </section>
   );

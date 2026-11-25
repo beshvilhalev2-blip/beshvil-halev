@@ -48,6 +48,25 @@ function MapsIcon({ className = "size-5" }: { className?: string }) {
   );
 }
 
+function ExternalLinkIcon({ className = "size-5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M14 4h6v6" />
+      <path d="M10 14 20 4" />
+      <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+    </svg>
+  );
+}
+
 type TripHeroActionsProps = {
   trip: Trip;
 };
@@ -88,6 +107,9 @@ export default function TripHeroActions({ trip }: TripHeroActionsProps) {
   const hasWaze = Boolean(wazeUrl);
   const hasGoogleMaps = Boolean(googleMapsUrl);
   const hasNavigation = hasWaze || hasGoogleMaps;
+  const officialUrl = trip.officialUrl;
+  const officialLabel =
+    trip.officialLinkKind === "guide" ? "מידע רשמי על המסלול" : "לאתר הרשמי";
   const [shareHref, setShareHref] = useState<string | null>(null);
 
   useEffect(() => {
@@ -167,6 +189,16 @@ export default function TripHeroActions({ trip }: TripHeroActionsProps) {
             </div>
           )}
         </>
+      ) : null}
+
+      {officialUrl ? (
+        <ActionLink
+          href={officialUrl}
+          ariaLabel={`${officialLabel}: ${trip.title} (נפתח בלשונית חדשה)`}
+          icon={<ExternalLinkIcon className="size-5 shrink-0 text-emerald-700" />}
+          label={officialLabel}
+          hoverShadowClassName="hover:shadow-[0_10px_28px_-12px_rgba(4,120,87,0.3)]"
+        />
       ) : null}
 
       {hasNavigation && hasWaze && hasGoogleMaps ? shareButton : null}
